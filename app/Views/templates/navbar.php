@@ -10,6 +10,6 @@
 		<li><a href="/about">Blog</a></li>
 		<li><a href="/contact">Actualité</a></li>
 		<li><a href="/contact">Contact</a></li>
-		<li><button class="btnFGBJ">Se Connecter</button></li>
+		<li><a href="/connexion" class="btnFGBJ">Se Connecter</a></li>
 	</ul>
 </nav>
