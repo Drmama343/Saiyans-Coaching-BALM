@@ -6,5 +6,6 @@
 
 <?php include 'templates/accueil.php'; ?>
 <?php include 'templates/offres.php'; ?>
+<?php include 'templates/rejoinnous.php'; ?>
 
 <?php include 'templates/footer.php'; ?>
