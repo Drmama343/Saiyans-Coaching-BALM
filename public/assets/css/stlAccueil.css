@@ -50,7 +50,7 @@ html, body {
     text-align: center;
 }
 
-/* --- Code Css header.php --- */
+/* --- Code Css navbar.php --- */
 
 nav {
     position: absolute;
@@ -94,7 +94,6 @@ nav ul li .btnFGBJ {
 	margin-left: 20px;
 }
 
-/* Pour les espacements */
 nav .left-section {
     display: flex;
     align-items: center;
@@ -147,12 +146,77 @@ nav ul li a:hover {
 
 /* --- Code Css offres.php --- */
 
-#titreOffre {
+.conteneur-offres {
+    width: 100%;
+    margin: 0;
+}
+
+.conteneur-offres h2 {
     position: relative;
-	top: -11vh;
+	top: -5vh;
     left: 50%;
-    font-size: 5vh;
+    font-size: 7vh;
     transform: translateX(-50%);
+}
+
+.contenu-offres {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    max-width: 60%;
+}
+
+.carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.offre {
+    min-width: calc(93% / 3);
+    height: 70vh;
+    box-sizing: border-box;
+    padding: 20px;
+    background: #f8f8f8;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    opacity: 1; /* Opacité par défaut */
+    transition: opacity 0.1s ease-in-out; /* Transition douce */
+}
+
+.offre.hidden {
+    opacity: 0.3; /* Réduction de l'opacité */
+}
+
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #F4E904; /* Yellow */
+    color: #737373;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button.prev {
+    left: 20vh;
+}
+
+button.next {
+    right: 20vh;
+}
+
+@media (max-width: 768px) {
+    .offre {
+        min-width: 100%;
+    }
 }
 
 footer {
