@@ -61,7 +61,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Écarte les éléments horizontalement */
-    width: 80%; /* Ajustez selon vos besoins */
+    width: 80%; 
 }
 
 nav ul {
