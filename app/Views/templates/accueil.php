@@ -1,0 +1,1 @@
+<img class="imgAccueil" src="/assets/images/fondAccueil.jpg" alt="Image d'accueil">
