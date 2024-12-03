@@ -20,7 +20,7 @@ class LoginController extends BaseController {
 	public function connexion() {
 		if($this->request->getMethod() == 'POST') {
 			$utilisateurModel = new SaiyanModel();
-			$utilisateur = $utilisateurModel->where('mail', $this->request->getVar('identifiant'))->first();
+			$utilisateur = $utilisateurModel->where('mail', $this->request->getVar('email'))->first();
 
 			if ($utilisateur) {
 				if (password_verify($this->request->getVar('password'), $utilisateur['mdp'])) {
@@ -32,14 +32,14 @@ class LoginController extends BaseController {
 					}
 
 					$this->session->set('utilisateur', $utilisateur);
-					return redirect()->to('/dashboard');
+					return redirect()->to('/');
 				} else {
-					$this->session->setFlashdata('error', 'Mot de passe incorrect');
-					return redirect()->to('/login');
+					$this->session->setFlashdata('password', 'Mot de passe incorrect');
+					return redirect()->to('/connexion');
 				}
 			} else {
-				$this->session->setFlashdata('error', 'Identifiant incorrect');
-				return redirect()->to('/login');
+				$this->session->setFlashdata('email', 'Identifiant incorrect');
+				return redirect()->to('/connexion');
 			}
 		} else {
 			return view('login');

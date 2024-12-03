@@ -7,8 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'HomeController::index');
 
-$routes->get('/connexion', 'LoginController::index');
-$routes->post('/connexion', 'LoginController::connexion');
+//$routes->get('connexion', 'LoginController::index');
+$routes->match(['GET', 'POST'], '/connexion', 'LoginController::connexion');
 
 $routes->get('/inscription', 'LoginController::index');
 $routes->post('/inscription', 'LoginController::inscription');
