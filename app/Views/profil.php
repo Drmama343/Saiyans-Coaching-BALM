@@ -28,10 +28,30 @@ include 'templates/header.php';
 <?= form_close(); ?>
 
 <div>
+    <p>Votre abonnement : <?= esc($abonnement) ?></p>
+</div>
 
-<?php foreach ($achats as &$achat) : ?>
-    <p><?= esc($achat['produit']); ?></p>
-<?php endforeach;?>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom du produit</th>
+                <th>Date d'achat</th>
+                <th>Votre évaluation du produit</th>
+                <th>Votre avis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($achats as &$achat) : ?>
+                <tr>
+                    <td><?= esc($achat['produit']); ?></td>
+                    <td><?= esc($achat['date']); ?></td>
+                    <td><?= esc($achat['note']); ?></td>
+                    <td><?= esc($achat['temoignage']); ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </div>
 
 <?php include 'templates/footer.php'; ?>

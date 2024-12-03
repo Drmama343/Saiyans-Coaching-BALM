@@ -33,12 +33,19 @@ class ProfilController extends BaseController
 
         $achatModel = new AchatModel();
         $produitModel = new ProduitModel();
-        $achats = $achatModel->findAll();
+        $achats =  $achatModel->where('idsaiyan', $idSaiyan)->findAll();
         foreach ($achats as &$achat){
             $achat['produit'] = $produitModel->find($achat['idproduit'])['nom'];
         }
         $data['achats'] = $achats;
 
+        $abonnementModel = new AbonnementModel();
+        $data['abonnement'] = $abonnementModel->find($saiyan['abonnement'])['nom'];
+
         return view('profil', $data);
+    }
+
+    public function modifierProfil ($id){
+        return view('index');
     }
 }
