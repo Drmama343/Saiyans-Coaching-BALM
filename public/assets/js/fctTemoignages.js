@@ -1,17 +1,40 @@
-const carousel = document.querySelector('.carousel-container .carousel');
-const slides = document.querySelectorAll('.carousel-container .slide');
-const prevBtn = document.querySelector('.carousel-container .prev-btn');
-const nextBtn = document.querySelector('.carousel-container .next-btn');
+(function () {
+    const conteneur = document.querySelector('.conteneur-temoignage');
+    const carousel = conteneur.querySelector('.carousel');
+    const contenu = document.querySelector('.contenu-temoignage');
+    const prevButton = carousel.querySelector('.prev');
+    const nextButton = carousel.querySelector('.next');
 
-let index = 0;
+    let currentIndex = 0;
+    const totalOffers = document.querySelectorAll('.temoignage').length;
+    const visibleOffers = 1;
 
-function showSlide(newIndex) {
-  index = (newIndex + slides.length) % slides.length;
-  carousel.style.transform = `translateX(-${index * 100}%)`;
-}
+    function updateCarousel() {
+        const maxIndex = Math.ceil(totalOffers / visibleOffers) - 1;
+        currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex);
+        const offset = -currentIndex * 44; // Ajuste selon les besoins
+        contenu.style.transform = `translateX(${offset}lh)`;
 
-prevBtn.addEventListener('click', () => showSlide(index - 1));
-nextBtn.addEventListener('click', () => showSlide(index + 1));
+        const offres = document.querySelectorAll('.temoignage');
+        offres.forEach((offre, index) => {
+            if (index >= currentIndex * visibleOffers && index < (currentIndex + 1) * visibleOffers) {
+                offre.classList.remove('hidden');
+            } else {
+                offre.classList.add('hidden');
+            }
+        });
+    }
 
-// Automatic sliding
-setInterval(() => showSlide(index + 1), 5000);
+    prevButton.addEventListener('click', () => {
+        currentIndex -= 1;
+        updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex += 1;
+        updateCarousel();
+    });
+
+    // Initialize carousel
+    updateCarousel();
+})();

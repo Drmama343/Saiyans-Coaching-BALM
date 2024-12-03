@@ -20,7 +20,7 @@ class LoginController extends BaseController {
 	public function connexion() {
 		if($this->request->getMethod() == 'POST') {
 			$utilisateurModel = new SaiyanModel();
-			$utilisateur = $utilisateurModel->where('mail', $this->request->getVar('identifiant'))->first();
+			$utilisateur = $utilisateurModel->where('mail', $this->request->getVar('email'))->first();
 
 			if ($utilisateur) {
 				if (password_verify($this->request->getVar('password'), $utilisateur['mdp'])) {
@@ -32,14 +32,14 @@ class LoginController extends BaseController {
 					}
 
 					$this->session->set('utilisateur', $utilisateur);
-					return redirect()->to('/dashboard');
+					return redirect()->to('/');
 				} else {
-					$this->session->setFlashdata('error', 'Mot de passe incorrect');
-					return redirect()->to('/login');
+					$this->session->setFlashdata('password', 'Mot de passe incorrect');
+					return redirect()->to('/connexion');
 				}
 			} else {
-				$this->session->setFlashdata('error', 'Identifiant incorrect');
-				return redirect()->to('/login');
+				$this->session->setFlashdata('email', 'Identifiant incorrect');
+				return redirect()->to('/connexion');
 			}
 		} else {
 			return view('login');
@@ -156,7 +156,7 @@ class LoginController extends BaseController {
 	public function forgotpwd()
 	{
 		if($this->request->getMethod() == 'POST') {
-			$utilisateurModel = new UtilisateurModel();
+			$utilisateurModel = new SaiyanModel();
 
 			$mail = $this->request->getVar('mail');
 			$utilisateur = $utilisateurModel->where('mail', $mail)->first();
@@ -165,10 +165,10 @@ class LoginController extends BaseController {
 				// Générer un jeton de réinitialisation de MDP et enregistrer-le dans BD
 				$token = bin2hex(random_bytes(16));
 				$expiration = date('Y-m-d H:i:s', strtotime('+1 hour'));
-				$utilisateurModel->set('reset_token', $token)->set('reset_token_expiration', $expiration)->update($utilisateur['username']);
+				$utilisateurModel->set('reset_token', $token)->set('reset_token_expiration', $expiration)->update($utilisateur['id']);
 				// Envoyer l'e-mail avec le lien de réinitialisation
 				$resetLink = site_url("resetpwd/$token");
-				$message = "Bonjour ".$utilisateur['username'].",\n\nVous avez demandé à réinitialiser votre mot de passe sur SGT BALM. \n\nCliquez sur le lien ci-dessous pour choisir un nouveau mot de passe :\n$resetLink \n\nSi vous n'avez pas demandé la réinitialisation de votre mot de passe, veuillez ignorer ce message. Votre mot de passe restera inchangé.\n\nPour des raisons de sécurité, ce lien expirera dans 1 heure.\n\nCordialement,\n\nL'équipe d'SGT BALM ";
+				$message = "Bonjour ".$utilisateur['prenom'].",\n\nVous avez demandé à réinitialiser votre mot de passe. \n\nCliquez sur le lien ci-dessous pour choisir un nouveau mot de passe :\n$resetLink \n\nSi vous n'avez pas demandé la réinitialisation de votre mot de passe, veuillez ignorer ce message. Votre mot de passe restera inchangé.\n\nPour des raisons de sécurité, ce lien expirera dans 1 heure.\n\nCordialement,\n\nL'équipe Saiyan's Coaching ";
 				// Utilisez la classe Email de CodeIgniter pour envoyer l'e-mail
 				$emailService = \Config\Services::email();
 				//envoi du mail
@@ -194,7 +194,7 @@ class LoginController extends BaseController {
 	public function resetpwd($token)
 	{
 		if($this->request->getMethod() == 'POST') {
-			$utilisateurModel = new UtilisateurModel();
+			$utilisateurModel = new SaiyanModel();
 
 			// Valider et traiter les données du formulaire
 			$utilisateur = $utilisateurModel->where('reset_token', $token)->where('reset_token_expiration >', date('Y-m-d H:i:s'))->first();
@@ -202,12 +202,12 @@ class LoginController extends BaseController {
 			if (!$utilisateur) {
 				$utilisateur = $utilisateurModel->where('reset_token', $token)->first();
 				if ($utilisateur) {
-					$utilisateurModel->set('reset_token', null)->set('reset_token_expiration', null)->update($utilisateur['username']);
+					$utilisateurModel->set('reset_token', null)->set('reset_token_expiration', null)->update($utilisateur['id']);
 					$this->session->setFlashdata('error', 'Le lien de réinitialisation est expiré.');
-					return redirect()->to('/login');
+					return redirect()->to('/connexion');
 				}
 				$this->session->setFlashdata('error', 'Le lien de réinitialisation est invalide ou à déja été utilisé.');
-				return redirect()->to('/login');
+				return redirect()->to('/connexion');
 			}
 
 			// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre
@@ -227,24 +227,23 @@ class LoginController extends BaseController {
 
 			if (!$utilisateur) {
 				$this->session->setFlashdata('error', 'Le lien de réinitialisation est invalide ou expiré.');
-				return redirect()->to('/login');
+				return redirect()->to('/connexion');
 			}
 
 			// Mettre à jour le mot de passe et réinitialiser le jeton
 			$hashedPassword = password_hash($this->request->getVar('mdp'), PASSWORD_DEFAULT);
 
-			$utilisateurModel->set('mdp', $hashedPassword)->set('reset_token', null)->set('reset_token_expiration', null)->update($utilisateur['username']);
+			$utilisateurModel->set('mdp', $hashedPassword)->set('reset_token', null)->set('reset_token_expiration', null)->update($utilisateur['id']);
 			$this->session->setFlashdata('success', 'Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter.');
-			return redirect()->to('/login');
+			return redirect()->to('/connexion');
 		} else {
-			return view('resetpwd', ['token' => $token]);
+			return view('login', ['token' => $token]);
 		}
 	}
 
 	public function logout() {
 		$this->session->remove('utilisateur');
-		$this->session->remove('recherche');
-		return redirect()->to('/login')->with('success', 'Vous avez été déconnecté avec succès');
+		return redirect()->to('/');
 	}
 
 }
