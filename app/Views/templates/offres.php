@@ -49,5 +49,3 @@
         <button class="next">▶</button>
     </div>
 </div>
-
-<script src="/assets/js/fctOffres.js"></script>

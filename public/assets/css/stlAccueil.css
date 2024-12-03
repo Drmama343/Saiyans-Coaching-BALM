@@ -61,7 +61,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Écarte les éléments horizontalement */
-    width: 80%; 
+    width: 80%; /* Ajustez selon vos besoins */
 }
 
 nav ul {
@@ -223,6 +223,7 @@ button.next {
 
 .conteneur-rejoinnous{
     margin-top: 5vh;
+    overflow-x: hidden;
 }
 
 .imgAccueil {
@@ -260,6 +261,105 @@ button.next {
     margin: 4vh;
     padding: 1vh 15vh;
     opacity: 90%;
+}
+
+/* --- Code Css offres.php --- */
+
+.conteneur-video {
+    width: 100%;
+    margin: -39vh 0 0 0;
+}
+
+.conteneur-video h2 {
+    position: relative;
+    top: -5vh;
+    left: 50%;
+    font-size: 7vh;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.contenu-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contenu-video video {
+    width: 80vw;
+    max-width: 100%;
+    pointer-events: none;
+}
+
+/* --- Code Css temoignage.php --- */
+
+.testimonial-carousel {
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-container .carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-container .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background: #444;
+    border-radius: 8px;
+    margin: 0 10px;
+}
+
+.carousel-container h2 {
+    margin-bottom: 20px;
+}
+
+.carousel-container button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+}
+
+.carousel-container button:hover {
+    background-color: #000;
+}
+
+.carousel-container .prev-btn {
+    left: 10px;
+}
+
+.carousel-container .next-btn {
+    right: 10px;
+}
+
+.carousel-container span {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.carousel-container h4 {
+    font-size: 1em;
+    font-weight: normal;
+    color: #ddd;
 }
 
 footer {
