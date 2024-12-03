@@ -12,3 +12,5 @@ $routes->post('/connexion', 'LoginController::connexion');
 
 $routes->get('/inscription', 'LoginController::index');
 $routes->post('/inscription', 'LoginController::inscription');
+
+$routes->get('/profil', 'ProfilController::index'); 
