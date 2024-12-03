@@ -1,0 +1,109 @@
+/* Couleurs */
+
+:root {
+    --jaune: #F4E904;
+    --noir: #0c0c0c;
+    --gris: #737373;
+    --blanc: #ffffff;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: var(--noir);
+}
+
+/* --- Code Css inscription.php --- */
+
+.conteneur-inscription .img-fond {
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+    opacity: 40%;
+}
+
+.contenu-inscription .img-flecheRetour {
+    padding: 2vh;
+    height: 5vh;
+    width: 5vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.contenu-inscription {
+    position: absolute;
+    top: 0;
+    margin-top: 20vh;
+    text-align: center;
+    color: var(--jaune);
+    width: 100%;
+}
+
+.contenu-inscription h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 7vh;
+}
+
+.form-group {
+    color: var(--jaune);
+    font-family: 'Lato', sans-serif;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+.btnFJBG {
+    background-color: var(--jaune);
+    opacity: 70%;
+    padding: 1vh 5vh;
+    border: 2px solid var(--gris);
+    border-radius: 15px;
+    color: var(--noir);
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+}
+
+.btnFJBG:hover {
+    background-color: var(--gris);
+    color: var(--jaune);
+    transition: all 0.5s ease;
+}
+
+input {
+    background-color: var(--noir);
+    border: 2px solid var(--gris);
+    border-radius: 15px;
+    color: var(--jaune);
+    padding: 1vh 5vh;
+    margin-top: 1vh;
+}
+
+.contenu-inscription .lien-connexion {
+    color: var(--jaune);
+    font-family: 'Lato', sans-serif;
+    margin-top: 5vh;
+}
+
+.lien-connexion a {
+    color: var(--jaune);
+}
+
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: var(--jaune);
+    margin-bottom: 2vh;
+}
+
+
+
+
