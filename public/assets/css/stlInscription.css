@@ -14,9 +14,9 @@ html, body {
     background-color: var(--noir);
 }
 
-/* --- Code Css connexion.php --- */
+/* --- Code Css inscription.php --- */
 
-.conteneur-connexion .img-fond {
+.conteneur-inscription .img-fond {
     position: relative;
     width: 100%;
     object-fit: cover;
@@ -24,7 +24,7 @@ html, body {
     opacity: 40%;
 }
 
-.contenu-connexion .img-flecheRetour {
+.contenu-inscription .img-flecheRetour {
     padding: 2vh;
     height: 5vh;
     width: 5vh;
@@ -33,7 +33,7 @@ html, body {
     left: 0;
 }
 
-.contenu-connexion {
+.contenu-inscription {
     position: absolute;
     top: 0;
     margin-top: 20vh;
@@ -42,18 +42,19 @@ html, body {
     width: 100%;
 }
 
+.contenu-inscription h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 7vh;
+}
+
 .form-group {
     color: var(--jaune);
     font-family: 'Lato', sans-serif;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 5vh;
-}
-
-.form-group h2 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 7vh;
 }
 
 .btnFJBG {
@@ -83,18 +84,19 @@ input {
     margin-top: 1vh;
 }
 
-.contenu-connexion .lien-inscription {
+.contenu-inscription .lien-connexion {
     color: var(--jaune);
     font-family: 'Lato', sans-serif;
     margin-top: 5vh;
 }
 
-.lien-inscription a {
+.lien-connexion a {
     color: var(--jaune);
 }
 
+
 footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     text-align: center;
