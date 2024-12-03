@@ -8,5 +8,7 @@
 <?php include 'templates/accueil.php'; ?>
 <?php include 'templates/offres.php'; ?>
 <?php include 'templates/rejoinnous.php'; ?>
+<?php include 'templates/video.php'; ?>
+<?php include 'templates/temoignages.php'; ?>
 
 <?php include 'templates/footer.php'; ?>
