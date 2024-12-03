@@ -23,6 +23,7 @@
 		</div>
 			
 		<div class="lien-inscription">
+			<p>Mot de passe oublié ? <a href="/forgotpwd">Réinitialiser votre mot de passe</a></p>
 			<p>Pas encore de compte ? <a href="/inscription">Devenez un Saiyan</a></p>
 		</div>
 	</div>
