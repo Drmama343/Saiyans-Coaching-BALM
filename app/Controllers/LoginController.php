@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UtilisateurModel;
+use App\Models\SaiyanModel;
 
 class LoginController extends BaseController {
 
@@ -16,19 +17,10 @@ class LoginController extends BaseController {
 		return view('login');
 	}
 
-	public function redirect() {
-		return redirect()->to('/login');
-	}
-
 	public function connexion() {
 		if($this->request->getMethod() == 'POST') {
 			$utilisateurModel = new SaiyanModel();
 			$utilisateur = $utilisateurModel->where('mail', $this->request->getVar('identifiant'))->first();
-
-			if (!$utilisateur) {
-				$utilisateur = $utilisateurModel->where('username', $this->request->getVar('identifiant'))->first();
-			}
-
 
 			if ($utilisateur) {
 				if (password_verify($this->request->getVar('password'), $utilisateur['mdp'])) {
@@ -55,7 +47,7 @@ class LoginController extends BaseController {
 	}
 
 	public function register() {
-		$utilisateurModel = new UtilisateurModel();
+		$utilisateurModel = new SaiyanModel();
 		$username = trim($this->request->getVar('username'));
 		$mail = trim($this->request->getVar('email'));
 
@@ -92,7 +84,6 @@ class LoginController extends BaseController {
 		];
 
 		$utilisateurModel->insert($utilisateur);
-		$this->sendActiveMail($utilisateur);
 
 		$this->session->setFlashdata('success', 'Votre compte a été crée avec succès. Un email vous a été envoyer pour valider votre compte, afin de pouvoir vous connecter.');
 		return redirect()->to('/login');
@@ -100,7 +91,7 @@ class LoginController extends BaseController {
 
 	public function modifProfil($usernameBase)
 	{
-		$utilisateurModel = new UtilisateurModel();
+		$utilisateurModel = new SaiyanModel();
 		$username = trim($this->request->getVar('username'));
 		$mail = trim($this->request->getVar('email'));
 		$utilisateurBase = $utilisateurModel->where('username', $usernameBase)->first();

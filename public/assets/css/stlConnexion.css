@@ -42,13 +42,10 @@ html, body {
     width: 100%;
 }
 
-.form-group {
-    color: var(--jaune);
-    font-family: 'Lato', sans-serif;
+.form-connexion {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5vh;
 }
 
 .form-group h2 {
