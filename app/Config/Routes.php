@@ -16,3 +16,5 @@ $routes->get('/logout', 'LoginController::logout');
 
 $routes->get('/inscription', 'LoginController::index');
 $routes->post('/inscription', 'LoginController::inscription');
+
+$routes->get('/profil', 'ProfilController::index'); 
