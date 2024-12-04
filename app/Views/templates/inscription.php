@@ -1,7 +1,7 @@
 <div class="conteneur-inscription">
 	
 	<div class="contenu-inscription">
-		<a href="/"><img src="assets/images/fléche retour.png" alt="retour" class="img-flecheRetour"></a>
+		<a href="<?= base_url('/'); ?>"><img src="<?= base_url('assets/images/fléche retour.png'); ?>" alt="retour" class="img-flecheRetour"></a>
 		<?= form_open('inscription', ['class' => 'form-inscription']); ?>
 			<h2>S'inscrire</h2>
 			<div class="form-grid">
@@ -20,7 +20,7 @@
 					<?= form_input(['name' => 'adresse', 'id' => 'adresse', 'class' => '', 'value' => set_value('adresse')]); ?>
 				</div>
 				
-				<div class="cellule-grid-suggestions" id="cellule-grid-suggestions">
+				<div class="cellule-grid" id="cellule-grid-suggestions">
 					<h3 id="titre-suggestions">Proposition d'adresse</h3>
 					<div id="suggestions" class="suggestions"></div>
 				</div>
@@ -28,6 +28,11 @@
 				<div class="cellule-grid">
 					<?= form_label('Téléphone', 'telephone'); ?>
 					<?= form_input(['name' => 'telephone', 'id' => 'telephone', 'class' => '', 'value' => set_value('telephone')]); ?>
+				</div>
+
+				<div class="cellule-grid">
+					<?= form_label('Sexe *', 'sexe'); ?>
+					<?= form_dropdown('sexe', ['H' => 'Homme', 'F' => 'Femme'], set_value('sexe'), ['id' => 'sexe', 'default' => 'Homme'],); ?>
 				</div>
 
 				<div class="cellule-grid">
@@ -46,7 +51,7 @@
 				</div>
 
 				<div class="cellule-grid">
-					<?= form_label('Taille *', 'taille'); ?>
+					<?= form_label('Taille (en cm) *', 'taille'); ?>
 					<?= form_input(['name' => 'taille', 'id' => 'taille', 'class' => '', 'value' => set_value('taille')]); ?>
 				</div>
 

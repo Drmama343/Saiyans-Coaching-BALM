@@ -46,47 +46,81 @@ class LoginController extends BaseController {
 		}
 	}
 
-	public function register() {
+	public function inscription() {
 		$utilisateurModel = new SaiyanModel();
-		$username = trim($this->request->getVar('username'));
 		$mail = trim($this->request->getVar('email'));
-
-		//Vérification de l'unicité du nom d'utilisateur
-		if ($utilisateurModel->where('username', $username)->first() || $username === "") {
-			$this->session->setFlashdata('error', 'Ce nom d\'utilisateur est déjà utilisé ou invalide');
-			return redirect()->to('/register');
-		}
 
 		//Vérification de l'unicité de l'adresse mail
 		if ($utilisateurModel->where('mail', $mail)->first() && !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 			$this->session->setFlashdata('error', 'Cette adresse mail est déjà utilisée ou invalide');
-			return redirect()->to('/register');
+			return redirect()->to('/inscription');
 		}
 
 		// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre
 		if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/', $this->request->getVar('mdp'))) {
 			$this->session->setFlashdata('error', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre');
-			return redirect()->to('/register');
+			return redirect()->to('/inscription');
 		}
 
 		//Vérification du mot de passe
 		if ($this->request->getVar('mdp') != $this->request->getVar('mdp_confirm')) {
 			$this->session->setFlashdata('error', 'Les mots de passe ne correspondent pas');
-			return redirect()->to('/register');
+			return redirect()->to('/inscription');
+		}
+
+		//Vérification de l'adresse
+		$adresse = $this->request->getVar('adresse');
+		$adresse = str_replace(' ', '+', $adresse);
+
+		$url = "https://api-adresse.data.gouv.fr/search/?q=$adresse&limit=1";
+		$curl = curl_init($url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		$response = curl_exec($curl);
+		curl_close($curl);
+
+		//Vérification du numéro de téléphone
+		if (!preg_match('/^0[1-9]([-. ]?[0-9]{2}){4}$/', $this->request->getVar('telephone'))) {
+			$this->session->setFlashdata('error', 'Le numéro de téléphone est invalide');
+			return redirect()->to('/inscription');
+		}
+
+		//Vérification du sexe
+		if ($this->request->getVar('sexe') != 'H' && $this->request->getVar('sexe') != 'F') {
+			$this->session->setFlashdata('error', 'Le sexe est invalide');
+			return redirect()->to('/inscription');
+		}
+
+		//Vérification de l'âge
+		if (is_integer($this->request->getVar('age'))) {
+			$this->session->setFlashdata('error', 'L\'âge est invalide');
+			return redirect()->to('/inscription');
+		}
+
+		//Vérification de la taille
+		$taille = $this->request->getVar('taille');
+		if(is_float($this->request->getVar('taille'))) {
+			$taille = str_replace(',', '', $taille);
+			$taille = str_replace('.', '', $taille);
 		}
 
 		$utilisateur = [
-			'username' => $username,
 			'nom' => $this->request->getVar('nom'),
 			'prenom' => $this->request->getVar('prenom'),
 			'mail' => $mail,
-			'mdp' => password_hash($this->request->getVar('mdp'), PASSWORD_DEFAULT)
+			'mdp' => password_hash($this->request->getVar('mdp'), PASSWORD_DEFAULT),
+			'adresse' => $response,
+			'tel' => $this->request->getVar('telephone'),
+			'sexe' => $this->request->getVar('sexe'),
+			'admin' => false,
+			'age' => $this->request->getVar('age'),
+			'taille' => $taille,
+			'poids' => $this->request->getVar('poids')
 		];
 
 		$utilisateurModel->insert($utilisateur);
 
-		$this->session->setFlashdata('success', 'Votre compte a été crée avec succès. Un email vous a été envoyer pour valider votre compte, afin de pouvoir vous connecter.');
-		return redirect()->to('/login');
+		$this->session->setFlashdata('success', 'Inscription réussie. Vous pouvez maintenant vous connecter.');
+		return redirect()->to('/connexion');
 	}
 
 	public function modifProfil($usernameBase)

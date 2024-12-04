@@ -1,16 +1,14 @@
 <div class="conteneur-connexion">
-	<img src="assets/images/fondAccueil.jpg" alt="test" class="img-fond">
-
 	<div class="contenu-connexion">
 		<a href="/"><img src="assets/images/fléche retour.png" alt="retour" class="img-flecheRetour"></a>
 		
 		<?= form_open('/connexion', ['class' => 'form-connexion']); ?>
 			<h2>Se connecter</h2>
-			<?= form_label('Adresse e-mail', 'email'); ?>
+			<?= form_label('Adresse e-mail *', 'email'); ?>
 			<?= form_input(['name' => 'email', 'id' => 'email', 'class' => '', 'value' => set_value('email')]); ?>
 			<?= session()->getFlashdata('email') ?>
 			<br>
-			<?= form_label('Mot de passe', 'password'); ?>
+			<?= form_label('Mot de passe *', 'password'); ?>
 			<?= form_password(['name' => 'password', 'id' => 'password', 'class' => '']); ?>
 			<?= session()->getFlashdata('password') ?>
 			<br>
