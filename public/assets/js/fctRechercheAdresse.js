@@ -4,8 +4,7 @@ document.getElementById('adresse').addEventListener('input', function() {
     // Si l'utilisateur a saisi au moins 3 caractères
     if (query.length > 3) {
 		if(query.length >= 5){
-			document.getElementById('titre-suggestions').style.display = 'block';
-			document.getElementById('suggestions').style.display = 'block';
+			document.getElementById('cellule-grid-suggestions').style.display = 'block';
 		}
         fetch(`https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(query)}`)
 		.then(response => response.json())
@@ -27,15 +26,12 @@ document.getElementById('adresse').addEventListener('input', function() {
 
 				suggestion.addEventListener('click', function() {
 					document.getElementById('adresse').value = feature.properties.label;
-					document.getElementById('suggestions').innerHTML = '';
-					document.getElementById('titre-suggestions').style.display = 'none';
-					document.getElementById('suggestions').style.display = 'none';
+					document.getElementById('cellule-grid-suggestions').style.display = 'none';
 				});
 				suggestions.appendChild(suggestion);
 			});
 		});
     } else {
-		document.getElementById('titre-suggestions').style.display = 'none';
-		document.getElementById('suggestions').innerHTML = '';
+		document.getElementById('cellule-grid-suggestions').style.display = 'none';
 	}
 });

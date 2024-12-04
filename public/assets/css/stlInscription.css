@@ -16,12 +16,11 @@ html, body {
 
 /* --- Code Css inscription.php --- */
 
-.conteneur-inscription .img-fond {
-    position: relative;
-    width: 100%;
-    object-fit: cover;
-    height: 100vh;
-    opacity: 40%;
+.conteneur-inscription {
+    background-image: url(/assets/images/fondAccueil.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100lh;
 }
 
 .contenu-inscription .img-flecheRetour {
@@ -102,15 +101,10 @@ input {
 
 .form-inscription h3 {
     font-family: "Bebas Neue", sans-serif;
-    display: none;
 }
 
-.form-inscription .suggestions {
+.form-inscription .cellule-grid-suggestions {
     display: none;
-}
-
-.form-cellule .suggestions .suggestion {
-    
 }
 
 .contenu-inscription .lien-connexion {
@@ -124,7 +118,7 @@ input {
 }
 
 footer {
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;

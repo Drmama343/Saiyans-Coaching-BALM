@@ -1,5 +1,4 @@
 <div class="conteneur-inscription">
-	<img src="assets/images/fondAccueil.jpg" alt="test" class="img-fond">
 	
 	<div class="contenu-inscription">
 		<a href="/"><img src="assets/images/fléche retour.png" alt="retour" class="img-flecheRetour"></a>
@@ -18,8 +17,10 @@
 
 				<div class="cellule-grid">
 					<?= form_label('Adresse', 'adresse'); ?>
-					<?= form_input(['name' => 'adresse', 'id' => 'adresse', 'class' => '', 'value' => set_value('adresse'), 'list' => 'adresse_list']); ?>
-		
+					<?= form_input(['name' => 'adresse', 'id' => 'adresse', 'class' => '', 'value' => set_value('adresse')]); ?>
+				</div>
+				
+				<div class="cellule-grid-suggestions" id="cellule-grid-suggestions">
 					<h3 id="titre-suggestions">Proposition d'adresse</h3>
 					<div id="suggestions" class="suggestions"></div>
 				</div>
