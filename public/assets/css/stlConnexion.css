@@ -80,13 +80,13 @@ input {
     margin-top: 1vh;
 }
 
-.contenu-connexion .lien-inscription {
+.contenu-connexion .lien {
     color: var(--jaune);
     font-family: 'Lato', sans-serif;
     margin-top: 5vh;
 }
 
-.lien-inscription a {
+.lien a {
     color: var(--jaune);
 }
 
