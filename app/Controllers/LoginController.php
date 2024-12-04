@@ -5,6 +5,10 @@ namespace App\Controllers;
 use App\Models\UtilisateurModel;
 use App\Models\SaiyanModel;
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 class LoginController extends BaseController {
 
 	protected $session;
@@ -26,7 +30,7 @@ class LoginController extends BaseController {
 				if (password_verify($this->request->getVar('password'), $utilisateur['mdp'])) {
 					// Si l'utilisateur a coché la case "Se souvenir de moi", on garde l'identifiant en cookie
 					if($this->request->getVar('remember')) {
-						setcookie('identifiant', $this->request->getVar('identifiant'), time() + 3600 * 24 * 30);
+						setcookie('identifiant', $this->request->getVar('identifiant'), time() + 3600 * 24 * 30, '/');
 					} else {
 						setcookie('identifiant', '', time() - 3600);
 					}
@@ -172,14 +176,14 @@ class LoginController extends BaseController {
 		if (($utilisateurModel->where('username', $username)->first() || $username === "") && $username != $usernameBase) {
 			$this->session->setFlashdata('error', 'Ce nom d\'utilisateur est déjà utilisé ou invalide');
 			$this->session->setFlashdata('show_modal', 'creationProfilModal');
-			return redirect()->to('/dashboard');
+			return redirect()->to('/index');
 		}
 
 		//Vérification de l'unicité de l'adresse mail
 		if (($utilisateurModel->where('mail', $mail)->first() && !filter_var($mail, FILTER_VALIDATE_EMAIL)) && $mail != $utilisateurBase['mail']) {
 			$this->session->setFlashdata('error', 'Cette adresse mail est déjà utilisée ou invalide');
 			$this->session->setFlashdata('show_modal', 'creationProfilModal');
-			return redirect()->to('/dashboard');
+			return redirect()->to('/index');
 		}
 
 		$nouveauUtilisateur = [
@@ -197,21 +201,21 @@ class LoginController extends BaseController {
 			{
 				$this->session->setFlashdata('error', 'Le mot de passe est incorrect');
 				$this->session->setFlashdata('show_modal', 'creationProfilModal');
-				return redirect()->to('/dashboard');
+				return redirect()->to('/index');
 			}
 
 			// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre
 			if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $this->request->getVar('nouveau_mdp'))) {
 				$this->session->setFlashdata('error', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre');
 				$this->session->setFlashdata('show_modal', 'creationProfilModal');
-				return redirect()->to('/dashboard');
+				return redirect()->to('/index');
 			}
 
 			//Vérification du mot de passe
 			if ($this->request->getVar('nouveau_mdp') != $this->request->getVar('mdp_confirm')) {
 				$this->session->setFlashdata('error', 'Les mots de passe ne correspondent pas');
 				$this->session->setFlashdata('show_modal', 'creationProfilModal');
-				return redirect()->to('/dashboard');
+				return redirect()->to('/index');
 			}
 
 			$nouveauMdpUtilisateur = [
@@ -222,7 +226,7 @@ class LoginController extends BaseController {
 
 		$usernameFinal = $utilisateurModel->where('username', $username)->first();
 		$this->session->set('utilisateur', $usernameFinal);
-		return redirect()->to('/dashboard')->with('success', 'Utilisateur modifier avec succès');
+		return redirect()->to('/index')->with('success', 'Utilisateur modifier avec succès');
 	}
 
 	public function forgotpwd()

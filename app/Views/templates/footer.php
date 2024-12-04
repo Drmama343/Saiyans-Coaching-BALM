@@ -5,7 +5,7 @@
     <?php 
         $url = current_url(true);
 
-        if($url->getSegment(1) == 'inscription') {
+        if($url->getSegment(1) == 'inscription' || $url->getSegment(1) == 'profil') {
             echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';
         }
         else if ($url->getSegment(1) == '') {
