@@ -16,24 +16,7 @@ html, body {
 
 /* --- Code Css profil.php --- */
 
-.conteneur-modif {
-    background-image: url(/assets/images/fondAccueil.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100lh;
-}
-
-.contenu-modif .img-flecheRetour {
-    padding: 2vh;
-    height: 5vh;
-    width: 5vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .contenu-modif {
-    position: absolute;
     top: 0;
     text-align: center;
     color: var(--jaune);
@@ -45,7 +28,8 @@ html, body {
     font-size: 5vh;
 }
 
-.form-grid {
+.form-modif {
+    padding-top: 10%;
     color: var(--jaune);
     font-family: 'Lato', sans-serif;
     display: flex;
@@ -99,7 +83,7 @@ input {
     margin-top: 1vh;
 }
 
-.form-grid h3 {
+.form-modif h3 {
     font-family: "Bebas Neue", sans-serif;
 }
 

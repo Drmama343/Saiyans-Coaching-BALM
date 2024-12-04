@@ -1,6 +1,4 @@
 <div class="conteneur-connexion">
-	<img src="<?= base_url('assets/images/fondAccueil.jpg') ?>" alt="test" class="img-fond">
-
 	<div class="contenu-connexion">
 		<a href="/"><img src="<?= base_url('assets/images/fléche retour.png') ?>" alt="retour" class="img-flecheRetour"></a>
 		<?= form_open('/connexion', ['class' => 'form-connexion']); ?>
@@ -12,7 +10,7 @@
 			<?= form_input('email', isset($_COOKIE['email']) ? $_COOKIE['email'] : '', ['required' => 'required']) ?>
 			<?= session()->getFlashdata('error_email') ?>
 			<br>
-			<?= form_label('Mot de passe', 'password'); ?>
+			<?= form_label('Mot de passe *', 'password'); ?>
 			<?= form_password(['name' => 'password', 'id' => 'password', 'class' => '']); ?>
 			<?= session()->getFlashdata('error_password') ?>
 			<br>
