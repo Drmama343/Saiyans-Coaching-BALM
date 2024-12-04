@@ -1,8 +1,8 @@
 <div class="conteneur-connexion">
-	<img src="assets/images/fondAccueil.jpg" alt="test" class="img-fond">
+	<img src="<?= base_url('assets/images/fondAccueil.jpg') ?>" alt="test" class="img-fond">
 
 	<div class="contenu-connexion">
-		<a href="/"><img src="assets/images/fléche retour.png" alt="retour" class="img-flecheRetour"></a>
+		<a href="/"><img src="<?= base_url('assets/images/fléche retour.png') ?>" alt="retour" class="img-flecheRetour"></a>
 		<div class="form-group">
 			<h1>Réinitialisation du mot de passe</h1>
 			<?= form_open('/forgotpwd', ['class' => 'form-connexion']) ?>
