@@ -1,13 +1,13 @@
 <?php
 $title = "Saiyan's Coaching - Accueil";
-$style = "stlProfil.css";
+//$style = "stlProfil.css";
 include 'templates/header.php';
 ?>
 <?php include 'templates/navbar.php'; ?>
 
 <div class="conteneur-modif">
     <div class="contenu-modif">
-        <?= form_open("/modifProfil/" . session()->get('utilisateur')['id']); ?>
+        <?= form_open("/modifProfil/" . session()->get('utilisateur')['id']); ['class' => 'form-modif']?>
             <div class="form-grid">
                 <div class="cellule-grid">
                 <?= form_label('Nom', 'nom') ?>
@@ -28,6 +28,10 @@ include 'templates/header.php';
                 <?= form_label('Adresse', 'adresse') ?>
                 <?= form_input('adresse', session()->get('utilisateur')['adresse'] == null ? '' : session()->get('utilisateur')['adresse'], ['placeholder' => 'Adresse']) ?>
                 </div>
+                <div class="cellule-grid-suggestions" id="cellule-grid-suggestions">
+					<h3 id="titre-suggestions">Proposition d'adresse</h3>
+					<div id="suggestions" class="suggestions"></div>
+				</div>
                 <br>
                 <div class="cellule-grid">
                 <?= form_label('Téléphone', 'tel') ?>
