@@ -297,7 +297,7 @@ button.next {
 
 
 .conteneur-temoignage {
-    position: relative; /* Nécessaire pour positionner le pseudo-élément */
+    position: relative; /* Nécessaire pour positionner les pseudo-éléments */
     width: 100%;
     margin: 15vh 0 0 0;
     padding: 20vh 0;
@@ -310,21 +310,28 @@ button.next {
     left: 0;
     width: 100%;
     height: 100%;
-    background-repeat: repeat-x;
     background-image: url("/assets/images/fondTemoignage.jpg");
-    opacity: 0.3; /* Contrôle de l'opacité */
+    opacity: 0.5; /* Contrôle de l'opacité de l'image */
     z-index: 1; /* Place l'image en arrière-plan */
+}
+
+.conteneur-temoignage::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    height: 60%; /* Hauteur personnalisée pour le fond noir */
+    background-color: #0c0c0c; /* Fond noir avec transparence */
+    opacity: 0.4;
+    z-index: 1; /* Même plan que l'image */
 }
 
 .conteneur-temoignage > * {
     position: relative;
-    z-index: 2; /* Place le contenu au-dessus de l'image */
+    z-index: 2; /* Place le contenu au-dessus des deux calques */
 }
 
-.conteneur-temoignage img {
-    width: 100%;
-    opacity: 30%;
-}
 
 .conteneur-temoignage h2 {
     font-family: "Bebas Neue", sans-serif;
@@ -348,10 +355,11 @@ button.next {
     min-width: 40lh;
     box-sizing: border-box;
     padding: 20px;
-    background: #f8f8f8;
+    background: #0c0c0c;
+    color: white;
+    border-left: 0.5vh solid #737373;
     margin: 10px 2lh;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
     text-align: left;
     opacity: 1; /* Opacité par défaut */
     transition: opacity 0.1s ease-in-out; /* Transition douce */
@@ -359,6 +367,25 @@ button.next {
 
 .temoignage.hidden {
     opacity: 0.3; /* Réduction de l'opacité */
+}
+
+.etoile {
+    width: 100px; /* Taille de l'étoile */
+    height: 100px;
+    background-color: #F4E904; /* Couleur par défaut */
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    ); /* Forme de l'étoile */
+    display: inline-block;
 }
 
 footer {
