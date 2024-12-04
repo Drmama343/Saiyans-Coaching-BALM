@@ -16,12 +16,11 @@ html, body {
 
 /* --- Code Css inscription.php --- */
 
-.conteneur-inscription .img-fond {
-    position: relative;
-    width: 100%;
-    object-fit: cover;
-    height: 100vh;
-    opacity: 40%;
+.conteneur-inscription {
+    background-image: url(/assets/images/fondAccueil.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100lh;
 }
 
 .contenu-inscription .img-flecheRetour {
@@ -36,7 +35,6 @@ html, body {
 .contenu-inscription {
     position: absolute;
     top: 0;
-    margin-top: 20vh;
     text-align: center;
     color: var(--jaune);
     width: 100%;
@@ -44,17 +42,29 @@ html, body {
 
 .contenu-inscription h2 {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 7vh;
+    font-size: 5vh;
 }
 
-.form-group {
+.form-inscription {
     color: var(--jaune);
     font-family: 'Lato', sans-serif;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 5vh;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2vh;
+    margin-top: 2vh;
+}
+
+.cellule-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .btnFJBG {
@@ -75,6 +85,11 @@ html, body {
     transition: all 0.5s ease;
 }
 
+label {
+    font-family: 'Lato', sans-serif;
+    padding: 1vh 0;
+}
+
 input {
     background-color: var(--noir);
     border: 2px solid var(--gris);
@@ -82,6 +97,14 @@ input {
     color: var(--jaune);
     padding: 1vh 5vh;
     margin-top: 1vh;
+}
+
+.form-inscription h3 {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.form-inscription .cellule-grid-suggestions {
+    display: none;
 }
 
 .contenu-inscription .lien-connexion {
@@ -94,16 +117,11 @@ input {
     color: var(--jaune);
 }
 
-
 footer {
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
     color: var(--jaune);
     margin-bottom: 2vh;
 }
-
-
-
-
