@@ -48,74 +48,112 @@ class LoginController extends BaseController {
 
 	public function inscription() {
 		$utilisateurModel = new SaiyanModel();
-		$mail = trim($this->request->getVar('email'));
 
-		//Vérification de l'unicité de l'adresse mail
+
+		// Vérification du nom, si il contient des chiffres ou des caractères spéciaux on renvoie une erreur
+		if (preg_match('/[0-9!@#$%^&*(),.?":{}|<>]/', $this->request->getVar('nom'))) {
+			$this->session->setFlashdata('error', 'Le nom ne doit pas contenir de chiffres ou de caractères spéciaux');
+			return redirect()->to('/inscription');
+		} else {
+			$nom = $this->request->getVar('nom');
+		}
+
+		// Vérification du prénom, si il contient des chiffres ou des caractères spéciaux on renvoie une erreur
+		if (preg_match('/[0-9!@#$%^&*(),.?":{}|<>]/', $this->request->getVar('prenom'))) {
+			$this->session->setFlashdata('error', 'Le prénom ne doit pas contenir de chiffres ou de caractères spéciaux');
+			return redirect()->to('/inscription');
+		} else {
+			$prenom = $this->request->getVar('prenom');
+		}
+
+		//Vérification de l'unicité de l'adresse mail et de sa validité
+		$mail = trim($this->request->getVar('email'));
 		if ($utilisateurModel->where('mail', $mail)->first() && !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 			$this->session->setFlashdata('error', 'Cette adresse mail est déjà utilisée ou invalide');
 			return redirect()->to('/inscription');
+		} else {
+			$mail = $this->request->getVar('email');
 		}
 
-		// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre
-		if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/', $this->request->getVar('mdp'))) {
-			$this->session->setFlashdata('error', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre');
+		// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre et autorise les caractères spéciaux
+		// Vérification du mot de passe et de sa confirmation
+		if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/', $this->request->getVar('password'))) {
+			$this->session->setFlashdata('error', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un caractère spécial et un chiffre');
 			return redirect()->to('/inscription');
-		}
-
-		//Vérification du mot de passe
-		if ($this->request->getVar('mdp') != $this->request->getVar('mdp_confirm')) {
+		} elseif($this->request->getVar('password') != $this->request->getVar('password_confirm')) {
 			$this->session->setFlashdata('error', 'Les mots de passe ne correspondent pas');
 			return redirect()->to('/inscription');
+		} else {
+			$mdp = $this->request->getVar('password');
 		}
 
-		//Vérification de l'adresse
-		$adresse = $this->request->getVar('adresse');
-		$adresse = str_replace(' ', '+', $adresse);
+		//Vérification de l'adresse et récupération des informations
+		if ($this->request->getVar('adresse') != "") {
+			$adresse = $this->request->getVar('adresse');
+			$adresse = str_replace(' ', '+', $adresse);
 
-		$url = "https://api-adresse.data.gouv.fr/search/?q=$adresse&limit=1";
-		$curl = curl_init($url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		$response = curl_exec($curl);
-		curl_close($curl);
-
-		//Vérification du numéro de téléphone
-		if (!preg_match('/^0[1-9]([-. ]?[0-9]{2}){4}$/', $this->request->getVar('telephone'))) {
-			$this->session->setFlashdata('error', 'Le numéro de téléphone est invalide');
-			return redirect()->to('/inscription');
+			$url = "https://api-adresse.data.gouv.fr/search/?q=$adresse&limit=1";
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			$response = curl_exec($curl);
+			curl_close($curl);
+		} else {
+			$response = null;
 		}
 
-		//Vérification du sexe
+		//Vérification du numéro de téléphone et de sa validité
+		if($this->request->getVar('telephone') != "") {
+			if (!preg_match('/^0[1-9]([-. ]?[0-9]{2}){4}$/', $this->request->getVar('telephone'))) {
+				$this->session->setFlashdata('error', 'Le numéro de téléphone est invalide');
+				return redirect()->to('/inscription');
+			}
+		} else {
+			$telephone = null;
+		}
+
+		//Vérification du sexe 
 		if ($this->request->getVar('sexe') != 'H' && $this->request->getVar('sexe') != 'F') {
 			$this->session->setFlashdata('error', 'Le sexe est invalide');
 			return redirect()->to('/inscription');
+		} else {
+			$sexe = $this->request->getVar('sexe');
 		}
 
 		//Vérification de l'âge
-		if (is_integer($this->request->getVar('age'))) {
+		$age = (integer)$this->request->getVar('age');
+		if (!is_integer($age)) {
 			$this->session->setFlashdata('error', 'L\'âge est invalide');
 			return redirect()->to('/inscription');
 		}
 
-		//Vérification de la taille
-		$taille = $this->request->getVar('taille');
-		if(is_float($this->request->getVar('taille'))) {
-			$taille = str_replace(',', '', $taille);
-			$taille = str_replace('.', '', $taille);
+		//Vérification de la taille et formatage
+		$taille = (integer) $this->request->getVar('taille');
+		if(!is_integer($taille)) {
+			$this->session->setFlashdata('error', 'La taille est invalide');
+			return redirect()->to('/inscription');
+		}
+
+		//Vérification du poids
+		$poids = (float) $this->request->getVar('poids');
+		if(!is_float($poids)) {
+			$this->session->setFlashdata('error', 'Le poids est invalide');
+			return redirect()->to('/inscription');
 		}
 
 		$utilisateur = [
-			'nom' => $this->request->getVar('nom'),
-			'prenom' => $this->request->getVar('prenom'),
+			'nom' => $nom,
+			'prenom' => $prenom,
 			'mail' => $mail,
-			'mdp' => password_hash($this->request->getVar('mdp'), PASSWORD_DEFAULT),
+			'mdp' => password_hash($mdp, PASSWORD_DEFAULT),
 			'adresse' => $response,
-			'tel' => $this->request->getVar('telephone'),
-			'sexe' => $this->request->getVar('sexe'),
+			'tel' => $telephone,
+			'sexe' => $sexe,
 			'admin' => false,
-			'age' => $this->request->getVar('age'),
+			'age' => $age,
 			'taille' => $taille,
-			'poids' => $this->request->getVar('poids')
+			'poids' => $poids
 		];
+
 
 		$utilisateurModel->insert($utilisateur);
 
