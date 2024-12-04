@@ -5,6 +5,10 @@ namespace App\Controllers;
 use App\Models\UtilisateurModel;
 use App\Models\SaiyanModel;
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 class LoginController extends BaseController {
 
 	protected $session;
@@ -26,7 +30,7 @@ class LoginController extends BaseController {
 				if (password_verify($this->request->getVar('password'), $utilisateur['mdp'])) {
 					// Si l'utilisateur a coché la case "Se souvenir de moi", on garde l'identifiant en cookie
 					if($this->request->getVar('remember')) {
-						setcookie('identifiant', $this->request->getVar('identifiant'), time() + 3600 * 24 * 30);
+						setcookie('identifiant', $this->request->getVar('identifiant'), time() + 3600 * 24 * 30, '/');
 					} else {
 						setcookie('identifiant', '', time() - 3600);
 					}
