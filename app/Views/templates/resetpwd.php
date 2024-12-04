@@ -19,6 +19,7 @@
 						</button>
 					</div>
 				</div>
+				<?= session()->getFlashdata('error_mdp') ?>
 				<br>
 				<div class="password-wrapper">
 					<?= form_label('Confirmer le mot de passe', 'mdp_confirm') ?>
@@ -33,6 +34,7 @@
 						</button>
 					</div>
 				</div>
+				<?= session()->getFlashdata('error_mdpconfirm') ?>
 				<br>
 				<br>
 				<?= form_submit('submit', 'Modifier le mot de passe', ['class' => 'btnFJBG']) ?>

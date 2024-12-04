@@ -5,16 +5,19 @@
 		<a href="/"><img src="<?= base_url('assets/images/fléche retour.png') ?>" alt="retour" class="img-flecheRetour"></a>
 		<?= form_open('/connexion', ['class' => 'form-connexion']); ?>
 			<h2>Se connecter</h2>
+			<br>
+			<?= session()->getFlashdata('message') ?>
+			<br>
 			<?= form_label('Adresse e-mail', 'email'); ?>
-			<?= form_input('email', isset($_COOKIE['identifiant']) ? $_COOKIE['identifiant'] : '', ['required' => 'required']) ?>
-			<?= session()->getFlashdata('email') ?>
+			<?= form_input('email', isset($_COOKIE['email']) ? $_COOKIE['email'] : '', ['required' => 'required']) ?>
+			<?= session()->getFlashdata('error_email') ?>
 			<br>
 			<?= form_label('Mot de passe', 'password'); ?>
 			<?= form_password(['name' => 'password', 'id' => 'password', 'class' => '']); ?>
-			<?= session()->getFlashdata('password') ?>
+			<?= session()->getFlashdata('error_password') ?>
 			<br>
 			<?= form_label('Se souvenir de moi', 'remember'); ?>
-			<?= form_checkbox('remember', '1', isset($_COOKIE['identifiant']) && !empty($_COOKIE['identifiant']), ['id' => 'remember']) ?>
+			<?= form_checkbox('remember', '1', isset($_COOKIE['email']) && !empty($_COOKIE['email']), ['id' => 'remember']) ?>
 
 			<?= form_submit(['name' => 'submit', 'value' => 'Se connecter', 'class' => 'btnFJBG']); ?>
 

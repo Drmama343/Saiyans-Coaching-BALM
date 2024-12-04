@@ -5,9 +5,13 @@
 		<a href="/"><img src="<?= base_url('assets/images/fléche retour.png') ?>" alt="retour" class="img-flecheRetour"></a>
 		<div class="form-group">
 			<h1>Réinitialisation du mot de passe</h1>
+			<br>
+			<?= session()->getFlashdata('message') ?>
+			<br>
 			<?= form_open('/forgotpwd', ['class' => 'form-connexion']) ?>
 				<?= form_label('Email', 'mail') ?>
 				<?= form_input('mail', '', ['placeholder' => 'Email', 'required' => 'required']) ?>
+				<?= session()->getFlashdata('error_forgotpwd') ?>
 				<br>
 				<?= form_submit('submit', 'Envoyer un lien de réinitialisation', ['class' => 'btnFJBG']) ?>
 			<?= form_close() ?>
