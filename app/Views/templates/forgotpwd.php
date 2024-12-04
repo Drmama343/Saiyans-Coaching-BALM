@@ -1,7 +1,6 @@
 <div class="conteneur-connexion">
-
 	<div class="contenu-connexion">
-		<a href="/"><img src="assets/images/fléche retour.png" alt="retour" class="img-flecheRetour"></a>
+		<a href="/"><img src="<?= base_url('assets/images/fléche retour.png') ?>" alt="retour" class="img-flecheRetour"></a>
 		<?= form_open('/forgotpwd', ['class' => 'form-connexion']) ?>
 			<h3>Réinitialisation du mot de passe</h3>
 			<?= form_label('Email', 'mail') ?>
