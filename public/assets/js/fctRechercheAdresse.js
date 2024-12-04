@@ -3,11 +3,7 @@ document.getElementById('adresse').addEventListener('input', function() {
 
     // Si l'utilisateur a saisi au moins 3 caractères
     if (query.length > 3) {
-		if(query.length >= 5){
-			document.getElementById('titre-suggestions').style.display = 'block';
-			document.getElementById('suggestions').style.display = 'block';
-		}
-        fetch(`https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(query)}`)
+        fetch(`https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(query)}&limit=1`)
 		.then(response => response.json())
 		.then(data => {
 			// Efface les suggestions précédentes
@@ -28,14 +24,36 @@ document.getElementById('adresse').addEventListener('input', function() {
 				suggestion.addEventListener('click', function() {
 					document.getElementById('adresse').value = feature.properties.label;
 					document.getElementById('suggestions').innerHTML = '';
-					document.getElementById('titre-suggestions').style.display = 'none';
-					document.getElementById('suggestions').style.display = 'none';
 				});
 				suggestions.appendChild(suggestion);
 			});
 		});
-    } else {
-		document.getElementById('titre-suggestions').style.display = 'none';
-		document.getElementById('suggestions').innerHTML = '';
 	}
 });
+
+document.getElementById('telephone').addEventListener('input', function() {	
+	// Met un espace tous les 2 chiffres
+	this.value = this.value.replace(/\D/g, '').replace(/(\d{2})(?=\d)/g, '$1 ').trim();
+});
+
+document.getElementById('age').addEventListener('input', function() {
+	// Si l'utilisateur saisit autre chose qu'un entier positif ou nul (0 inclus) ou supérieur à 120 on supprime le dernier caractère
+	if(!/^\d+$/.test(this.value) || this.value > 120) {
+		this.value = this.value.slice(0, -1);
+	}
+});
+
+document.getElementById('poids').addEventListener('input', function() {
+	// Si l'utilisateur saisit autre chose qu'un float positif ou une virgule ou un point on supprime le dernier caractère
+	if(!/^\d+[\.,]?\d*$/.test(this.value)) {
+		this.value = this.value.slice(0, -1);
+	}
+});
+
+document.getElementById('taille').addEventListener('input', function() {
+	// Si l'utilisateur saisit autre chose qu'un entier positif ou nul (0 inclus) ou supérieur à 120 on supprime le dernier caractère
+	if(!/^\d+$/.test(this.value)) {
+		this.value = this.value.slice(0, -1);
+	}
+});
+

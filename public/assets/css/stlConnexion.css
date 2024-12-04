@@ -16,12 +16,13 @@ html, body {
 
 /* --- Code Css connexion.php --- */
 
-.conteneur-connexion .img-fond {
-    position: relative;
+.conteneur-connexion {
+    background-image: url(/assets/images/fondAccueil.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     width: 100%;
-    object-fit: cover;
     height: 100vh;
-    opacity: 40%;
 }
 
 .contenu-connexion .img-flecheRetour {
@@ -34,23 +35,30 @@ html, body {
 }
 
 .contenu-connexion {
-    position: absolute;
-    top: 0;
-    margin-top: 20vh;
-    text-align: center;
     color: var(--jaune);
     width: 100%;
+    position: absolute;
+    text-align: center;
 }
 
 .form-connexion {
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.form-group h2 {
+.form-connexion h2 {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 7vh;
+    font-size: 5vh;
+}
+
+.form-connexion {
+    color: var(--jaune);
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .btnFJBG {
@@ -80,13 +88,13 @@ input {
     margin-top: 1vh;
 }
 
-.contenu-connexion .lien-inscription {
+.contenu-connexion .lien {
     color: var(--jaune);
     font-family: 'Lato', sans-serif;
     margin-top: 5vh;
 }
 
-.lien-inscription a {
+.lien a {
     color: var(--jaune);
 }
 

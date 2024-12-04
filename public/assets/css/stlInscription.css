@@ -10,19 +10,20 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100vh;
     background-color: var(--noir);
 }
 
 /* --- Code Css inscription.php --- */
 
-.conteneur-inscription .img-fond {
-    position: relative;
+.conteneur-inscription {
+    background-image: url(/assets/images/fondAccueil.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     width: 100%;
-    object-fit: cover;
     height: 100vh;
-    opacity: 40%;
 }
+
 
 .contenu-inscription .img-flecheRetour {
     padding: 2vh;
@@ -52,14 +53,12 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5vh;
 }
 
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2vh;
-    margin-top: 2vh;
+    grid-gap: 1vh;
 }
 
 .cellule-grid {
@@ -72,6 +71,7 @@ html, body {
     background-color: var(--jaune);
     opacity: 70%;
     padding: 1vh 5vh;
+    margin-top: 2vh;
     border: 2px solid var(--gris);
     border-radius: 15px;
     color: var(--noir);
@@ -100,17 +100,17 @@ input {
     margin-top: 1vh;
 }
 
+select {
+    background-color: var(--noir);
+    border: 2px solid var(--gris);
+    border-radius: 15px;
+    color: var(--jaune);
+    padding: 1vh 5vh;
+    margin-top: 1vh;
+}   
+
 .form-inscription h3 {
     font-family: "Bebas Neue", sans-serif;
-    display: none;
-}
-
-.form-inscription .suggestions {
-    display: none;
-}
-
-.form-cellule .suggestions .suggestion {
-    
 }
 
 .contenu-inscription .lien-connexion {
@@ -124,7 +124,7 @@ input {
 }
 
 footer {
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
