@@ -35,7 +35,7 @@
 				</div>
 				<br>
 				<br>
-				<?= form_submit('submit', 'Modifier le mot de passe') ?>
+				<?= form_submit('submit', 'Modifier le mot de passe', ['class' => 'btnFJBG']) ?>
 			<?= form_close() ?>
 		</div>
 			

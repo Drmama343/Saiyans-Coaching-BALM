@@ -9,7 +9,7 @@
 				<?= form_label('Email', 'mail') ?>
 				<?= form_input('mail', '', ['placeholder' => 'Email', 'required' => 'required']) ?>
 				<br>
-				<?= form_submit('submit', 'Envoyer un lien de réinitialisation') ?>
+				<?= form_submit('submit', 'Envoyer un lien de réinitialisation', ['class' => 'btnFJBG']) ?>
 			<?= form_close() ?>
 		</div>
 			
