@@ -1,7 +1,3 @@
-    <footer>
-        <p>&copy; <?= date('Y'); ?> Saiyan's Coaching. Tous droits réservés.</p>
-    </footer>
-
     <?php 
         $url = current_url(true);
 

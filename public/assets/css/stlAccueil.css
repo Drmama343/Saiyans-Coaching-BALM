@@ -3,6 +3,7 @@ html, body {
     padding: 0;
     height: 100%;
 	background-color: #0c0c0c;
+    font-family: 'Nota', sans-serif;
 }
 
 .btnFGBJ {
@@ -295,7 +296,6 @@ button.next {
 
 /* --- Code Css temoignage.php --- */
 
-
 .conteneur-temoignage {
     position: relative; /* Nécessaire pour positionner les pseudo-éléments */
     width: 100%;
@@ -369,9 +369,23 @@ button.next {
     opacity: 0.3; /* Réduction de l'opacité */
 }
 
+.contenu-temoignage p {
+    margin: 1vh 1lh;
+    text-align: justify;
+    display: -webkit-box; /* Active le mode boîte flexible */
+    -webkit-box-orient: vertical; /* Définit l'orientation verticale */
+    -webkit-line-clamp: 3; /* Limite à 3 lignes */
+    overflow: hidden; /* Cache le reste du texte */
+    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
+}
+
+.contenu-temoignage h4 {
+    font-style: italic;
+}
+
 .etoile {
-    width: 100px; /* Taille de l'étoile */
-    height: 100px;
+    width: 20px; /* Taille de l'étoile */
+    height: 20px;
     background-color: #F4E904; /* Couleur par défaut */
     clip-path: polygon(
         50% 0%,
@@ -388,10 +402,136 @@ button.next {
     display: inline-block;
 }
 
-footer {
+/* --- Code Css contact.php --- */
+
+.conteneur-contact {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 15vh 0 0 0;
+    padding-bottom: 20vh;
+}
+
+.conteneur-contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/images/fondAccueil.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.conteneur-contact > * {
+    z-index: 2;
+}
+
+.contenu-contact {
     text-align: center;
-    padding: 15px 0;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+}
+
+.contenu-contact h2 {
+    position: relative;
+    top: -5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38%;
     color: white;
-    font-family: 'Lato', sans-serif;
-    font-size: 14px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10vh;
+    text-align: center;
+}
+
+.contenu-contact .btnFGBJ {
+    position: relative;
+    top: -5vh;
+    padding: 2vh 10vh;
+    border-radius: 45px;
+    font-family: 'Nota', sans-serif;
+    font-size: 4vh;
+}
+
+.contenu-contact .contacts {
+    color: #F4E904;
+}
+
+.contacts {
+    position: relative;
+    top: 17vh;
+    margin: 0 15lh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: white;
+}
+  
+.menu h4,
+.contact h4,
+.connectezvous h4 {
+    color: #F4E904;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4vh;
+}
+  
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+  
+.menu li {
+    margin-bottom: 5px;
+    text-align: left;
+    cursor: pointer;
+}
+  
+.contact {
+    text-align: left;
+}
+  
+.connectezvous {
+    text-align: left;
+}
+
+.connectezvous input {
+    width: 90%;
+    padding: 1vh 5vh;
+    margin: 1vh 0;
+    border-radius: 45px;
+    color: white;
+    background-color: #737373;
+    border: 1px solid #0c0c0c;
+    text-align: center;
+}
+
+.connectezvous button {
+    width: 125%;
+    padding: 0.5vh 5vh;
+    border-radius: 45px;
+    background-color: #F4E904;
+    border: 1px solid #0c0c0c;
+    font-family: 'Bebas Neue', sans-serif;
+}
+  
+.contacts img {
+    width: 30vh; /* Taille ajustable */
+}
+  
+.social-icons {
+    margin-top: 75px;
+    display: flex;
+    gap: 2lh;
+}
+  
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
