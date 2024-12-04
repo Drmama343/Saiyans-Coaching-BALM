@@ -64,7 +64,7 @@ class ProfilController extends BaseController
 			'prenom' => $this->request->getVar('prenom'),
 			'mail' => $this->request->getVar('mail'),
             'adresse' => $this->request->getVar('adresse'),
-            'tel' => $this->request->getVar('tel'),
+            'tel' => $this->request->getVar('telephone'),
             'sexe' => $this->request->getVar('sexe'),
             'age' => $this->request->getVar('age'),
             'taille' => $this->request->getVar('taille'),

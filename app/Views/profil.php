@@ -1,6 +1,6 @@
 <?php
 $title = "Saiyan's Coaching - Accueil";
-//$style = "stlProfil.css";
+$style = "stlProfil.css";
 include 'templates/header.php';
 ?>
 <?php include 'templates/navbar.php'; ?>
@@ -12,67 +12,64 @@ include 'templates/header.php';
                 <div class="cellule-grid">
                 <?= form_label('Nom', 'nom') ?>
                 <?= form_input('nom', session()->get('utilisateur')['nom'], ['place holder' => 'Nom', 'required' => 'required']) ?>
-                </div>
-                <br>
+                </div><br>
                 <div class="cellule-grid">
                 <?= form_label('Prénom', 'prenom') ?>
                 <?= form_input('prenom', session()->get('utilisateur')['prenom'], ['placeholder' => 'Prénom', 'required' => 'required']) ?>
-                </div>
-                <br>
+                </div><br>
                 <div class="cellule-grid">
                 <?= form_label('Email', 'mail') ?>
                 <?= form_input('mail', session()->get('utilisateur')['mail'], ['placeholder' => 'Email', 'required' => 'required']) ?>
-                </div>
-                <br>
+                </div><br>
                 <div class="cellule-grid">
                 <?= form_label('Adresse', 'adresse') ?>
-                <?= form_input('adresse', session()->get('utilisateur')['adresse'] == null ? '' : session()->get('utilisateur')['adresse'], ['placeholder' => 'Adresse']) ?>
+                <?= form_input('adresse', session()->get('utilisateur')['adresse'] == null ? '' : session()->get('utilisateur')['adresse'], ['placeholder' => 'Adresse', 'id' => 'adresse']) ?>
                 </div>
                 <div class="cellule-grid-suggestions" id="cellule-grid-suggestions">
 					<h3 id="titre-suggestions">Proposition d'adresse</h3>
 					<div id="suggestions" class="suggestions"></div>
 				</div>
-                <br>
+                
                 <div class="cellule-grid">
-                <?= form_label('Téléphone', 'tel') ?>
-                <?= form_input('tel', session()->get('utilisateur')['tel'] == null ? '' : session()->get('utilisateur')['tel'], ['placeholder' => 'Téléphone']) ?>
-                </div>
-                <br>
+                <?= form_label('Téléphone', 'telephone') ?>
+                <?= form_input('telephone', session()->get('utilisateur')['tel'] == null ? '' : session()->get('utilisateur')['tel'], ['placeholder' => 'Téléphone']) ?>
+                </div><br>
+                
                 <div class="cellule-grid">
                 <?= form_label('Sexe', 'sexe') ?>
                 <?= form_input('sexe', session()->get('utilisateur')['sexe'], ['placeholder' => 'Sexe', 'required' => 'required']) ?>
-                </div>
-                <br>
+                </div><br>
+                
                 <div class="cellule-grid">
                 <?= form_label('Age', 'age') ?>
                 <?= form_input('age', session()->get('utilisateur')['age'], ['placeholder' => 'Age', 'required' => 'required']) ?>
-                </div>
-                <br>
+                </div><br>
+                
                 <div class="cellule-grid">
                 <?= form_label('Taille', 'taille') ?>
                 <?= form_input('taille', session()->get('utilisateur')['taille'], ['placeholder' => 'Taille', 'required' => 'required']) ?>
-                </div>
-                <br>
+                </div><br>
+                
                 <div class="cellule-grid">
                 <?= form_label('Poids', 'poids') ?>
                 <?= form_input('poids', session()->get('utilisateur')['poids'], ['placeholder' => 'Poids', 'required' => 'required']) ?>
-                </div>
-                <br>
+                </div><br>
+                
                 <div class="cellule-grid">
                 <?= form_label('Mot de passe actuel', 'mdp_actuel') ?>
                 <?= form_password('mdp_actuel', '', ['placeholder' => 'Mot de passe actuel']) ?>
-                </div>
-                <br>
+                </div><br>
+                
                 <div class="cellule-grid">
                 <?= form_label('Nouveau mot de passe', 'nouveau_mdp') ?>
                 <?= form_password('nouveau_mdp', '', ['placeholder' => 'Nouveau mot de passe']) ?>
-                </div>
-                <br>
+                </div><br>
+                
                 <div class="cellule-grid">
                 <?= form_label('Confirmer le nouveau mot de passe', 'mdp_confirm') ?>
                 <?= form_password('mdp_confirm', '', ['placeholder' => 'Confirmer le nouveau mot de passe']) ?>
-                </div>
-                <br>
+                </div><br>
+                
                 <?= form_submit('submit', 'Sauvegarder') ?>
             </div>
         <?= form_close(); ?>
