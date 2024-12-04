@@ -5,7 +5,7 @@
 			<?php if (!empty($achats) && is_array($achats)): ?>
 				<?php foreach ($achats as $achat): ?>
 					<div class="temoignage">
-						<span class="tJ">⭐⭐⭐⭐⭐</span>
+						<span class="tJ"><span class="etoile"></span><span class="etoile"></span><span class="etoile"></span><span class="etoile"></span><span class="etoile"></span></span>
 						<p><?= esc($achat['temoignage']) ?></p>
 						<h4><?= esc($achat['idsaiyan']) ?></h4>
 					</div>
