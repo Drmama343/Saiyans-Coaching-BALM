@@ -1,6 +1,6 @@
 <?php
 $title = "Saiyan's Coaching - Accueil";
-//$style = "stlAccueil.css";
+$style = "stlAccueil.css";
 include 'templates/header.php';
 ?>
 <?php include 'templates/navbar.php'; ?>
@@ -12,8 +12,26 @@ include 'templates/header.php';
 <?= form_label('Prénom', 'prenom') ?>
 <?= form_input('prenom', session()->get('utilisateur')['prenom'], ['placeholder' => 'Prénom', 'required' => 'required']) ?>
 <br>
-<?= form_label('Email', 'email') ?>
-<?= form_input('email', session()->get('utilisateur')['mail'], ['placeholder' => 'Email', 'required' => 'required']) ?>
+<?= form_label('Email', 'mail') ?>
+<?= form_input('mail', session()->get('utilisateur')['mail'], ['placeholder' => 'Email', 'required' => 'required']) ?>
+<br>
+<?= form_label('Adresse', 'adresse') ?>
+<?= form_input('adresse', session()->get('utilisateur')['adresse'] == null ? '' : session()->get('utilisateur')['adresse'], ['placeholder' => 'Adresse']) ?>
+<br>
+<?= form_label('Téléphone', 'tel') ?>
+<?= form_input('tel', session()->get('utilisateur')['tel'] == null ? '' : session()->get('utilisateur')['tel'], ['placeholder' => 'Téléphone']) ?>
+<br>
+<?= form_label('Sexe', 'sexe') ?>
+<?= form_input('sexe', session()->get('utilisateur')['sexe'], ['placeholder' => 'Sexe', 'required' => 'required']) ?>
+<br>
+<?= form_label('Age', 'age') ?>
+<?= form_input('age', session()->get('utilisateur')['age'], ['placeholder' => 'Age', 'required' => 'required']) ?>
+<br>
+<?= form_label('Taille', 'taille') ?>
+<?= form_input('taille', session()->get('utilisateur')['taille'], ['placeholder' => 'Taille', 'required' => 'required']) ?>
+<br>
+<?= form_label('Poids', 'poids') ?>
+<?= form_input('poids', session()->get('utilisateur')['poids'], ['placeholder' => 'Poids', 'required' => 'required']) ?>
 <br>
 <?= form_label('Mot de passe actuel', 'mdp_actuel') ?>
 <?= form_password('mdp_actuel', '', ['placeholder' => 'Mot de passe actuel']) ?>
