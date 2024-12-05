@@ -30,15 +30,17 @@ CREATE TABLE "Produit" (
 );
 
 CREATE TABLE "Achat" (
-  "idSaiyan" Saiyan NOT NULL,
-  "idProduit" Produit NOT NULL,
+  "id" integer PRIMARY KEY,
+  "idsaiyan" Saiyan NOT NULL,
+  "idproduit" Produit NOT NULL,
   "date" date,
   "echeance" date,
 );
 
 CREATE TABLE "Temoignage" (
-  "idSaiyan" Saiyan NOT NULL,
-  "contenu" text,
+  "id" integer PRIMARY KEY,
+  "idsaiyan" Saiyan NOT NULL,
+  "temoignage" text,
   "note" integer,
   "date" date,
   "image" varchar,
@@ -70,4 +72,10 @@ CREATE TABLE "Promotion" (
   "code" varchar NOT NULL,
   "nb_utilisation" integer,
   "produit" Produit
+);
+
+CREATE TABLE "Question" (
+  "id" integer PRIMARY KEY,
+  "question" TEXT NOT NULL,
+  "reponse" TEXT NOT NULL,
 );

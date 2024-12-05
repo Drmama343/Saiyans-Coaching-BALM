@@ -21,11 +21,11 @@ class HomeController extends BaseController
 		$produitModel = new ProduitModel();
 		$temoignageModel = new TemoignageModel();
 
-		$offres = $produitModel->orderBy('prix', 'ASC')->findAll();
-		$avis = $temoignageModel->findAll();
-		$data['offres'] = $offres;
-		$data['avis'] = $avis;
+		$produits = $produitModel->orderBy('prix', 'ASC')->findAll();
+		$temoignages = $temoignageModel->findAll();
+		$data['produits'] = $produits;
+		$data['temoignages'] = $temoignages;
 
-		return view('index', /*$data*/);
+		return view('index', $data);
 	}
 }
