@@ -8,6 +8,8 @@ class SaiyanSeeder extends Seeder
 {
 	public function run()
 	{
+		$this->db->query('TRUNCATE TABLE saiyan RESTART IDENTITY CASCADE');
+
 		$data = [
 			[
 				'nom' => 'Lecarpentier',
@@ -21,7 +23,6 @@ class SaiyanSeeder extends Seeder
 				'age' => 26,
 				'taille' => 160,
 				'poids' => 95,
-				'abonnement' => 1,
 				'reset_token' => null,
 				'reset_token_expiration' => null,
 			],
@@ -37,7 +38,6 @@ class SaiyanSeeder extends Seeder
 				'age' => 28,
 				'taille' => 185,
 				'poids' => 70,
-				'abonnement' => 2,
 				'reset_token' => null,
 				'reset_token_expiration' => null,
 			],
@@ -53,7 +53,6 @@ class SaiyanSeeder extends Seeder
 				'age' => 36,
 				'taille' => 165,
 				'poids' => 60,
-				'abonnement' => 2,
 				'reset_token' => null,
 				'reset_token_expiration' => null,
 			],
