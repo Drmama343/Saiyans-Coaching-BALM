@@ -19,3 +19,5 @@ $routes->post('/inscription', 'LoginController::inscription');
 
 $routes->get('/profil', 'ProfilController::index'); 
 $routes->match(['GET', 'POST'], '/modifProfil/(:any)', 'ProfilController::modifierProfil/$1');
+
+$routes->get('/apropos', 'AproposController::index');

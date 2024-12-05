@@ -4,7 +4,7 @@
 	</div>
 	<ul>
 		<li><a href="/">Accueil</a></li>
-		<li><a href="/about">À propos</a></li>
+		<li><a href="/apropos">À propos</a></li>
 		<li><a href="/about">Programmes</a></li>
 		<li><a href="/contact">Avant / Après</a></li>
 		<li><a href="/about">Blog</a></li>

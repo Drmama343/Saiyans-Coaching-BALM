@@ -21,9 +21,9 @@ class HomeController extends BaseController
 		$abonnementModel = new AbonnementModel();
 		$avisModel = new AvisModel();
 
-		$abonnements = $abonnementModel->findAll();
+		$offres = $abonnementModel->findAll();
 		$avis = $avisModel->findAll();
-		$data['abonnements'] = $abonnements;
+		$data['offres'] = $offres;
 		$data['avis'] = $avis;
 
 		return view('index', $data);
