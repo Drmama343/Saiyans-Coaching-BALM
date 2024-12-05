@@ -1,0 +1,48 @@
+/* Couleurs */
+
+:root {
+    --jaune: #F4E904;
+    --noir: #0c0c0c;
+    --gris: #737373;
+    --blanc: #ffffff;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+	background: linear-gradient(to left, var(--noir), var(--gris));
+}
+
+/* --- Code Css stlAvantApres.php --- */
+
+.contenu-avant-apres {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 10vh 20vw 5vh;
+}
+
+.contenu-avant-apres h3 {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 5vh;
+	text-align: center;
+	color: var(--jaune)
+}
+
+.contenu-avant-apres p {
+	font-family: 'Lato', sans-serif;
+	font-size: 2.5vh;
+	color: var(--blanc);
+}
+
+.contenu-avant-apres span {
+	color: var(--jaune);
+	font-weight: bold;
+}
+
+.photos {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 5vh;
+}

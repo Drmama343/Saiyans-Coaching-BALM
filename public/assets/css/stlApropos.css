@@ -29,13 +29,13 @@ html, body {
 .contenu-apropos {
     position: relative;
     margin: 0 auto;
-    padding: 10vh 0 5vh; /* Ajoute de l'espace en haut et en bas */
+    padding: 10vh 0 5vh; 
     width: 70%; 
-    max-height: 100vh; /* Limite la hauteur à 100vh si nécessaire */
+    max-height: 100vh;
     overflow-y: auto; /* Barre de défilement verticale */
     color: var(--blanc);
-    background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
-    box-sizing: border-box; /* Inclut le padding dans la hauteur totale */
+    background: rgba(0, 0, 0, 0.6); 
+    box-sizing: border-box; 
 }
 
 
@@ -74,7 +74,7 @@ html, body {
 .contenu-apropos .btnFGBJ {
     background-color: #737373;
     opacity: 70%;
-    padding: 1vh 5vh;
+    padding: 1vh 5vw;
     border: 2px solid #F4E904;
     border-radius: 15px;
     color: white;

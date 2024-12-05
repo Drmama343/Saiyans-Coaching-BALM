@@ -20,6 +20,7 @@ CREATE TABLE "Produit" (
   "nom" varchar NOT NULL,
   "description" text,
   "prix" float NOT NULL,
+  "duree" int NOT NULL,
   "photo" varchar,
   "entrainement" bool NOT NULL,
   "multimedia" bool NOT NULL,
@@ -31,17 +32,17 @@ CREATE TABLE "Produit" (
 CREATE TABLE "Achat" (
   "idSaiyan" Saiyan NOT NULL,
   "idProduit" Produit NOT NULL,
-  "note" integer,
   "date" date,
-  "avis" varchar
+  "echeance" date,
 );
 
 CREATE TABLE "Temoignage" (
   "idSaiyan" Saiyan NOT NULL,
   "contenu" text,
+  "note" integer,
   "date" date,
-  "image_avant" varchar,
-  "image_apres" varchar
+  "image" varchar,
+  "affichage" boolean default false
 );
 
 CREATE TABLE "Article" (

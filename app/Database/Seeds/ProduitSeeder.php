@@ -8,22 +8,47 @@ class ProduitSeeder extends Seeder
 {
 	public function run()
 	{
+		$this->db->query('TRUNCATE TABLE produit RESTART IDENTITY CASCADE');
+
 		$data = [
 			[
 				'id' => 1,
-				'nom' => 'Programme Musculation',
-				'titre' => 'Musculation pour débutants',
-				'photo' => 'musculation-debutants.jpg',
-				'description' => 'Un programme complet pour débuter la musculation avec des exercices faciles.',
-				'prix' => 29.99,
+				'nom' => 'Pack Premium',
+				'photo' => 'premium.jpg',
+				'description' => 'Abonnement complet incluant tous les services pour un coaching optimal.',
+				'prix' => 249.99,
+				'duree'=> 18,
+				'entrainement' => true,
+				'multimedia' => true,
+				'alimentaire' => true,
+				'bilan' => true,
+				'whatsapp' => true,
 			],
 			[
 				'id' => 2,
-				'nom' => 'Nutrition Sportive',
-				'titre' => 'Guide Nutrition',
-				'photo' => 'nutrition-sportive.jpg',
-				'description' => 'Guide nutritionnel adapté aux sportifs pour des performances optimales.',
-				'prix' => 19.99,
+				'nom' => 'Pack Basique',
+				'photo' => 'basique.jpg',
+				'description' => 'Abonnement basique avec accès aux programmes d\'entraînement.',
+				'prix' => 159.99,
+				'duree'=> 12,
+				'entrainement' => true,
+				'multimedia' => false,
+				'alimentaire' => true,
+				'bilan' => false,
+				'whatsapp' => true,
+			],
+			[
+				'id' => 3,
+				'nom' => 'Pack Nutrition',
+				'photo' => 'nutrition.jpg',
+				'description' => 'Un pack axé sur la nutrition sportive pour améliorer vos performances.',
+				'prix' => 109.99,
+				'duree'=> 6,
+				'entrainement' => false,
+				'multimedia' => true,
+				'alimentaire' => true,
+				'bilan' => true,
+				'whatsapp' => false,
 			],
 		];
 
