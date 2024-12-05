@@ -2,16 +2,16 @@
 	<h2 class="tJ">Nos Offres</h2>
 	<div class="carousel">
 		<div class="contenu-offres">
-			<?php if (!empty($offres) && is_array($offres)): ?>
-				<?php foreach ($offres as $offre): ?>
-					<div class="offre">
-						<h3><?= esc($offre['nom']) ?></h3>
-						<p>✔ <?= esc($offre['description']) ?></p>
-						<p><strong>Prix : <?= esc($offre['prix']) ?> €/an</strong></p>
+			<?php if (!empty($produits) && is_array($produits)): ?>
+				<?php foreach ($produits as $produit): ?>
+					<div class="produit">
+						<h3><?= esc($produit['nom']) ?></h3>
+						<p>✔ <?= esc($produit['description']) ?></p>
+						<p><strong>Prix : <?= esc($produit['prix']) ?> €/an</strong></p>
 					</div>
 				<?php endforeach; ?>
 				<?php else: ?>
-				<p>Aucune offre disponible.</p>
+				<p>Aucun produit disponible.</p>
 			<?php endif; ?>
 		</div>
 		<button class="prev">◀</button>
