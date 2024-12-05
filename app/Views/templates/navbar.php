@@ -6,7 +6,7 @@
 		<li><a href="/">Accueil</a></li>
 		<li><a href="/apropos">À propos</a></li>
 		<li><a href="/programme">Programmes</a></li>
-		<li><a href="/avantapres">Avant / Après</a></li>
+		<li><a href="/avant-apres">Avant / Après</a></li>
 		<li><a href="/blog">Blog</a></li>
 		<li><a href="/actualite">Actualité</a></li>
 		<li><a href="/contact">Contact</a></li>
