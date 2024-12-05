@@ -16,29 +16,77 @@ html, body {
 /* --- Code Css stlApropos.php --- */
 
 .conteneur-apropos {
-	background-image: url(/assets/images/fondAccueil.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	width: 100%;
-	height: 100vh;
+    background-image: url(/assets/images/fondAccueil.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Empêche le contenu de déborder ici */
 }
 
 .contenu-apropos {
-	position: absolute;
-	top: 0;
-	text-align: center;
-	color: var(--jaune);
-	width: 100%;
+    position: relative;
+    margin: 0 auto;
+    padding: 10vh 0 5vh; /* Ajoute de l'espace en haut et en bas */
+    width: 70%; 
+    max-height: 100vh; /* Limite la hauteur à 100vh si nécessaire */
+    overflow-y: auto; /* Barre de défilement verticale */
+    color: var(--blanc);
+    background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+    box-sizing: border-box; /* Inclut le padding dans la hauteur totale */
 }
 
-.contenu-apropos h2 {
+
+
+.contenu-apropos h3 {
 	font-family: "Bebas Neue", sans-serif;
 	font-size: 5vh;
+	text-align: center;
 }
 
 .contenu-apropos p {
 	font-family: 'Lato', sans-serif;
 	font-size: 2.5vh;
+}
+
+.contenu-apropos ul li {
+	font-family: 'Lato', sans-serif;
+	font-size: 2.5vh;
+}
+
+.contenu-apropos .la {
+	font-family: 'Lato', sans-serif;
+	font-size: 2.5vh;
+	font-weight: bold;
+	color: var(--jaune);
+}
+
+.contenu-apropos .btn {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 3vh; 
+}
+
+
+.contenu-apropos .btnFGBJ {
+    background-color: #737373;
+    opacity: 70%;
+    padding: 1vh 5vh;
+    border: 2px solid #F4E904;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+}
+
+.contenu-apropos .btnFGBJ:hover {
+    background-color: #F4E904;
+    border: 2px solid #737373;
+    color: #0c0c0c;
+    transition: all 0.5s ease;
 }
 

@@ -18,7 +18,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    flex: 1; /* Permet au menu de prendre l'espace restant */
+    flex: 1; 
 }
 
 nav ul li {
@@ -45,9 +45,13 @@ nav ul li .btnFGBJ {
 nav .left-section {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espace entre l'image et le menu */
+    gap: 20px;
 }
 
 nav ul li a:hover {
     color: #F4E904;
+}
+
+nav ul img {
+    height: 4vh;
 }
