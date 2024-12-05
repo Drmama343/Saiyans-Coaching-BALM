@@ -5,10 +5,10 @@
 	<ul>
 		<li><a href="/">Accueil</a></li>
 		<li><a href="/apropos">À propos</a></li>
-		<li><a href="/about">Programmes</a></li>
-		<li><a href="/contact">Avant / Après</a></li>
-		<li><a href="/about">Blog</a></li>
-		<li><a href="/contact">Actualité</a></li>
+		<li><a href="/programme">Programmes</a></li>
+		<li><a href="/avantapres">Avant / Après</a></li>
+		<li><a href="/blog">Blog</a></li>
+		<li><a href="/actualite">Actualité</a></li>
 		<li><a href="/contact">Contact</a></li>
 		<?php if (isset($_SESSION['utilisateur'])): ?>
 		<li><a href="/profil"><img class="imgProfil" src="/assets/images/profil.png" alt="Image profil"></a></li>
