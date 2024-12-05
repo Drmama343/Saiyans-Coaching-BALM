@@ -2,12 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\AbonnementModel;
-use App\Models\AvisModel;
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+use App\Models\ProduitModel;
+use App\Models\TemoignageModel;
 
 class ProgrammeController extends BaseController
 {
@@ -18,14 +14,14 @@ class ProgrammeController extends BaseController
 
 	public function index(): string
 	{
-		$abonnementModel = new AbonnementModel();
-		$avisModel = new AvisModel();
+		$produitModel = new ProduitModel();
+		$temoignageModel = new TemoignageModel();
 
-		$offres = $abonnementModel->findAll();
-		$avis = $avisModel->findAll();
-		$data['offres'] = $offres;
-		$data['avis'] = $avis;
-
+		$produits = $produitModel->findAll();
+		$temoignages = $temoignageModel->findAll();
+		$data['produits'] = $produits;
+		$data['temoignage'] = $temoignages;
+		
 		return view('programme', $data);
 	}
 }

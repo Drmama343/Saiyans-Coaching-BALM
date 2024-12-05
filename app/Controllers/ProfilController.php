@@ -31,13 +31,11 @@ class ProfilController extends BaseController
 		$saiyan = $saiyanModel->find($idSaiyan);
         $data['saiyan'] = $saiyan;
 
+		//changement du json en bdd vers un string
 		$jsonString = $saiyan['adresse'];
-
 		$tmp = json_decode($jsonString, associative: true);
-
-		$adresseFormattee = $tmp['rue'] . ' ' . $tmp['code_postal'] . ' ' . $tmp['ville'];
-
-		$data['adresse'] == $adresseFormattee;
+		$adresseFormattee = $tmp['query'];
+		$data['stgAdr'] = $adresseFormattee;
 
 
         $achatModel = new AchatModel();
@@ -48,16 +46,13 @@ class ProfilController extends BaseController
         }
         $data['achats'] = $achats;
 
-        $abonnementModel = new AbonnementModel();
-        $data['abonnement'] = $abonnementModel->find($saiyan['abonnement'])['nom'] == null ? "Vous n'avez aucun abonnement !" : $abonnementModel->find($saiyan['abonnement'])['nom'];
-
         return view('profil', $data);
     }
 
     public function modifierProfil ($idBase){
         $saiyanModel = new SaiyanModel();
 		$id = $this->session->get('utilisateur')['id'];
-		$mail = trim($this->request->getVar('email'));
+		$mail = trim($this->request->getVar('mail'));
 		$saiyanBase = $saiyanModel->where('id', $idBase)->first();
 
 		//Vérification de l'unicité de l'adresse mail
@@ -87,6 +82,7 @@ class ProfilController extends BaseController
 				$this->session->setFlashdata('error', 'Le numéro de téléphone est invalide');
 				return redirect()->to('/profil');
 			}
+			$telephone = $this->request->getVar('telephone');
 		} else {
 			$telephone = null;
 		}

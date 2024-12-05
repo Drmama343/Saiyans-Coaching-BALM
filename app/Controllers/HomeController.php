@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\AbonnementModel;
-use App\Models\AvisModel;
+use App\Models\ProduitModel;
+use App\Models\TemoignageModel;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -18,13 +18,13 @@ class HomeController extends BaseController
 
 	public function index(): string
 	{
-		/*$abonnementModel = new AbonnementModel();
-		$avisModel = new AvisModel();
+		$produitModel = new ProduitModel();
+		$temoignageModel = new TemoignageModel();
 
-		$offres = $abonnementModel->orderBy('prix', 'ASC')->findAll();
-		$avis = $avisModel->findAll();
+		$offres = $produitModel->orderBy('prix', 'ASC')->findAll();
+		$avis = $temoignageModel->findAll();
 		$data['offres'] = $offres;
-		$data['avis'] = $avis;*/
+		$data['avis'] = $avis;
 
 		return view('index', /*$data*/);
 	}
