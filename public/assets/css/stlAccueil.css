@@ -345,20 +345,20 @@ button.next {
     margin: auto;
     text-align: center;
     position: relative;
-    left: 7lh;
+    left: 7vw;
     display: flex;
     transition: transform 0.5s ease-in-out;
-    max-width: 60lh;
+    max-width: 60vw;
 }
 
 .temoignage {
-    min-width: 40lh;
+    min-width: 40vw;
     box-sizing: border-box;
     padding: 20px;
     background: #0c0c0c;
     color: white;
     border-left: 0.5vh solid #737373;
-    margin: 10px 2lh;
+    margin: 10px 2vw;
     border-radius: 10px;
     text-align: left;
     opacity: 1; /* Opacité par défaut */
@@ -370,7 +370,7 @@ button.next {
 }
 
 .contenu-temoignage p {
-    margin: 1vh 1lh;
+    margin: 1vh 1vw;
     text-align: justify;
     display: -webkit-box; /* Active le mode boîte flexible */
     -webkit-box-orient: vertical; /* Définit l'orientation verticale */
@@ -465,7 +465,7 @@ button.next {
 .contacts {
     position: relative;
     top: 17vh;
-    margin: 0 15lh;
+    margin: 0 15vw;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -527,7 +527,7 @@ button.next {
 .social-icons {
     margin-top: 75px;
     display: flex;
-    gap: 2lh;
+    gap: 2vw;
 }
   
 .social-icons img {
