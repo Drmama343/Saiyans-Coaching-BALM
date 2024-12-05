@@ -5,6 +5,6 @@
 		<h2 class="tJ">Saiyan's Coaching</h2>
 		<h1>Entraîne-toi comme un saiyan</h1>
 		<p>Progresse comme un guerrier : ta transformation commence aujourd'hui !</p>
-		<button class="btnFJBG">Commencez Maintenant !</button>
+		<a href="/programme" class="btnFJBG">Commencez Maintenant !</a>
 	</div>
 </div>

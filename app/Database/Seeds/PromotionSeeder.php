@@ -8,6 +8,8 @@ class PromotionSeeder extends Seeder
 {
 	public function run()
 	{
+		$this->db->query('TRUNCATE TABLE promotion RESTART IDENTITY CASCADE');
+
 		$data = [
 			[
 				'id' => 1,

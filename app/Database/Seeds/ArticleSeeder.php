@@ -8,21 +8,21 @@ class ArticleSeeder extends Seeder
 {
 	public function run()
 	{
+		$this->db->query('TRUNCATE TABLE article RESTART IDENTITY CASCADE');
+
 		$data = [
 			[
 				'id' => 1,
 				'titre' => 'Les bases de la musculation',
 				'contenu' => 'Découvrez comment commencer la musculation efficacement.',
 				'auteur' => 1,
-				'date_publi' => '2024-01-10',
 				'image' => 'musculation-bases.jpg',
 			],
 			[
 				'id' => 2,
 				'titre' => 'Alimentation pour sportifs',
 				'contenu' => 'Les meilleures pratiques alimentaires pour booster vos performances.',
-				'auteur' => 2,
-				'date_publi' => '2024-01-20',
+				'auteur' => 1,
 				'image' => 'alimentation-sport.jpg',
 			],
 		];

@@ -26,6 +26,6 @@ class HomeController extends BaseController
 		$data['offres'] = $offres;
 		$data['avis'] = $avis;
 
-		return view('index', $data);
+		return view('index', /*$data*/);
 	}
 }

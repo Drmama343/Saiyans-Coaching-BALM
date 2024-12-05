@@ -8,8 +8,5 @@
 
 <?php include 'templates/pageProgramme/accueil.php'; ?>
 <?php include 'templates/pageProgramme/offres.php'; ?>
-<?php include 'templates/pageProgramme/rejoinnous.php'; ?>
-<?php include 'templates/pageProgramme/temoignages.php'; ?>
-<?php include 'templates/contact.php'; ?>
 
 <?php include 'templates/footer.php'; ?>
