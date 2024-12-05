@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class DeglingueAchatsTable extends Migration
+class ModifAchatTemoignage extends Migration
 {
     public function up()
     {
