@@ -9,7 +9,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-class HomeController extends BaseController
+class ProgrammeController extends BaseController
 {
 	protected $session;
 	public function __construct() {
@@ -21,11 +21,11 @@ class HomeController extends BaseController
 		$abonnementModel = new AbonnementModel();
 		$avisModel = new AvisModel();
 
-		$offres = $abonnementModel->orderBy('prix', 'ASC')->findAll();
+		$offres = $abonnementModel->findAll();
 		$avis = $avisModel->findAll();
 		$data['offres'] = $offres;
 		$data['avis'] = $avis;
 
-		return view('index', $data);
+		return view('programme', $data);
 	}
 }
