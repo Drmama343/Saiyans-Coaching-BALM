@@ -27,18 +27,20 @@
 		</p>
 
 		<p>
-			Il ne tient qu'à <span>vous</span> de faire le premier pas vers une version améliorée de vous-même. Rejoignez la communauté <span>Saiyan's Coaching</span> et explorez les possibilités pour atteindre vos objectifs de santé et de bien-être. Vous méritez de vous sentir bien dans votre peau. Laissez ces photos vous inspirer à investir dans votre santé pour un physique et une vie meilleure.
+			Il ne tient qu'à <span>vous</span> de faire le premier pas vers une version améliorée de vous-même. Rejoignez la communauté <span>Saiyan's Coaching</span> et explorez les possibilités pour atteindre vos objectifs de santé et de bien-être. Vous méritez de vous sentir bien dans votre peau. Laissez ces medias vous inspirer à investir dans votre santé pour un physique et une vie meilleure.
 		</p>
 
-		<div class="photos">
-			<?php if (!empty($photos) && is_array($photos)): ?>
-				<?php foreach ($photos as $photo) : ?>
-					<div class="photo">
-						<img src="<?= $photo['url']; ?>" alt="<?= $photo['alt']; ?>">
+		<div class="medias">
+			<?php if (!empty($medias) && is_array($medias)): ?>
+				<?php foreach ($medias as $media) : ?>
+					<div class="media">
+						<video controls="" loop="" autoplay="" muted="">
+							<source src="/assets/video/<?= $media['media']; ?>">
+						</video>						
 					</div>
 				<?php endforeach; ?>
 			<?php else: ?>
-				<p>Aucune photo disponible.</p>
+				<p>Aucune media disponible.</p>
 			<?php endif; ?>
 		</div>
 	</div>

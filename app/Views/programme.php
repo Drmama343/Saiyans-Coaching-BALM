@@ -7,6 +7,6 @@
 <?php include 'templates/navbar.php'; ?>
 
 <?php include 'templates/accueil.php'; ?>
-<?php include 'templates/offres.php'; ?>
+<?php include 'templates/produits.php'; ?>
 
 <?php include 'templates/footer.php'; ?>

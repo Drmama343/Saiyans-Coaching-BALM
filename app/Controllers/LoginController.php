@@ -24,13 +24,13 @@ class LoginController extends BaseController {
 	public function connexion() {
 		if($this->request->getMethod() == 'POST') {
 			$utilisateurModel = new SaiyanModel();
-			$utilisateur = $utilisateurModel->where('mail', $this->request->getVar('email'))->first();
+			$utilisateur = $utilisateurModel->where('mail', $this->request->getVar('mail'))->first();
 
 			if ($utilisateur) {
-				if (password_verify($this->request->getVar('password'), $utilisateur['mdp'])) {
+				if (password_verify($this->request->getVar('mdp'), $utilisateur['mdp'])) {
 					// Si l'utilisateur a coché la case "Se souvenir de moi", on garde l'identifiant en cookie
 					if($this->request->getVar('remember')) {
-						setcookie('email', $this->request->getVar('email'), time() + 3600 * 24 * 30, '/');
+						setcookie('email', $this->request->getVar('mail'), time() + 3600 * 24 * 30, '/');
 					} else {
 						setcookie('email', '', time() - 3600, '/');
 					}
@@ -71,24 +71,24 @@ class LoginController extends BaseController {
 		}
 
 		//Vérification de l'unicité de l'adresse mail et de sa validité
-		$mail = trim($this->request->getVar('email'));
+		$mail = trim($this->request->getVar('mail'));
 		if ($utilisateurModel->where('mail', $mail)->first() && !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 			$this->session->setFlashdata('error', 'Cette adresse mail est déjà utilisée ou invalide');
 			return redirect()->to('/inscription');
 		} else {
-			$mail = $this->request->getVar('email');
+			$mail = $this->request->getVar('mail');
 		}
 
 		// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre et autorise les caractères spéciaux
 		// Vérification du mot de passe et de sa confirmation
-		if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/', $this->request->getVar('password'))) {
+		if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/', $this->request->getVar('mdp'))) {
 			$this->session->setFlashdata('error', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un caractère spécial et un chiffre');
 			return redirect()->to('/inscription');
-		} elseif($this->request->getVar('password') != $this->request->getVar('password_confirm')) {
+		} elseif($this->request->getVar('mdp') != $this->request->getVar('mdp_confirm')) {
 			$this->session->setFlashdata('error', 'Les mots de passe ne correspondent pas');
 			return redirect()->to('/inscription');
 		} else {
-			$mdp = $this->request->getVar('password');
+			$mdp = $this->request->getVar('mdp');
 		}
 
 		//Vérification de l'adresse et récupération des informations
@@ -106,15 +106,15 @@ class LoginController extends BaseController {
 		}
 
 		//Vérification du numéro de téléphone et de sa validité
-		if($this->request->getVar('telephone') != "") {
-			if (!preg_match('/^0[1-9]([-. ]?[0-9]{2}){4}$/', $this->request->getVar('telephone'))) {
+		if($this->request->getVar('tel') != "") {
+			if (!preg_match('/^0[1-9]([-. ]?[0-9]{2}){4}$/', $this->request->getVar('tel'))) {
 				$this->session->setFlashdata('error', 'Le numéro de téléphone est invalide');
 				return redirect()->to('/inscription');
 			} else {
-				$telephone = $this->request->getVar('telephone');
+				$tel = $this->request->getVar('tel');
 			}
 		} else {
-			$telephone = null;
+			$tel = null;
 		}
 
 		//Vérification du sexe 
@@ -152,7 +152,7 @@ class LoginController extends BaseController {
 			'mail' => $mail,
 			'mdp' => password_hash($mdp, PASSWORD_DEFAULT),
 			'adresse' => $response,
-			'tel' => $telephone,
+			'tel' => $tel,
 			'sexe' => $sexe,
 			'admin' => false,
 			'age' => $age,
@@ -171,7 +171,7 @@ class LoginController extends BaseController {
 	{
 		$utilisateurModel = new SaiyanModel();
 		$username = trim($this->request->getVar('username'));
-		$mail = trim($this->request->getVar('email'));
+		$mail = trim($this->request->getVar('mail'));
 		$utilisateurBase = $utilisateurModel->where('username', $usernameBase)->first();
 
 		//Vérification de l'unicité du nom d'utilisateur

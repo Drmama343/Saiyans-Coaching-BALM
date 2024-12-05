@@ -31,7 +31,7 @@ document.getElementById('adresse').addEventListener('input', function() {
 	}
 });
 
-document.getElementById('telephone').addEventListener('input', function() {	
+document.getElementById('tel').addEventListener('input', function() {	
 	// Met un espace tous les 2 chiffres
 	this.value = this.value.replace(/\D/g, '').replace(/(\d{2})(?=\d)/g, '$1 ').trim();
 });

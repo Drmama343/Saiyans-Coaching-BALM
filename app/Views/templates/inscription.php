@@ -26,8 +26,8 @@
                 </div>
 
                 <div class="cellule-grid">
-                    <?= form_label('Téléphone', 'telephone'); ?>
-                    <?= form_input('telephone', set_value('telephone'), ['id' => 'telephone', 'class' => '']);?>	
+                    <?= form_label('Téléphone', 'tel'); ?>
+                    <?= form_input('tel', set_value('tel'), ['id' => 'tel', 'class' => '']);?>	
                 </div>
 
                 <div class="cellule-grid">
@@ -36,8 +36,8 @@
                 </div>
 
                 <div class="cellule-grid">
-                    <?= form_label('Adresse e-mail *', 'email'); ?>
-                    <?= form_input('email', set_value('email'), ['id' => 'email', 'class' => '', 'required' => 'required'], 'email'); ?>
+                    <?= form_label('Adresse e-mail *', 'mail'); ?>
+                    <?= form_input('mail', set_value('mail'), ['id' => 'mail', 'class' => '', 'required' => 'required'], 'email'); ?>
                 </div>
 
                 <div class="cellule-grid">
@@ -56,13 +56,13 @@
                 </div>
 
                 <div class="cellule-grid">
-                    <?= form_label('Mot de passe *', 'password'); ?>
-                    <?= form_password('password', '', ['id' => 'password', 'class' => '', 'required' => 'required']); ?>
+                    <?= form_label('Mot de passe *', 'mdp'); ?>
+                    <?= form_password('mdp', '', ['id' => 'mdp', 'class' => '', 'required' => 'required']); ?>
                 </div>
 
                 <div class="cellule-grid">
-                    <?= form_label('Confirmer le mot de passe *', 'password_confirm'); ?>
-                    <?= form_password('password_confirm', '', ['id' => 'password_confirm', 'class' => '', 'required' => 'required']); ?>
+                    <?= form_label('Confirmer le mot de passe *', 'mdp_confirm'); ?>
+                    <?= form_password('mdp_confirm', '', ['id' => 'mdp_confirm', 'class' => '', 'required' => 'required']); ?>
                 </div>
             </div>
             <?= form_submit(['name' => 'submit', 'value' => 'S\'inscrire', 'class' => 'btnFJBG']); ?>
