@@ -39,7 +39,7 @@
 		</p>
 
 		<p>
-			L’objectif de cette activité est d’apporter un service, une solution, un soutien, des clés et réponses aux problématiques que nous rencontrons tous dans notre vie; à savoir:
+			L’objectif de cette activité est d’apporter <span class="la">un service, une solution, un soutien, des clés et réponses</span> aux problématiques que nous rencontrons tous dans notre vie; à savoir:
 		</p>
 		<ul>
 			<li>
@@ -54,8 +54,13 @@
 		</ul>
 ​
 		<p>
-			Si tu te reconnais dans ces problématiques de vie je suis LA personne qu’il te faut !
+			Si tu te reconnais dans ces problématiques de vie je suis <span class="la">LA</span> personne qu’il te faut !
 		</p>
+
+		<div class="btn">
+			<a href="/programme" class="btnFGBJ">Commencez maintenant !</a>
+		</div>
+
 	</div>
 </div>
 

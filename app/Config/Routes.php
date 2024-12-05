@@ -17,7 +17,11 @@ $routes->get('/logout', 'LoginController::logout');
 $routes->get('/inscription', 'LoginController::index');
 $routes->post('/inscription', 'LoginController::inscription');
 
+$routes->get('/programme','ProgrammeController::index');
+
 $routes->get('/profil', 'ProfilController::index'); 
 $routes->match(['GET', 'POST'], '/modifProfil/(:any)', 'ProfilController::modifierProfil/$1');
 
 $routes->get('/apropos', 'AproposController::index');
+
+$routes->get('/avant-apres', 'AvantApresController::index');
