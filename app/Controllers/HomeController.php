@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\AchatModel;
+use App\Models\AbonnementModel;
+use App\Models\AvisModel;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -17,10 +18,13 @@ class HomeController extends BaseController
 
 	public function index(): string
 	{
-		$achatModel = new AchatModel();
+		$abonnementModel = new AbonnementModel();
+		$avisModel = new AvisModel();
 
-		$achats = $achatModel->findAll();
-		$data['achats'] = $achats;
+		$abonnements = $abonnementModel->findAll();
+		$avis = $avisModel->findAll();
+		$data['abonnements'] = $abonnements;
+		$data['avis'] = $avis;
 
 		return view('index', $data);
 	}
