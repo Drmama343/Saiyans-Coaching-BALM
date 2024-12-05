@@ -81,13 +81,14 @@ html, body {
 }
 
 .contenu-accueil p {
+    margin: 0 0 4vh;
     font-size: 2vh;
     color: white;
     font-family: 'Lato', sans-serif;
 }
 
-.contenu-accueil button {
-    margin: 4vh;
+.contenu-accueil a {
+    margin: 4vh 0 0 0;
     padding: 1vh 15vh;
     opacity: 90%;
 }
@@ -170,7 +171,7 @@ button.next {
 /* --- Code Css rejoinnous.php --- */
 
 .conteneur-rejoinnous{
-    margin-top: 5vh;
+    margin: 5vh 0;
     overflow-x: hidden;
 }
 
@@ -189,6 +190,7 @@ button.next {
 
 .contenu-rejoinnous h2 {
     font-size: 7vh;
+    margin: 0 0 4vh 0;
 }
 
 .contenu-rejoinnous h1 {
@@ -203,10 +205,10 @@ button.next {
     font-size: 2vh;
     color: white;
     font-family: 'Lato', sans-serif;
+    margin: 0;
 }
 
-.contenu-rejoinnous button {
-    margin: 4vh;
+.contenu-rejoinnous a {
     padding: 1vh 15vh;
     opacity: 90%;
 }
@@ -404,13 +406,8 @@ button.next {
     font-size: 4vh;
 }
 
-.contenu-contact .contacts {
-    color: #F4E904;
-}
-
 .contacts {
     position: relative;
-    top: 17vh;
     margin: 0 15vw;
     display: flex;
     justify-content: space-between;

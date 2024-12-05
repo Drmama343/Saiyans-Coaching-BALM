@@ -5,6 +5,6 @@
 		<h1>Pourquoi pas toi ?</h1>
 		<p>Progresse comme un guerrier : ta transformation commence aujourd'hui !</p>
 		<h2 class="tJ">Rejoins les rangs !!</h2>
-		<button class="btnFJBG">Commencez Maintenant !</button>
+		<a href="/programme" class="btnFJBG">Commencez Maintenant !</a>
 	</div>
 </div>
