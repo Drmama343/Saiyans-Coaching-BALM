@@ -7,11 +7,11 @@
 					<div class="offre">
 						<h3><?= esc($offre['nom']) ?></h3>
 						<p>✔ <?= esc($offre['description']) ?></p>
-						<p><strong>Prix : <?= esc($offre['prix']) ?>/an</strong></p>
+						<p><strong>Prix : <?= esc($offre['prix']) ?> €/an</strong></p>
 					</div>
 				<?php endforeach; ?>
 				<?php else: ?>
-				<p>Aucune offre trouvée.</p>
+				<p>Aucune offre disponible.</p>
 			<?php endif; ?>
 		</div>
 		<button class="prev">◀</button>

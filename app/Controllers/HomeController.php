@@ -21,7 +21,7 @@ class HomeController extends BaseController
 		$abonnementModel = new AbonnementModel();
 		$avisModel = new AvisModel();
 
-		$offres = $abonnementModel->findAll();
+		$offres = $abonnementModel->orderBy('prix', 'ASC')->findAll();
 		$avis = $avisModel->findAll();
 		$data['offres'] = $offres;
 		$data['avis'] = $avis;
