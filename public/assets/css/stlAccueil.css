@@ -51,60 +51,6 @@ html, body {
     text-align: center;
 }
 
-/* --- Code Css navbar.php --- */
-
-nav {
-    position: absolute;
-    top: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Écarte les éléments horizontalement */
-    width: 80%; /* Ajustez selon vos besoins */
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex: 1; /* Permet au menu de prendre l'espace restant */
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3vh;
-	margin: 0 1.5vh;
-}
-
-nav img {
-    height: 12vh;
-}
-
-nav ul li .btnFGBJ {
-	margin-top: -8px;
-	margin-left: 20px;
-}
-
-nav .left-section {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Espace entre l'image et le menu */
-}
-
-nav ul li a:hover {
-    color: #F4E904;
-}
-
 /* --- Code Css accueil.php --- */
 
 .imgAccueil {
@@ -345,20 +291,20 @@ button.next {
     margin: auto;
     text-align: center;
     position: relative;
-    left: 7lh;
+    left: 7vw;
     display: flex;
     transition: transform 0.5s ease-in-out;
-    max-width: 60lh;
+    max-width: 60vw;
 }
 
 .temoignage {
-    min-width: 40lh;
+    min-width: 40vw;
     box-sizing: border-box;
     padding: 20px;
     background: #0c0c0c;
     color: white;
     border-left: 0.5vh solid #737373;
-    margin: 10px 2lh;
+    margin: 10px 2vw;
     border-radius: 10px;
     text-align: left;
     opacity: 1; /* Opacité par défaut */
@@ -370,7 +316,7 @@ button.next {
 }
 
 .contenu-temoignage p {
-    margin: 1vh 1lh;
+    margin: 1vh 1vw;
     text-align: justify;
     display: -webkit-box; /* Active le mode boîte flexible */
     -webkit-box-orient: vertical; /* Définit l'orientation verticale */
@@ -465,7 +411,7 @@ button.next {
 .contacts {
     position: relative;
     top: 17vh;
-    margin: 0 15lh;
+    margin: 0 15vw;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -527,7 +473,7 @@ button.next {
 .social-icons {
     margin-top: 75px;
     display: flex;
-    gap: 2lh;
+    gap: 2vw;
 }
   
 .social-icons img {
