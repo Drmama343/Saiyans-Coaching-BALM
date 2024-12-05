@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/assets/css/<?= $navbar; ?>">
     <?php endif; ?>
     <link rel="stylesheet" href="/assets/css/<?= $style ?? 'stlAcceuil.css'; ?>">
+    <link rel="stylesheet" href="/assets/css/stlFooter.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
