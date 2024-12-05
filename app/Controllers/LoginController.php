@@ -110,6 +110,8 @@ class LoginController extends BaseController {
 			if (!preg_match('/^0[1-9]([-. ]?[0-9]{2}){4}$/', $this->request->getVar('telephone'))) {
 				$this->session->setFlashdata('error', 'Le numéro de téléphone est invalide');
 				return redirect()->to('/inscription');
+			} else {
+				$telephone = $this->request->getVar('telephone');
 			}
 		} else {
 			$telephone = null;
