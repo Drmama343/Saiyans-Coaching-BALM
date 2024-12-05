@@ -15,7 +15,7 @@ class AchatSeeder extends Seeder
 				'date' => '2024-01-01',
 			],
 			[
-				'idsaiyan' => 2,
+				'idsaiyan' => 3,
 				'idproduit' => 2,
 				'date' => '2024-01-15',
 			],

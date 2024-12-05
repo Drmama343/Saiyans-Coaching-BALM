@@ -4,12 +4,14 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class ModifAchatTemoignage extends Migration
+class ModifAchatTable extends Migration
 {
     public function up()
     {
-        $this->forge->dropTable('achat', true);
+        // Supprimer la table `achat`
+        $this->db->query('DROP TABLE IF EXISTS achat CASCADE');
 
+        // Recréer la table `achat`
         $this->forge->addField([
             'idachat'    => [
                 'type'           => 'INT',
@@ -37,26 +39,22 @@ class ModifAchatTemoignage extends Migration
         $this->forge->createTable('achat', true);
     }
 
+
     public function down()
     {
-        $this->forge->dropTable('achat', true);
+        // Supprimer la table `achat`
+        $this->db->query('DROP TABLE IF EXISTS achat CASCADE');
 
+        // Recréer la table `avis`
         $this->forge->addField([
-            'idsaiyan' => [
+            'idachat' => [
                 'type'       => 'INT',
-                'null'       => false,
-            ],
-            'idproduit' => [
-                'type'       => 'INT',
+                'unsigned'   => true,
                 'null'       => false,
             ],
             'note' => [
                 'type'       => 'INT',
                 'null'       => true,
-            ],
-            'date' => [
-                'type' => 'DATE',
-                'null' => true,
             ],
             'temoignage' => [
                 'type'       => 'TEXT',
@@ -64,17 +62,8 @@ class ModifAchatTemoignage extends Migration
             ],
         ]);
 
-        $this->forge->addForeignKey('idsaiyan', 'saiyan', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('idproduit', 'produit', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('achat');
-        $this->db->query('ALTER TABLE achat ADD PRIMARY KEY ("idsaiyan", "idproduit")');
+        $this->forge->addKey('idachat', true);
+        $this->forge->addForeignKey('idachat', 'achat', 'idachat', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('avis', true);
     }
 }
-
-
-
-/*
- * rajouter un id aux achats
- * ajouter un table avis qui est relié à un achat afin de simplifier la récup
- * modif modif
- */ 
