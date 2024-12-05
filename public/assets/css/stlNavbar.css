@@ -2,8 +2,6 @@
 nav {
     position: absolute;
     top: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 100;
     display: flex;
     align-items: center;
@@ -62,10 +60,9 @@ nav ul img {
 /* --- Styles pour les petits écrans (< 1300px) --- */
 @media screen and (max-width: 1300px) {
     nav {
-        position: fixed;
+        position: absolute;
         top: 0;
         right: 0;
-        justify-content: space-between;
     }
 
     /* Icône Burger */
@@ -91,7 +88,7 @@ nav ul img {
         right: 0;
         background-color: #000;
         height: 100vh;
-        width: 60%;
+        width: 30vw;
         flex-direction: column;
         align-items: center;
         justify-content: center;
