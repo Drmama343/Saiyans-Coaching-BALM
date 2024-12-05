@@ -1,17 +1,17 @@
-<div class="conteneur-offres">
-	<h2 class="tJ">Nos Offres</h2>
+<div class="conteneur-produits">
+	<h2 class="tJ">Choisi ton besoin</h2>
 	<div class="carousel">
-		<div class="contenu-offres">
+		<div class="contenu-produits" id="contenu-produits">
 			<?php if (!empty($produits) && is_array($produits)): ?>
 				<?php foreach ($produits as $produit): ?>
 					<div class="produit">
 						<h3><?= esc($produit['nom']) ?></h3>
 						<p>✔ <?= esc($produit['description']) ?></p>
-						<p><strong>Prix : <?= esc($produit['prix']) ?> €/an</strong></p>
+						<p><strong>Prix : <?= esc($produit['prix']) ?>/an</strong></p>
 					</div>
 				<?php endforeach; ?>
 				<?php else: ?>
-				<p>Aucun produit disponible.</p>
+				<p>Aucun produit trouvé.</p>
 			<?php endif; ?>
 		</div>
 		<button class="prev">◀</button>

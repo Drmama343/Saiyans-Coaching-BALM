@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\TemoignageModel;
+use App\Models\SaiyanModel;
 
 class BlogController extends Controller
 {
@@ -13,7 +15,7 @@ class BlogController extends Controller
 
 	public function index()
 	{
-		/*
+		
 		$temoignageModel = new TemoignageModel;
 		$saiyanModel = new SaiyanModel;
 
@@ -22,11 +24,11 @@ class BlogController extends Controller
 			$temoignages[$key]['saiyan'] = $saiyanModel->find($temoignage['id_saiyan']);
 		}
 
-		
+
 		$data = [
 			'temoignages' => $temoignages,
-		];*/
+		];
 
-		return view('blog', /*$data*/);
+		return view('blog', $data);
 	}
 }
