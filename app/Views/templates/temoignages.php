@@ -7,7 +7,7 @@
 					<div class="temoignage">
 						<span class="tJ"><span class="etoile"></span><span class="etoile"></span><span class="etoile"></span><span class="etoile"></span><span class="etoile"></span></span>
 						<p><?= esc($avi['temoignage']) ?></p>
-						<h4><?= esc($avi['idsaiyan']) ?></h4> 
+						<h4><?= esc($avi['idachat']) ?></h4> 
 					</div>
 				<?php endforeach; ?>
 				<?php else: ?>

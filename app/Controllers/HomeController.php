@@ -19,7 +19,7 @@ class HomeController extends BaseController
 	public function index(): string
 	{
 		$abonnementModel = new AbonnementModel();
-		$achatModel = new AchatModel();
+		$avisModel = new AvisModel();
 
 		$abonnements = $abonnementModel->findAll();
 		$avis = $avisModel->findAll();
