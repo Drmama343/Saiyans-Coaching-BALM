@@ -7,6 +7,6 @@ use CodeIgniter\Model;
 class AchatModel extends Model {
 	protected $table = 'achat';
 
-	protected $primaryKey = 'idachat';
-	protected $allowedFields = ['idsaiyan', 'idproduit', 'date'];
+	protected $primaryKey = 'id';
+	protected $allowedFields = ['idsaiyan', 'idproduit', 'date', 'echeance'];
 }
