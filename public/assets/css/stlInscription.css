@@ -10,7 +10,6 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100vh;
     background-color: var(--noir);
 }
 
@@ -20,8 +19,11 @@ html, body {
     background-image: url(/assets/images/fondAccueil.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100lh;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
 }
+
 
 .contenu-inscription .img-flecheRetour {
     padding: 2vh;
@@ -51,14 +53,12 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5vh;
 }
 
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2vh;
-    margin-top: 2vh;
+    grid-gap: 1vh;
 }
 
 .cellule-grid {
@@ -71,6 +71,7 @@ html, body {
     background-color: var(--jaune);
     opacity: 70%;
     padding: 1vh 5vh;
+    margin-top: 2vh;
     border: 2px solid var(--gris);
     border-radius: 15px;
     color: var(--noir);
@@ -99,12 +100,17 @@ input {
     margin-top: 1vh;
 }
 
+select {
+    background-color: var(--noir);
+    border: 2px solid var(--gris);
+    border-radius: 15px;
+    color: var(--jaune);
+    padding: 1vh 5vh;
+    margin-top: 1vh;
+}   
+
 .form-inscription h3 {
     font-family: "Bebas Neue", sans-serif;
-}
-
-.form-inscription .cellule-grid-suggestions {
-    display: none;
 }
 
 .contenu-inscription .lien-connexion {

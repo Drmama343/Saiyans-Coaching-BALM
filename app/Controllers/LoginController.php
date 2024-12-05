@@ -30,19 +30,19 @@ class LoginController extends BaseController {
 				if (password_verify($this->request->getVar('password'), $utilisateur['mdp'])) {
 					// Si l'utilisateur a coché la case "Se souvenir de moi", on garde l'identifiant en cookie
 					if($this->request->getVar('remember')) {
-						setcookie('identifiant', $this->request->getVar('identifiant'), time() + 3600 * 24 * 30, '/');
+						setcookie('email', $this->request->getVar('email'), time() + 3600 * 24 * 30, '/');
 					} else {
-						setcookie('identifiant', '', time() - 3600);
+						setcookie('email', '', time() - 3600, '/');
 					}
 
 					$this->session->set('utilisateur', $utilisateur);
 					return redirect()->to('/');
 				} else {
-					$this->session->setFlashdata('password', 'Mot de passe incorrect');
+					$this->session->setFlashdata('error_password', 'Mot de passe incorrect');
 					return redirect()->to('/connexion');
 				}
 			} else {
-				$this->session->setFlashdata('email', 'Identifiant incorrect');
+				$this->session->setFlashdata('error_email', 'Identifiant incorrect');
 				return redirect()->to('/connexion');
 			}
 		} else {
@@ -50,47 +50,119 @@ class LoginController extends BaseController {
 		}
 	}
 
-	public function register() {
+	public function inscription() {
 		$utilisateurModel = new SaiyanModel();
-		$username = trim($this->request->getVar('username'));
-		$mail = trim($this->request->getVar('email'));
 
-		//Vérification de l'unicité du nom d'utilisateur
-		if ($utilisateurModel->where('username', $username)->first() || $username === "") {
-			$this->session->setFlashdata('error', 'Ce nom d\'utilisateur est déjà utilisé ou invalide');
-			return redirect()->to('/register');
+
+		// Vérification du nom, si il contient des chiffres ou des caractères spéciaux on renvoie une erreur
+		if (preg_match('/[0-9!@#$%^&*(),.?":{}|<>]/', $this->request->getVar('nom'))) {
+			$this->session->setFlashdata('error', 'Le nom ne doit pas contenir de chiffres ou de caractères spéciaux');
+			return redirect()->to('/inscription');
+		} else {
+			$nom = $this->request->getVar('nom');
 		}
 
-		//Vérification de l'unicité de l'adresse mail
+		// Vérification du prénom, si il contient des chiffres ou des caractères spéciaux on renvoie une erreur
+		if (preg_match('/[0-9!@#$%^&*(),.?":{}|<>]/', $this->request->getVar('prenom'))) {
+			$this->session->setFlashdata('error', 'Le prénom ne doit pas contenir de chiffres ou de caractères spéciaux');
+			return redirect()->to('/inscription');
+		} else {
+			$prenom = $this->request->getVar('prenom');
+		}
+
+		//Vérification de l'unicité de l'adresse mail et de sa validité
+		$mail = trim($this->request->getVar('email'));
 		if ($utilisateurModel->where('mail', $mail)->first() && !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 			$this->session->setFlashdata('error', 'Cette adresse mail est déjà utilisée ou invalide');
-			return redirect()->to('/register');
+			return redirect()->to('/inscription');
+		} else {
+			$mail = $this->request->getVar('email');
 		}
 
-		// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre
-		if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/', $this->request->getVar('mdp'))) {
-			$this->session->setFlashdata('error', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre');
-			return redirect()->to('/register');
-		}
-
-		//Vérification du mot de passe
-		if ($this->request->getVar('mdp') != $this->request->getVar('mdp_confirm')) {
+		// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre et autorise les caractères spéciaux
+		// Vérification du mot de passe et de sa confirmation
+		if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/', $this->request->getVar('password'))) {
+			$this->session->setFlashdata('error', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un caractère spécial et un chiffre');
+			return redirect()->to('/inscription');
+		} elseif($this->request->getVar('password') != $this->request->getVar('password_confirm')) {
 			$this->session->setFlashdata('error', 'Les mots de passe ne correspondent pas');
-			return redirect()->to('/register');
+			return redirect()->to('/inscription');
+		} else {
+			$mdp = $this->request->getVar('password');
+		}
+
+		//Vérification de l'adresse et récupération des informations
+		if ($this->request->getVar('adresse') != "") {
+			$adresse = $this->request->getVar('adresse');
+			$adresse = str_replace(' ', '+', $adresse);
+
+			$url = "https://api-adresse.data.gouv.fr/search/?q=$adresse&limit=1";
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			$response = curl_exec($curl);
+			curl_close($curl);
+		} else {
+			$response = null;
+		}
+
+		//Vérification du numéro de téléphone et de sa validité
+		if($this->request->getVar('telephone') != "") {
+			if (!preg_match('/^0[1-9]([-. ]?[0-9]{2}){4}$/', $this->request->getVar('telephone'))) {
+				$this->session->setFlashdata('error', 'Le numéro de téléphone est invalide');
+				return redirect()->to('/inscription');
+			}
+		} else {
+			$telephone = null;
+		}
+
+		//Vérification du sexe 
+		if ($this->request->getVar('sexe') != 'H' && $this->request->getVar('sexe') != 'F') {
+			$this->session->setFlashdata('error', 'Le sexe est invalide');
+			return redirect()->to('/inscription');
+		} else {
+			$sexe = $this->request->getVar('sexe');
+		}
+
+		//Vérification de l'âge
+		$age = (integer)$this->request->getVar('age');
+		if (!is_integer($age)) {
+			$this->session->setFlashdata('error', 'L\'âge est invalide');
+			return redirect()->to('/inscription');
+		}
+
+		//Vérification de la taille et formatage
+		$taille = (integer) $this->request->getVar('taille');
+		if(!is_integer($taille)) {
+			$this->session->setFlashdata('error', 'La taille est invalide');
+			return redirect()->to('/inscription');
+		}
+
+		//Vérification du poids
+		$poids = (float) $this->request->getVar('poids');
+		if(!is_float($poids)) {
+			$this->session->setFlashdata('error', 'Le poids est invalide');
+			return redirect()->to('/inscription');
 		}
 
 		$utilisateur = [
-			'username' => $username,
-			'nom' => $this->request->getVar('nom'),
-			'prenom' => $this->request->getVar('prenom'),
+			'nom' => $nom,
+			'prenom' => $prenom,
 			'mail' => $mail,
-			'mdp' => password_hash($this->request->getVar('mdp'), PASSWORD_DEFAULT)
+			'mdp' => password_hash($mdp, PASSWORD_DEFAULT),
+			'adresse' => $response,
+			'tel' => $telephone,
+			'sexe' => $sexe,
+			'admin' => false,
+			'age' => $age,
+			'taille' => $taille,
+			'poids' => $poids
 		];
+
 
 		$utilisateurModel->insert($utilisateur);
 
-		$this->session->setFlashdata('success', 'Votre compte a été crée avec succès. Un email vous a été envoyer pour valider votre compte, afin de pouvoir vous connecter.');
-		return redirect()->to('/login');
+		$this->session->setFlashdata('success', 'Inscription réussie. Vous pouvez maintenant vous connecter.');
+		return redirect()->to('/connexion');
 	}
 
 	public function modifProfil($usernameBase)
@@ -181,13 +253,13 @@ class LoginController extends BaseController {
 				$emailService->setSubject('Réinitialisez votre mot de passe');
 				$emailService->setMessage($message);
 				if ($emailService->send()) {
-					$this->session->setFlashdata('success', 'E-mail envoyé avec succès. (' . $mail . ')');
+					$this->session->setFlashdata('message', 'E-mail envoyé avec succès. (' . $mail . ')');
 					return redirect()->to('/forgotpwd');
 				} else {
 					echo $emailService->printDebugger();
 				}
 			} else {
-				$this->session->setFlashdata('error', 'Adresse e-mail non valide.');
+				$this->session->setFlashdata('error_forgotpwd', 'Adresse e-mail non valide.');
 				return redirect()->to('/forgotpwd');
 			}
 		} else {
@@ -207,38 +279,30 @@ class LoginController extends BaseController {
 				$utilisateur = $utilisateurModel->where('reset_token', $token)->first();
 				if ($utilisateur) {
 					$utilisateurModel->set('reset_token', null)->set('reset_token_expiration', null)->update($utilisateur['id']);
-					$this->session->setFlashdata('error', 'Le lien de réinitialisation est expiré.');
+					$this->session->setFlashdata('message', 'Le lien de réinitialisation est expiré.');
 					return redirect()->to('/connexion');
 				}
-				$this->session->setFlashdata('error', 'Le lien de réinitialisation est invalide ou à déja été utilisé.');
+				$this->session->setFlashdata('message', 'Le lien de réinitialisation est invalide ou à déja été utilisé.');
 				return redirect()->to('/connexion');
 			}
 
 			// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre
 			if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/', $this->request->getVar('mdp'))) {
-				$this->session->setFlashdata('error', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre');
+				$this->session->setFlashdata('error_mdp', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre');
 				return redirect()->to("/resetpwd/$token");
 			}
 
 			//Vérification du mot de passe
 			if ($this->request->getVar('mdp') != $this->request->getVar('mdp_confirm')) {
-				$this->session->setFlashdata('error', 'Les mots de passe ne correspondent pas');
+				$this->session->setFlashdata('error_mdpconfirm', 'Les mots de passe ne correspondent pas');
 				return redirect()->to("/resetpwd/$token");
-			}
-
-			// Valider et traiter les données du formulaire
-			$utilisateur = $utilisateurModel->where('reset_token', $token)->where('reset_token_expiration >', date('Y-m-d H:i:s'))->first();
-
-			if (!$utilisateur) {
-				$this->session->setFlashdata('error', 'Le lien de réinitialisation est invalide ou expiré.');
-				return redirect()->to('/connexion');
 			}
 
 			// Mettre à jour le mot de passe et réinitialiser le jeton
 			$hashedPassword = password_hash($this->request->getVar('mdp'), PASSWORD_DEFAULT);
 
 			$utilisateurModel->set('mdp', $hashedPassword)->set('reset_token', null)->set('reset_token_expiration', null)->update($utilisateur['id']);
-			$this->session->setFlashdata('success', 'Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter.');
+			$this->session->setFlashdata('message', 'Votre mot de passe a été modifié avec succès. Vous pouvez maintenant vous connecter.');
 			return redirect()->to('/connexion');
 		} else {
 			return view('login', ['token' => $token]);
