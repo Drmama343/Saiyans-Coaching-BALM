@@ -18,14 +18,14 @@ class HomeController extends BaseController
 
 	public function index(): string
 	{
-		$abonnementModel = new AbonnementModel();
+		/*$abonnementModel = new AbonnementModel();
 		$avisModel = new AvisModel();
 
 		$offres = $abonnementModel->orderBy('prix', 'ASC')->findAll();
 		$avis = $avisModel->findAll();
 		$data['offres'] = $offres;
-		$data['avis'] = $avis;
+		$data['avis'] = $avis;*/
 
-		return view('index', $data);
+		return view('index', /*$data*/);
 	}
 }

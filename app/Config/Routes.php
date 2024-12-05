@@ -25,3 +25,5 @@ $routes->match(['GET', 'POST'], '/modifProfil/(:any)', 'ProfilController::modifi
 $routes->get('/apropos', 'AproposController::index');
 
 $routes->get('/avant-apres', 'AvantApresController::index');
+
+$routes->get('/blog', 'BlogController::index');
