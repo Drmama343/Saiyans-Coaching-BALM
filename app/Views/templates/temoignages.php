@@ -5,12 +5,13 @@
 			<?php if (!empty($avis) && is_array($avis)): ?>
 				<?php foreach ($avis as $avi): ?>
 					<div class="temoignage">
-						<span class="tJ"><span class="etoile"></span><span class="etoile"></span><span class="etoile"></span><span class="etoile"></span><span class="etoile"></span></span>
+						<span class="tJ"><span class="etoile"></span><span class="etoile"></span><span
+								class="etoile"></span><span class="etoile"></span><span class="etoile"></span></span>
 						<p><?= esc($avi['temoignage']) ?></p>
-						<h4><?= esc($avi['idachat']) ?></h4> 
+						<h4><?= esc($avi['idachat']) ?></h4>
 					</div>
 				<?php endforeach; ?>
-				<?php else: ?>
+			<?php else: ?>
 				<p>Aucun temoignange trouvée.</p>
 			<?php endif; ?>
 		</div>
