@@ -1,4 +1,3 @@
-/* --- Styles pour les grands écrans (>= 1300px) --- */
 nav {
     position: absolute;
     top: 5vh;
@@ -125,5 +124,28 @@ nav ul img {
 
     .close-btn:hover {
         color: #F4E904;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    /* Masquer le menu par défaut */
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: #000;
+        height: 100vh;
+        width: 30vw;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 9999;
+    }
+
+    nav ul.active {
+        transform: translateX(-25vw);
     }
 }
