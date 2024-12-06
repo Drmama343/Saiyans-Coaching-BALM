@@ -5,6 +5,9 @@
 	include 'templates/header.php';
 	include 'templates/navbar.php';
 ?>
+
+<?php include 'templates/questions.php'; ?>
+
 <div class="conteneur-contact">
 	<div class="contenu-contact">
 		
