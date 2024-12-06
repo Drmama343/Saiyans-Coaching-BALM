@@ -155,7 +155,7 @@ nav ul img {
     }
 
     nav ul.active {
-        transform: translateX(-25vw);
+        transform: translateX(0);
     }
 }
 
