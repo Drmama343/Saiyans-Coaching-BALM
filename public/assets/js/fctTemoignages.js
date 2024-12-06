@@ -13,7 +13,7 @@
         const maxIndex = Math.ceil(totalOffers / visibleOffers) - 1;
         currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex);
         const offset = -currentIndex * 44; // Ajuste selon les besoins
-        contenu.style.transform = `translateX(${offset}lh)`;
+        contenu.style.transform = `translateX(${offset}vw)`;
 
         const offres = document.querySelectorAll('.temoignage');
         offres.forEach((offre, index) => {

@@ -6,9 +6,10 @@
 				<?php foreach ($produits as $produit): ?>
 					<div class="produit">
 						<h3><?= esc($produit['nom']) ?></h3>
+						<p id="prix"><strong><?= esc($produit['prix']) ?></strong></p>
+						<p id="descPrix">tous les mois</p>
 						<p><?= esc($produit['description']) ?></p>
-						<p><strong>Prix : <?= esc($produit['prix']) ?> €/an</strong></p>
-						<br>
+						<hr>
 						<p><?php if ($produit['entrainement'] == 't'): ?> <span style="color:green;">✔</span> <?php else: ?> <span style="color:red;">✕</span> <?php endif; ?> Entraînement</p>
 						<p><?php if ($produit['multimedia'] == 't'): ?> <span style="color:green;">✔</span> <?php else: ?> <span style="color:red;">✕</span> <?php endif; ?> Multimédia</p>
 						<p><?php if ($produit['alimentaire'] == 't'): ?> <span style="color:green;">✔</span> <?php else: ?> <span style="color:red;">✕</span> <?php endif; ?> Alimentaire</p>
