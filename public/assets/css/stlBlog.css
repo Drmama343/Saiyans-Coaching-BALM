@@ -23,21 +23,55 @@ html, body {
 	padding: 15vh 20vw 5vh;
 }
 
-.contenu-blog p {
-	font-family: 'Lato', sans-serif;
-	font-size: 2.5vh;
-	color: var(--blanc);
+.articles {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
+	grid-gap: 5vh;
 }
 
-.temoignage h3 {
+.article {
+    background-color: var(--noir);
+    border-radius: 2vw;
+    padding: 1vh 2vw 2vh;
+    position: relative; /* Nécessaire pour que .date se positionne par rapport à .article */
+}
+
+.article .date {
+    position: absolute; /* Positionnement relatif à .article */
+    top: 1vh;           /* Place la date en haut */
+    right: 1vw;         /* Aligne la date à droite */
+    font-family: 'Lato', sans-serif;
+    font-size: 2vh;
+    color: var(--jaune); /* Optionnel : Donne une couleur pour la date */
+}
+
+.article h2 {
 	font-family: "Bebas Neue", sans-serif;
 	font-size: 5vh;
-	text-align: center;
 	color: var(--jaune)
 }
 
-.temoignage p {
+.article p {
 	font-family: 'Lato', sans-serif;
 	font-size: 2.5vh;
 	color: var(--blanc);
+	text-align: justify;
+	display: -webkit-box; /* Active le mode boîte flexible */
+    -webkit-box-orient: vertical; /* Définit l'orientation verticale */
+    -webkit-line-clamp: 3; /* Limite à 3 lignes */
+    line-clamp: 3; /* Limite à 3 lignes */
+    overflow: hidden; /* Cache le reste du texte */
+    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
+}
+
+.article .saiyan {
+	position: absolute;
+	bottom: 1vh;
+	right: 1vw;
+}
+
+.article img {
+	width: 50%;
+	height: auto;
+	
 }

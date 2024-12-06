@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\SaiyanModel;
 use App\Models\AchatModel;
-use App\Models\AbonnementModel;
 use App\Models\ProduitModel;
 
 ini_set('display_errors', 1);
@@ -32,10 +31,12 @@ class ProfilController extends BaseController
         $data['saiyan'] = $saiyan;
 
 		//changement du json en bdd vers un string
-		$jsonString = $saiyan['adresse'];
-		$tmp = json_decode($jsonString, associative: true);
-		$adresseFormattee = $tmp['query'];
-		$data['stgAdr'] = $adresseFormattee;
+		if (isset($saiyan['adresse'])){
+			$jsonString = $saiyan['adresse'];
+			$tmp = json_decode($jsonString, associative: true);
+			isset($tmp['query']) ? $adresseFormattee = $tmp['query'] : $adresseFormattee = 'Adresse non reconnue';
+			$data['stgAdr'] = $adresseFormattee;
+		}
 
 
         $achatModel = new AchatModel();

@@ -18,7 +18,7 @@ class ProgrammeController extends BaseController
 		$temoignageModel = new TemoignageModel();
 
 		$produits = $produitModel->findAll();
-		$temoignages = $temoignageModel->findAll();
+		$temoignages = $temoignageModel->find();
 		$data['produits'] = $produits;
 		$data['temoignage'] = $temoignages;
 		

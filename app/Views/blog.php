@@ -7,16 +7,23 @@
 ?>
 <div class="conteneur-blog">
 	<div class="contenu-blog">
-		<?php if (!empty($temoignages) && is_array($temoignages)): ?>
-			<?php foreach ($temoignages as $temoignage) : ?>
-				<div class="temoignage">
-					<h3><?= $temoignage['saiyan']; ?></h3>
-					<p><?= $temoignage['contenu']; ?></p>
-				</div>
-			<?php endforeach; ?>
-		<?php else: ?>
-			<p>Aucun temoignage disponible.</p>
-		<?php endif; ?>
+		<div class="articles">
+			<?php if (!empty($articles) && is_array($articles)): ?>
+				<?php foreach ($articles as $article) : ?>
+					<div class="article">
+						<h2><?= $article['titre']; ?></h2>
+						<p class="date"><?= date('d/m/Y', strtotime($article['date_publi'])); ?></p>
+						<p><?= $article['contenu']; ?></p>
+						<p class="saiyan"><?= $article['saiyan']['prenom']; ?> <?= $article['saiyan']['nom']; ?></p>
+						<?php if (!empty($article['image'])): ?>
+							<img src="<?= base_url('assets/images/'.$article['image']); ?>" alt="<?= $article['titre']; ?>">
+						<?php endif; ?>
+					</div>
+				<?php endforeach; ?>
+			<?php else: ?>
+				<p>Aucun article disponible.</p>
+			<?php endif; ?>
+		</div>
 	</div>
 </div>
 

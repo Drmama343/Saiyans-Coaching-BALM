@@ -1,6 +1,7 @@
 <?php
 $title = "Saiyan's Coaching - Accueil";
 $style = "stlProfil.css";
+$navbar = "stlNavbar.css"; 
 include 'templates/header.php';
 ?>
 <?php include 'templates/navbar.php'; ?>
