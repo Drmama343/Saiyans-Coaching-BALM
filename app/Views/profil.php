@@ -4,7 +4,7 @@ $style = "stlProfil.css";
 $navbar = "stlNavbar.css"; 
 include 'templates/header.php';
 ?>
-<?php include 'templates/navbarAdmin.php'; ?>
+<?php include 'templates/navbar.php'; ?>
 
 <div class="conteneur-modif">
     <div class="contenu-modif">

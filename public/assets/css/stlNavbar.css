@@ -1,3 +1,12 @@
+/* Couleurs */
+
+:root {
+	--jaune: #F4E904;
+	--noir: #0c0c0c;
+	--gris: #737373;
+	--blanc: #ffffff;
+}
+
 nav {
 	position: absolute;
 	top: 5vh;
@@ -172,17 +181,30 @@ nav ul img {
 
 /* Contenu du modal */
 .modal-content {
-	background: #1A1A1A; /* Fond noir pour le contenu */
-	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(255, 223, 0, 0.4); /* Ombre jaune */
-	max-width: 450px;
-	width: 90%;
-	text-align: center;
-	animation: fadeIn 0.3s ease-in-out;
-	position: relative;
-	color: #FFD700; /* Texte jaune vif */
-	border: 1px solid #FFD700; /* Bordure jaune */
+    position: relative;
+    background-color: var(--noir); 
+	border: 2px solid var(--jaune);
+    border-radius: 2vh;
+    padding: 2rem; /* Ajout de padding pour un espacement confortable */
+    width: auto;
+    display: flex; /* Active Flexbox pour centrer les enfants */
+    flex-direction: row; 
+	align-items: center; 
+    justify-content: center; 
+    gap: 1vw;
+	animation: fadeIn 0.3s ease-in-out; /* Animation d'apparition */
+}
+
+.modal-content .btnFGBJ {
+	background-color: var(--gris);
+    opacity: 70%;
+    padding: 1vh 5vh;
+    border: 2px solid var(--jaune);
+    border-radius: 15px;
+    color: var(--blanc);
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
 }
 
 /* Bouton de fermeture */
