@@ -1,6 +1,6 @@
 <div class="conteneur-contact">
 	<div class="contenu-contact">
 		<h2>Prêt à embarquer dans cette aventure ?</h2>
-		<button class="btnFGBJ">Plus d'informations</button>
+		<a href="/blog" class="btnFGBJ">Plus d'informations</a>
 	</div>
 </div>

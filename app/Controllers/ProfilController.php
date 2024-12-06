@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\SaiyanModel;
 use App\Models\AchatModel;
-use App\Models\AbonnementModel;
 use App\Models\ProduitModel;
 
 ini_set('display_errors', 1);
