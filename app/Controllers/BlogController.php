@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\ArticleModel;
 use CodeIgniter\Controller;
-use App\Models\TemoignageModel;
 use App\Models\SaiyanModel;
 
 class BlogController extends Controller
@@ -16,17 +16,16 @@ class BlogController extends Controller
 	public function index()
 	{
 		
-		$temoignageModel = new TemoignageModel;
+		$articleModel = new ArticleModel();
 		$saiyanModel = new SaiyanModel;
 
-		$temoignages = $temoignageModel->findAll();
-		foreach ($temoignages as $key => $temoignage) {
-			$temoignages[$key]['saiyan'] = $saiyanModel->find($temoignage['idsaiyan']);
+		$articles = $articleModel->findByType('blog');
+		foreach ($articles as $key => $article) {
+			$articles[$key]['saiyan'] = $saiyanModel->find($article['auteur']);
 		}
 
-
 		$data = [
-			'temoignages' => $temoignages,
+			'articles' => $articles,
 		];
 
 		return view('blog', $data);

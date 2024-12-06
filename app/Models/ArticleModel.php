@@ -7,5 +7,9 @@ use CodeIgniter\Model;
 class ArticleModel extends Model {
 	protected $table = 'article';
 	protected $primaryKey = 'id';
-	protected $allowedFields = ['titre', 'contenu', 'auteur', 'date_publi', 'image'];
+	protected $allowedFields = ['titre', 'contenu', 'auteur', 'date_publi', 'image', 'type'];
+
+	public function findByType($type) {
+		return $this->where('type', $type)->findAll();
+	}
 }

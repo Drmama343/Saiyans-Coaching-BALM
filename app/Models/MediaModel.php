@@ -13,7 +13,7 @@ class MediaModel extends Model {
 	public function findByType($type) {
 		return $this->asArray()
 					->where(['type' => $type])
-					->where(['affichage' => 1])
+					->where(['affichage' => 't'])
 					->findAll();
 	}
 }

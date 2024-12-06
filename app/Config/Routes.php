@@ -28,5 +28,8 @@ $routes->get('/avant-apres', 'AvantApresController::index');
 
 $routes->get('/blog', 'BlogController::index');
 
+$routes->get('/actualite', 'ActualiteController::index');
+
 $routes->get('/contact', 'ContactController::index');
 $routes->post('/contact', 'ContactController::sendMail');
+
