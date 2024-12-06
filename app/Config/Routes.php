@@ -33,3 +33,5 @@ $routes->get('/actualite', 'ActualiteController::index');
 $routes->get('/contact', 'ContactController::index');
 $routes->post('/contact', 'ContactController::sendMail');
 
+$routes->get('/admin', 'AdminController::index');
+

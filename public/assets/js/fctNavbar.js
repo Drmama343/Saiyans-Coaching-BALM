@@ -22,22 +22,3 @@ window.addEventListener('click', (event) => {
 		modalCompte.style.display = 'none';
 	}
 });
-
-const compteBtn = document.getElementById('compteBtn');
-const adminBtn = document.getElementById('adminBtn');
-const logoutBtn = document.getElementById('logoutBtn');
-
-// Redirection pour le bouton compte
-compteBtn.addEventListener('click', () => {
-	window.location.href = '/profil'; // Redirige vers la route PHP /compte
-});
-
-// Redirection pour le bouton admin
-adminBtn.addEventListener('click', () => {
-	window.location.href = '/admin'; // Redirige vers la route PHP /admin
-});
-
-// Redirection pour le bouton logout
-logoutBtn.addEventListener('click', () => {
-	window.location.href = '/logout'; // Redirige vers la route PHP /logout
-});

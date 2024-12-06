@@ -15,7 +15,7 @@
 		<li><a href="/blog-admin">Blog</a></li>
 		<li><a href="/actualite-admin">Actualité</a></li>
 		<li><a href="/contact-admin">Contact</a></li>
-		<li><a href="/statistique">Statistique</a></li>
+		<li><a href="/statistique">Statistiques</a></li>
 		<?php if (isset($_SESSION['utilisateur'])): ?>
 		<li><button class="btnModal" id="openModalCompte"><img class="imgProfil" src="/assets/images/profil.png" alt="Image profil"></button></li>
 		<?php else : ?>
@@ -28,8 +28,8 @@
 <div id="creationCompteModal" class="modal">
 	<div class="modal-content">
 		<span class="close-btn" id="closeModalCompte">&times;</span>
-		<button id="compteBtn"><h5>Mon compte</h5></button>
-		<?php if (isset($_SESSION['utilisateur'])): ?><button id="adminBtn"><h5>Admin</h5></button><?php endif; ?>
-		<button id="logoutBtn"><h5>Déconnexion</h5></button>
+		<a href="/profil" id="compteBtn"><h5>Mon compte</h5></a>
+		<a href="/" id="adminBtn"><h5>Accueil</h5></a>
+		<a href="/logout" id="logoutBtn"><h5>Déconnexion</h5></a>
 	</div>
 </div>
