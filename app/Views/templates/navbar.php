@@ -29,7 +29,7 @@
 	<div class="modal-content">
 		<span class="close-btn" id="closeModalCompte">&times;</span>
 		<button id="compteBtn"><h5>Mon compte</h5></button>
-		<?php if (isset($_SESSION['utilisateur'])): ?><button id="adminBtn"><h5>Admin</h5></button><?php endif; ?>
+		<?php if ($_SESSION['utilisateur']['admin'] == 't'): ?><button id="adminBtn"><h5>Admin</h5></button><?php endif; ?>
 		<button id="logoutBtn"><h5>Déconnexion</h5></button>
 	</div>
 </div>

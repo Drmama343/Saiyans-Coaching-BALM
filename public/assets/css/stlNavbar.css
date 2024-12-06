@@ -165,29 +165,31 @@ nav ul img {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+	background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent plus sombre */
 	justify-content: center;
 	align-items: center;
 }
 
 /* Contenu du modal */
 .modal-content {
-	background: #E6E6E6;
-	padding: 15px;
+	background: #1A1A1A; /* Fond noir pour le contenu */
+	padding: 20px;
 	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 4px 8px rgba(255, 223, 0, 0.4); /* Ombre jaune */
 	max-width: 450px;
 	width: 90%;
 	text-align: center;
 	animation: fadeIn 0.3s ease-in-out;
 	position: relative;
+	color: #FFD700; /* Texte jaune vif */
+	border: 1px solid #FFD700; /* Bordure jaune */
 }
 
 /* Bouton de fermeture */
 .close-btn {
 	font-size: 1.5rem;
 	font-weight: bold;
-	color: #333;
+	color: #FFD700; /* Jaune vif */
 	cursor: pointer;
 	background: none;
 	border: none;
@@ -195,15 +197,17 @@ nav ul img {
 }
 
 .close-btn:hover {
-	color: #64ACFA;
+	color: #FFF200; /* Jaune encore plus vif au survol */
 }
 
-/* Effet de fermeture du modal */
+/* Animation pour l'apparition du modal */
 @keyframes fadeIn {
 	from {
 		opacity: 0;
+		transform: scale(0.9);
 	}
 	to {
 		opacity: 1;
+		transform: scale(1);
 	}
 }
