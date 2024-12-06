@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\ProduitModel;
+use App\Models\QuestionModel;
 use App\Models\TemoignageModel;
 
 ini_set('display_errors', 1);
@@ -19,7 +19,11 @@ class ContactController extends BaseController
 
 	public function index(): string
 	{
-		return view('contact');
+		$model = new QuestionModel();
+		$data['questions'] = $model->getPaginatedQuestion();
+        $data['pagerQuestions'] = $model->pager;
+
+		return view('contact', $data);
 	}
 
 	public function sendMail()

@@ -8,6 +8,11 @@
 }
 
 html, body {
+	background-image: url(/assets/images/fondAccueil.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed; 
 	margin: 0;
 	padding: 0;
 	background-color: var(--noir);
@@ -16,11 +21,6 @@ html, body {
 /* --- Code Css stlApropos.php --- */
 
 .conteneur-contact {
-	background-image: url(/assets/images/fondAccueil.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed; 
 	width: 100%;
 	height: 100vh;
 	overflow: hidden; /* Empêche le contenu de déborder ici */
@@ -29,12 +29,11 @@ html, body {
 .contenu-contact {
 	position: relative;
 	margin: 0 auto;
-	padding: 10vh 0 5vh; 
+	padding: 5vh 0 5vh; 
 	width: 70%; 
 	max-height: 100vh;
 	overflow-y: auto; /* Barre de défilement verticale */
 	color: var(--blanc);
-	background: rgba(0, 0, 0, 0.6); 
 	box-sizing: border-box; 
 }
 
@@ -91,7 +90,7 @@ html, body {
 }
 
 .form-connexion {
-	margin-top: 20vh;
+	margin-top: 5vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -135,4 +134,60 @@ input {
 	color: var(--jaune);
 	padding: 1vh 5vh;
 	margin-top: 1vh;
+}
+
+
+/* --- Code Css questions.php --- */
+.conteneur-question {
+    position: relative;
+	margin: 0 auto;
+	padding-top: 25vh; 
+	width: 70%; 
+	max-height: 100vh;
+	overflow-y: auto;
+}
+
+.contenu-question {
+    margin-top: 1vh;
+    padding: 10px;
+    border-radius: 5px;
+	background-color: var(--jaune);
+	color: var(--noir);	
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;	
+}
+
+.question button {
+    background-color: var(--noir);
+    color: var(--blanc);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+	padding: 5px 10px;
+}
+
+.question button:hover {
+    background-color: var(--gris);
+    color: var(--blanc);
+}
+
+.reponse {
+    display: none;
+	border-radius: 5px;
+	padding: 5px;
+    background-color: var(--noir);
+    color: var(--blanc);
+}
+
+#paginationQuestion {
+    position: relative;
+	margin: 0 auto;
+	padding: 3vh 0vh; 
+	width: 70%; 
+	max-height: 100vh;
 }
