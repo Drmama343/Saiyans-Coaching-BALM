@@ -3,6 +3,10 @@
 namespace App\Controllers;
 
 use App\Models\SaiyanModel;
+use App\Models\AchatModel;
+use App\Models\ProduitModel;
+use App\Models\ArticleModel;
+
 
 class AdminController extends BaseController
 {
@@ -10,7 +14,6 @@ class AdminController extends BaseController
 	public function __construct() {
 		$this->session = session();
 	}
-
 
 	public function index()
 	{
@@ -32,6 +35,6 @@ class AdminController extends BaseController
 			'pagerSaiyans' => $saiyanModel->pager
 		];
 
-		return view('admin', $data);
+		return view('admin/admin', $data);
 	}
 }
