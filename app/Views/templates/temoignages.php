@@ -6,7 +6,7 @@
 				<?php foreach ($temoignages as $temoignage): ?>
 					<div class="temoignage">
 						<span class="tJ">
-							<?php for($i = 0; $i <= $temoignage['note']; $i++): ?>
+							<?php for($i = 0; $i < $temoignage['note']; $i++): ?>
 								<span class="etoile"></span>
 							<?php endfor; ?>
 						</span>

@@ -300,6 +300,7 @@ button.next {
 }
 
 .temoignage {
+    position: relative; 
     min-width: 40vw;
     box-sizing: border-box;
     padding: 20px;
@@ -309,35 +310,37 @@ button.next {
     margin: 10px 2vw;
     border-radius: 10px;
     text-align: left;
-    opacity: 1; /* Opacité par défaut */
-    transition: opacity 0.1s ease-in-out; /* Transition douce */
-}
-
-.temoignage.hidden {
-    opacity: 0.3; /* Réduction de l'opacité */
+    opacity: 1; 
+    transition: opacity 0.1s ease-in-out; 
 }
 
 .temoignage .date {
     position: absolute;
     top: 1vh;
-    right: 18vw;
+    right: 1vw; 
+    font-size: 1.5vh;
+    color: #F4E904;
+}
+
+.temoignage.hidden {
+    opacity: 0.3;
 }
 
 .contenu-temoignage p {
     margin: 1vh 1vw;
     text-align: justify;
-    display: -webkit-box; /* Active le mode boîte flexible */
-    -webkit-box-orient: vertical; /* Définit l'orientation verticale */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 3; /* Limite à 3 lignes */
-    line-clamp: 3; /* Limite à 3 lignes */
+    line-clamp: 3;
     overflow: hidden; /* Cache le reste du texte */
     text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
 }
 
 .etoile {
-    width: 20px; /* Taille de l'étoile */
+    width: 20px; 
     height: 20px;
-    background-color: #F4E904; /* Couleur par défaut */
+    background-color: #F4E904; 
     clip-path: polygon(
         50% 0%,
         61% 35%,

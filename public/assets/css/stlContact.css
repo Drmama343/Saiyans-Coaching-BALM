@@ -21,8 +21,9 @@ html, body {
 /* --- Code Css stlApropos.php --- */
 
 .conteneur-contact {
+	background-color: var(--noir);
 	width: 100%;
-	height: 100vh;
+	height: 70vh;
 	overflow: hidden; /* Empêche le contenu de déborder ici */
 }
 
@@ -36,8 +37,6 @@ html, body {
 	color: var(--blanc);
 	box-sizing: border-box; 
 }
-
-
 
 .contenu-contact h3 {
 	font-family: "Bebas Neue", sans-serif;
@@ -142,6 +141,7 @@ input {
     position: relative;
 	margin: 0 auto;
 	padding-top: 25vh; 
+	padding-bottom: 10vh;
 	width: 70%; 
 	max-height: 100vh;
 	overflow-y: auto;
@@ -187,7 +187,7 @@ input {
 #paginationQuestion {
     position: relative;
 	margin: 0 auto;
-	padding: 3vh 0vh; 
+	padding: 1vh 0vh; 
 	width: 70%; 
 	max-height: 100vh;
 }
