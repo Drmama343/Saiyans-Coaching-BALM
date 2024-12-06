@@ -10,8 +10,8 @@
 		<?php if (!empty($temoignages) && is_array($temoignages)): ?>
 			<?php foreach ($temoignages as $temoignage) : ?>
 				<div class="temoignage">
-					<h3><?= $temoignage['saiyan']; ?></h3>
-					<p><?= $temoignage['contenu']; ?></p>
+					<h3><?= $temoignage['saiyan']['nom']; ?></h3>
+					<p><?= $temoignage['temoignage']; ?></p>
 				</div>
 			<?php endforeach; ?>
 		<?php else: ?>

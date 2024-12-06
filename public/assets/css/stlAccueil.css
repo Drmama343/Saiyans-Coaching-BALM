@@ -317,18 +317,21 @@ button.next {
     opacity: 0.3; /* Réduction de l'opacité */
 }
 
+.temoignage .date {
+    position: absolute;
+    top: 1vh;
+    right: 18vw;
+}
+
 .contenu-temoignage p {
     margin: 1vh 1vw;
     text-align: justify;
     display: -webkit-box; /* Active le mode boîte flexible */
     -webkit-box-orient: vertical; /* Définit l'orientation verticale */
     -webkit-line-clamp: 3; /* Limite à 3 lignes */
+    line-clamp: 3; /* Limite à 3 lignes */
     overflow: hidden; /* Cache le reste du texte */
     text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
-}
-
-.contenu-temoignage h4 {
-    font-style: italic;
 }
 
 .etoile {
