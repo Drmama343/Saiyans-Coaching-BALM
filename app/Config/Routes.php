@@ -35,3 +35,9 @@ $routes->post('/contact', 'ContactController::sendMail');
 
 $routes->get('/admin', 'AdminController::index');
 
+$routes->get('/admin/article', 'AdminController::article');
+
+$routes->get('/questionadmin', 'QuestionAdminController::index');
+$routes->match(['GET', 'POST'], '/modifQuestion/(:any)', 'QuestionAdminController::modifierQuestion/$1');
+$routes->match(['GET', 'POST'], '/creerQuestion', 'QuestionAdminController::creerQuestion');
+$routes->match(['GET', 'POST'], '/supprimerQuestion/(:any)', 'QuestionAdminController::supprimerQuestion/$1');
