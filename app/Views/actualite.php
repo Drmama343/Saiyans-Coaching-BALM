@@ -15,7 +15,7 @@
 						<h2><?= $article['titre']; ?></h2>
 						<p class="date"><?= date('d/m/Y', strtotime($article['date_publi'])); ?></p>
 						<p><?= $article['contenu']; ?></p>
-						<p class="auteur"><?= $article['auteur']; ?></p>
+						<p class="auteur"><?= $article['saiyan']['prenom']; ?> <?= $article['saiyan']['nom']; ?></p>
 						<?php if (!empty($article['image'])): ?>
 							<img src="<?= base_url('assets/images/'.$article['image']); ?>" alt="<?= $article['titre']; ?>">
 						<?php endif; ?>
