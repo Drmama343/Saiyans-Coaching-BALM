@@ -17,6 +17,7 @@ class MediaSeeder extends Seeder
 				'description' => 'Une séance de 30 minutes pour commencer.',
 				'media' => 'video1.mp4',
 				'type' => 'video',
+				'affichage' => true,
 			],
 			[
 				'id' => 2,
@@ -24,6 +25,7 @@ class MediaSeeder extends Seeder
 				'description' => 'Des exercices pour récupérer après une séance intense.',
 				'media' => 'video2.mp4',
 				'type' => 'video',
+				'affichage' => true,
 			],
 		];
 
