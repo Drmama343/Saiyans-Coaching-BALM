@@ -11,10 +11,10 @@
             </div>
         </div>
     <?php endforeach; ?>
-</div>
-<!-- Affichage des liens de pagination -->
-<div id="paginationQuestion">
-    <?= $pagerQuestions->links('Question', 'custom') ?>
+    <!-- Affichage des liens de pagination -->
+    <div id="paginationQuestion">
+        <?= $pagerQuestions->links('Question', 'custom') ?>
+    </div>
 </div>
 
 <script src="/assets/js/fctQuestions.js"></script>
