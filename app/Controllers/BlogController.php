@@ -21,7 +21,7 @@ class BlogController extends Controller
 
 		$temoignages = $temoignageModel->findAll();
 		foreach ($temoignages as $key => $temoignage) {
-			$temoignages[$key]['saiyan'] = $saiyanModel->find($temoignage['id_saiyan']);
+			$temoignages[$key]['saiyan'] = $saiyanModel->find($temoignage['idsaiyan']);
 		}
 
 

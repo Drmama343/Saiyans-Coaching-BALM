@@ -16,7 +16,7 @@ class AvantApresController extends Controller
 	{
 		$mediaModel = new MediaModel;
 
-		$medias = $mediaModel->findByType('video');
+		$medias = $mediaModel->findByType('video'); // A changer en 'photo'
 
 		$data = [
 			'medias' => $medias,

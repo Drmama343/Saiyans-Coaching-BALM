@@ -7,13 +7,13 @@ use CodeIgniter\Model;
 class MediaModel extends Model {
 	protected $table = 'media';
 	protected $primaryKey = 'id';
-	protected $allowedFields = ['titre','description','media','type'];
+	protected $allowedFields = ['titre','description','media','type', 'affichage'];
 
 	
 	public function findByType($type) {
-		$builder = $this->db->table($this->table);
-		$builder->where('type', $type);
-		$query = $builder->get();
-		return $query->getResultArray();
+		return $this->asArray()
+					->where(['type' => $type])
+					->where(['affichage' => 1])
+					->findAll();
 	}
 }
