@@ -2,11 +2,11 @@
     <div class="menu">
         <h4>Menu</h4>
         <ul>
-        <li>A propos</li>
-        <li>Programmes</li>
-        <li>Témoignages</li>
-        <li>Blog</li>
-        <li>Actualité</li>
+            <li><a href="/apropos">À propos</a></li>
+            <li><a href="/programme">Programmes</a></li>
+            <li><a href="/avant-apres">Avant / Après</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/actualite">Actualité</a></li>
         </ul>
     </div>
     <div class="contact">
@@ -32,6 +32,9 @@
             case 'inscription':
                 echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';
                 break;
+			case 'admin':
+				echo '<script src="/assets/js/fctStats.js"></script>';
+				break;
             case 'profil':
                 echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';
                 break;

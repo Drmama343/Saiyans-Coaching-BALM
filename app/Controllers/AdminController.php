@@ -17,15 +17,23 @@ class AdminController extends BaseController
 
 	public function index()
 	{
-		return view('admin/admin');
-	}
+		$saiyanModel = new SaiyanModel();
 
-	public function article()
-	{
-		$articleModel = new ArticleModel();
-		$articles = $articleModel->findAll();
-		$data['articles'] = $articles;
+		$sexe = $saiyanModel->sexe();
+		$age = $saiyanModel->age();
+		$poids = $saiyanModel->poids();
+		$taille = $saiyanModel->taille();
 
-		return view('admin/article', $data);
+		//var_dump($age);
+		//exit;
+
+		$data = [
+			'sexe' => $sexe,
+			'age' => $age,
+			'poids' => $poids,
+			'taille' => $taille,
+		];
+
+		return view('admin/admin', $data);
 	}
 }
