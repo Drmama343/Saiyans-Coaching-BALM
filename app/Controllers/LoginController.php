@@ -53,7 +53,6 @@ class LoginController extends BaseController {
 	public function inscription() {
 		$utilisateurModel = new SaiyanModel();
 
-
 		// Vérification du nom, si il contient des chiffres ou des caractères spéciaux on renvoie une erreur
 		if (preg_match('/[0-9!@#$%^&*(),.?":{}|<>]/', $this->request->getVar('nom'))) {
 			$this->session->setFlashdata('error', 'Le nom ne doit pas contenir de chiffres ou de caractères spéciaux');

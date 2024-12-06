@@ -19,6 +19,12 @@ class AchatSeeder extends Seeder
 				'echeance' => '2025-07-15',
 			],
 			[
+				'idsaiyan' => 2,
+				'idproduit' => 3,
+				'date' => '2024-01-10',
+				'echeance' => '2025-01-10',
+			],
+			[
 				'idsaiyan' => 3,
 				'idproduit' => 2,
 				'date' => '2024-01-15',

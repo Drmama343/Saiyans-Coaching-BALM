@@ -58,7 +58,7 @@ html, body {
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1vh;
+    grid-gap: 1vw;
 }
 
 .cellule-grid {
@@ -121,13 +121,4 @@ select {
 
 .lien-connexion a {
     color: var(--jaune);
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    color: var(--jaune);
-    margin-bottom: 2vh;
 }

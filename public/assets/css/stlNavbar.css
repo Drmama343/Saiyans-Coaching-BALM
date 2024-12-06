@@ -58,7 +58,8 @@ nav ul li a:hover {
 }
 
 nav ul img {
-	height: 4vh;
+    height: 4vh;
+    margin: 0 1vw;
 }
 
 .close-btn {
@@ -137,25 +138,99 @@ nav ul img {
 }
 
 @media screen and (max-width: 700px) {
-	/* Masquer le menu par défaut */
-	nav ul {
-		position: fixed;
-		top: 0;
-		right: 0;
-		background-color: #000;
-		height: 100vh;
-		width: 30vw;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-		transform: translateX(100%);
-		transition: transform 0.3s ease-in-out;
-		z-index: 9999;
-	}
+    /* Masquer le menu par défaut */
+    nav ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(110%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 9999;
+    }
 
-	nav ul.active {
-		transform: translateX(-25vw);
+    nav ul.active {
+        transform: translateX(0);
+    }
+}
+
+.btnModal {
+	all: unset; /* Réinitialise tous les styles par défaut du bouton */
+	display: inline-block; /* Permet de conserver la structure pour l'image */
+	cursor: pointer; /* Ajoute un curseur pointeur pour simuler un bouton */
+}
+
+/* Modal Styles */
+.modal {
+	display: none; /* Caché par défaut */
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent plus sombre */
+	justify-content: center;
+	align-items: center;
+}
+
+/* Contenu du modal */
+.modal-content {
+    position: relative;
+    background-color: var(--noir); 
+	border: 2px solid var(--jaune);
+    border-radius: 2vh;
+    padding: 2rem; /* Ajout de padding pour un espacement confortable */
+    width: auto;
+    display: flex; /* Active Flexbox pour centrer les enfants */
+    flex-direction: row; 
+	align-items: center; 
+    justify-content: center; 
+    gap: 1vw;
+	animation: fadeIn 0.3s ease-in-out; /* Animation d'apparition */
+}
+
+.modal-content .btnFGBJ {
+	background-color: var(--gris);
+    opacity: 70%;
+    padding: 1vh 5vh;
+    border: 2px solid var(--jaune);
+    border-radius: 15px;
+    color: var(--blanc);
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+}
+
+/* Bouton de fermeture */
+.close-btn {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #FFD700; /* Jaune vif */
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+.close-btn:hover {
+	color: #FFF200; /* Jaune encore plus vif au survol */
+}
+
+/* Animation pour l'apparition du modal */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
 	}
 }
 
