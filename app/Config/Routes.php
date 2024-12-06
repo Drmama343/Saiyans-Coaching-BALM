@@ -27,3 +27,6 @@ $routes->get('/apropos', 'AproposController::index');
 $routes->get('/avant-apres', 'AvantApresController::index');
 
 $routes->get('/blog', 'BlogController::index');
+
+$routes->get('/contact', 'ContactController::index');
+$routes->post('/contact', 'ContactController::sendMail');
