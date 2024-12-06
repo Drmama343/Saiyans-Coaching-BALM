@@ -9,40 +9,49 @@
 
 html, body {
     margin: 0;
-    padding-top: 10vh;
-    height: 100vh;
+    padding: 0;
     background-color: var(--noir);
 }
 
 /* --- Code Css profil.php --- */
 
-.contenu-modif {
-    top: 0;
-    text-align: center;
-    color: var(--jaune);
-    width: 100%;
+.conteneur-modif {
+    display: flex;
+    flex-direction: column; /* Organisation verticale du formulaire et du tableau */
+    align-items: center; /* Centre horizontalement */
 }
 
-.contenu-modif h2 {
+
+.contenu-modif {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    background-color: var(--noir);
+    border-radius: 2vh;
+    width: 70%; 
+    padding: 15vh 15vh 5vh 15vh; 
+}
+
+.formulaire-et-table h2 {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 5vh;
+    color: var(--jaune);
+    text-align: center;
 }
 
 .form-modif {
-    padding-top: 10%;
     color: var(--jaune);
     font-family: 'Lato', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5vh;
 }
 
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2vh;
-    margin-top: 2vh;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
+    gap: 1vw; /* Espacement entre les champs */
+    width: 100%;
 }
 
 .cellule-grid {
@@ -55,6 +64,7 @@ html, body {
     background-color: var(--jaune);
     opacity: 70%;
     padding: 1vh 5vh;
+    margin-top: 2vh;
     border: 2px solid var(--gris);
     border-radius: 15px;
     color: var(--noir);
@@ -83,12 +93,17 @@ input {
     margin-top: 1vh;
 }
 
+select {
+    background-color: var(--noir);
+    border: 2px solid var(--gris);
+    border-radius: 15px;
+    color: var(--jaune);
+    padding: 1vh 5vh;
+    margin-top: 1vh;
+}   
+
 .form-modif h3 {
     font-family: "Bebas Neue", sans-serif;
-}
-
-.form-grid .cellule-grid-suggestions {
-    display: none;
 }
 
 .contenu-modif .lien-connexion {
@@ -101,19 +116,10 @@ input {
     color: var(--jaune);
 }
 
-
-div h2{
-    color: var(--jaune);
-}
-
-div p{
-    color: var(--blanc);
-}
-
 .table-achat{
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 20px auto;
     text-align: center;
 }
 
@@ -124,7 +130,6 @@ div p{
 
 .table-achat th {
     background-color: var(--noir);
-    font-weight: bold; 
     color: var(--jaune); 
 }
 

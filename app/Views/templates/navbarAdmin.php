@@ -16,9 +16,9 @@
 		<li><a href="/article-admin">Articles</a></li>
 		<li><a href="/contact-admin">Contact</a></li>
 		<?php if (isset($_SESSION['utilisateur'])): ?>
-		<li><button class="btnModal" id="openModalCompte"><img class="imgProfil" src="/assets/images/profil.png" alt="Image profil"></button></li>
+			<li><button class="btnModal" id="openModalCompte"><img class="imgProfil" src="/assets/images/profil.png" alt="Image profil"></button></li>
 		<?php else : ?>
-		<li><a href="/connexion" class="btnFGBJ">Se Connecter</a></li>
+			<li><a href="/connexion" class="btnFGBJ">Se Connecter</a></li>
 		<?php endif; ?>
 	</ul>
 </nav>
