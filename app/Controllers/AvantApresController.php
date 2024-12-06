@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\MediaModel;
 
 class AvantApresController extends Controller
 {
@@ -13,14 +14,14 @@ class AvantApresController extends Controller
 
 	public function index()
 	{
-		/*$mediaModel = new MediaModel;
+		$mediaModel = new MediaModel;
 
-		$medias = $mediaModel->findByType('photo');
+		$medias = $mediaModel->findByType('video');
 
 		$data = [
-			'photos' => $medias['media'],
-		];*/
+			'medias' => $medias,
+		];
 
-		return view('avant-apres', /*$data*/);
+		return view('avant-apres', $data);
 	}
 }
