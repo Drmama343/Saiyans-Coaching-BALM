@@ -20,11 +20,6 @@
             <img src="/assets/images/whatsapp.png">
         </div>
     </div>
-    <div class="connectezvous">
-        <h4>Connectez vous!</h4>
-        <input type="email" placeholder="exemple@gmail.com"><br>
-        <button>Se connecter</button>
-    </div>
     <div>
         <img src="/assets/images/logo.png" alt="Logo">
     </div>
