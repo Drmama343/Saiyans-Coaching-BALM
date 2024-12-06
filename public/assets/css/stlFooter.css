@@ -19,11 +19,16 @@
     list-style: none;
     padding: 0;
 }
-  
+
 .menu li {
-    margin-bottom: 5px;
+    margin: 5px 0;
+}
+  
+.menu li a{
     text-align: left;
     cursor: pointer;
+    color: white;
+    text-decoration: none;
 }
   
 .contact {
