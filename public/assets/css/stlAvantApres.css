@@ -41,8 +41,14 @@ html, body {
 	font-weight: bold;
 }
 
-.photos {
+.medias {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 5vh;
+}
+
+.media {
+	width: 30vw;
+	max-width: 100%;
+	pointer-events: none;
 }

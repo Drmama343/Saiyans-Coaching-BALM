@@ -6,12 +6,12 @@
 			<br>
 			<?= session()->getFlashdata('message') ?>
 			<br>
-			<?= form_label('Adresse e-mail', 'email'); ?>
-			<?= form_input('email', isset($_COOKIE['email']) ? $_COOKIE['email'] : '', ['required' => 'required']) ?>
+			<?= form_label('Adresse e-mail', 'mail'); ?>
+			<?= form_input('mail', isset($_COOKIE['email']) ? $_COOKIE['email'] : '', ['required' => 'required']) ?>
 			<?= session()->getFlashdata('error_email') ?>
 			<br>
-			<?= form_label('Mot de passe *', 'password'); ?>
-			<?= form_password(['name' => 'password', 'id' => 'password', 'class' => '']); ?>
+			<?= form_label('Mot de passe *', 'mdp'); ?>
+			<?= form_password(['name' => 'mdp', 'id' => 'mdp', 'class' => '']); ?>
 			<?= session()->getFlashdata('error_password') ?>
 			<br>
 			<?= form_label('Se souvenir de moi', 'remember'); ?>
