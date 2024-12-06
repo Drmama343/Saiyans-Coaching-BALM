@@ -8,4 +8,8 @@ class QuestionModel extends Model {
 	protected $table = 'question';
 	protected $primaryKey = 'id';
 	protected $allowedFields = ['question', 'reponse'];
+
+    public function getPaginatedQuestion($perPage = 3) { 
+        return $this->paginate($perPage, 'Question');
+    }
 }
