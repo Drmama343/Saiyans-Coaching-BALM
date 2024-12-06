@@ -13,7 +13,7 @@
 		<li><a href="/admin">Statistiques</a></li>
 		<li><a href="/programme-admin">Programmes</a></li>
 		<li><a href="/temoignages-admin">Temoignages</a></li>
-		<li><a href="/article-admin">Articles</a></li>
+		<li><a href="/admin/article">Articles</a></li>
 		<li><a href="/contact-admin">Contact</a></li>
 		<?php if (isset($_SESSION['utilisateur'])): ?>
 			<li><button class="btnModal" id="openModalCompte"><img class="imgProfil" src="/assets/images/profil.png" alt="Image profil"></button></li>

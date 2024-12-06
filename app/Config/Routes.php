@@ -35,3 +35,5 @@ $routes->post('/contact', 'ContactController::sendMail');
 
 $routes->get('/admin', 'AdminController::index');
 
+$routes->get('/admin/article', 'AdminController::article');
+

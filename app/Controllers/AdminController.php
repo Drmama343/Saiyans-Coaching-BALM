@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Models\SaiyanModel;
+use App\Models\AchatModel;
+use App\Models\ProduitModel;
+use App\Models\ArticleModel;
 
 
 class AdminController extends BaseController
@@ -11,9 +15,17 @@ class AdminController extends BaseController
 		$this->session = session();
 	}
 
-
 	public function index()
 	{
-		return view('admin');
+		return view('admin/admin');
+	}
+
+	public function article()
+	{
+		$articleModel = new ArticleModel();
+		$articles = $articleModel->findAll();
+		$data['articles'] = $articles;
+
+		return view('admin/article', $data);
 	}
 }
