@@ -35,7 +35,7 @@ class ProfilController extends BaseController
 		if (isset($saiyan['adresse'])){
 			$jsonString = $saiyan['adresse'];
 			$tmp = json_decode($jsonString, associative: true);
-			$adresseFormattee = $tmp['query'];
+			isset($tmp['query']) ? $adresseFormattee = $tmp['query'] : $adresseFormattee = 'Adresse non reconnue';
 			$data['stgAdr'] = $adresseFormattee;
 		}
 
