@@ -126,21 +126,6 @@ enfin :
 php spark db:seed CommentaireSeeder
 ```
 
-### 5. Configurer l'envoi de rappels
-
-Ecrivez la commande : 
-```bash
-crontab -e
-```
-puis dans le fichier qui est ouvert mettez la ligne suivante : 
-```
-0 8 * * * /usr/bin/php /CodeIgniter/SGT/public/index.php EmailNotificationController envoyerNotificationParMail
-```
-ce qui correspond à : 
-```
-(tous les jours à 8h) (emplacement de php) (path pour ce projet)/public/index.php EmailNotificationController envoyerNotificationParMail
-```
-
 ## Lancement de l'application
 
 Pour lancer le serveur, mettez vous à la racine du répertoire du projet et écrivez la commande :
