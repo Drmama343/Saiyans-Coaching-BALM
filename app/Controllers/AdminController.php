@@ -21,14 +21,15 @@ class AdminController extends BaseController
 		$poids = $saiyanModel->poids();
 		$taille = $saiyanModel->taille();
 
-		//var_dump($age);
-		//exit;
+		$saiyans = $saiyanModel->getPaginatedSaiyans();
 
 		$data = [
 			'sexe' => $sexe,
 			'age' => $age,
 			'poids' => $poids,
 			'taille' => $taille,
+			'saiyans' => $saiyans,
+			'pagerSaiyans' => $saiyanModel->pager
 		];
 
 		return view('admin', $data);
