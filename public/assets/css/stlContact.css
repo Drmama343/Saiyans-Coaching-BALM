@@ -1,0 +1,138 @@
+/* Couleurs */
+
+:root {
+	--jaune: #F4E904;
+	--noir: #0c0c0c;
+	--gris: #737373;
+	--blanc: #ffffff;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--noir);
+}
+
+/* --- Code Css stlApropos.php --- */
+
+.conteneur-contact {
+	background-image: url(/assets/images/fondAccueil.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed; 
+	width: 100%;
+	height: 100vh;
+	overflow: hidden; /* Empêche le contenu de déborder ici */
+}
+
+.contenu-contact {
+	position: relative;
+	margin: 0 auto;
+	padding: 10vh 0 5vh; 
+	width: 70%; 
+	max-height: 100vh;
+	overflow-y: auto; /* Barre de défilement verticale */
+	color: var(--blanc);
+	background: rgba(0, 0, 0, 0.6); 
+	box-sizing: border-box; 
+}
+
+
+
+.contenu-contact h3 {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 5vh;
+	text-align: center;
+}
+
+.contenu-contact p {
+	font-family: 'Lato', sans-serif;
+	font-size: 2.5vh;
+}
+
+.contenu-contact ul li {
+	font-family: 'Lato', sans-serif;
+	font-size: 2.5vh;
+}
+
+.contenu-contact .la {
+	font-family: 'Lato', sans-serif;
+	font-size: 2.5vh;
+	font-weight: bold;
+	color: var(--jaune);
+}
+
+.contenu-contact .btn {
+	display: flex;
+	justify-content: center; 
+	align-items: center; 
+	margin-top: 3vh; 
+}
+
+
+.contenu-contact .btnFGBJ {
+	background-color: #737373;
+	opacity: 70%;
+	padding: 1vh 5vw;
+	border: 2px solid #F4E904;
+	border-radius: 15px;
+	color: white;
+	text-decoration: none;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 18px;
+}
+
+.contenu-contact .btnFGBJ:hover {
+	background-color: #F4E904;
+	border: 2px solid #737373;
+	color: #0c0c0c;
+	transition: all 0.5s ease;
+}
+
+.form-connexion {
+	margin-top: 20vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form-connexion h2 {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 5vh;
+}
+
+.form-connexion {
+	color: var(--jaune);
+	font-family: 'Lato', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.btnFJBG {
+	background-color: var(--jaune);
+	opacity: 70%;
+	padding: 1vh 5vh;
+	border: 2px solid var(--gris);
+	border-radius: 15px;
+	color: var(--noir);
+	text-decoration: none;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 18px;
+}
+
+.btnFJBG:hover {
+	background-color: var(--gris);
+	color: var(--jaune);
+	transition: all 0.5s ease;
+}
+
+input {
+	background-color: var(--noir);
+	border: 2px solid var(--gris);
+	border-radius: 15px;
+	color: var(--jaune);
+	padding: 1vh 5vh;
+	margin-top: 1vh;
+}
