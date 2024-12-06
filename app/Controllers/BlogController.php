@@ -19,7 +19,7 @@ class BlogController extends Controller
 		$articleModel = new ArticleModel();
 		$saiyanModel = new SaiyanModel;
 
-		$articles = $articleModel->findAll();
+		$articles = $articleModel->findByType('blog');
 		foreach ($articles as $key => $article) {
 			$articles[$key]['saiyan'] = $saiyanModel->find($article['auteur']);
 		}
