@@ -137,6 +137,7 @@ html, body {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: left;
+    text-decoration: none;
     transition: all 0.3s ease-in-out;
     border: 1px solid white;
     background-color: #0c0c0c;
@@ -154,7 +155,7 @@ html, body {
 
 .produit #descPrix {
     margin: 0 0 0 60%;
-    font-size: 0.5vw;
+    font-size: 1vw;
     color: #F4E904;
 }
 
