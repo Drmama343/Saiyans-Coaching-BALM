@@ -37,6 +37,9 @@
             case 'inscription':
                 echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';
                 break;
+			case 'admin':
+				echo '<script src="/assets/js/fctStats.js"></script>';
+				break;
             case 'profil':
                 echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';
                 break;

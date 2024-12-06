@@ -1,0 +1,42 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #0c0c0c;
+    font-family: 'Nota', sans-serif;
+}
+
+/* Conteneur global des statistiques */
+.conteneur-stats {
+    margin: 15vh auto;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap; /* Permet de mettre plusieurs éléments sur plusieurs lignes */
+    justify-content: space-evenly; /* Espace égal entre les graphiques */
+}
+
+/* Conteneur de chaque graphique */
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 95%; /* Chaque graphique prendra 45% de la largeur de son conteneur parent */
+    max-width: 500px; /* Limite la largeur maximale de chaque graphique */
+}
+
+/* Pour que les graphiques se comportent bien sur les petits écrans (responsive) */
+@media (max-width: 768px) {
+    .conteneur-stats .chart-container {
+        width: 90%; /* Les graphiques prennent 90% de l'espace disponible sur les petits écrans */
+        margin: 10px auto; /* Centrer les graphiques */
+    }
+}
+
+/* Titre des statistiques */
+.conteneur-stats h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+}
