@@ -50,6 +50,7 @@ nav ul li a:hover {
 
 nav ul img {
     height: 4vh;
+    margin: 0 1vw;
 }
 
 .close-btn {
@@ -132,20 +133,19 @@ nav ul img {
     nav ul {
         position: fixed;
         top: 0;
-        right: 0;
+        left: 0;
         background-color: #000;
         height: 100vh;
-        width: 30vw;
+        width: 100vw;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-        transform: translateX(100%);
+        transform: translateX(110%);
         transition: transform 0.3s ease-in-out;
         z-index: 9999;
     }
 
     nav ul.active {
-        transform: translateX(-25vw);
+        transform: translateX(0);
     }
 }

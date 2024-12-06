@@ -88,64 +88,90 @@ html, body {
 }
 
 .contenu-accueil a {
-    margin: 4vh 0 0 0;
+    margin: 2vmin 0;
     padding: 1vh 10vw;
     opacity: 90%;
+    font-size: 1.5vw;
 }
 
 /* --- Code Css produits.php --- */
 
 .conteneur-produits {
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .conteneur-produits h2 {
     position: relative;
-	top: -3vw;
+    top: -3vw;
     left: 50%;
-    font-size: 5vw;
+    font-size: 4vw;
     transform: translateX(-50%);
-}
-
-.contenu-produits {
-    margin: auto;
-    text-align: center;
-    position: relative;
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    max-width: 60%;
 }
 
 .carousel {
     overflow: hidden;
     position: relative;
+    left: calc(50% + 2vw);
+    transform: translateX(-50%);
+    width: 80vw;
+    display: flex;
+    justify-content: center; /* Centre les produits visibles */
+}
+
+.contenu-produits {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px; /* Espacement entre les produits */
+    position: relative;
+    left: 12vw;
+    width: 100%;
 }
 
 .produit {
-    min-width: calc(93% / 3);
-    height: 70vh;
     box-sizing: border-box;
     padding: 20px;
+    min-width: 20rem;
     background: #f8f8f8;
-    margin: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: left;
-    opacity: 1; /* Opacité par défaut */
-    transition: opacity 0.1s ease-in-out; /* Transition douce */
+    transition: all 0.3s ease-in-out;
+    border: 1px solid white;
+    background-color: #0c0c0c;
+    color: white;
+}
+
+.produit h3 {
+    color: #F4E904;
+}
+
+.produit #prix {
+    margin: 0;
+    font-size: 2.5vw;
+}
+
+.produit #descPrix {
+    margin: 0 0 0 60%;
+    font-size: 0.5vw;
+    color: #F4E904;
+}
+
+hr {
+    color: #F4E904;
+    margin: 3vh 0;
 }
 
 .produit.hidden {
-    opacity: 0.3; /* Réduction de l'opacité */
+    opacity: 0.3;
 }
-
 
 button.prev, button.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #F4E904; /* Yellow */
+    background: #F4E904;
     color: #737373;
     border: none;
     padding: 10px;
@@ -155,16 +181,22 @@ button.prev, button.next {
 }
 
 button.prev {
-    left: 20vh;
+    left: 20px; /* Plus proche des produits */
 }
 
 button.next {
-    right: 20vh;
+    right: 20px; /* Plus proche des produits */
 }
 
-@media (max-width: 768px) {
-    .produit {
-        min-width: 100%;
+@media (max-width: 1200px) {
+    .carousel {
+        overflow: hidden;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80vw;
+        display: flex;
+        justify-content: center; /* Centre les produits visibles */
     }
 }
 
@@ -213,7 +245,7 @@ button.next {
     opacity: 90%;
 }
 
-/* --- Code Css offres.php --- */
+/* --- Code Css video.php --- */
 
 .conteneur-video {
     width: 100%;
