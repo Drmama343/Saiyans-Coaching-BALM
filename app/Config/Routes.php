@@ -26,6 +26,7 @@ $routes->match(['GET', 'POST'], '/supprimerProfil/(:any)', 'ProfilController::su
 $routes->get('/apropos', 'AproposController::index');
 
 $routes->get('/avant-apres', 'AvantApresController::index');
+$routes->match(['GET', 'POST'], '/ajoutTemoignage/(:any)', 'AvantApresController::ajoutTemoignage/$1');
 
 $routes->get('/blog', 'BlogController::index');
 

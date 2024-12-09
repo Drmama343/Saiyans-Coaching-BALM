@@ -23,7 +23,7 @@
 
     <?php foreach ($questions as &$question) : ?>
         <div class="contenu-question">
-            <?= form_open("/modifQuestion/" . $question['id']); ['class' => 'form-modif']?>
+            <?= form_open("/admin/modifQuestion/" . $question['id']); ['class' => 'form-modif']?>
                 <div class="question">
                     <?= form_label('Question', 'question'); ?>
                     <?= form_textarea('question', $question['question'], ['required' => 'required', 'placeholder' => 'Écrivez votre question ici...', 'rows' => 2]) ?>
@@ -36,7 +36,7 @@
             <?= form_close(); ?>
 
             
-            <?= form_open("supprimerQuestion/".$question['id'], ['class' => 'form-suppression', 'onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer cette question ?');"]) ?>
+            <?= form_open("/admin/supprimerQuestion/".$question['id'], ['class' => 'form-suppression', 'onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer cette question ?');"]) ?>
                 <?= form_hidden('id_question', $question['id']) ?>
                 <?= form_submit('submit', 'Supprimer', ['class' => 'btn-supprimer']) ?>
             <?= form_close(); ?>

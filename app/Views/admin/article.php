@@ -8,7 +8,6 @@
 
 <div class="conteneur-admin-article">
 	<div class="contenu-admin-article">
-		<h2>Articles</h2>
 		<div class="tableau-admin-article">
 			<table>
 				<thead>

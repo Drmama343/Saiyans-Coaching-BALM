@@ -15,7 +15,7 @@
 		<li><a href="/admin/programme">Programmes <span>&#128081;</span></a></li>
 		<li><a href="/admin/temoignage">Temoignages <span>&#128081;</span></a></li>
 		<li><a href="/admin/article">Articles <span>&#128081;</span></a></li>
-		<li><a href="/questionadmin">Questions <span>&#128081;</span></a></li>
+		<li><a href="/admin/question">Questions <span>&#128081;</span></a></li>
 		<?php if (isset($_SESSION['utilisateur'])): ?>
 			<li><button class="btnModal" id="openModalCompte"><img class="imgProfil" src="/assets/images/profil.png" alt="Image profil"></button></li>
 		<?php else : ?>
