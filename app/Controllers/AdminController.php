@@ -199,7 +199,7 @@ class AdminController extends BaseController
 
 		$model->update($idQuestion, $questionChange);
 
-		return redirect()->to('/questionadmin')->with('success', 'Question modifié avec succès');
+		return redirect()->to('admin/question')->with('success', 'Question modifié avec succès');
 	}
 
 	public function supprimerQuestion ($idQuestion){
@@ -207,7 +207,7 @@ class AdminController extends BaseController
 
 		$model->delete($idQuestion);
 
-		return redirect()->to('/questionadmin')->with('success', 'Question supprimé avec succès');
+		return redirect()->to('admin/question')->with('success', 'Question supprimé avec succès');
 	}
 
 	public function creerQuestion (){
@@ -220,7 +220,7 @@ class AdminController extends BaseController
 
 		$model->insert($newQuestion);
 
-		return redirect()->to('/questionadmin')->with('success', 'Question ajouté avec succès');
+		return redirect()->to('admin/question')->with('success', 'Question ajouté avec succès');
 	}
 
 	public function saiyan(){
@@ -228,7 +228,7 @@ class AdminController extends BaseController
 		$data['saiyans'] = $model->getPaginatedSaiyans(10);
 		$data['pagerSaiyan'] = $model->pager;
 
-		return view('saiyansadmin', $data);
+		return view('admin/saiyan', $data);
 	}
 	public function article()
 	{
