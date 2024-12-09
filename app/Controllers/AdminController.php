@@ -185,7 +185,7 @@ class AdminController extends BaseController
 		$model = new QuestionModel();
 		$data['questions'] = $model->getPaginatedQuestion();
 		$data['pagerQuestions'] = $model->pager;
-		return view('questionsadmin', $data);
+		return view('/admin/question', $data);
 	}
 
 	public function modifierQuestion ($idQuestion){
