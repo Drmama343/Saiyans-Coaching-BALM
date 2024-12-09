@@ -1,26 +1,21 @@
-<div class="conteneur-modifier-article">
-	<div class="contenu-modifier-article">
+<div class="conteneur-modifier">
+	<div class="contenu-modifier">
 		<h2>Modifier un article</h2>
-		<form action="<?= base_url('admin/article/' . $data['id']) ?>" method="post">
-			<div class="form-group">
-				<label for="titre">Titre</label>
-				<input type="text" name="titre" id="titre" value="<?= $data['titre'] ?>">
-			</div>
-			<div class="form-group">
-				<label for="contenu">Contenu</label>
-				<textarea name="contenu" id="contenu" cols="30" rows="10"><?= $data['contenu'] ?></textarea>
-			</div>
-			<div class="form-group">
-				<label for="image">Image</label>
-				<input type="text" name="image" id="image" value="<?= $data['image'] ?>">
-			</div>
-			<div class="form-group">
-				<label for="affichage">Affichage</label>
-				<input type="checkbox" name="affichage" id="affichage" <?= $data['affichage'] === "t" ? "checked" : "" ?>>
-			</div>
-			<div class="form-group">
-				<button type="submit">Modifier</button>
-			</div>
-		</form>
+		<?= form_open_multipart(base_url('admin/modifArticle/' . $data['id'])) ?>
+			<?= form_label('Titre', 'titre') ?>
+			<?= form_input('titre', $data['titre']) ?>
+			<br>
+			<?= form_label('Contenu', 'contenu') ?>
+			<?= form_textarea('contenu', $data['contenu']) ?>
+			<br>
+			<?= form_label('Image', 'image') ?>
+			<?= form_upload('image') ?>
+			<br>
+			<?= form_label('Affichage', 'affichage') ?>
+			<?= form_checkbox('affichage', 't', $data['affichage'] === "t" ? true : false) ?>
+			<br>
+			<?= form_submit('submit', 'Modifier', ['class' => 'btnFGBJ']) ?>
+		<?= form_close() ?>
+
 	</div>
 </div>
