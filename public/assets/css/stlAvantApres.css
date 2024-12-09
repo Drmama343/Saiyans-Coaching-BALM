@@ -89,3 +89,12 @@ html, body {
 .note input {
   display: none;
 }
+
+.btnModal {
+	all: unset; /* Réinitialise tous les styles par défaut du bouton */
+	display: inline-block; /* Permet de conserver la structure pour l'image */
+	cursor: pointer; /* Ajoute un curseur pointeur pour simuler un bouton */
+  color: var(--jaune);
+  font-size: xx-large;
+  border: 1px #F4E904;
+}

@@ -1,9 +1,9 @@
-<?php 
-	$title = "Saiyan's Coaching - Avant / Après";
-	$style = "stlAvantApres.css";
-	$navbar = "stlNavbar.css";
-	include 'templates/header.php';
-	include 'templates/navbar.php';
+<?php
+$title = "Saiyan's Coaching - Avant / Après";
+$style = "stlAvantApres.css";
+$navbar = "stlNavbar.css";
+include 'templates/header.php';
+include 'templates/navbar.php';
 ?>
 
 <div class="conteneur-avant-apres">
@@ -19,7 +19,7 @@
 		</p>
 
 		<p>
-			Ces images sont bien plus qu'une simple métamorphose physique. 
+			Ces images sont bien plus qu'une simple métamorphose physique.
 		</p>
 
 		<p>
@@ -35,10 +35,12 @@
 		<div id="creationTemoignageModal" class="modal">
 			<div class="modal-content">
 				<span class="close-btn" id="closeModalTemoignage">&times;</span>
-				<?php if(!isset($_SESSION['utilisateur'])): ?>
-					<a href="/login" class="btnFGBJ"><h5>Connectez vous !</h5></a>
+				<?php if (!isset($_SESSION['utilisateur'])): ?>
+					<a href="/login" class="btnFGBJ">
+						<h5>Connectez vous !</h5>
+					</a>
 				<?php else: ?>
-					<?= form_open_multipart("/ajoutTemoignage/".$_SESSION['utilisateur']['id'] , ['class' => 'form-ajout']) ?>
+					<?= form_open_multipart("/ajoutTemoignage/" . $_SESSION['utilisateur']['id'], ['class' => 'form-ajout']) ?>
 					<h2>Votre témoignage :</h2>
 					<div class="form-grid">
 						<div class="cellule-grid">
@@ -47,17 +49,18 @@
 						</div>
 						<div class="cellule-grid">
 							<?= form_label('Votre note entre 1 et 5 *:', 'note') ?>
-							<?= form_input('note', '', ['min' => '1', 'max' => '5', 'step' => '1', 'required' => 'required'],'number') ?>
-						</div>	
+							<?= form_input('note', '', ['min' => '1', 'max' => '5', 'step' => '1', 'required' => 'required'], 'number') ?>
+						</div>
 						<div class="cellule-grid">
 							<?= form_label('Image de votre transformation :', 'image') ?>
 							<?= form_upload('image', '', ['accept' => 'image/*']) ?>
 						</div>
 						<div>
-							<?= form_submit( 'submit', 'Sauvegarder', ['class' => 'btnFJBG']) ?>	
+							<?= form_submit('submit', 'Sauvegarder', ['class' => 'btnFJBG']) ?>
 						</div>
-					<? form_close(); ?>
-				<?php endif; ?>
+						<? form_close(); ?>
+					<?php endif; ?>
+					</div>
 			</div>
 		</div>
 
@@ -67,7 +70,7 @@
 					<div class="media">
 						<video controls loop autoplay muted disablePictureInPicture>
 							<source src="/assets/video/<?= $media['media']; ?>">
-						</video>						
+						</video>
 					</div>
 				<?php endforeach; ?>
 			<?php else: ?>
