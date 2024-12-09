@@ -13,7 +13,7 @@
 		<li><a href="/admin">Statistiques</a></li>
 		<li><a href="/admin/saiyan">Saiyans</a></li>
 		<li><a href="/admin/programme">Programmes</a></li>
-		<li><a href="/temoignages-admin">Temoignages</a></li>
+		<li><a href="/admin/temoignage">Temoignages</a></li>
 		<li><a href="/admin/article">Articles</a></li>
 		<li><a href="/admin/question">Questions</a></li>
 		<?php if (isset($_SESSION['utilisateur'])): ?>
