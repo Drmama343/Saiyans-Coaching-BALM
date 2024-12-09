@@ -25,51 +25,61 @@ html, body {
 .contenu-admin-article h2 {
 	color: var(--jaune);
 }
-
-.tableau-admin-article {
-    border-collapse: separate; /* Utiliser `separate` pour activer l'espacement */
-    border-spacing: 0px; /* Aucun espace entre les cellules */
-    width: 100%; /* Facultatif : ajuste la largeur */
-    color: var(--blanc);
-    border: 1px solid var(--jaune); /* Ajoute les bordures externes */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 5vw 0 0 0;
+	font-size: 1vmax;
+	color: #333;
+	background-color: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+    text-align: center;
 }
 
-.tableau-admin-article th,
-.tableau-admin-article td {
-    border-bottom: 1px solid var(--jaune); /* Ligne horizontale interne */
-    border-right: 1px solid var(--jaune); /* Ligne verticale interne */
+thead {
+	background-color: #F4E904;
+    font-family: "Bebas Neue", sans-serif;
 }
 
-.tableau-admin-article tr:last-child td {
-    border-bottom: none; /* Supprime la bordure horizontale après la dernière ligne */
+thead th {
+	padding: 12px 15px;
 }
 
-.tableau-admin-article td:last-child,
-.tableau-admin-article th:last-child {
-    border-right: none; /* Supprime la bordure verticale après la dernière colonne */
+tbody tr {
+	border-bottom: 1px solid #ddd;
+	transition: background-color 0.3s ease;
 }
 
-.tableau-admin-article th {
-    text-align: center; /* Aligne le texte des en-têtes */
-    background-color: var(--noir); /* Facultatif : contraste avec les en-têtes */
+tbody tr:last-child{
+	border: none;
 }
 
-.tableau-admin-article td {
-    padding: 10px; /* Facultatif : espace dans les cellules */
-    text-align: center; /* Centre le contenu */
+tbody tr:nth-of-type(even) {
+	background-color: #f9f9f9;
 }
 
-.tableau-admin-article tr {
-	border: 1px solid var(--jaune);
+tbody tr:hover {
+	background-color: #f1f1f1;
 }
 
-.tableau-admin-article .celluleImage {
-	text-decoration: underline;
-	cursor: pointer;
+tbody td {
+	padding: 12px 15px;
+    font-family: 'Lato', sans-serif;
 }
 
-.tableau-admin-article td a {
-	color: var(--jaune);
+td:first-child {
+	font-weight: bold;
+	color: #0c0c0c;
+}
+
+table a {
+    color: #0c0c0c;
+}
+
+.celluleImage {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .modal {
