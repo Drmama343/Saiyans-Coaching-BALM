@@ -47,6 +47,8 @@ $routes->match(['GET', 'POST'], 'admin/supprPromotion/(:any)', 'AdminController:
 
 $routes->get('/admin/article', 'AdminController::article');
 
+$routes->get('/admin/temoignage', 'AdminController::temoignage');
+
 $routes->get('/admin/question', 'AdminController::question');
 $routes->match(['GET', 'POST'], '/admin/modifQuestion/(:any)', 'AdminController::modifierQuestion/$1');
 $routes->match(['GET', 'POST'], '/admin/creerQuestion', 'AdminController::creerQuestion');

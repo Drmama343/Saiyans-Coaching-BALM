@@ -1,0 +1,94 @@
+/* Couleurs */
+
+:root {
+	--jaune: #F4E904;
+	--noir: #0c0c0c;
+	--gris: #737373;
+	--blanc: #ffffff;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--noir);
+}
+
+/* Code Css de article.php */
+
+.conteneur-admin-temoignage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 15vh;
+}
+
+.contenu-admin-temoignage h2 {
+	color: var(--jaune);
+}
+
+.tableau-admin-temoignage {
+    border-collapse: separate; /* Utiliser `separate` pour activer l'espacement */
+    border-spacing: 0px; /* Aucun espace entre les cellules */
+    width: 100%; /* Facultatif : ajuste la largeur */
+    color: var(--blanc);
+    border: 1px solid var(--jaune); /* Ajoute les bordures externes */
+}
+
+.tableau-admin-temoignage th,
+.tableau-admin-temoignage td {
+    border-bottom: 1px solid var(--jaune); /* Ligne horizontale interne */
+    border-right: 1px solid var(--jaune); /* Ligne verticale interne */
+}
+
+.tableau-admin-temoignage tr:last-child td {
+    border-bottom: none; /* Supprime la bordure horizontale après la dernière ligne */
+}
+
+.tableau-admin-temoignage td:last-child,
+.tableau-admin-temoignage th:last-child {
+    border-right: none; /* Supprime la bordure verticale après la dernière colonne */
+}
+
+.tableau-admin-temoignage th {
+    text-align: center; /* Aligne le texte des en-têtes */
+    background-color: var(--noir); /* Facultatif : contraste avec les en-têtes */
+}
+
+.tableau-admin-temoignage td {
+    padding: 10px; /* Facultatif : espace dans les cellules */
+    text-align: center; /* Centre le contenu */
+}
+
+.tableau-admin-temoignage tr {
+	border: 1px solid var(--jaune);
+}
+
+.tableau-admin-temoignage .celluleImage {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.tableau-admin-temoignage td a {
+	color: var(--jaune);
+}
+
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--blanc);
+    padding: 1vh;
+    display: flex;
+}
+
