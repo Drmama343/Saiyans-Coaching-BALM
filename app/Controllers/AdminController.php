@@ -36,4 +36,16 @@ class AdminController extends BaseController
 
 		return view('admin/admin', $data);
 	}
+
+	public function article()
+	{
+		$articleModel = new ArticleModel();
+		$articles = $articleModel->findAll();
+
+		$data = [
+			'articles' => $articles,
+		];
+
+		return view('admin/article', $data);
+	}
 }
