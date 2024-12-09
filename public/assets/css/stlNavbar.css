@@ -62,6 +62,18 @@ nav ul img {
     margin: 0 1vw;
 }
 
+nav .btnFGBJ {
+	background-color: var(--gris);
+	opacity: 70%;
+	padding: 1vh 5vh;
+	border: 2px solid var(--jaune);
+	border-radius: 15px;
+	color: var(--blanc);
+	text-decoration: none;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 18px;
+}
+
 .close-btn {
 	display: none;
 }

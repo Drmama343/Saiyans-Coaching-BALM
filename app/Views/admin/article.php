@@ -28,7 +28,7 @@
 							<td><div class="celluleImage" id="<?= $article['image'] ?>">Image</div></td>
 							<td><input type="checkbox" name="affichage" id="" <?= $article['affichage'] === "t" ? "checked" : "" ?> disabled></td>
 							<td>
-								<a href="<?= base_url('admin/article/' . $article['id']) ?>">Modifier</a>
+								<a href="<?= base_url('admin/article/' . $article['id']) ?>">Modifier</a> |
 								<a href="<?= base_url('admin/article/' . $article['id']) ?>">Supprimer</a>
 							</td>
 						</tr>
@@ -39,13 +39,8 @@
 
 		<div id="image-modal" class="modal">
 			<div class="modal-content">
-				<span class="close-btn" id="closeModal">&times;</span>
 				<img src="" alt="" id="modalImage">
 			</div>
-		</div>
-
-		<div class="ajout-article">
-			<a href="<?= base_url('admin/article/ajout') ?>">Ajouter un article</a>
 		</div>
 	</div>
 </div>

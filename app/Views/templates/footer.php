@@ -34,7 +34,9 @@
                 break;
 			case 'admin':
 				echo '<script src="/assets/js/fctStats.js"></script>';
-                echo '  <script src="/assets/js/fctAffichageImage.js"></script>';
+                if($url->getSegment(2) == 'article')
+                    echo '<script src="/assets/js/fctAffichageImage.js"></script>';
+                    echo '<script src="/assets/js/fctModificationArticle.js"></script>';
 				break;
             case 'profil':
                 echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';

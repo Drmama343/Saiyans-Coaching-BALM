@@ -100,9 +100,16 @@ class AdminController extends BaseController
 		return view('admin/article', $data);
 	}
 
-	public function articleImage($lienImage) {
-		$articleModel = new ArticleModel();
-		$article = $articleModel->where('image', $lienImage)->first();
+	public function modifier($model, $id) {
+		$model = 'App\Models\\' . ucfirst($model) . 'Model';
+		$model = new $model();
+		$data = $model->find($id);
 
+		$data = [
+			'data' => $data,
+			'model' => $model,
+		];
+
+		return view('admin/modifier', $data);
 	}
 }
