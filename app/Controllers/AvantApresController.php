@@ -40,7 +40,7 @@ class AvantApresController extends Controller
 					mkdir($destinationPath, 0755, true);
 				}
 
-				$newName = 'avtapr' . $idSaiyan . '_' . date('Ymd').'.png';
+				$newName = 'avtapr' . $idSaiyan . '_' . date('YmdHis').'.png';
 				$file->move($destinationPath, $newName);
 			} else {
 				// Gérer les erreurs
