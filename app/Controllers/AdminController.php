@@ -3,11 +3,11 @@
 namespace App\Controllers;
 
 use App\Models\SaiyanModel;
-use App\Models\AchatModel;
 use App\Models\ProgrammeModel;
+use App\Models\PromotionModel;
+use App\Models\TemoignageModel;
 use App\Models\ArticleModel;
 use App\Models\QuestionModel;
-use App\Models\PromotionModel;
 
 
 class AdminController extends BaseController
@@ -41,6 +41,14 @@ class AdminController extends BaseController
 		return view('admin/admin', $data);
 	}
 
+	public function saiyan(){
+		$model = new SaiyanModel();
+		$data['saiyans'] = $model->getPaginatedSaiyans(10);
+		$data['pagerSaiyan'] = $model->pager;
+
+		return view('admin/saiyan', $data);
+	}
+
 	public function programme()
 	{
 		$programmeModel = new ProgrammeModel();
@@ -62,23 +70,30 @@ class AdminController extends BaseController
 
 	public function ajoutProgramme()
 	{
+		$produitsSelectionnes = $this->request->getPost('paramProgramme');
+
+		$entrainement = in_array('entrainement', $produitsSelectionnes) ? true : false;
+		$multimedia = in_array('multimedia', $produitsSelectionnes) ? true : false;
+		$alimentaire = in_array('alimentaire', $produitsSelectionnes) ? true : false;
+		$bilan = in_array('bilan', $produitsSelectionnes) ? true : false;
+		$whatsapp = in_array('whatsapp', $produitsSelectionnes) ? true : false;
+
 		// Récupérer les données du formulaire
 		$data = [
 			'nom' => $this->request->getPost('nom'),
 			'description' => $this->request->getPost('description'),
 			'prix' => $this->request->getPost('prix'),
 			'duree' => $this->request->getPost('duree'),
-			'photo' => $this->request->getFile('image') ? $this->request->getFile('image')->getName() : null // Gérer l'upload d'image
+			'entrainement' => $entrainement,
+			'multimedia' => $multimedia,
+			'alimentaire' => $alimentaire,
+			'bilan' => $bilan,
+			'whatsapp' => $whatsapp
 		];
 
 		// Insérer dans la base de données
 		$programmeModel = new ProgrammeModel();
 		$programmeModel->insert($data);
-
-		// Déplacer l'image si elle existe
-		if ($this->request->getFile('image')->isValid()) {
-			$this->request->getFile('image')->move(WRITEPATH . 'uploads/');
-		}
 
 		// Rediriger vers la liste des programmes
 		return redirect()->to('/admin/programme');
@@ -87,25 +102,13 @@ class AdminController extends BaseController
 	public function modifProgramme($id)
 	{
 		$programmeModel = new ProgrammeModel();
-		$programme = $programmeModel->find($id);
-	
-		// Vérifier si une image est téléchargée
-		$photo = $programme['photo']; // Conserver l'ancienne image par défaut
-		$imageFile = $this->request->getFile('image');
-
-		if ($imageFile->isValid()) {
-			// Si une nouvelle image est téléchargée, traiter le fichier
-			$photo = $imageFile->getName();
-			$imageFile->move(WRITEPATH . 'uploads/');
-		}
 
 		// Récupérer les autres données du formulaire
 		$data = [
 			'nom' => $this->request->getPost('nom'),
 			'description' => $this->request->getPost('description'),
 			'prix' => $this->request->getPost('prix'),
-			'duree' => $this->request->getPost('duree'),
-			'photo' => $photo
+			'duree' => $this->request->getPost('duree')
 		];
 
 		// Mettre à jour le programme dans la base de données
@@ -121,17 +124,8 @@ class AdminController extends BaseController
 		$programmeModel = new ProgrammeModel();
 		$programme = $programmeModel->find($id);
 
-		// Vérifier si le programme existe
-		if ($programme) {
-			// Supprimer l'image associée (si elle existe)
-			if (file_exists(WRITEPATH . 'uploads/' . $programme['photo'])) {
-				unlink(WRITEPATH . 'uploads/' . $programme['photo']);
-			}
-
-			// Supprimer le programme de la base de données
-			$programmeModel->delete($id);
-		}
-
+		$programmeModel->delete($id);
+		
 		// Rediriger vers la liste des programmes
 		return redirect()->to('/admin/programme');
 	}
@@ -180,12 +174,61 @@ class AdminController extends BaseController
 
 		return redirect()->to('/admin/programme');
 	}
+	
+	public function temoignage()
+	{
+		$temoignageModel = new TemoignageModel();
+		$temoignages = $temoignageModel->findAll();
+
+		$saiyanModel = new SaiyanModel();
+		foreach ($temoignages as $key => $temoignage) {
+			$temoignages[$key]['saiyan'] = $saiyanModel->find($temoignage['idsaiyan']);
+		}
+
+		$data = [
+			'temoignages' => $temoignages,
+		];
+
+		return view('admin/temoignage', $data);
+	}
+
+	public function modifTemoignage($id)
+	{
+		$temoignageModel = new TemoignageModel();
+
+		$data = [
+			'affichage' => $this->request->getPost('affichage')
+		];
+
+		$temoignageModel->update($id, $data);
+		return redirect()->to('/admin/temoignage');
+	}
+
+	public function supprTemoignage($id)
+	{
+		$temoignageModel = new TemoignageModel();
+		$temoignageModel->delete($id);
+
+		return redirect()->to('/admin/temoignage');
+	}
+
+	public function article()
+	{
+		$articleModel = new ArticleModel();
+		$articles = $articleModel->findAll();
+
+		$data = [
+			'articles' => $articles,
+		];
+
+		return view('admin/article', $data);
+	}
 
 	public function question(){
 		$model = new QuestionModel();
 		$data['questions'] = $model->getPaginatedQuestion();
 		$data['pagerQuestions'] = $model->pager;
-		return view('questionsadmin', $data);
+		return view('/admin/question', $data);
 	}
 
 	public function modifierQuestion ($idQuestion){
@@ -221,25 +264,6 @@ class AdminController extends BaseController
 		$model->insert($newQuestion);
 
 		return redirect()->to('admin/question')->with('success', 'Question ajouté avec succès');
-	}
-
-	public function saiyan(){
-		$model = new SaiyanModel();
-		$data['saiyans'] = $model->getPaginatedSaiyans(10);
-		$data['pagerSaiyan'] = $model->pager;
-
-		return view('admin/saiyan', $data);
-	}
-	public function article()
-	{
-		$articleModel = new ArticleModel();
-		$articles = $articleModel->findAll();
-
-		$data = [
-			'articles' => $articles,
-		];
-
-		return view('admin/article', $data);
 	}
 
 	public function modifier($model, $id) {

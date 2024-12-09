@@ -38,7 +38,7 @@
 				<?php if(!isset($_SESSION['utilisateur'])): ?>
 					<a href="/login" class="btnFGBJ"><h5>Connectez vous !</h5></a>
 				<?php else: ?>
-					<?= form_open_multipart("/ajoutTemoignage/".$_SESSION['utilisateur'] , ['class' => 'form-modif']) ?>
+					<?= form_open_multipart("/ajoutTemoignage/".$_SESSION['utilisateur']['id'] , ['class' => 'form-ajout']) ?>
 					<h2>Votre témoignage :</h2>
 					<div class="form-grid">
 						<div class="cellule-grid">
@@ -46,13 +46,16 @@
 							<?= form_input('temoignage', '', ['placeholder' => 'Vos pensées sur les formations ...']) ?>
 						</div>
 						<div class="cellule-grid">
-							<?= form_label('Votre note :', 'note') ?>
-							<?= form_input('note', '', ['type' => 'number', 'min' => '1', 'max' => '5', 'step' => '1', 'placeholder' => 'Note entre 1 et 5']) ?>
+							<?= form_label('Votre note entre 1 et 5 *:', 'note') ?>
+							<?= form_input('note', '', ['min' => '1', 'max' => '5', 'step' => '1', 'required' => 'required'],'number') ?>
 						</div>	
 						<div class="cellule-grid">
-							<?= form_label('Image de votre transformation', 'image') ?>
+							<?= form_label('Image de votre transformation :', 'image') ?>
 							<?= form_upload('image', '', ['accept' => 'image/*']) ?>
-						</div>	
+						</div>
+						<div>
+							<?= form_submit( 'submit', 'Sauvegarder', ['class' => 'btnFJBG']) ?>	
+						</div>
 					<? form_close(); ?>
 				<?php endif; ?>
 			</div>

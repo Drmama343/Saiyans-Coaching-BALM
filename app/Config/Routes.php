@@ -26,6 +26,7 @@ $routes->match(['GET', 'POST'], '/supprimerProfil/(:any)', 'ProfilController::su
 $routes->get('/apropos', 'AproposController::index');
 
 $routes->get('/avant-apres', 'AvantApresController::index');
+$routes->match(['GET', 'POST'], '/ajoutTemoignage/(:any)', 'AvantApresController::ajoutTemoignage/$1');
 
 $routes->get('/blog', 'BlogController::index');
 
@@ -45,6 +46,8 @@ $routes->match(['GET', 'POST'], 'admin/modifPromotion/(:any)', 'AdminController:
 $routes->match(['GET', 'POST'], 'admin/supprPromotion/(:any)', 'AdminController::supprPromotion/$1');
 
 $routes->get('/admin/article', 'AdminController::article');
+
+$routes->get('/admin/temoignage', 'AdminController::temoignage');
 
 $routes->get('/admin/question', 'AdminController::question');
 $routes->match(['GET', 'POST'], '/admin/modifQuestion/(:any)', 'AdminController::modifierQuestion/$1');
