@@ -21,6 +21,7 @@ $routes->get('/programme','ProgrammeController::index');
 
 $routes->get('/profil', 'ProfilController::index'); 
 $routes->match(['GET', 'POST'], '/modifProfil/(:any)', 'ProfilController::modifierProfil/$1');
+$routes->match(['GET', 'POST'], '/supprimerProfil/(:any)', 'ProfilController::supprimerProfil/$1');
 
 $routes->get('/apropos', 'AproposController::index');
 
