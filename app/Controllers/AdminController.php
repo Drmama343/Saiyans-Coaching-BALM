@@ -101,9 +101,10 @@ class AdminController extends BaseController
 	}
 
 	public function modifier($model, $id) {
-		$model = 'App\Models\\' . ucfirst($model) . 'Model';
-		$model = new $model();
-		$data = $model->find($id);
+		
+		$fichier = 'App\Models\\' . ucfirst($model) . 'Model';
+		$fichier = new $fichier();
+		$data = $fichier->find($id);
 
 		$data = [
 			'data' => $data,

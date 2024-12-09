@@ -7,7 +7,6 @@
 ?>
 
 <?php 
-
 	switch ($model) {
 		case 'article':
 			include __DIR__ . '/modifierArticle.php';
