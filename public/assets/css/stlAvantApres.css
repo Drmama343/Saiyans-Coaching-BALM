@@ -46,23 +46,46 @@ html, body {
 }
 
 .medias {
-    display: grid;
+  display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-    gap: 16px;
-    padding: 16px;
+  gap: 16px;
+  padding: 16px;
 	margin: 0 auto;
 	pointer-events: none;
-  }
+}
 
-  .media video {
-    max-width: 30rem;
-    height: auto; /* Préserver les proportions de la vidéo */
-    border-radius: 8px; /* Coins arrondis pour un meilleur rendu visuel */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour effet visuel */
-  }
+.media video {
+  max-width: 30rem;
+  height: auto; /* Préserver les proportions de la vidéo */
+  border-radius: 8px; /* Coins arrondis pour un meilleur rendu visuel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour effet visuel */
+}
 
-  .medias p {
-    text-align: center;
-    color: #555;
-    font-style: italic;
-  }
+.medias p {
+  text-align: center;
+  color: #555;
+  font-style: italic;
+}
+
+.note {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.note label {
+  font-size: 2rem;
+  color: lightgray;
+  cursor: pointer;
+}
+
+.note input:checked ~ label,
+.note input:hover ~ label,
+.note label:hover,
+.note label:hover ~ label {
+  color: gold;
+}
+
+.note input {
+  display: none;
+}
