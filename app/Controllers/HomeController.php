@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\ProduitModel;
+use App\Models\ProgrammeModel;
 use App\Models\TemoignageModel;
 use App\Models\SaiyanModel;
 
@@ -19,11 +19,11 @@ class HomeController extends BaseController
 
 	public function index(): string
 	{
-		$produitModel = new ProduitModel();
+		$programmeModel = new ProgrammeModel();
 		$temoignageModel = new TemoignageModel();
 		$saiyanModel = new SaiyanModel();
 
-		$produits = $produitModel->orderBy('prix', 'ASC')->findAll();
+		$produits = $programmeModel->orderBy('prix', 'ASC')->findAll();
 		$temoignages = $temoignageModel->find();
 		$data['produits'] = $produits;
 		

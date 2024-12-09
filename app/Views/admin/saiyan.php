@@ -2,8 +2,8 @@
     $title = "Saiyan's Coaching - Accueil";
     $style = "stlProfil.css";
     $navbar = "stlNavbar.css"; 
-    include 'templates/header.php';
-    include 'templates/navbarAdmin.php'; 
+	include __DIR__ . '/../templates/header.php';
+	include __DIR__ . '/../templates/navbarAdmin.php'; 
 ?>
 
 <div>
@@ -62,4 +62,4 @@
 
 <script src="/assets/js/fctSaiyan.js"></script>
 
-<?php include 'templates/footer.php'; ?>
+<?php include __DIR__ . '/../templates/footer.php'; ?>

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\ProduitModel;
+use App\Models\ProgrammeModel;
 use App\Models\TemoignageModel;
 
 class ProgrammeController extends BaseController
@@ -14,10 +14,10 @@ class ProgrammeController extends BaseController
 
 	public function index(): string
 	{
-		$produitModel = new ProduitModel();
+		$programmeModel = new ProgrammeModel();
 		$temoignageModel = new TemoignageModel();
 
-		$produits = $produitModel->findAll();
+		$produits = $programmeModel->findAll();
 		$temoignages = $temoignageModel->find();
 		$data['produits'] = $produits;
 		$data['temoignage'] = $temoignages;

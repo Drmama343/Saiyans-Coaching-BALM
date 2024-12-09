@@ -35,7 +35,7 @@
 								<td><?= $programme['duree'] ?></td>
 								<td><div class="celluleImage" id="<?= $programme['photo'] ?>">Image</div></td>
 								<td>
-									<a href="<?= base_url('admin/modifProgramme/' . $programme['id']) ?>">Modifier</a>
+									<a href="<?= base_url('admin/programme/' . $programme['id']) ?>">Modifier</a>
 									<a href="<?= base_url('admin/supprProgramme/' . $programme['id']) ?>">Supprimer</a>
 								</td>
 							</tr>

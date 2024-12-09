@@ -1,9 +1,9 @@
 <?php 
 	$title = "Saiyan's Coaching - Question Admin";
 	//$style = "stlAdmin.css";
-	//$navbar = "stlNavbar.css";
-	include 'templates/header.php';
-	include 'templates/navbarAdmin.php'; 
+	//$navbar = "stlNavbar.css";	
+    include __DIR__ . '/../templates/header.php';
+	include __DIR__ . '/../templates/navbarAdmin.php';
 ?>
 
 
@@ -50,4 +50,4 @@
 
 
 
-<?php include 'templates/footer.php'; ?>
+<?php include __DIR__ . '/../templates/footer.php'; ?>

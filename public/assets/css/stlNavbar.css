@@ -30,6 +30,13 @@ nav ul li {
 	margin: 0 1vw;
 }
 
+nav ul li a span {
+    position: relative;
+    top: -4vh; /* Positionnement au-dessus de l'élément */
+    left: -45%;
+    font-size: 1vw; /* Taille de la couronne */
+}
+
 nav ul li a {
 	text-decoration: none;
 	color: white;

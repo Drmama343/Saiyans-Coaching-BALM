@@ -30,6 +30,34 @@
 			Il ne tient qu'à <span>vous</span> de faire le premier pas vers une version améliorée de vous-même. Rejoignez la communauté <span>Saiyan's Coaching</span> et explorez les possibilités pour atteindre vos objectifs de santé et de bien-être. Vous méritez de vous sentir bien dans votre peau. Laissez ces medias vous inspirer à investir dans votre santé pour un physique et une vie meilleure.
 		</p>
 
+		<button id="openModalTemoignage" class="btnModal"> Donne nous ton avis de saiyan !!! </button>
+		<!-- Modal -->
+		<div id="creationTemoignageModal" class="modal">
+			<div class="modal-content">
+				<span class="close-btn" id="closeModalTemoignage">&times;</span>
+				<?php if(!isset($_SESSION['utilisateur'])): ?>
+					<a href="/login" class="btnFGBJ"><h5>Connectez vous !</h5></a>
+				<?php else: ?>
+					<?= form_open_multipart("/ajoutTemoignage/".$_SESSION['utilisateur'] , ['class' => 'form-modif']) ?>
+					<h2>Votre témoignage :</h2>
+					<div class="form-grid">
+						<div class="cellule-grid">
+							<?= form_label('Temoignage', 'temoignage') ?>
+							<?= form_input('temoignage', '', ['placeholder' => 'Vos pensées sur les formations ...']) ?>
+						</div>
+						<div class="cellule-grid">
+							<?= form_label('Votre note :', 'note') ?>
+							<?= form_input('note', '', ['type' => 'number', 'min' => '1', 'max' => '5', 'step' => '1', 'placeholder' => 'Note entre 1 et 5']) ?>
+						</div>	
+						<div class="cellule-grid">
+							<?= form_label('Image de votre transformation', 'image') ?>
+							<?= form_upload('image', '', ['accept' => 'image/*']) ?>
+						</div>	
+					<? form_close(); ?>
+				<?php endif; ?>
+			</div>
+		</div>
+
 		<div class="medias">
 			<?php if (!empty($medias) && is_array($medias)): ?>
 				<?php foreach ($medias as $media) : ?>
@@ -46,6 +74,6 @@
 	</div>
 </div>
 
-
+<script src="/assets/js/fctAvantApres.js"></script>
 
 <?php include 'templates/footer.php'; ?>

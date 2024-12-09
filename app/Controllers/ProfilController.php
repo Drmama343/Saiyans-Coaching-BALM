@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\SaiyanModel;
 use App\Models\AchatModel;
-use App\Models\ProduitModel;
+use App\Models\ProgrammeModel;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -53,10 +53,10 @@ class ProfilController extends BaseController
 		}
 
 		$achatModel = new AchatModel();
-		$produitModel = new ProduitModel();
+		$programmeModel = new ProgrammeModel();
 		$achats =  $achatModel->where('idsaiyan', $idSaiyan)->findAll();
 		foreach ($achats as &$achat){
-			$achat['produit'] = $produitModel->find($achat['idproduit'])['nom'];
+			$achat['produit'] = $programmeModel->find($achat['idproduit'])['nom'];
 		}
 		$data['achats'] = $achats;
 

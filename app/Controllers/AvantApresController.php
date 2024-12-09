@@ -9,6 +9,7 @@ class AvantApresController extends Controller
 {
 	protected $session;
 	public function __construct() {
+		helper("form");
 		$this->session = session();
 	}
 
