@@ -93,8 +93,8 @@
 								<td><?= esc($promotion['nb_utilisation']) ?></td>
 								<td><?= esc($promotion['programme']['nom']) ?></td>
 								<td>
-									<a href="<?= base_url('admin/modifPromotion/' . $promotion['id']) ?>">Modifier</a>
-									<a href="<?= base_url('admin/supprPromotion/' . $promotion['id']) ?>">Supprimer</a>
+									<a href="<?= base_url('admin/promotion/' . $promotion['id']) ?>">Modifier</a>
+									<a href="<?= base_url('admin/promotion/' . $promotion['id']) ?>">Supprimer</a>
 								</td>
 							</tr>
 						<?php endforeach; ?>

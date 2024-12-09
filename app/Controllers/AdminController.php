@@ -248,9 +248,25 @@ class AdminController extends BaseController
 		$fichier = new $fichier();
 		$data = $fichier->find($id);
 
+		if($fichier instanceof('App\Models\PromotionModel')){
+			$programmeModel = new ProgrammeModel();
+			$programmes = $programmeModel->findAll();
+			
+			foreach ($programmes as $key => $programme) {
+				if($data['produit'] == $programme['id']){
+					$data['produit'] = $programme;
+				}
+				$programmes[$key] = $programme['nom'];
+			}
+		} else {
+			$programmes = [];
+		}
+
+
 		$data = [
 			'data' => $data,
 			'model' => $model,
+			'programmes' => $programmes
 		];
 
 		return view('admin/modifier', $data);
