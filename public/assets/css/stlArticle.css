@@ -1,0 +1,95 @@
+/* Couleurs */
+
+:root {
+	--jaune: #F4E904;
+	--noir: #0c0c0c;
+	--gris: #737373;
+	--blanc: #ffffff;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--noir);
+}
+
+/* Code Css de article.php */
+
+.conteneur-admin-article {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 15vh;
+}
+
+.contenu-admin-article h2 {
+	color: var(--jaune);
+}
+
+.tableau-admin-article {
+	border: 1px solid var(--jaune);
+	border-collapse: collapse;
+	color: var(--blanc);
+	padding: 5vh;
+}
+
+.tableau-admin-article .celluleImage {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.tableau-admin-article td a {
+	color: var(--jaune);
+	font-style: none;
+}
+
+/* Modal Container */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: transparent; /* Pas de fond pour le contenu */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+/* Image container */
+.image-container {
+    width: 100%;
+    height: 100%;
+    background-image: url('/path/to/your/image.jpg'); /* Remplacez par le chemin de votre image */
+    background-size: contain; /* Ajuste l'image sans la déformer */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.close-btn:hover {
+    color: var(--jaune); /* Effet visuel au survol */
+}

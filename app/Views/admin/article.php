@@ -16,6 +16,7 @@
 						<th>Titre</th>
 						<th>Contenu</th>
 						<th>Image</th>
+						<th>Affichage</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -24,7 +25,8 @@
 						<tr>
 							<td><?= $article['titre'] ?></td>
 							<td><?= $article['contenu'] ?></td>
-							<td><img src="<?= base_url('assets/images/' . $article['image']) ?>" alt="<?= $article['titre'] ?>"></td>
+							<td><div class="celluleImage" id="<?= $article['image'] ?>">Image</div></td>
+							<td><input type="checkbox" name="affichage" id="" <?= $article['affichage'] === "t" ? "checked" : "" ?> disabled></td>
 							<td>
 								<a href="<?= base_url('admin/article/' . $article['id']) ?>">Modifier</a>
 								<a href="<?= base_url('admin/article/' . $article['id']) ?>">Supprimer</a>
@@ -34,6 +36,14 @@
 				</tbody>
 			</table>
 		</div>
+
+		<div id="image-modal" class="modal">
+			<div class="modal-content">
+				<span class="close-btn" id="closeModal">&times;</span>
+				<img src="" alt="" id="modalImage">
+			</div>
+		</div>
+
 		<div class="ajout-article">
 			<a href="<?= base_url('admin/article/ajout') ?>">Ajouter un article</a>
 		</div>

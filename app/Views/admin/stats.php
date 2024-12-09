@@ -43,13 +43,15 @@
 						<td><?= esc($saiyan['age']); ?></td>
 						<td><?= esc($saiyan['poids']); ?></td>
 						<td><?= esc($saiyan['taille']); ?></td>
-						<td><?= number_format(esc($saiyan['poids']) /  (esc($saiyan['taille']) * esc($saiyan['taille'])), 2);?></td>
+						<td>
+							<?= number_format(esc($saiyan['poids']) / pow((esc($saiyan['taille']) / 100), 2), 2); ?>
+						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
 		<!-- Affichage des liens de pagination -->
-		<div id="paginationQuestion">
+		<div class="pagi-table-saiyans">
 			<?= $pagerSaiyans->links('SaiyansStats', 'custom') ?>
 		</div>
 	</div>

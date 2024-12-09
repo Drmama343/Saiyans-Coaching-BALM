@@ -34,8 +34,16 @@ class ProfilController extends BaseController
 		if (isset($saiyan['adresse'])){
 			$jsonString = $saiyan['adresse'];
 			$tmp = json_decode($jsonString, associative: true);
-			$adresseFormattee = $tmp['query'];
+			if (isset($tmp['query'])){
+				$adresseFormattee = $tmp['query'];
+			}
+			else{
+				$adresseFormattee = 'AdresseInvalide';
+			}
 			$data['stgAdr'] = $adresseFormattee;
+		}
+		else{
+			$data['stgAdr'] = '';
 		}
 
 		if (isset($saiyan['tel'])) {
@@ -186,5 +194,12 @@ class ProfilController extends BaseController
 		$idFinal = $saiyanModel->where('id', $id)->first();
 		$this->session->set('utilisateur', $idFinal);
 		return redirect()->to('/profil')->with('success', 'Saiyan modifié avec succès');
+	}
+
+	public function supprimerProfil($idBase){
+		$saiyanModel = new SaiyanModel();
+		$saiyanModel->delete($idBase);
+		$this->session->remove('utilisateur');
+		return redirect()->to('/')->with('success', 'Votre compte a été supprimé avec succès');
 	}
 }
