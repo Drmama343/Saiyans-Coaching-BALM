@@ -88,4 +88,15 @@ class AdminController extends BaseController
         $data['pagerSaiyan'] = $model->pager;
 		return view('saiyansadmin', $data);
     }
+	public function article()
+	{
+		$articleModel = new ArticleModel();
+		$articles = $articleModel->findAll();
+
+		$data = [
+			'articles' => $articles,
+		];
+
+		return view('admin/article', $data);
+	}
 }
