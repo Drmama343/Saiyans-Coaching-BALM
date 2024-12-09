@@ -6,57 +6,58 @@
 	include __DIR__ . '/../templates/navbarAdmin.php'; 
 ?>
 
-<div>
-    <h2>Les saiyans</h2>
-    <table class="table-achat">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Email</th>
-                <th>Adresse</th>
-                <th>Téléphone</th>
-                <th>Sexe</th>
-                <th>Age</th>
-                <th>Taille</th>
-                <th>Poids</th>
-                <th>Administrateur</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($saiyans as $saiyan) : ?>
-                    <tr>
-                        <td><?= esc($saiyan['nom']); ?></td>
-                        <td><?= esc($saiyan['prenom']); ?></td>
-                        <td><?= esc($saiyan['mail']); ?></td>
-                        <?php 
-                        if (isset($saiyan['adresse'])){
-                            $jsonString = $saiyan['adresse'];
-                            $tmp = json_decode($jsonString, associative: true);
-                            if (isset($tmp['query'])){
-                                $adresseFormattee = $tmp['query'];
+<div class="conteneur-modif">
+    <div class="contenu-modif">
+        <table class="table-achat">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Adresse</th>
+                    <th>Téléphone</th>
+                    <th>Sexe</th>
+                    <th>Age</th>
+                    <th>Taille</th>
+                    <th>Poids</th>
+                    <th>Administrateur</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($saiyans as $saiyan) : ?>
+                        <tr>
+                            <td><?= esc($saiyan['nom']); ?></td>
+                            <td><?= esc($saiyan['prenom']); ?></td>
+                            <td><?= esc($saiyan['mail']); ?></td>
+                            <?php 
+                            if (isset($saiyan['adresse'])){
+                                $jsonString = $saiyan['adresse'];
+                                $tmp = json_decode($jsonString, associative: true);
+                                if (isset($tmp['query'])){
+                                    $adresseFormattee = $tmp['query'];
+                                }
+                                else{
+                                    $adresseFormattee = 'Adresse invalide';
+                                }
+                                $adr = $adresseFormattee;
                             }
-                            else{
-                                $adresseFormattee = 'Adresse invalide';
-                            }
-                            $adr = $adresseFormattee;
-                        }
-                        else {
-                            $adr = "Adresse invalide"; 
-                        }?>
-                        <td><?= esc($adr); ?></td>
-                        <td class="tel"><?= esc($saiyan['tel']); ?></td>
-                        <td><?= esc($saiyan['sexe']); ?></td>
-                        <td><?= esc($saiyan['age']); ?></td>
-                        <td><?= esc($saiyan['taille']); ?></td>
-                        <td><?= esc($saiyan['poids']); ?></td>
-                        <td><?= esc($saiyan['admin'] == 't' ? 'Oui' : 'Non'); ?></td>
-                    </tr>
-                <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div id="paginationSaiyan">
-        <?= $pagerSaiyan->links('Saiyan', 'custom') ?>
+                            else {
+                                $adr = "Adresse invalide"; 
+                            }?>
+                            <td><?= esc($adr); ?></td>
+                            <td class="tel"><?= esc($saiyan['tel']); ?></td>
+                            <td><?= esc($saiyan['sexe']); ?></td>
+                            <td><?= esc($saiyan['age']); ?></td>
+                            <td><?= esc($saiyan['taille']); ?></td>
+                            <td><?= esc($saiyan['poids']); ?></td>
+                            <td><?= esc($saiyan['admin'] == 't' ? 'Oui' : 'Non'); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div id="paginationSaiyan">
+            <?= $pagerSaiyan->links('Saiyan', 'custom') ?>
+        </div>
     </div>
 </div>
 
