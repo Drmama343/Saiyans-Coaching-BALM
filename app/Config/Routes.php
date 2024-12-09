@@ -37,7 +37,12 @@ $routes->get('/admin', 'AdminController::index');
 
 $routes->get('/admin/article', 'AdminController::article');
 
-$routes->get('/questionadmin', 'QuestionAdminController::index');
-$routes->match(['GET', 'POST'], '/modifQuestion/(:any)', 'QuestionAdminController::modifierQuestion/$1');
-$routes->match(['GET', 'POST'], '/creerQuestion', 'QuestionAdminController::creerQuestion');
-$routes->match(['GET', 'POST'], '/supprimerQuestion/(:any)', 'QuestionAdminController::supprimerQuestion/$1');
+$routes->get('/questionadmin', 'AdminController::question');
+$routes->match(['GET', 'POST'], '/modifQuestion/(:any)', 'AdminController::modifierQuestion/$1');
+$routes->match(['GET', 'POST'], '/creerQuestion', 'AdminController::creerQuestion');
+$routes->match(['GET', 'POST'], '/supprimerQuestion/(:any)', 'AdminController::supprimerQuestion/$1');
+
+$routes->get('/saiyanadmin', 'AdminController::saiyan');
+$routes->match(['GET', 'POST'], '/modifSaiyan/(:any)', 'AdminController::modifierSaiyan/$1');
+$routes->match(['GET', 'POST'], '/creerSaiyan', 'AdminController::creerSaiyan');
+$routes->match(['GET', 'POST'], '/supprimerSaiyan/(:any)', 'AdminController::supprimerSaiyan/$1');
