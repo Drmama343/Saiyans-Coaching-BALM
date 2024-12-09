@@ -11,7 +11,7 @@
 		<button class="close-btn" onclick="toggleMenu()">✖</button>
 		<li><a href="/">Accueil</a></li>
 		<li><a href="/admin">Statistiques</a></li>
-		<li><a href="/programme-admin">Programmes</a></li>
+		<li><a href="/admin/programme">Programmes</a></li>
 		<li><a href="/temoignages-admin">Temoignages</a></li>
 		<li><a href="/admin/article">Articles</a></li>
 		<li><a href="/contact-admin">Contact</a></li>

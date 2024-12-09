@@ -35,6 +35,14 @@ $routes->post('/contact', 'ContactController::sendMail');
 
 $routes->get('/admin', 'AdminController::index');
 
+$routes->get('/admin/programme', 'AdminController::programme');
+$routes->match(['GET', 'POST'], 'admin/ajoutProgramme', 'AdminController::ajoutProgramme');
+$routes->match(['GET', 'POST'], 'admin/modifProgramme/(:any)', 'AdminController::modifProgramme/$1');
+$routes->match(['GET', 'POST'], 'admin/supprProgramme/(:any)', 'AdminController::supprProgramme/$1');
+$routes->match(['GET', 'POST'], 'admin/ajoutPromotion', 'AdminController::ajoutPromotion');
+$routes->match(['GET', 'POST'], 'admin/modifPromotion/(:any)', 'AdminController::modifPromotion/$1');
+$routes->match(['GET', 'POST'], 'admin/supprPromotion/(:any)', 'AdminController::supprPromotion/$1');
+
 $routes->get('/admin/article', 'AdminController::article');
 
 $routes->get('/questionadmin', 'AdminController::question');
