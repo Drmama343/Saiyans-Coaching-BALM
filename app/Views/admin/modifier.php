@@ -6,7 +6,7 @@
 	include __DIR__ . '/../templates/navbarAdmin.php';
 ?>
 
-<?php 
+<?php
 	switch ($model) {
 		case 'article':
 			include __DIR__ . '/modifierArticle.php';
