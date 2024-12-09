@@ -27,4 +27,8 @@ class SaiyanModel extends Model {
 		return $this->select('FLOOR(taille / 10) * 10 AS tranche_taille, COUNT(*) AS count')->groupBy('tranche_taille')
 					->orderBy('tranche_taille')->get()->getResult();
 	}
+
+	public function getPaginatedSaiyans($perPage = 5) { 
+		return $this->paginate($perPage, 'SaiyansStats');
+	}
 }

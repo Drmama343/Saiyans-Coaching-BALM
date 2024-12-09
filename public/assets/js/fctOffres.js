@@ -60,3 +60,14 @@
     // Initialize carousel
     updateCarousel();
 })();
+
+function openModal(title, price, description) {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-price').textContent = price + ' €';
+    document.getElementById('modal-description').textContent = description;
+    document.getElementById('productModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('productModal').style.display = 'none';
+}

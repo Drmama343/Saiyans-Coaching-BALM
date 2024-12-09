@@ -21,6 +21,39 @@
 		<canvas id="tailleChart"></canvas>
 	</div>
 
+	<div class="conteneur-saiyans">
+		<table class="table-saiyans">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Sexe</th>
+					<th>Age</th>
+					<th>Poids</th>
+					<th>Taille</th>
+					<th>IMC</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach ($saiyans as $saiyan) : ?>
+					<tr>
+						<td><?= esc($saiyan['nom']); ?></td>
+						<td><?= esc($saiyan['prenom']); ?></td>
+						<td><?= esc($saiyan['sexe']); ?></td>
+						<td><?= esc($saiyan['age']); ?></td>
+						<td><?= esc($saiyan['poids']); ?></td>
+						<td><?= esc($saiyan['taille']); ?></td>
+						<td><?= number_format(esc($saiyan['poids']) /  (esc($saiyan['taille']) * esc($saiyan['taille'])), 2);?></td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+		<!-- Affichage des liens de pagination -->
+		<div id="paginationQuestion">
+			<?= $pagerSaiyans->links('SaiyansStats', 'custom') ?>
+		</div>
+	</div>
+
 	<script>
 		// Passer les données de PHP à JavaScript en les encodant en JSON
 		const statsData = {
