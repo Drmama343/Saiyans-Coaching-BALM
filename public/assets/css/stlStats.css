@@ -2,7 +2,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	background-color: #0c0c0c;
+	background-color: var(--noir);
 	font-family: 'Nota', sans-serif;
 }
 
@@ -10,10 +10,20 @@ html, body {
 .conteneur-stats {
 	margin: 15vh auto;
 	padding: 20px;
-	text-align: center;
+}
+
+.diagBarre {
 	display: flex;
 	flex-wrap: wrap; /* Permet de mettre plusieurs éléments sur plusieurs lignes */
 	justify-content: space-evenly; /* Espace égal entre les graphiques */
+	margin: 5vw 0 0 0;
+}
+
+.leReste {
+	display: flex;
+	flex-wrap: wrap; /* Permet de mettre plusieurs éléments sur plusieurs lignes */
+	justify-content: space-evenly; /* Espace égal entre les graphiques */
+	margin: 5vw 0 0 0;
 }
 
 /* Conteneur de chaque graphique */
@@ -50,12 +60,11 @@ html, body {
 table {
 	width: 100%;
 	border-collapse: collapse;
-	margin: 20px 0;
-	font-size: 1em;
+	margin: 5vw 0 0 0;
+	font-size: 1vmax;
 	font-family: 'Arial', sans-serif;
 	color: #333;
 	background-color: #fff;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	border-radius: 8px;
 	overflow: hidden;
 }
@@ -77,6 +86,10 @@ tbody tr {
 	transition: background-color 0.3s ease;
 }
 
+tbody tr:last-child{
+	border: none;
+}
+
 tbody tr:nth-of-type(even) {
 	background-color: #f9f9f9;
 }
@@ -94,43 +107,10 @@ td:first-child {
 	color: #000;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-	table {
-		font-size: 0.9em;
-	}
-
-	thead {
-		display: none; /* Masque les en-têtes sur mobile */
-	}
-
-	tbody tr {
-		display: block;
-		margin-bottom: 15px;
-	}
-
-	tbody td {
-		display: flex;
-		justify-content: space-between;
-		padding: 10px;
-		border-bottom: 1px solid #ddd;
-	}
-
-	tbody td::before {
-		content: attr(data-label);
-		font-weight: bold;
-		text-transform: uppercase;
-		color: #000;
-		flex-basis: 40%;
-		text-align: left;
-	}
-}
-
 .pagi-table-saiyans {
-	margin-top: 10px;
-	display: flex;
-	justify-content: center;
-	gap: 5px;
+	position: relative;
+	margin: 0;
+	padding: 0;
 }
 
 .pagi-table-saiyans a {

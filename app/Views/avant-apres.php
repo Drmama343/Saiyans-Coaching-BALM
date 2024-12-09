@@ -34,7 +34,7 @@
 			<?php if (!empty($medias) && is_array($medias)): ?>
 				<?php foreach ($medias as $media) : ?>
 					<div class="media">
-						<video controls="" loop="" autoplay="" muted="">
+						<video controls loop autoplay muted disablePictureInPicture>
 							<source src="/assets/video/<?= $media['media']; ?>">
 						</video>						
 					</div>

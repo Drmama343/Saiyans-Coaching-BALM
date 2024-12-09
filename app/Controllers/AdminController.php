@@ -84,7 +84,7 @@ class AdminController extends BaseController
 
 	public function saiyan(){
         $model = new SaiyanModel();
-        $data['saiyans'] = $model->getPaginatedSaiyans();
+        $data['saiyans'] = $model->getPaginatedSaiyans(10);
         $data['pagerSaiyan'] = $model->pager;
 		return view('saiyansadmin', $data);
     }

@@ -104,6 +104,12 @@
             </tbody>
         </table>
     </div>
+
+    <div>
+        <?= form_open("supprimerProfil/".$saiyan['id'], ['class' => 'form-suppression', 'onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');"]) ?>
+            <?= form_submit('submit', 'Supprimer le compte', ['class' => 'btn-supprimer']) ?>
+        <?= form_close(); ?>
+    </div>
 </div>
 
 <?php include 'templates/footer.php'; ?>

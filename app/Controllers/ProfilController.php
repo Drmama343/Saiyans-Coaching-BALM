@@ -195,4 +195,11 @@ class ProfilController extends BaseController
 		$this->session->set('utilisateur', $idFinal);
 		return redirect()->to('/profil')->with('success', 'Saiyan modifié avec succès');
 	}
+
+	public function supprimerProfil($idBase){
+		$saiyanModel = new SaiyanModel();
+		$saiyanModel->delete($idBase);
+		$this->session->remove('utilisateur');
+		return redirect()->to('/')->with('success', 'Votre compte a été supprimé avec succès');
+	}
 }

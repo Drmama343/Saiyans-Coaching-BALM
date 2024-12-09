@@ -3,7 +3,7 @@
     $style = "stlProfil.css";
     $navbar = "stlNavbar.css"; 
     include 'templates/header.php';
-    include 'templates/navbar.php'; 
+    include 'templates/navbarAdmin.php'; 
 ?>
 
 <div>
@@ -45,7 +45,7 @@
                             $adr = "Adresse invalide"; 
                         }?>
                         <td><?= esc($adr); ?></td>
-                        <td><?= esc($saiyan['tel']); ?></td>
+                        <td class="tel"><?= esc($saiyan['tel']); ?></td>
                         <td><?= esc($saiyan['sexe']); ?></td>
                         <td><?= esc($saiyan['age']); ?></td>
                         <td><?= esc($saiyan['taille']); ?></td>
@@ -59,5 +59,7 @@
         <?= $pagerSaiyan->links('Saiyan', 'custom') ?>
     </div>
 </div>
+
+<script src="/assets/js/fctSaiyan.js"></script>
 
 <?php include 'templates/footer.php'; ?>
