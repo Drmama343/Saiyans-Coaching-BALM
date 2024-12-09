@@ -6,7 +6,6 @@
 	include __DIR__ . '/../templates/navbarAdmin.php';
 ?>
 
-
 <!--------------------------------->
 <!-- Tableau pour les programmes -->
 <!--------------------------------->
@@ -23,7 +22,6 @@
 							<th>Description</th>
 							<th>Prix</th>
 							<th>Duree</th>
-							<th>Image</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -33,7 +31,6 @@
 								<td><?= $programme['description'] ?></td>
 								<td><?= $programme['prix'] ?></td>
 								<td><?= $programme['duree'] ?></td>
-								<td><div class="celluleImage" id="<?= $programme['photo'] ?>">Image</div></td>
 								<td>
 									<a href="<?= base_url('admin/programme/' . $programme['id']) ?>">Modifier</a>
 									<a href="<?= base_url('admin/supprProgramme/' . $programme['id']) ?>">Supprimer</a>
@@ -42,10 +39,19 @@
 						<?php endforeach; ?>
 						<tr>
 							<td><input type="text" name="nom" placeholder="Nom du produit" required></td>
-							<td><textarea name="description" placeholder="Description du produit" rows="2" required></textarea></td>
+							<td><textarea name="description" placeholder="Description du produit" rows="2"></textarea></td>
 							<td><input type="number" name="prix" placeholder="Prix (€)" step="0.01" min="0" required></td>
-							<td><input type="text" name="duree" placeholder="Durée (en mois)" required></td>
-							<td><input type="file" name="image" accept="image/*" required></td>
+							<td><input type="number" name="duree" placeholder="Durée (en mois)" required></td>
+							<td>
+								<select name="paramProgramme[]" multiple>
+									<option value="entrainement">Entraînement</option>
+									<option value="multimedia">Multimédia</option>
+									<option value="alimentaire">Alimentaire</option>
+									<option value="bilan">Bilan</option>
+									<option value="whatsapp">Whatsapp</option>
+								</select>
+							</td>
+							
 							<td><button type="submit">Ajouter un programme</button></td>
 						</tr>
 					</tbody>
