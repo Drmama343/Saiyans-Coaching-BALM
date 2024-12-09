@@ -11,7 +11,7 @@
 		<button class="close-btn" onclick="toggleMenu()">✖</button>
 		<li><a href="/">Accueil</a></li>
 		<li><a href="/admin">Statistiques <span>&#128081;</span></a></li>
-		<li><a href="/saiyanadmin">Saiyans <span>&#128081;</span></a></li>
+		<li><a href="/admin/saiyan">Saiyans <span>&#128081;</span></a></li>
 		<li><a href="/admin/programme">Programmes <span>&#128081;</span></a></li>
 		<li><a href="/admin/temoignage">Temoignages <span>&#128081;</span></a></li>
 		<li><a href="/admin/article">Articles <span>&#128081;</span></a></li>
