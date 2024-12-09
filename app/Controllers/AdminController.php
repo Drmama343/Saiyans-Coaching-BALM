@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\SaiyanModel;
 use App\Models\AchatModel;
-use App\Models\ProduitModel;
+use App\Models\ProgrammeModel;
 use App\Models\ArticleModel;
 use App\Models\QuestionModel;
 use App\Models\PromotionModel;
@@ -43,13 +43,13 @@ class AdminController extends BaseController
 
 	public function programme()
 	{
-		$produitModel = new ProduitModel();
+		$programmeModel = new ProgrammeModel();
 		$promotionModel = new PromotionModel();
-		$programmes = $produitModel->findAll();
+		$programmes = $programmeModel->findAll();
 		$promotions = $promotionModel->findAll();
 
 		foreach ($promotions as $key => $promotion) {
-			$promotions[$key]['programme'] = $produitModel->find($promotion['produit']);
+			$promotions[$key]['programme'] = $programmeModel->find($promotion['produit']);
 		}
 
 		$data = [
@@ -72,7 +72,7 @@ class AdminController extends BaseController
 		];
 
 		// Insérer dans la base de données
-		$programmeModel = new ProduitModel();
+		$programmeModel = new ProgrammeModel();
 		$programmeModel->insert($data);
 
 		// Déplacer l'image si elle existe
@@ -86,7 +86,7 @@ class AdminController extends BaseController
 
 	public function modifProgramme($id)
 	{
-		$programmeModel = new ProduitModel();
+		$programmeModel = new ProgrammeModel();
 		$programme = $programmeModel->find($id);
 	
 		// Vérifier si une image est téléchargée
@@ -118,7 +118,7 @@ class AdminController extends BaseController
 
 	public function supprProgramme($id)
 	{
-		$programmeModel = new ProduitModel();
+		$programmeModel = new ProgrammeModel();
 		$programme = $programmeModel->find($id);
 
 		// Vérifier si le programme existe
