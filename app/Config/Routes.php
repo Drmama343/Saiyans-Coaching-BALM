@@ -21,6 +21,7 @@ $routes->get('/programme','ProgrammeController::index');
 
 $routes->get('/profil', 'ProfilController::index'); 
 $routes->match(['GET', 'POST'], '/modifProfil/(:any)', 'ProfilController::modifierProfil/$1');
+$routes->match(['GET', 'POST'], '/supprimerProfil/(:any)', 'ProfilController::supprimerProfil/$1');
 
 $routes->get('/apropos', 'AproposController::index');
 
@@ -54,3 +55,5 @@ $routes->get('/saiyanadmin', 'AdminController::saiyan');
 $routes->match(['GET', 'POST'], '/modifSaiyan/(:any)', 'AdminController::modifierSaiyan/$1');
 $routes->match(['GET', 'POST'], '/creerSaiyan', 'AdminController::creerSaiyan');
 $routes->match(['GET', 'POST'], '/supprimerSaiyan/(:any)', 'AdminController::supprimerSaiyan/$1');
+
+$routes->get('/admin/(:any)/(:num)', 'AdminController::modifier/$1/$2');

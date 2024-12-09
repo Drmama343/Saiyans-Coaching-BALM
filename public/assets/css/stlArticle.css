@@ -27,10 +27,40 @@ html, body {
 }
 
 .tableau-admin-article {
+    border-collapse: separate; /* Utiliser `separate` pour activer l'espacement */
+    border-spacing: 0px; /* Aucun espace entre les cellules */
+    width: 100%; /* Facultatif : ajuste la largeur */
+    color: var(--blanc);
+    border: 1px solid var(--jaune); /* Ajoute les bordures externes */
+}
+
+.tableau-admin-article th,
+.tableau-admin-article td {
+    border-bottom: 1px solid var(--jaune); /* Ligne horizontale interne */
+    border-right: 1px solid var(--jaune); /* Ligne verticale interne */
+}
+
+.tableau-admin-article tr:last-child td {
+    border-bottom: none; /* Supprime la bordure horizontale après la dernière ligne */
+}
+
+.tableau-admin-article td:last-child,
+.tableau-admin-article th:last-child {
+    border-right: none; /* Supprime la bordure verticale après la dernière colonne */
+}
+
+.tableau-admin-article th {
+    text-align: center; /* Aligne le texte des en-têtes */
+    background-color: var(--noir); /* Facultatif : contraste avec les en-têtes */
+}
+
+.tableau-admin-article td {
+    padding: 10px; /* Facultatif : espace dans les cellules */
+    text-align: center; /* Centre le contenu */
+}
+
+.tableau-admin-article tr {
 	border: 1px solid var(--jaune);
-	border-collapse: collapse;
-	color: var(--blanc);
-	padding: 5vh;
 }
 
 .tableau-admin-article .celluleImage {
@@ -40,10 +70,8 @@ html, body {
 
 .tableau-admin-article td a {
 	color: var(--jaune);
-	font-style: none;
 }
 
-/* Modal Container */
 .modal {
     display: none; /* Caché par défaut */
     position: fixed;
@@ -51,45 +79,16 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
-    justify-content: center;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
     z-index: 1000;
 }
 
-/* Modal Content */
 .modal-content {
     position: relative;
-    background-color: transparent; /* Pas de fond pour le contenu */
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 80%;
-    max-height: 80%;
+    background-color: var(--blanc);
+    padding: 1vh;
+    display: flex;
 }
 
-/* Image container */
-.image-container {
-    width: 100%;
-    height: 100%;
-    background-image: url('/path/to/your/image.jpg'); /* Remplacez par le chemin de votre image */
-    background-size: contain; /* Ajuste l'image sans la déformer */
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-/* Close button */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    background: none;
-    border: none;
-}
-
-.close-btn:hover {
-    color: var(--jaune); /* Effet visuel au survol */
-}

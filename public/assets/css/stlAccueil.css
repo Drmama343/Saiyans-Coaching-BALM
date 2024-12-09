@@ -155,7 +155,7 @@ html, body {
 
 .produit #descPrix {
     margin: 0 0 0 60%;
-    font-size: 1vw;
+    font-size: 1.5vw;
     color: #F4E904;
 }
 
@@ -216,17 +216,17 @@ button.next {
 
 .contenu-rejoinnous {
     position: relative;
-    transform: translate( 15vw, -40vw); /* Combine déplacement horizontal et vertical */
+    transform: translate( 20vw, -30vw); /* Combine déplacement horizontal et vertical */
     text-align: center;
 }
 
 .contenu-rejoinnous h2 {
-    font-size: 7vw;
+    font-size: 3vw;
     margin: 0 0 4vh 0;
 }
 
 .contenu-rejoinnous h1 {
-    font-size: 10vw;
+    font-size: 5vw;
     text-decoration: none;
     color: white;
     font-family: 'Bebas Neue', sans-serif;
@@ -234,7 +234,7 @@ button.next {
 }
 
 .contenu-rejoinnous p {
-    font-size: 2vw;
+    font-size: 1vw;
     color: white;
     font-family: 'Lato', sans-serif;
     margin: 0;
@@ -249,14 +249,14 @@ button.next {
 
 .conteneur-video {
     width: 100%;
-    margin: -30vw 0 0 0;
+    margin: -15vw 0 0 0;
 }
 
 .conteneur-video h2 {
     position: relative;
     top: 6vh;
     left: 50%;
-    font-size: 10vw;
+    font-size: 5vw;
     transform: translateX(-50%);
     text-align: center;
 }

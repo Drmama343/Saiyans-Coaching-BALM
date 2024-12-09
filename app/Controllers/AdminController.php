@@ -225,8 +225,9 @@ class AdminController extends BaseController
 
 	public function saiyan(){
 		$model = new SaiyanModel();
-		$data['saiyans'] = $model->getPaginatedSaiyans();
+		$data['saiyans'] = $model->getPaginatedSaiyans(10);
 		$data['pagerSaiyan'] = $model->pager;
+
 		return view('saiyansadmin', $data);
 	}
 	public function article()
@@ -241,9 +242,16 @@ class AdminController extends BaseController
 		return view('admin/article', $data);
 	}
 
-	public function articleImage($lienImage) {
-		$articleModel = new ArticleModel();
-		$article = $articleModel->where('image', $lienImage)->first();
+	public function modifier($model, $id) {
+		$model = 'App\Models\\' . ucfirst($model) . 'Model';
+		$model = new $model();
+		$data = $model->find($id);
 
+		$data = [
+			'data' => $data,
+			'model' => $model,
+		];
+
+		return view('admin/modifier', $data);
 	}
 }

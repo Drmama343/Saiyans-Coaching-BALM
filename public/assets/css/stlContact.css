@@ -21,7 +21,6 @@ html, body {
 /* --- Code Css stlApropos.php --- */
 
 .conteneur-contact {
-	background-color: var(--noir);
 	width: 100%;
 	height: 70vh;
 	overflow: hidden; /* Empêche le contenu de déborder ici */

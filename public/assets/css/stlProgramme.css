@@ -62,18 +62,18 @@ html, body {
 
 .contenu-accueil {
     position: absolute;
-    top: 35vh;
+    top: 15vw;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
 }
 
 .contenu-accueil h2 {
-    font-size: 7vh;
+    font-size: 3vw;
 }
 
 .contenu-accueil h1 {
-    font-size: 10vh;
+    font-size: 5vw;
     text-decoration: none;
     color: white;
     font-family: 'Bebas Neue', sans-serif;
@@ -81,15 +81,16 @@ html, body {
 }
 
 .contenu-accueil p {
-    font-size: 2vh;
+    margin: 0 0 3vw 0;
+    font-size: 1vw;
     color: white;
     font-family: 'Lato', sans-serif;
 }
 
-.contenu-accueil button {
-    margin: 4vh;
-    padding: 1vh 15vh;
+.contenu-accueil a {
+    padding: 1vh 10vw;
     opacity: 90%;
+    font-size: 1.5vw;
 }
 
 /* --- Code Css produits.php --- */
