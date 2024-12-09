@@ -3,22 +3,22 @@ function toggleMenu() {
 	menu.classList.toggle('active');
 }
 
-const modalCompte = document.getElementById('creationCompteModal');
-const openModalCompte = document.getElementById('openModalCompte');
-const closeModalCompte = document.getElementById('closeModalCompte');
+document.getElementById('openModalCompte').addEventListener('click', function () {
+    const modal = document.getElementById('creationCompteModal');
+    const isModalVisible = modal.style.display === 'block';
 
-// Ouvrir le modal
-openModalCompte.addEventListener('click', () => {
-	modalCompte.style.display = 'flex';
+    // Toggle the modal visibility
+    modal.style.display = isModalVisible ? 'none' : 'block';
 });
 
-closeModalCompte.addEventListener('click', () => {
-	modalCompte.style.display = 'none';
+document.getElementById('closeModalCompte').addEventListener('click', function () {
+    document.getElementById('creationCompteModal').style.display = 'none';
 });
 
-// Fermer le modal si l'utilisateur clique en dehors du modal
-window.addEventListener('click', (event) => {
-	if (event.target === modalCompte) {
-		modalCompte.style.display = 'none';
-	}
+// Optional: Close the modal when clicking outside of it
+window.addEventListener('click', function (event) {
+    const modal = document.getElementById('creationCompteModal');
+    if (event.target !== modal && !modal.contains(event.target) && event.target.id !== 'openModalCompte') {
+        modal.style.display = 'none';
+    }
 });
