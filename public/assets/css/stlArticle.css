@@ -1,0 +1,39 @@
+/* Couleurs */
+
+:root {
+	--jaune: #F4E904;
+	--noir: #0c0c0c;
+	--gris: #737373;
+	--blanc: #ffffff;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--noir);
+}
+
+/* Code Css de article.php */
+
+.conteneur-admin-article {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 15vh;
+}
+
+.contenu-admin-article h2 {
+	color: var(--jaune);
+}
+
+.tableau-admin-article {
+	border: 1px solid var(--jaune);
+	border-collapse: collapse;
+	color: var(--blanc);
+	padding: 5vh;
+}
+
+.tableau-admin-article td a {
+	color: var(--jaune);
+	font-style: none;
+}

@@ -24,7 +24,7 @@
 						<tr>
 							<td><?= $article['titre'] ?></td>
 							<td><?= $article['contenu'] ?></td>
-							<td><img src="<?= base_url('assets/images/' . $article['image']) ?>" alt="<?= $article['titre'] ?>"></td>
+							<td><a href="<?= $article['image']?>">Lien vers image</a></td>
 							<td>
 								<a href="<?= base_url('admin/article/' . $article['id']) ?>">Modifier</a>
 								<a href="<?= base_url('admin/article/' . $article['id']) ?>">Supprimer</a>
