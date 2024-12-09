@@ -29,6 +29,6 @@ class SaiyanModel extends Model {
 	}
 
 	public function getPaginatedSaiyans($perPage = 5) { 
-		return $this->paginate($perPage, 'SaiyansStats');
+		return $this->paginate($perPage, 'Saiyan');
 	}
 }

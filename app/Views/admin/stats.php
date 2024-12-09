@@ -36,7 +36,7 @@
 			</table>
 			<!-- Affichage des liens de pagination -->
 			<div class="pagi-table-saiyans">
-				<?= $pagerSaiyans->links('SaiyansStats', 'custom') ?>
+				<?= $pagerSaiyans->links('Saiyan', 'custom') ?>
 			</div>
 		</div>
 	</div>
