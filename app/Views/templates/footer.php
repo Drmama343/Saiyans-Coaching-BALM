@@ -34,6 +34,7 @@
                 break;
 			case 'admin':
 				echo '<script src="/assets/js/fctStats.js"></script>';
+                echo '  <script src="/assets/js/fctAffichageImage.js"></script>';
 				break;
             case 'profil':
                 echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';
@@ -44,9 +45,6 @@
                 break;
             case 'programme':
                 echo '  <script src="/assets/js/fctOffres.js"></script>';
-                break;
-            case 'apropos':
-                
                 break;
         }
 

@@ -49,4 +49,10 @@ class AdminController extends BaseController
 
 		return view('admin/article', $data);
 	}
+
+	public function articleImage($lienImage) {
+		$articleModel = new ArticleModel();
+		$article = $articleModel->where('image', $lienImage)->first();
+
+	}
 }
