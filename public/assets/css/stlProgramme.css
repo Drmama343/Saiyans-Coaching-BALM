@@ -319,7 +319,7 @@ button.next {
     background-position: center;
 }
 
-.modal {
+#productModal {
     position: fixed;
     top: 0;
     left: 0;
@@ -331,7 +331,7 @@ button.next {
     align-items: center;
 }
 
-.modal-content {
+#productModal .modal-content {
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -343,19 +343,19 @@ button.next {
     flex-direction: column;
 }
 
-.modal h3 {
+#productModal h3 {
     font-family: 'Bebas Neue', sans-serif;
     text-align: left;
     color: #F4E904;
     font-size: 2rem;
 }
 
-.modal p {
+#productModal p {
     text-align: left;
     margin: 0;
 }
 
-.modal .buy-btn {
+#productModal .buy-btn {
     width: 80%;
     margin: 2vh auto;
     background: #F4E904;
@@ -366,13 +366,13 @@ button.next {
     font-size: 1rem;
 }
 
-.modal .buy-btn:hover {
+#productModal .buy-btn:hover {
     box-shadow: 1px 1px #0c0c0c;
     cursor: pointer;
 }
 
 /* Close button */
-.close-btn {
+#productModal .close-btn {
     position: relative;
     margin: 0;
     color: #0c0c0c;
