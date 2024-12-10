@@ -29,7 +29,7 @@ html, body {
 table {
 	width: 100%;
 	border-collapse: collapse;
-	margin: 5vw 0 0 0;
+	margin: -3vw 0 2vw 0;
 	font-size: 1vmax;
 	color: #333;
 	background-color: #fff;
