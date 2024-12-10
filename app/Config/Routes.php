@@ -38,11 +38,11 @@ $routes->post('/contact', 'ContactController::sendMail');
 $routes->get('/admin', 'AdminController::index');
 
 $routes->get('/admin/programme', 'AdminController::programme');
-$routes->post('admin/ajoutProgramme', 'AdminController::ajoutProgramme');
+$routes->post('/admin/programme/ajouter', 'AdminController::ajoutProgramme');
 $routes->post('admin/modifProgramme/(:num)', 'AdminController::modifProgramme/$1');
 $routes->get('admin/supprProgramme/(:num)', 'AdminController::supprProgramme/$1');
 
-$routes->post('admin/ajouter/promotion', 'AdminController::ajoutPromotion');
+$routes->post('admin/promotion/ajouter', 'AdminController::ajoutPromotion');
 $routes->post('admin/modifPromotion/(:num)', 'AdminController::modifPromotion/$1');
 $routes->get('admin/supprPromotion/(:num)', 'AdminController::supprPromotion/$1');
 
@@ -60,7 +60,7 @@ $routes->post('/admin/rechercherTemoignage', 'AdminController::setRechercheTemoi
 $routes->get('/admin/question', 'AdminController::question');
 $routes->post('/admin/modifQuestion/(:num)', 'AdminController::modifierQuestion/$1');
 $routes->post('/admin/creerQuestion', 'AdminController::creerQuestion');
-$routes->get('/admin/supprimerQuestion/(:num)', 'AdminController::supprimerQuestion/$1');
+$routes->get('/admin/supprQuestion/(:num)', 'AdminController::supprQuestion/$1');
 $routes->post('/admin/rechercherQuestion', 'AdminController::setRechercheQuestion');
 
 $routes->get('/admin/saiyan', 'AdminController::saiyan');
