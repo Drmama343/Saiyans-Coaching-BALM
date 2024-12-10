@@ -4,6 +4,7 @@
     $navbar = "stlNavbar.css"; 
     include 'templates/header.php';
 ?>
+<?php include 'templates/promotion.php'; ?>
 <?php include 'templates/navbar.php'; ?>
 
 <?php include 'templates/accueil.php'; ?>

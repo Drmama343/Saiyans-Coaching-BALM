@@ -2,13 +2,10 @@
 
 namespace App\Controllers;
 
+use \App\Models\PromotionModel;
 use App\Models\ProgrammeModel;
 use App\Models\TemoignageModel;
 use App\Models\SaiyanModel;
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 class HomeController extends BaseController
 {
@@ -19,9 +16,16 @@ class HomeController extends BaseController
 
 	public function index(): string
 	{
+		$promotionModel = new PromotionModel();
 		$programmeModel = new ProgrammeModel();
 		$temoignageModel = new TemoignageModel();
 		$saiyanModel = new SaiyanModel();
+
+		$data['promotions'] = $promotionModel->findAll();
+
+		foreach ($data['promotions'] as $key => $promotion) {
+			$data['promotions'][$key]['produit'] = $programmeModel->find($promotion['produit']);
+		}
 
 		$produits = $programmeModel->orderBy('prix', 'ASC')->findAll();
 		$temoignages = $temoignageModel->findByAffichage();
