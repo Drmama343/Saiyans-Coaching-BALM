@@ -9,17 +9,7 @@
 
 <div class="conteneur-question">
     
-    <?= form_open("/admin/creerQuestion"); ['class' => 'form-creation']?>
-        <div class="question">
-            <?= form_label('Question', 'question'); ?>
-            <?= form_textarea('question', '', ['required' => 'required', 'placeholder' => 'Écrivez votre question ici...', 'rows' => 2]) ?>
-        </div>
-        <div class="reponse">
-            <?= form_label('Réponse', 'reponse'); ?>
-            <?= form_textarea('reponse', '', ['required' => 'required', 'placeholder' => 'Écrivez votre réponse ici...', 'rows' => 4]) ?>
-        </div>
-        <?= form_submit('submit', 'Ajouter') ?>
-    <?= form_close(); ?>
+    <a class="btnFGBJ" href="<?= base_url('admin/question/ajouter') ?>">Ajouter une question</a>
 
     <div class="recherche">
         <?= form_open('/admin/rechercherQuestion', ['method' => 'post']); ?>

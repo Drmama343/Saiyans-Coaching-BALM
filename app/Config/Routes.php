@@ -58,7 +58,7 @@ $routes->match(['GET', 'POST'], '/admin/rechercherTemoignage', 'AdminController:
 
 $routes->get('/admin/question', 'AdminController::question');
 $routes->match(['GET', 'POST'], '/admin/modifQuestion/(:any)', 'AdminController::modifierQuestion/$1');
-$routes->match(['GET', 'POST'], '/admin/creerQuestion', 'AdminController::creerQuestion');
+$routes->match(['GET', 'POST'], '/admin/question/ajouter', 'AdminController::creerQuestion');
 $routes->match(['GET', 'POST'], '/admin/supprimerQuestion/(:any)', 'AdminController::supprimerQuestion/$1');
 $routes->match(['GET', 'POST'], '/admin/rechercherQuestion', 'AdminController::setRechercheQuestion');
 

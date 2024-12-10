@@ -25,6 +25,9 @@
 				case 'promotion':
 					include __DIR__ . '/modifierPromotion.php';
 					break;
+				case 'question':
+					include __DIR__ . '/modifierQuestion.php';
+					break;
 				default:
 					break;
 			}
