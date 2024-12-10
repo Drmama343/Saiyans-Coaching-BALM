@@ -234,33 +234,61 @@ class AdminController extends BaseController
 		return view('admin/article', $data);
 	}
 
+	public function ajoutArticle()
+	{
+		// Récupérer les données du formulaire
+		$data = [
+			'date_deb' => $this->request->getPost('date_deb'),
+			'date_fin' => $this->request->getPost('date_fin'),
+			'reduction' => $this->request->getPost('reduction'),
+			'code' => $this->request->getPost('code'),
+			'nb_utilisation' => $this->request->getPost('nb_utilisation'),
+			'produit' => $this->request->getPost('produit')
+		];
+
+		// Insérer dans la base de données
+		$promotionModel = new PromotionModel();
+		$promotionModel->insert($data);
+
+		return redirect()->to('/admin/programme');
+	}
+
 	public function modifArticle($id)
 	{
 		$articleModel = new ArticleModel();
+		$article = $articleModel->find($id);
 
-		$oldImage = $articleModel->find($id)['image'];
-		$newImage = $this->request->getFile('image');
-		if($newImage->isValid() && !$newImage->hasMoved()){
-			$newName = $newImage->getClientPath();
-			$newImage->move('./assets/images', $newName);
-			$files = array_diff(scandir('./assets/images'), array('.', '..'));
-			if(in_array($oldImage, $files)){
-				unlink('./assets/images/' . $oldImage);
+		$file = $this->request->getFile('image');
+		if ($file != null) {
+			if ($file && $file->isValid() && !$file->hasMoved()) {
+				if (!empty($article['image'])) {
+					$oldImagePath = WRITEPATH . '../public/assets/images/' . $article['image'];
+		
+					if (is_file($oldImagePath)) {
+						unlink($oldImagePath);
+					}
+				}
+				
+				// Nom unique pour éviter les collisions
+				$imageType = exif_imagetype($_FILES['image']['tmp_name']);
+				$newFileName = uniqid('article' . '_', true) . image_type_to_extension($imageType);
+				$newPathFilename = WRITEPATH .'../public/assets/images/' . $newFileName;
+
+				$this->saveImage($newPathFilename);
+			} else {
+				// Gérer les erreurs
+				return redirect()->back()->with('error', 'Le fichier n\'est pas valide ou n\'a pas été téléchargé correctement.');
 			}
-		}
-		else {
-			$newName = null;
 		}
 
 		$data = [
 			'titre' => $this->request->getPost('titre'),
 			'contenu' => $this->request->getPost('contenu'),
-			'image' => $newName,
+			'image' => isset($newFileName) ? $newFileName : null,
 			'type' => $this->request->getPost('type'),
 			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
 		];
 
-		
 		$articleModel->update($id, $data);
 		return redirect()->to('/admin/article');
 	}
@@ -354,5 +382,69 @@ class AdminController extends BaseController
 			'saiyans' => $saiy
 		];
 		return view('admin/modifier', $data);
+	}
+
+	public function saveImage($newPathFilename) {
+		$imageType = exif_imagetype($_FILES['image']['tmp_name']);
+		if (in_array($imageType, [IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF])) {
+	
+			// Charger l'image selon son type
+			switch ($imageType) {
+				case IMAGETYPE_JPEG:
+					$image = imagecreatefromjpeg($_FILES['image']['tmp_name']);
+					break;
+				case IMAGETYPE_PNG:
+					$image = imagecreatefrompng($_FILES['image']['tmp_name']);
+					break;
+				case IMAGETYPE_GIF:
+					$image = imagecreatefromgif($_FILES['image']['tmp_name']);
+					break;
+			}
+	
+			// Dimensions maximales
+			$maxWidth = 600;
+			$maxHeight = 600;
+	
+			// Obtenir les dimensions de l'image originale
+			list($originalWidth, $originalHeight) = getimagesize($_FILES['image']['tmp_name']);
+	
+			// Calculer le ratio de redimensionnement
+			$ratio = min($maxWidth / $originalWidth, $maxHeight / $originalHeight);
+	
+			// Nouvelles dimensions
+			$newWidth = floor($originalWidth * $ratio);
+			$newHeight = floor($originalHeight * $ratio);
+	
+			// Créer une image vide avec les nouvelles dimensions
+			$newImage = imagecreatetruecolor($newWidth, $newHeight);
+	
+			// Conserver la transparence pour PNG et GIF
+			if ($imageType == IMAGETYPE_PNG || $imageType == IMAGETYPE_GIF) {
+				imagealphablending($newImage, false);
+				imagesavealpha($newImage, true);
+			}
+	
+			// Redimensionner l'image
+			imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $originalWidth, $originalHeight);
+	
+			// Sauvegarder l'image redimensionnée
+			switch ($imageType) {
+				case IMAGETYPE_JPEG:
+					imagejpeg($newImage, $newPathFilename, 90); // Compression pour JPEG
+					break;
+				case IMAGETYPE_PNG:
+					imagepng($newImage, $newPathFilename);
+					break;
+				case IMAGETYPE_GIF:
+					imagegif($newImage, $newPathFilename);
+					break;
+			}
+	
+			// Libérer la mémoire
+			imagedestroy($image);
+			imagedestroy($newImage);
+		} else {
+			return redirect()->back()->with('error', 'L\'extension du fichier n\'est pas accépté.');
+		}
 	}
 }
