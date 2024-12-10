@@ -425,7 +425,7 @@ class AdminController extends BaseController
 		return view('/admin/question', $data);
 	}
 
-	public function creerQuestion (){
+	public function ajoutQuestion (){
 		$model = new QuestionModel();
 
 		$newQuestion = [
@@ -435,7 +435,7 @@ class AdminController extends BaseController
 
 		$model->insert($newQuestion);
 
-		return redirect()->to('admin/question')->with('success', 'Question ajouté avec succès');
+		return redirect()->to('admin/question');
 	}
 	public function modifierQuestion ($idQuestion){
 		$model = new QuestionModel();
@@ -448,15 +448,15 @@ class AdminController extends BaseController
 
 		$model->update($idQuestion, $questionChange);
 
-		return redirect()->to('admin/question')->with('success', 'Question modifié avec succès');
+		return redirect()->to('admin/question');
 	}
 
-	public function supprimerQuestion ($idQuestion){
+	public function supprQuestion ($idQuestion){
 		$model = new QuestionModel();
 
 		$model->delete($idQuestion);
 
-		return redirect()->to('admin/question')->with('success', 'Question supprimé avec succès');
+		return redirect()->to('admin/question');
 	}
 
 	public function setRechercheQuestion()

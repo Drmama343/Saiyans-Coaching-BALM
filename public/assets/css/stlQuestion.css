@@ -1,126 +1,121 @@
+/* Couleurs */
+
+:root {
+	--jaune: #F4E904;
+	--noir: #0c0c0c;
+	--gris: #737373;
+	--blanc: #ffffff;
+}
+
 html, body {
-	background-color: #0c0c0c;
+	margin: 0;
+	padding: 0;
+	background-color: var(--noir);
 }
 
-.conteneur-question {
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 1200px;
-    margin: 10vw auto 0;
+/* Code Css de article.php */
+
+.conteneur-admin-question {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 15vh;
 }
 
-.form-creation, .form-modif {
-    margin-bottom: 20px;
-    background-color: #0c0c0c;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 1px 1px 4px #F4E904;
+.contenu-admin-question h2 {
+	color: var(--jaune);
 }
-
-.form-creation textarea, 
-.form-modif textarea, 
-.form-creation input[type="text"], 
-.form-modif input[type="text"] {
-	resize: none;
-    width: 98%;
-    padding: 10px;
-    margin-top: 8px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-	background-color: #737373;
-	color: white;
-}
-
-/* Labels */
-.form-creation label, 
-.form-modif label, 
-.recherche label {
-	font-family: 'Bebas Neue', sans-serif;
-	font-size: 1vw;
-    color: white;
-}
-
-/* Bouton d'ajout et de sauvegarde */
-.form-creation input[type="submit"], 
-.form-modif input[type="submit"], 
-.recherche input[type="submit"] {
-    margin: 2vh auto;
-    background: #F4E904;
-    border: 1px solid #737373;
-    border-radius: 45px;
-    padding: 1vh 2vw;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-}
-
-.form-creation input[type="submit"]:hover, 
-.form-modif input[type="submit"]:hover, 
-.recherche input[type="submit"]:hover {
-    box-shadow: 1px 1px #737373;
-    cursor: pointer;
-}
-
-/* Zone de recherche */
-.recherche {
-    margin-bottom: 20px;
-    background-color: #0c0c0c;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 1px 1px 4px #F4E904;
-}
-
-/* Formulaire de modification */
-.contenu-question {
-    margin-bottom: 20px;
-    background-color: #737373;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Bouton de suppression */
-.form-suppression .btn-supprimer {
-    margin: 2vh auto;
-    background: #F4E904;
-    border: 1px solid #737373;
-    border-radius: 45px;
-    padding: 1vh 2vw;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-}
-
-.form-suppression .btn-supprimer:hover {
-    box-shadow: 1px 1px #0c0c0c;
-    cursor: pointer;
-}
-
-/* Pagination */
-#paginationQuestion {
-    margin-top: 20px;
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 5vw 0 0 0;
+	font-size: 1vmax;
+	color: #333;
+	background-color: #fff;
+	border-radius: 8px;
+	overflow: hidden;
     text-align: center;
 }
 
-#paginationQuestion a, #paginationQuestion span {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 8px 12px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    color: #555;
-    background-color: #f1f1f1;
-    transition: background-color 0.3s ease, color 0.3s ease;
+thead {
+	background-color: #F4E904;
+    font-family: "Bebas Neue", sans-serif;
 }
 
-#paginationQuestion a:hover {
-    background-color: #4caf50;
-    color: white;
+thead th {
+	padding: 12px 15px;
 }
 
-#paginationQuestion .active {
-    background-color: #4caf50;
-    color: white;
-    font-weight: bold;
+tbody tr {
+	border-bottom: 1px solid #ddd;
+	transition: background-color 0.3s ease;
+}
+
+tbody tr:last-child{
+	border: none;
+}
+
+tbody tr:nth-of-type(even) {
+	background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+tbody td {
+	padding: 12px 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+td:first-child {
+	font-weight: bold;
+	color: #0c0c0c;
+}
+
+table a {
+    color: #0c0c0c;
+}
+
+.celluleImage {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--blanc);
+    padding: 1vh;
+    display: flex;
+}
+
+form label {
+	position: relative;
+	top: -1vw;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
+
+form input {
+	position: relative;
+	top: -4.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
 }
