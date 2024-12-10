@@ -36,5 +36,6 @@
     <?= form_label('Support WhatsApp', 'whatsapp') ?>
     <?= form_checkbox('whatsapp', 't', isset($data['whatsapp']) && $data['whatsapp'] === "t" ? true : false) ?>
     <br>
-    <?= form_submit('submit', 'Modifier', ['class' => 'btnFGBJ']) ?>
+    <?= form_submit('submit', isset($data['id']) ? 'Modifier' : 'Ajouter', ['class' => 'btnFGBJ']) ?>
+	<a href="<?= base_url('admin/programme') ?>" class="btnFGBJ">Annuler</a>
 <?= form_close() ?>

@@ -81,4 +81,5 @@
         isset($data['id']) ? 'Modifier' : 'Ajouter',
         ['class' => 'btnFGBJ']
     ) ?>
+	<a href="<?= base_url('admin/programme') ?>" class="btnFGBJ">Annuler</a>
 <?= form_close() ?>
