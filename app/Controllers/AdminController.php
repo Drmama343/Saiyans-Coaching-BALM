@@ -31,7 +31,7 @@ class AdminController extends BaseController
 			$saiyans = $saiyanModel->getPaginatedSaiyans(10);
 		}
 		else{
-			$saiyans = $saiyanModel->getPaginatedSaiyansRecherche(10, $_SESSION['rechercheSaiyan']);
+			$saiyans = $saiyanModel->getPaginatedSaiyansRecherche($_SESSION['rechercheSaiyan'], 10);
 		}
 
 		$data = [
@@ -52,7 +52,7 @@ class AdminController extends BaseController
 			$data['saiyans'] = $model->getPaginatedSaiyans(10);
 		}
 		else{
-			$data['saiyans'] = $model->getPaginatedSaiyansRecherche(10, $_SESSION['rechercheSaiyan']);
+			$data['saiyans'] = $model->getPaginatedSaiyansRecherche($_SESSION['rechercheSaiyan'], 10);
 		}
 		
 		$data['pagerSaiyan'] = $model->pager;

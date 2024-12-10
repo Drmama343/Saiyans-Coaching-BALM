@@ -32,7 +32,7 @@ class SaiyanModel extends Model {
 		return $this->paginate($perPage, 'Saiyan');
 	}
 
-	public function getPaginatedSaiyansRecherche($perPage = 5, $recherche) {
+	public function getPaginatedSaiyansRecherche($recherche, $perPage = 5) {
 		if (is_int($recherche)) {
 			return $this->groupStart()
 				->orLike('tel', $recherche)
