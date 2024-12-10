@@ -50,22 +50,22 @@ $routes->get('/admin/article', 'AdminController::article');
 $routes->post('/admin/article/ajouter', 'AdminController::ajoutArticle');
 $routes->post('/admin/modifArticle/(:num)', 'AdminController::modifArticle/$1');
 $routes->get('/admin/supprArticle/(:num)', 'AdminController::supprArticle/$1');
-$routes->match(['GET', 'POST'], '/admin/rechercherArticle', 'AdminController::setRechercheArticle');
+$routes->post('/admin/rechercherArticle', 'AdminController::setRechercheArticle');
 
 $routes->get('/admin/temoignage', 'AdminController::temoignage');
 $routes->post('admin/modifTemoignage/(:num)', 'AdminController::modifTemoignage/$1');
 $routes->get('admin/supprTemoignage/(:num)', 'AdminController::supprTemoignage/$1');
-$routes->match(['GET', 'POST'], '/admin/rechercherTemoignage', 'AdminController::setRechercheTemoignage');
+$routes->post('/admin/rechercherTemoignage', 'AdminController::setRechercheTemoignage');
 
 $routes->get('/admin/question', 'AdminController::question');
 $routes->post('/admin/modifQuestion/(:num)', 'AdminController::modifierQuestion/$1');
 $routes->post('/admin/creerQuestion', 'AdminController::creerQuestion');
 $routes->get('/admin/supprimerQuestion/(:num)', 'AdminController::supprimerQuestion/$1');
-$routes->match(['GET', 'POST'], '/admin/rechercherQuestion', 'AdminController::setRechercheQuestion');
+$routes->post('/admin/rechercherQuestion', 'AdminController::setRechercheQuestion');
 
 $routes->get('/admin/saiyan', 'AdminController::saiyan');
-$routes->match(['GET', 'POST'], '/admin/rechercherSaiyan', 'AdminController::setRechercheSaiyan');
-$routes->match(['GET', 'POST'], '/admin/rechercherSaiyanStats', 'AdminController::setRechercheSaiyanStats');
+$routes->post('/admin/rechercherSaiyan', 'AdminController::setRechercheSaiyan');
+$routes->post('/admin/rechercherSaiyanStats', 'AdminController::setRechercheSaiyanStats');
 
 $routes->get('/admin/(:any)/(:num)', 'AdminController::modifier/$1/$2');
 $routes->get('/admin/(:any)/ajouter', 'AdminController::ajouter/$1');
