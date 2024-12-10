@@ -103,3 +103,41 @@ table a {
     display: flex;
 }
 
+form label {
+	position: relative;
+	top: -1vw;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
+
+form input {
+	position: relative;
+	top: -4.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
+}
+
+#paginationArticle {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#paginationArticle a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#paginationArticle a:hover {
+	background-color: #F4E904;
+	color: black;
+}
