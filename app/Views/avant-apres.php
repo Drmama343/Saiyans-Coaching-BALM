@@ -63,12 +63,10 @@ include 'templates/navbar.php';
 		</div>
 
 		<div class="medias">
-			<?php if (!empty($medias) && is_array($medias)): ?>
-				<?php foreach ($medias as $media) : ?>
+			<?php if (!empty($temoignages) && is_array($temoignages)): ?>
+				<?php foreach ($temoignages as $temoignage) : ?>
 					<div class="media">
-						<video controls loop autoplay muted disablePictureInPicture>
-							<source src="/assets/video/<?= $media['media']; ?>">
-						</video>
+						<img src="/assets/images/temoignages/<?= $temoignage['image']; ?>"></img>
 					</div>
 				<?php endforeach; ?>
 			<?php else: ?>
