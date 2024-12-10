@@ -50,10 +50,12 @@ $routes->get('/admin/article', 'AdminController::article');
 $routes->post('/admin/article/ajouter', 'AdminController::ajoutArticle');
 $routes->post('/admin/modifArticle/(:num)', 'AdminController::modifArticle/$1');
 $routes->get('/admin/supprArticle/(:num)', 'AdminController::supprArticle/$1');
+$routes->match(['GET', 'POST'], '/admin/rechercherArticle', 'AdminController::setRechercheArticle');
 
 $routes->get('/admin/temoignage', 'AdminController::temoignage');
 $routes->post('admin/modifTemoignage/(:num)', 'AdminController::modifTemoignage/$1');
 $routes->get('admin/supprTemoignage/(:num)', 'AdminController::supprTemoignage/$1');
+$routes->match(['GET', 'POST'], '/admin/rechercherTemoignage', 'AdminController::setRechercheTemoignage');
 
 $routes->get('/admin/question', 'AdminController::question');
 $routes->post('/admin/modifQuestion/(:num)', 'AdminController::modifierQuestion/$1');

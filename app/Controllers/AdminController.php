@@ -228,7 +228,12 @@ class AdminController extends BaseController
 	public function temoignage()
 	{
 		$temoignageModel = new TemoignageModel();
-		$temoignages = $temoignageModel->findAll();
+		if (!isset($_SESSION['rechercheTemoignage'])){
+			$temoignages = $temoignageModel->getPaginatedTemoignages();
+		}
+		else{
+			$temoignages = $temoignageModel->getPaginatedTemoignagesRecherche($_SESSION['rechercheTemoignage']);
+		}
 
 		$saiyanModel = new SaiyanModel();
 		foreach ($temoignages as $key => $temoignage) {
@@ -237,6 +242,7 @@ class AdminController extends BaseController
 
 		$data = [
 			'temoignages' => $temoignages,
+			'pagerTemoignages' => $temoignageModel->pager,
 		];
 
 		return view('admin/temoignage', $data);
@@ -272,16 +278,37 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/temoignage');
 	}
 
+	public function setRechercheTemoignage()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheTemoignage', $recherche);
+		}
+		else {
+			$session->set('rechercheTemoignage', "");
+		}
+
+		return redirect()->to('admin/temoignage');
+	}
+
 	/* ----------------------------------------------
 	   -------------     ARTICLE    -----------------
 	   ---------------------------------------------- */
 	public function article()
 	{
 		$articleModel = new ArticleModel();
-		$articles = $articleModel->findAll();
+		if (!isset($_SESSION['rechercheArticle'])){
+			$articles = $articleModel->getPaginatedArticles();
+		}
+		else{
+			$articles = $articleModel->getPaginatedArticlesRecherche($_SESSION['rechercheArticle']);
+		}
 
 		$data = [
 			'articles' => $articles,
+			'pagerArticles' => $articleModel->pager,
 		];
 
 		return view('admin/article', $data);
@@ -365,6 +392,21 @@ class AdminController extends BaseController
 		$articleModel->delete($id);
 
 		return redirect()->to('/admin/article');
+	}
+
+	public function setRechercheArticle()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheArticle', $recherche);
+		}
+		else {
+			$session->set('rechercheArticle', "");
+		}
+
+		return redirect()->to('admin/article');
 	}
 
 	/* ----------------------------------------------

@@ -35,7 +35,7 @@ class SaiyanModel extends Model {
 	public function getPaginatedSaiyansRecherche($recherche, $perPage = 5) {
 		if (is_int($recherche)) {
 			return $this->groupStart()
-				->orLike('tel', $recherche)
+				->like  ('tel', $recherche)
 				->orLike('poids', $recherche)
 				->orLike('age', $recherche)
 				->orLike('taille', $recherche)

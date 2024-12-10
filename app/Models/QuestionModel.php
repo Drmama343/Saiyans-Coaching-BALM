@@ -14,7 +14,7 @@ class QuestionModel extends Model {
     }
     public function getPaginatedQuestionsRecherche($recherche, $perPage = 3) {
         return $this->groupStart()
-            ->orLike('question', $recherche)
+            ->like('question', $recherche)
             ->orLike('reponse', $recherche)
             ->groupEnd()
             ->paginate($perPage, 'Question');

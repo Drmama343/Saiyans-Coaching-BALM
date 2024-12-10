@@ -1,15 +1,14 @@
 <?php 
 	$title = "Saiyan's Coaching - Question Admin";
-	//$style = "stlAdmin.css";
-	//$navbar = "stlNavbar.css";	
+	$style = "stlQuestion.css";
+	$navbar = "stlNavbar.css";	
     include __DIR__ . '/../templates/header.php';
 	include __DIR__ . '/../templates/navbarAdmin.php';
 ?>
 
 
 <div class="conteneur-question">
-    
-    <?= form_open("/admin/creerQuestion"); ['class' => 'form-creation']?>
+<?= form_open("/admin/creerQuestion", ['class' => 'form-creation']) ?>
         <div class="question">
             <?= form_label('Question', 'question'); ?>
             <?= form_textarea('question', '', ['required' => 'required', 'placeholder' => 'Écrivez votre question ici...', 'rows' => 2]) ?>
@@ -31,7 +30,7 @@
 
     <?php foreach ($questions as &$question) : ?>
         <div class="contenu-question">
-            <?= form_open("/admin/modifQuestion/" . $question['id']); ['class' => 'form-modif']?>
+            <?= form_open("/admin/modifQuestion/" . $question['id'], ['class' => 'form-modif'])?>
                 <div class="question">
                     <?= form_label('Question', 'question'); ?>
                     <?= form_textarea('question', $question['question'], ['required' => 'required', 'placeholder' => 'Écrivez votre question ici...', 'rows' => 2]) ?>
@@ -58,4 +57,4 @@
 
 
 
-<?php include __DIR__ . '/../templates/footer.php'; ?>
+<?php include __DIR__ . '/../templates/footerAdmin.php'; ?>

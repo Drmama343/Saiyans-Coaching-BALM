@@ -12,4 +12,17 @@ class ArticleModel extends Model {
 	public function findByType($type) {
 		return $this->where('type', $type)->findAll();
 	}
+
+	public function getPaginatedArticles($perPage = 8) { 
+		return $this->paginate($perPage, 'Article');
+	}
+
+	public function getPaginatedArticlesRecherche($recherche, $perPage = 8) {
+		return $this->groupStart()
+			->like  ('titre', $recherche)
+			->orLike('contenu', $recherche)
+			->orLike('type', $recherche)
+			->groupEnd()
+			->paginate($perPage, 'Article');
+	}
 }
