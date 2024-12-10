@@ -6,6 +6,11 @@ use App\Models\ArticleModel;
 use App\Models\SaiyanModel;
 
 class ActualiteController extends BaseController {
+
+	protected $session;
+	public function __construct() {
+		$this->session = session();
+	}
 	public function index() {
 		$articleModel = new ArticleModel();
 		$saiyanModel = new SaiyanModel;

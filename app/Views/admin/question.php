@@ -9,7 +9,7 @@
 
 <div class="conteneur-question">
     
-    <?= form_open("creerQuestion"); ['class' => 'form-creation']?>
+    <?= form_open("/admin/creerQuestion"); ['class' => 'form-creation']?>
         <div class="question">
             <?= form_label('Question', 'question'); ?>
             <?= form_textarea('question', '', ['required' => 'required', 'placeholder' => 'Écrivez votre question ici...', 'rows' => 2]) ?>

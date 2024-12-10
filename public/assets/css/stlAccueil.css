@@ -129,6 +129,10 @@ html, body {
     width: 100%;
 }
 
+#productModal {
+    display: none;
+}
+
 .produit {
     box-sizing: border-box;
     padding: 20px;
