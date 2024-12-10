@@ -1,7 +1,7 @@
 <h2><?= isset($data['id']) ? 'Modifier une promotion' : 'Ajouter une promotion' ?></h2>
 
 <?php 
-    $url = isset($data['id']) ? 'admin/modifPromotion/' . $data['id'] : 'admin/ajouter/promotion';
+    $url = isset($data['id']) ? 'admin/modifPromotion/' . $data['id'] : 'admin/promotion/ajouter';
     echo form_open(base_url($url));
 ?>
 
