@@ -20,7 +20,7 @@ class ContactController extends BaseController
 	public function index(): string
 	{
 		$model = new QuestionModel();
-		$data['questions'] = $model->getPaginatedQuestion();
+		$data['questions'] = $model->getPaginatedQuestions();
         $data['pagerQuestions'] = $model->pager;
 
 		return view('contact', $data);
