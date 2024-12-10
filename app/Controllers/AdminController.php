@@ -206,8 +206,19 @@ class AdminController extends BaseController
 	public function supprTemoignage($id)
 	{
 		$temoignageModel = new TemoignageModel();
-		$temoignageModel->delete($id);
+		$temoignage = $temoignageModel->find($id);
 
+		if ($temoignage) {
+			if (!empty($temoignage['image'])) {
+				$imagePath = WRITEPATH . '../public/assets/images/temoignages/' . $temoignage['image'];
+	
+				if (is_file($imagePath)) {
+					unlink($imagePath);
+				}
+			}
+	
+			$temoignageModel->delete($id);
+		}
 		return redirect()->to('/admin/temoignage');
 	}
 
