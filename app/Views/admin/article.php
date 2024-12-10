@@ -45,6 +45,7 @@
 					<?php endforeach; ?>
 				</tbody>
 			</table>
+			<a href="<?= base_url('admin/article/ajouter') ?>">Ajouter un article</a>
 		</div>
 
 		<div id="paginationArticle">
