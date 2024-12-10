@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Définir le basePath en fonction du dernier segment de l'URL
     var basePath;
     switch(lastSegment) {
-        case 'temoignage': // Par exemple, si l'URL se termine par "page1"
+        case 'temoignage': 
             basePath = '../assets/images/temoignages/';
             break;
         default:
@@ -20,7 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.celluleImage').forEach(function(celluleImage) {
         celluleImage.addEventListener('click', function() {
             // Récupérer l'URL de l'image à partir de l'attribut ID
-            var lienImg = basePath + this.getAttribute('id');
+            if(window.location.href.includes('index.php')) {
+                var lienImg = '../' + basePath + this.getAttribute('id');
+            } else {
+                var lienImg = basePath + this.getAttribute('id');
+            }
 
             // Récupérer les éléments du modal
             var modal = document.getElementById('image-modal');

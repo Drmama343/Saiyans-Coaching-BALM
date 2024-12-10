@@ -9,7 +9,14 @@ class QuestionModel extends Model {
 	protected $primaryKey = 'id';
 	protected $allowedFields = ['question', 'reponse'];
 
-    public function getPaginatedQuestion($perPage = 3) { 
+    public function getPaginatedQuestions($perPage = 3) { 
         return $this->paginate($perPage, 'Question');
+    }
+    public function getPaginatedQuestionsRecherche($recherche, $perPage = 3) {
+        return $this->groupStart()
+            ->orLike('question', $recherche)
+            ->orLike('reponse', $recherche)
+            ->groupEnd()
+            ->paginate($perPage, 'Question');
     }
 }
