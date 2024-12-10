@@ -1,7 +1,7 @@
 <?php 
 	$title = "Saiyan's Coaching - Question Admin";
-	//$style = "stlAdmin.css";
-	//$navbar = "stlNavbar.css";	
+	$style = "stlQuestion.css";
+	$navbar = "stlNavbar.css";	
     include __DIR__ . '/../templates/header.php';
 	include __DIR__ . '/../templates/navbarAdmin.php';
 ?>
@@ -21,7 +21,7 @@
 
     <?php foreach ($questions as &$question) : ?>
         <div class="contenu-question">
-            <?= form_open("/admin/modifQuestion/" . $question['id']); ['class' => 'form-modif']?>
+            <?= form_open("/admin/modifQuestion/" . $question['id'], ['class' => 'form-modif'])?>
                 <div class="question">
                     <?= form_label('Question', 'question'); ?>
                     <?= form_textarea('question', $question['question'], ['required' => 'required', 'placeholder' => 'Écrivez votre question ici...', 'rows' => 2]) ?>

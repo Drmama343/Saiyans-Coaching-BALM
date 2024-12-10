@@ -5,6 +5,7 @@
 	include 'templates/header.php';
 	include 'templates/navbar.php';
 ?>
+
 <div class="conteneur-blog">
 	<div class="contenu-blog">
 		<div class="articles">
