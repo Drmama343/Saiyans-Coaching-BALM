@@ -115,25 +115,17 @@ class AdminController extends BaseController
 
 	public function ajoutProgramme()
 	{
-		$produitsSelectionnes = $this->request->getPost('paramProgramme');
-
-		$entrainement = in_array('entrainement', $produitsSelectionnes) ? true : false;
-		$multimedia = in_array('multimedia', $produitsSelectionnes) ? true : false;
-		$alimentaire = in_array('alimentaire', $produitsSelectionnes) ? true : false;
-		$bilan = in_array('bilan', $produitsSelectionnes) ? true : false;
-		$whatsapp = in_array('whatsapp', $produitsSelectionnes) ? true : false;
-
 		// Récupérer les données du formulaire
 		$data = [
 			'nom' => $this->request->getPost('nom'),
 			'description' => $this->request->getPost('description'),
 			'prix' => $this->request->getPost('prix'),
 			'duree' => $this->request->getPost('duree'),
-			'entrainement' => $entrainement,
-			'multimedia' => $multimedia,
-			'alimentaire' => $alimentaire,
-			'bilan' => $bilan,
-			'whatsapp' => $whatsapp
+			'entrainement' => $this->request->getPost('entrainement') ?? 'f',
+			'multimedia' => $this->request->getPost('multimedia') ?? 'f',
+			'alimentaire' => $this->request->getPost('alimentaire') ?? 'f',
+			'bilan' => $this->request->getPost('bilan') ?? 'f',
+			'whatsapp' => $this->request->getPost('whatsapp') ?? 'f'
 		];
 
 		// Insérer dans la base de données
@@ -153,7 +145,12 @@ class AdminController extends BaseController
 			'nom' => $this->request->getPost('nom'),
 			'description' => $this->request->getPost('description'),
 			'prix' => $this->request->getPost('prix'),
-			'duree' => $this->request->getPost('duree')
+			'duree' => $this->request->getPost('duree'),
+			'entrainement' => $this->request->getPost('entrainement') ?? 'f',
+			'multimedia' => $this->request->getPost('multimedia') ?? 'f',
+			'alimentaire' => $this->request->getPost('alimentaire') ?? 'f',
+			'bilan' => $this->request->getPost('bilan') ?? 'f',
+			'whatsapp' => $this->request->getPost('whatsapp') ?? 'f'
 		];
 
 		// Mettre à jour le programme dans la base de données

@@ -38,7 +38,7 @@ $routes->post('/contact', 'ContactController::sendMail');
 $routes->get('/admin', 'AdminController::index');
 
 $routes->get('/admin/programme', 'AdminController::programme');
-$routes->post('admin/ajoutProgramme', 'AdminController::ajoutProgramme');
+$routes->post('admin/programme/ajouter', 'AdminController::ajoutProgramme');
 $routes->post('admin/modifProgramme/(:any)', 'AdminController::modifProgramme/$1');
 $routes->post('admin/supprProgramme/(:any)', 'AdminController::supprProgramme/$1');
 $routes->post('admin/ajoutPromotion', 'AdminController::ajoutPromotion');

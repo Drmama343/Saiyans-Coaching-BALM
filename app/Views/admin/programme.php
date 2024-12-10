@@ -37,26 +37,10 @@
 								</td>
 							</tr>
 						<?php endforeach; ?>
-						<tr>
-							<td><input type="text" name="nom" placeholder="Nom du produit" required></td>
-							<td><textarea name="description" placeholder="Description du produit" rows="2"></textarea></td>
-							<td><input type="number" name="prix" placeholder="Prix (€)" step="0.01" min="0" required></td>
-							<td><input type="number" name="duree" placeholder="Durée (en mois)" required></td>
-							<td>
-								<select name="paramProgramme[]" multiple>
-									<option value="entrainement">Entraînement</option>
-									<option value="multimedia">Multimédia</option>
-									<option value="alimentaire">Alimentaire</option>
-									<option value="bilan">Bilan</option>
-									<option value="whatsapp">Whatsapp</option>
-								</select>
-							</td>
-							
-							<td><button type="submit">Ajouter un programme</button></td>
-						</tr>
 					</tbody>
 				</table>
 			</form>
+			<a class="btnFGBJ" href="<?= base_url('admin/programme/ajouter') ?>">Ajouter un programme</a>
 		</div>
 
 		<div id="image-modal" class="modal">
