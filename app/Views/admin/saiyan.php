@@ -7,14 +7,14 @@
 ?>
 
 <div class="conteneur-modif">
-    <div class="recherche">
-        <?= form_open('/admin/rechercherSaiyan', ['method' => 'post']); ?>
-            <?= csrf_field() ?>
-            <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
-            <?= form_input('recherche',isset($_SESSION['rechercheSaiyan']) ? $_SESSION['rechercheSaiyan'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
-        <?= form_close(); ?>
-    </div>
     <div class="contenu-modif">
+        <div class="recherche">
+            <?= form_open('/admin/rechercherSaiyan', ['method' => 'post']); ?>
+                <?= csrf_field() ?>
+                <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+                <?= form_input('recherche',isset($_SESSION['rechercheSaiyan']) ? $_SESSION['rechercheSaiyan'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+            <?= form_close(); ?>
+        </div>
         <table class="table-achat">
             <thead>
                 <tr>
