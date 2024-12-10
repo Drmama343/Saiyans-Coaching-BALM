@@ -94,6 +94,25 @@ html, body {
     font-size: 1.5vw;
 }
 
+/* --- Code Css promotion.php --- */
+
+.conteneur-promotion {
+    position: relative;
+    width: 100%;
+    
+}
+
+.contenu-promotion {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--jaune);
+}
+
+
+
 /* --- Code Css produits.php --- */
 
 .conteneur-produits {
