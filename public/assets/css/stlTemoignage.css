@@ -16,61 +16,113 @@ html, body {
 /* Code Css de article.php */
 
 .conteneur-admin-temoignage {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 15vh;
+	margin-top: 10vw;
+}
+
+.contenu-admin-temoignage {
+	margin: 0 auto;
+	width: 80%;
 }
 
 .contenu-admin-temoignage h2 {
 	color: var(--jaune);
 }
 
-.tableau-admin-temoignage {
-    border-collapse: separate; /* Utiliser `separate` pour activer l'espacement */
-    border-spacing: 0px; /* Aucun espace entre les cellules */
-    width: 100%; /* Facultatif : ajuste la largeur */
-    color: var(--blanc);
-    border: 1px solid var(--jaune); /* Ajoute les bordures externes */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 1vmax;
+	color: #333;
+	background-color: #fff;
+	margin: -3vw 0 0 0;
+	border-radius: 8px;
+	overflow: hidden;
+    text-align: center;
 }
 
-.tableau-admin-temoignage th,
-.tableau-admin-temoignage td {
-    border-bottom: 1px solid var(--jaune); /* Ligne horizontale interne */
-    border-right: 1px solid var(--jaune); /* Ligne verticale interne */
+thead {
+	background-color: #F4E904;
+    font-family: "Bebas Neue", sans-serif;
 }
 
-.tableau-admin-temoignage tr:last-child td {
-    border-bottom: none; /* Supprime la bordure horizontale après la dernière ligne */
+thead th {
+	padding: 12px 15px;
 }
 
-.tableau-admin-temoignage td:last-child,
-.tableau-admin-temoignage th:last-child {
-    border-right: none; /* Supprime la bordure verticale après la dernière colonne */
+tbody tr {
+	border-bottom: 1px solid #ddd;
+	transition: background-color 0.3s ease;
 }
 
-.tableau-admin-temoignage th {
-    text-align: center; /* Aligne le texte des en-têtes */
-    background-color: var(--noir); /* Facultatif : contraste avec les en-têtes */
+tbody tr:last-child{
+	border: none;
 }
 
-.tableau-admin-temoignage td {
-    padding: 10px; /* Facultatif : espace dans les cellules */
-    text-align: center; /* Centre le contenu */
+tbody tr:nth-of-type(even) {
+	background-color: #f9f9f9;
 }
 
-.tableau-admin-temoignage tr {
-	border: 1px solid var(--jaune);
+tbody tr:hover {
+	background-color: #f1f1f1;
 }
 
-.tableau-admin-temoignage .celluleImage {
-	text-decoration: underline;
-	cursor: pointer;
+tbody td {
+	padding: 12px 15px;
+    font-family: 'Lato', sans-serif;
 }
 
-.tableau-admin-temoignage td a {
-	color: var(--jaune);
+td:first-child {
+	font-weight: bold;
+	color: #0c0c0c;
 }
+
+table a {
+    color: #0c0c0c;
+}
+
+.celluleImage {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.recherche form label {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
+
+.recherche form input {
+	position: relative;
+	top: -3.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
+    background-color: #f4f4f4;
+}
+
+#paginationTemoignage {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#paginationTemoignage a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#paginationTemoignage a:hover {
+	background-color: #F4E904;
+	color: black;
+}
+
 
 .modal {
     display: none; /* Caché par défaut */

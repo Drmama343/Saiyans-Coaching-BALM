@@ -25,6 +25,7 @@ html, body {
 .contenu-admin-article h2 {
 	color: var(--jaune);
 }
+
 table {
 	width: 100%;
 	border-collapse: collapse;
