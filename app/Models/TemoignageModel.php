@@ -9,7 +9,7 @@ class TemoignageModel extends Model {
 	protected $primaryKey = 'id';
 	protected $allowedFields = ['idsaiyan','temoignage','note','date','image','affichage'];
 
-	public function find($id = null) {
+	public function findAffichage($id = null) {
 		return $this->asArray()
 					->where(['affichage' => 't'])
 					->findAll();
