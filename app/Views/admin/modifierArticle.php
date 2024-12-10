@@ -9,6 +9,9 @@
 	<?= form_label('Image', 'image') ?>
 	<?= form_upload('image') ?>
 	<br>
+	<?= form_label(('Type'), 'type') ?>
+	<?= form_dropdown('type', ['actu' => 'Actualité', 'blog' => 'Blog'], $data['type']) ?>
+	<br>
 	<?= form_label('Affichage', 'affichage') ?>
 	<?= form_checkbox('affichage', 't', $data['affichage'] === "t" ? true : false) ?>
 	<br>

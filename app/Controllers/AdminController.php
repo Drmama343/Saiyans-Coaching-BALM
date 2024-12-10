@@ -203,7 +203,7 @@ class AdminController extends BaseController
 		];
 
 		$promotionModel->update($id, $data);
-		return redirect()->to('/admin/promotion');
+		return redirect()->to('/admin/programme');
 	}
 
 	public function supprPromotion($id)
@@ -236,9 +236,8 @@ class AdminController extends BaseController
 		$temoignageModel = new TemoignageModel();
 
 		$data = [
-			'affichage' => $this->request->getPost('affichage')
+			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
 		];
-
 		$temoignageModel->update($id, $data);
 		return redirect()->to('/admin/temoignage');
 	}
@@ -246,8 +245,19 @@ class AdminController extends BaseController
 	public function supprTemoignage($id)
 	{
 		$temoignageModel = new TemoignageModel();
-		$temoignageModel->delete($id);
+		$temoignage = $temoignageModel->find($id);
 
+		if ($temoignage) {
+			if (!empty($temoignage['image'])) {
+				$imagePath = WRITEPATH . '../public/assets/images/temoignages/' . $temoignage['image'];
+	
+				if (is_file($imagePath)) {
+					unlink($imagePath);
+				}
+			}
+	
+			$temoignageModel->delete($id);
+		}
 		return redirect()->to('/admin/temoignage');
 	}
 
@@ -262,6 +272,46 @@ class AdminController extends BaseController
 
 		return view('admin/article', $data);
 	}
+
+	public function modifArticle($id)
+	{
+		$articleModel = new ArticleModel();
+
+		$oldImage = $articleModel->find($id)['image'];
+		$newImage = $this->request->getFile('image');
+		if($newImage->isValid() && !$newImage->hasMoved()){
+			$newName = $newImage->getClientPath();
+			$newImage->move('./assets/images', $newName);
+			$files = array_diff(scandir('./assets/images'), array('.', '..'));
+			if(in_array($oldImage, $files)){
+				unlink('./assets/images/' . $oldImage);
+			}
+		}
+		else {
+			$newName = null;
+		}
+
+		$data = [
+			'titre' => $this->request->getPost('titre'),
+			'contenu' => $this->request->getPost('contenu'),
+			'image' => $newName,
+			'type' => $this->request->getPost('type'),
+			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
+		];
+
+		
+		$articleModel->update($id, $data);
+		return redirect()->to('/admin/article');
+	}
+
+	public function supprArticle($id)
+	{
+		$articleModel = new ArticleModel();
+		$articleModel->delete($id);
+
+		return redirect()->to('/admin/article');
+	}
+
 
 	public function question(){
 		$model = new QuestionModel();
@@ -305,33 +355,43 @@ class AdminController extends BaseController
 		return redirect()->to('admin/question')->with('success', 'Question ajouté avec succès');
 	}
 
-	public function modifier($model, $id) {
+	public function modifier($nomModel, $id) {
 		
-		$fichier = 'App\Models\\' . ucfirst($model) . 'Model';
-		$fichier = new $fichier();
-		$data = $fichier->find($id);
+		$model = 'App\Models\\' . ucfirst($nomModel) . 'Model';
+		$model = new $model();
+		$data = $model->find($id);
 
-		if($fichier instanceof('App\Models\PromotionModel')){
+		if($model instanceof PromotionModel){
 			$programmeModel = new ProgrammeModel();
 			$programmes = $programmeModel->findAll();
 			
+			$prog = [];
 			foreach ($programmes as $key => $programme) {
-				if($data['produit'] == $programme['id']){
-					$data['produit'] = $programme;
-				}
-				$programmes[$key] = $programme['nom'];
+				
+				$prog[$programme['id']] = $programme['nom'];
 			}
 		} else {
-			$programmes = [];
+			$prog = [];
 		}
 
+		if($model instanceof TemoignageModel){
+			$saiyanModel = new SaiyanModel();
+			$saiyans = $saiyanModel->findAll();
+			
+			$saiy = [];
+			foreach ($saiyans as $key => $saiyan) {	
+				$saiy[$saiyan['id']] = $saiyan['prenom'] . ' ' . $saiyan['nom'];
+			}
+		} else {
+			$saiy = [];
+		}
 
 		$data = [
 			'data' => $data,
-			'model' => $model,
-			'programmes' => $programmes
+			'model' => $nomModel,
+			'programmes' => $prog,
+			'saiyans' => $saiy
 		];
-
 		return view('admin/modifier', $data);
 	}
 }
