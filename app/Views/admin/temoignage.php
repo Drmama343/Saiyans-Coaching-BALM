@@ -11,6 +11,13 @@
 <!-- Tableau pour les programmes -->
 <!--------------------------------->
 <div class="conteneur-admin-temoignage">
+	<div class="recherche">
+        <?= form_open('/admin/rechercherTemoignage', ['method' => 'post']); ?>
+            <?= csrf_field() ?>
+            <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+            <?= form_input('recherche',isset($_SESSION['rechercherTemoignage']) ? $_SESSION['rechercherTemoignage'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+        <?= form_close(); ?>
+    </div>
 	<div class="contenu-admin-temoignage">
 		<h2>Temoignages</h2>
 		<div class="tableau-admin-temoignage">
@@ -47,6 +54,10 @@
 			</form>
 		</div>
 
+		<div id="paginationTemoignage">
+            <?= $pagerTemoignages->links('Temoignage', 'custom') ?>
+        </div>
+
 		<div id="image-modal" class="modal">
 			<div class="modal-content">
 				<span class="close-btn" id="closeModal">&times;</span>
@@ -56,4 +67,4 @@
 	</div>
 </div>
 
-<?php include __DIR__ . '/../templates/footer.php'; ?>
+<?php include __DIR__ . '/../templates/footerAdmin.php'; ?>

@@ -7,6 +7,15 @@
 ?>
 
 <div class="conteneur-admin-article">
+	
+	<div class="recherche">
+        <?= form_open('/admin/rechercherArticle', ['method' => 'post']); ?>
+            <?= csrf_field() ?>
+            <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+            <?= form_input('recherche',isset($_SESSION['rechercheArticle']) ? $_SESSION['rechercheArticle'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+        <?= form_close(); ?>
+    </div>
+
 	<div class="contenu-admin-article">
 		<div class="tableau-admin-article">
 			<table>
@@ -38,6 +47,10 @@
 			</table>
 		</div>
 
+		<div id="paginationArticle">
+            <?= $pagerArticles->links('Article', 'custom') ?>
+        </div>
+
 		<div id="image-modal" class="modal">
 			<div class="modal-content">
 				<img src="" alt="" id="modalImage">
@@ -46,4 +59,4 @@
 	</div>
 </div>
 
-<?php include __DIR__ . '/../templates/footer.php'; ?>
+<?php include __DIR__ . '/../templates/footerAdmin.php'; ?>
