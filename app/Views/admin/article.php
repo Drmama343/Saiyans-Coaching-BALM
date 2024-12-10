@@ -7,16 +7,14 @@
 ?>
 
 <div class="conteneur-admin-article">
-	
-	<div class="recherche">
-        <?= form_open('/admin/rechercherArticle', ['method' => 'post']); ?>
-            <?= csrf_field() ?>
-            <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
-            <?= form_input('recherche',isset($_SESSION['rechercheArticle']) ? $_SESSION['rechercheArticle'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
-        <?= form_close(); ?>
-    </div>
-
 	<div class="contenu-admin-article">
+		<div class="recherche">
+			<?= form_open('/admin/rechercherArticle', ['method' => 'post']); ?>
+				<?= csrf_field() ?>
+				<?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+				<?= form_input('recherche',isset($_SESSION['rechercheArticle']) ? $_SESSION['rechercheArticle'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+			<?= form_close(); ?>
+		</div>
 		<div class="tableau-admin-article">
 			<table>
 				<thead>
@@ -45,7 +43,7 @@
 					<?php endforeach; ?>
 				</tbody>
 			</table>
-			<a href="<?= base_url('admin/article/ajouter') ?>">Ajouter un article</a>
+			<a id="ajoutArticle" class="btnFGBJ" href="<?= base_url('admin/article/ajouter') ?>">Ajouter un article</a>
 		</div>
 
 		<div id="paginationArticle">
