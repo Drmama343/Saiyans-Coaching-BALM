@@ -46,8 +46,12 @@ $routes->match(['GET', 'POST'], 'admin/modifPromotion/(:any)', 'AdminController:
 $routes->match(['GET', 'POST'], 'admin/supprPromotion/(:any)', 'AdminController::supprPromotion/$1');
 
 $routes->get('/admin/article', 'AdminController::article');
+$routes->post('/admin/modifArticle/(:any)', 'AdminController::modifArticle/$1');
+$routes->post('/admin/supprArticle/(:any)', 'AdminController::supprArticle/$1');
 
 $routes->get('/admin/temoignage', 'AdminController::temoignage');
+$routes->post('/admin/modifTemoignage/(:any)', 'AdminController::modifTemoignage/$1');
+$routes->post('/admin/supprTemoignage/(:any)', 'AdminController::supprTemoignage/$1');
 
 $routes->get('/admin/question', 'AdminController::question');
 $routes->match(['GET', 'POST'], '/admin/modifQuestion/(:any)', 'AdminController::modifierQuestion/$1');
@@ -55,8 +59,5 @@ $routes->match(['GET', 'POST'], '/admin/creerQuestion', 'AdminController::creerQ
 $routes->match(['GET', 'POST'], '/admin/supprimerQuestion/(:any)', 'AdminController::supprimerQuestion/$1');
 
 $routes->get('/admin/saiyan', 'AdminController::saiyan');
-$routes->match(['GET', 'POST'], '/admin/modifSaiyan/(:any)', 'AdminController::modifierSaiyan/$1');
-$routes->match(['GET', 'POST'], '/admin/creerSaiyan', 'AdminController::creerSaiyan');
-$routes->match(['GET', 'POST'], '/admin/supprimerSaiyan/(:any)', 'AdminController::supprimerSaiyan/$1');
 
 $routes->get('/admin/(:any)/(:num)', 'AdminController::modifier/$1/$2');

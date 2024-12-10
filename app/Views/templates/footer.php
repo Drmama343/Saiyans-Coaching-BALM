@@ -34,7 +34,7 @@
                 break;
 			case 'admin':
 				echo '<script src="/assets/js/fctStats.js"></script>';
-                if($url->getSegment(2) == 'article' && $url->getSegment(3) == '') {
+                if(($url->getSegment(2) == 'temoignage' || $url->getSegment(2) == 'article') && $url->getSegment(3) == '') {
                     echo '<script src="/assets/js/fctAffichageImage.js"></script>';
                 }
 				break;
