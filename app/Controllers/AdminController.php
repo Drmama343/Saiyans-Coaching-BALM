@@ -315,7 +315,13 @@ class AdminController extends BaseController
 
 	public function question(){
 		$model = new QuestionModel();
-		$data['questions'] = $model->getPaginatedQuestion();
+		
+		if (!isset($_SESSION['rechercheQuestion'])){
+			$data['questions'] = $model->getPaginatedQuestions();
+		}
+		else{
+			$data['questions'] = $model->getPaginatedQuestionsRecherche($_SESSION['rechercheQuestion']);
+		}
 		$data['pagerQuestions'] = $model->pager;
 		return view('/admin/question', $data);
 	}
@@ -353,6 +359,20 @@ class AdminController extends BaseController
 		$model->insert($newQuestion);
 
 		return redirect()->to('admin/question')->with('success', 'Question ajouté avec succès');
+	}
+	public function setRechercheQuestion()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheQuestion', $recherche);
+		}
+		else {
+			$session->set('rechercheQuestion', "");
+		}
+
+		return redirect()->to('admin/question');
 	}
 
 	public function modifier($nomModel, $id) {

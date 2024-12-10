@@ -21,6 +21,14 @@
         <?= form_submit('submit', 'Ajouter') ?>
     <?= form_close(); ?>
 
+    <div class="recherche">
+        <?= form_open('/admin/rechercherQuestion', ['method' => 'post']); ?>
+            <?= csrf_field() ?>
+            <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+            <?= form_input('recherche',isset($_SESSION['rechercheQuestion']) ? $_SESSION['rechercheQuestion'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+        <?= form_close(); ?>
+    </div>
+
     <?php foreach ($questions as &$question) : ?>
         <div class="contenu-question">
             <?= form_open("/admin/modifQuestion/" . $question['id']); ['class' => 'form-modif']?>
