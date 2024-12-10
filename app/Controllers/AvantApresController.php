@@ -16,12 +16,12 @@ class AvantApresController extends Controller
 
 	public function index()
 	{
-		$mediaModel = new MediaModel;
+		$temoignageModel = new TemoignageModel;
 
-		$medias = $mediaModel->findByType('video'); // A changer en 'photo'
+		$temoignages = $temoignageModel->findByAffichageImage(); // A changer en 'photo'
 
 		$data = [
-			'medias' => $medias,
+			'temoignages' => $temoignages,
 		];
 
 		return view('avant-apres', $data);

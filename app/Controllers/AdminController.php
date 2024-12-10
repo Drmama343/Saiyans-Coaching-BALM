@@ -46,6 +46,9 @@ class AdminController extends BaseController
 		return view('admin/admin', $data);
 	}
 
+	/* ----------------------------------------------
+	   --------------     SAIYAN    -----------------
+	   ---------------------------------------------- */
 	public function saiyan(){
 		$model = new SaiyanModel();
 		if (!isset($_SESSION['rechercheSaiyan'])){
@@ -88,6 +91,9 @@ class AdminController extends BaseController
 		return redirect()->to('admin');
 	}
 
+	/* ----------------------------------------------
+	   ------------     PROGRAMME    ----------------
+	   ---------------------------------------------- */
 	public function programme()
 	{
 		$programmeModel = new ProgrammeModel();
@@ -169,7 +175,9 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/programme');
 	}
 
-
+	/* ----------------------------------------------
+	   ------------     PROMOTION    ----------------
+	   ---------------------------------------------- */
 	public function ajoutPromotion()
 	{
 		// Récupérer les données du formulaire
@@ -214,6 +222,9 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/programme');
 	}
 	
+	/* ----------------------------------------------
+	   ------------     TEMOIGNAGE    ---------------
+	   ---------------------------------------------- */
 	public function temoignage()
 	{
 		$temoignageModel = new TemoignageModel();
@@ -261,6 +272,9 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/temoignage');
 	}
 
+	/* ----------------------------------------------
+	   -------------     ARTICLE    -----------------
+	   ---------------------------------------------- */
 	public function article()
 	{
 		$articleModel = new ArticleModel();
@@ -273,18 +287,29 @@ class AdminController extends BaseController
 		return view('admin/article', $data);
 	}
 
-	public function ajoutArticle() {
+	public function ajoutArticle()
+	{
 		$articleModel = new ArticleModel();
 
-		$image = $this->request->getFile('image');
-		if($image->isValid() && !$image->hasMoved()){
-			$image->move('./assets/images', $image->getClientName());
+		$file = $this->request->getFile('image');
+		if ($file != null) {
+			if ($file && $file->isValid() && !$file->hasMoved()) {
+				// Nom unique pour éviter les collisions
+				$imageType = exif_imagetype($_FILES['image']['tmp_name']);
+				$newFileName = uniqid('article' . '_', true) . image_type_to_extension($imageType);
+				$newPathFilename = WRITEPATH .'../public/assets/images/' . $newFileName;
+
+				$this->saveImage($newPathFilename);
+			} else {
+				// Gérer les erreurs
+				return redirect()->back()->with('error', 'Le fichier n\'est pas valide ou n\'a pas été téléchargé correctement.');
+			}
 		}
 
 		$data = [
 			'titre' => $this->request->getPost('titre'),
 			'contenu' => $this->request->getPost('contenu'),
-			'image' => $image->getClientName(),
+			'image' => isset($newFileName) ? $newFileName : null,
 			'type' => $this->request->getPost('type'),
 			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
 		];
@@ -296,29 +321,38 @@ class AdminController extends BaseController
 	public function modifArticle($id)
 	{
 		$articleModel = new ArticleModel();
+		$article = $articleModel->find($id);
 
-		$oldImage = $articleModel->find($id)['image'];
-		$newImage = $this->request->getFile('image');
-		if($newImage->isValid() && !$newImage->hasMoved()){
-			$newName = $newImage->getClientPath();
-			$files = array_diff(scandir('./assets/images'), array('.', '..'));
-			if(in_array($oldImage, $files)){
-				unlink('./assets/images/' . $oldImage);
+		$file = $this->request->getFile('image');
+		if ($file != null) {
+			if ($file && $file->isValid() && !$file->hasMoved()) {
+				if (!empty($article['image'])) {
+					$oldImagePath = WRITEPATH . '../public/assets/images/' . $article['image'];
+		
+					if (is_file($oldImagePath)) {
+						unlink($oldImagePath);
+					}
+				}
+				
+				// Nom unique pour éviter les collisions
+				$imageType = exif_imagetype($_FILES['image']['tmp_name']);
+				$newFileName = uniqid('article' . '_', true) . image_type_to_extension($imageType);
+				$newPathFilename = WRITEPATH .'../public/assets/images/' . $newFileName;
+
+				$this->saveImage($newPathFilename);
+			} else {
+				// Gérer les erreurs
+				return redirect()->back()->with('error', 'Le fichier n\'est pas valide ou n\'a pas été téléchargé correctement.');
 			}
-			$newImage->move('./assets/images', $newName);
-		}
-		else {
-			$newName = null;
 		}
 
 		$data = [
 			'titre' => $this->request->getPost('titre'),
 			'contenu' => $this->request->getPost('contenu'),
-			'image' => $newName,
+			'image' => isset($newFileName) ? $newFileName : null,
 			'type' => $this->request->getPost('type'),
 			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
 		];
-
 
 		$articleModel->update($id, $data);
 		return redirect()->to('/admin/article');
@@ -332,7 +366,9 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/article');
 	}
 
-
+	/* ----------------------------------------------
+	   -------------     QUESTION    ----------------
+	   ---------------------------------------------- */
 	public function question(){
 		$model = new QuestionModel();
 		
@@ -346,6 +382,18 @@ class AdminController extends BaseController
 		return view('/admin/question', $data);
 	}
 
+	public function creerQuestion (){
+		$model = new QuestionModel();
+
+		$newQuestion = [
+			'question' => $this->request->getVar('question'),
+			'reponse' => $this->request->getVar('reponse'),
+		];
+
+		$model->insert($newQuestion);
+
+		return redirect()->to('admin/question')->with('success', 'Question ajouté avec succès');
+	}
 	public function modifierQuestion ($idQuestion){
 		$model = new QuestionModel();
 
@@ -368,18 +416,6 @@ class AdminController extends BaseController
 		return redirect()->to('admin/question')->with('success', 'Question supprimé avec succès');
 	}
 
-	public function creerQuestion (){
-		$model = new QuestionModel();
-
-		$newQuestion = [
-			'question' => $this->request->getVar('question'),
-			'reponse' => $this->request->getVar('reponse'),
-		];
-
-		$model->insert($newQuestion);
-
-		return redirect()->to('admin/question')->with('success', 'Question ajouté avec succès');
-	}
 	public function setRechercheQuestion()
 	{
 		$session = session();
@@ -395,6 +431,9 @@ class AdminController extends BaseController
 		return redirect()->to('admin/question');
 	}
 
+	/* ----------------------------------------------
+	   --------------     OUTILS    -----------------
+	   ---------------------------------------------- */
 	public function modifier($nomModel, $id=null) {
 		
 		$model = 'App\Models\\' . ucfirst($nomModel) . 'Model';
@@ -434,5 +473,69 @@ class AdminController extends BaseController
 			'saiyans' => $saiy
 		];
 		return view('admin/modifier', $data);
+	}
+
+	public function saveImage($newPathFilename) {
+		$imageType = exif_imagetype($_FILES['image']['tmp_name']);
+		if (in_array($imageType, [IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF])) {
+	
+			// Charger l'image selon son type
+			switch ($imageType) {
+				case IMAGETYPE_JPEG:
+					$image = imagecreatefromjpeg($_FILES['image']['tmp_name']);
+					break;
+				case IMAGETYPE_PNG:
+					$image = imagecreatefrompng($_FILES['image']['tmp_name']);
+					break;
+				case IMAGETYPE_GIF:
+					$image = imagecreatefromgif($_FILES['image']['tmp_name']);
+					break;
+			}
+	
+			// Dimensions maximales
+			$maxWidth = 600;
+			$maxHeight = 600;
+	
+			// Obtenir les dimensions de l'image originale
+			list($originalWidth, $originalHeight) = getimagesize($_FILES['image']['tmp_name']);
+	
+			// Calculer le ratio de redimensionnement
+			$ratio = min($maxWidth / $originalWidth, $maxHeight / $originalHeight);
+	
+			// Nouvelles dimensions
+			$newWidth = floor($originalWidth * $ratio);
+			$newHeight = floor($originalHeight * $ratio);
+	
+			// Créer une image vide avec les nouvelles dimensions
+			$newImage = imagecreatetruecolor($newWidth, $newHeight);
+	
+			// Conserver la transparence pour PNG et GIF
+			if ($imageType == IMAGETYPE_PNG || $imageType == IMAGETYPE_GIF) {
+				imagealphablending($newImage, false);
+				imagesavealpha($newImage, true);
+			}
+	
+			// Redimensionner l'image
+			imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $originalWidth, $originalHeight);
+	
+			// Sauvegarder l'image redimensionnée
+			switch ($imageType) {
+				case IMAGETYPE_JPEG:
+					imagejpeg($newImage, $newPathFilename, 90); // Compression pour JPEG
+					break;
+				case IMAGETYPE_PNG:
+					imagepng($newImage, $newPathFilename);
+					break;
+				case IMAGETYPE_GIF:
+					imagegif($newImage, $newPathFilename);
+					break;
+			}
+	
+			// Libérer la mémoire
+			imagedestroy($image);
+			imagedestroy($newImage);
+		} else {
+			return redirect()->back()->with('error', 'L\'extension du fichier n\'est pas accépté.');
+		}
 	}
 }

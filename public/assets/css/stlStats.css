@@ -23,7 +23,7 @@ html, body {
 	display: flex;
 	flex-wrap: wrap; /* Permet de mettre plusieurs éléments sur plusieurs lignes */
 	justify-content: space-evenly; /* Espace égal entre les graphiques */
-	margin: 5vw 0 0 0;
+	margin: 1vw 0 0 0;
 }
 
 /* Conteneur de chaque graphique */
@@ -58,9 +58,11 @@ html, body {
 }
 
 table {
+	position: relative;
+	top: -4.5vw;
 	width: 100%;
 	border-collapse: collapse;
-	margin: 5vw 0 0 0;
+	margin: 1vw 0 0 0;
 	font-size: 1vmax;
 	font-family: 'Arial', sans-serif;
 	color: #333;
@@ -72,8 +74,7 @@ table {
 thead {
 	background-color: #F4E904;
 	color: #000;
-	text-transform: uppercase;
-	font-weight: bold;
+	font-family: "Bebas Neue", sans-serif;
 }
 
 thead th {
@@ -109,6 +110,7 @@ td:first-child {
 
 .pagi-table-saiyans {
 	position: relative;
+	top: -4.5vw;
 	margin: 0;
 	padding: 0;
 }
@@ -128,4 +130,20 @@ td:first-child {
 	color: black;
 }
 
+form label {
+	position: relative;
+	top: -1vw;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
 
+form input {
+	position: relative;
+	top: -4.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
+}
