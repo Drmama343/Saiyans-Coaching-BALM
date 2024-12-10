@@ -36,9 +36,7 @@ include 'templates/navbar.php';
 			<div class="modal-content">
 				<span class="close-btn" id="closeModalTemoignage">&times;</span>
 				<?php if (!isset($_SESSION['utilisateur'])): ?>
-					<a href="/login" class="btnFGBJ">
-						<h5>Connectez vous !</h5>
-					</a>
+					<a href="/connexion" class="btnFGBJ"><h5>Connectez vous !</h5></a>
 				<?php else: ?>
 					<?= form_open_multipart("/ajoutTemoignage/" . $_SESSION['utilisateur']['id'], ['class' => 'form-ajout']) ?>
 					<h2>Votre témoignage :</h2>
