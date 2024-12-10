@@ -46,7 +46,7 @@ $routes->post('admin/modifPromotion/(:any)', 'AdminController::modifPromotion/$1
 $routes->post('admin/supprPromotion/(:any)', 'AdminController::supprPromotion/$1');
 
 $routes->get('/admin/article', 'AdminController::article');
-$routes->post('admin/ajouter/article', 'AdminController::ajoutArticle');
+$routes->post('/admin/article/ajouter', 'AdminController::ajoutArticle');
 $routes->post('/admin/modifArticle/(:any)', 'AdminController::modifArticle/$1');
 $routes->post('/admin/supprArticle/(:any)', 'AdminController::supprArticle/$1');
 
@@ -64,4 +64,5 @@ $routes->get('/admin/saiyan', 'AdminController::saiyan');
 $routes->match(['GET', 'POST'], '/admin/rechercherSaiyan', 'AdminController::setRechercheSaiyan');
 $routes->match(['GET', 'POST'], '/admin/rechercherSaiyanStats', 'AdminController::setRechercheSaiyanStats');
 
-$routes->get('/admin/(:any)/(:any)', 'AdminController::modifier/$1/$2');
+$routes->get('/admin/(:any)/(:num)', 'AdminController::modifier/$1/$2');
+$routes->get('/admin/(:any)/ajouter', 'AdminController::ajouter/$1');

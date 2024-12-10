@@ -290,15 +290,15 @@ class AdminController extends BaseController
 	public function ajoutArticle()
 	{
 		$articleModel = new ArticleModel();
-
 		$file = $this->request->getFile('image');
-		if ($file != null) {
+
+		if ($file->getClientPath() != "") {
 			if ($file && $file->isValid() && !$file->hasMoved()) {
 				// Nom unique pour éviter les collisions
 				$imageType = exif_imagetype($_FILES['image']['tmp_name']);
 				$newFileName = uniqid('article' . '_', true) . image_type_to_extension($imageType);
 				$newPathFilename = WRITEPATH .'../public/assets/images/' . $newFileName;
-
+				
 				$this->saveImage($newPathFilename);
 			} else {
 				// Gérer les erreurs
@@ -309,6 +309,7 @@ class AdminController extends BaseController
 		$data = [
 			'titre' => $this->request->getPost('titre'),
 			'contenu' => $this->request->getPost('contenu'),
+			'auteur' => $this->session->get('utilisateur')['id'],
 			'image' => isset($newFileName) ? $newFileName : null,
 			'type' => $this->request->getPost('type'),
 			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
@@ -324,7 +325,7 @@ class AdminController extends BaseController
 		$article = $articleModel->find($id);
 
 		$file = $this->request->getFile('image');
-		if ($file != null) {
+		if ($file->getClientPath() != "") {
 			if ($file && $file->isValid() && !$file->hasMoved()) {
 				if (!empty($article['image'])) {
 					$oldImagePath = WRITEPATH . '../public/assets/images/' . $article['image'];
@@ -471,6 +472,16 @@ class AdminController extends BaseController
 			'model' => $nomModel,
 			'programmes' => $prog,
 			'saiyans' => $saiy
+		];
+		return view('admin/modifier', $data);
+	}
+
+	public function ajouter($nomModel) {
+		$data = [
+			'data' => [],
+			'model' => $nomModel,
+			'programmes' => [],
+			'saiyans' => []
 		];
 		return view('admin/modifier', $data);
 	}
