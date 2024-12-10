@@ -10,68 +10,94 @@
 html, body {
 	margin: 0;
 	padding: 0;
-	background: linear-gradient(to right, var(--noir), var(--gris));
+	background: var(--noir);
+
+	background-image: url(/assets/images/fondAccueil.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* --- Code Css stlBlog.php --- */
 
+.conteneur-blog {
+	margin: 10vw auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* Contenu du blog */
 .contenu-blog {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	padding: 15vh 20vw 5vh;
+    width: 80%;
 }
 
+/* Articles : Grille des blocs */
 .articles {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
-	grid-gap: 5vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Max 3 colonnes */
+    gap: 20px;
 }
 
+/* Bloc Article */
 .article {
-    background-color: var(--noir);
-    border-radius: 2vw;
-    padding: 1vh 2vw 2vh;
-    position: relative; /* Nécessaire pour que .date se positionne par rapport à .article */
+    background-color: #0c0c0c;
+    border-radius: 8px;
+    border: 1px solid #F4E904;
+	box-shadow: 1px 1px 4px #F4E904;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+	color: #ffffff;
+	font-family: 'Lota', sans-serif;
 }
 
-.article .date {
-    position: absolute; /* Positionnement relatif à .article */
-    top: 1vh;           /* Place la date en haut */
-    right: 1vw;         /* Aligne la date à droite */
-    font-family: 'Lato', sans-serif;
-    font-size: 2vh;
-    color: var(--jaune); /* Optionnel : Donne une couleur pour la date */
-}
-
+/* Titre */
 .article h2 {
-	font-family: "Bebas Neue", sans-serif;
-	font-size: 5vh;
-	color: var(--jaune)
+    font-size: 2vw;
+    color: #F4E904;
+    margin-bottom: 10px;
+	font-family: 'Bebas Neue', sans-serif;
 }
 
+/* Date */
+.article .date {
+    font-size: 12px;
+    color: #F4E904;
+    margin-bottom: 10px;
+}
+
+/* Contenu */
 .article p {
-	font-family: 'Lato', sans-serif;
-	font-size: 2.5vh;
-	color: var(--blanc);
-	text-align: justify;
-	display: -webkit-box; /* Active le mode boîte flexible */
-    -webkit-box-orient: vertical; /* Définit l'orientation verticale */
-    -webkit-line-clamp: 3; /* Limite à 3 lignes */
-    line-clamp: 3; /* Limite à 3 lignes */
-    overflow: hidden; /* Cache le reste du texte */
-    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
+/* Auteur */
 .article .saiyan {
-	position: absolute;
-	bottom: 1vh;
-	right: 1vw;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: auto; /* Pousse le contenu vers le haut */
 }
 
+/* Image */
 .article img {
-	width: 50%;
-	height: auto;
-	
+    width: 60%;
+    height: auto;
+    border-radius: 4px;
+	margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .articles {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adapte les blocs à des tailles plus petites */
+    }
 }
