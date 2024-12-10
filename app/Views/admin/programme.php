@@ -29,8 +29,8 @@
 							<tr>
 								<td><?= $programme['nom'] ?></td>
 								<td><?= $programme['description'] ?></td>
-								<td><?= $programme['prix'] ?></td>
-								<td><?= $programme['duree'] ?></td>
+								<td><?= $programme['prix'] ?> €</td>
+								<td><?= $programme['duree'] ?> mois</td>
 								<td>
 									<a href="<?= base_url('admin/programme/' . $programme['id']) ?>">Modifier</a>
 									<a href="<?= base_url('admin/supprProgramme/' . $programme['id']) ?>">Supprimer</a>
@@ -40,7 +40,10 @@
 					</tbody>
 				</table>
 			</form>
-			<a class="btnFGBJ" href="<?= base_url('admin/programme/ajouter') ?>">Ajouter un programme</a>
+		</div>
+		<a class="btnFGBJ" href="<?= base_url('admin/programme/ajouter') ?>">Ajouter un programme</a>
+		<div id="paginationQuestion">
+			<?= $pagerProgramme->links('Programme', 'custom') ?>
 		</div>
 
 		<div id="image-modal" class="modal">
@@ -90,6 +93,10 @@
 			</table>
 		</div>
 		<a href="<?= base_url('admin/promotion/ajouter') ?>">Ajouter un article</a>
+
+		<div id="paginationQuestion">
+			<?= $pagerPromotion->links('Promotion', 'custom') ?>
+		</div>
 
 		<div id="image-modal" class="modal">
 			<div class="modal-content">
