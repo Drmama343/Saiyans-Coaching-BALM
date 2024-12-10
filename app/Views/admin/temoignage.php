@@ -19,7 +19,13 @@
         <?= form_close(); ?>
     </div>
 	<div class="contenu-admin-temoignage">
-		<h2>Temoignages</h2>
+		<div class="recherche">
+			<?= form_open('/admin/rechercherTemoignage', ['method' => 'post']); ?>
+				<?= csrf_field() ?>
+				<?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+				<?= form_input('recherche',isset($_SESSION['rechercherTemoignage']) ? $_SESSION['rechercherTemoignage'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+			<?= form_close(); ?>
+		</div>
 		<div class="tableau-admin-temoignage">
 			<form action="<?= base_url('admin/ajoutProgramme') ?>" method="post" enctype="multipart/form-data">
 			<?= csrf_field() ?>
@@ -32,6 +38,7 @@
 							<th>Date</th>
 							<th>Image</th>
 							<th>Affichage</th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>

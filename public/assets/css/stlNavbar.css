@@ -7,6 +7,25 @@
 	--blanc: #ffffff;
 }
 
+.btnFGBJ {
+    background-color: #737373;
+    opacity: 70%;
+    padding: 1vh 5vh;
+    border: 2px solid #F4E904;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+}
+
+.btnFGBJ:hover {
+    background-color: #F4E904;
+    border: 2px solid #737373;
+    color: #0c0c0c;
+    transition: all 0.5s ease;
+}
+
 nav {
 	position: absolute;
 	top: 5vh;

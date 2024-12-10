@@ -7,16 +7,14 @@
 ?>
 
 <div class="conteneur-admin-question">
-
-    <div class="recherche">
-        <?= form_open('/admin/rechercherQuestion', ['method' => 'post']); ?>
-            <?= csrf_field() ?>
-            <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
-            <?= form_input('recherche',isset($_SESSION['rechercheQuestion']) ? $_SESSION['rechercheQuestion'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
-        <?= form_close(); ?>
-    </div>
-
     <div class="contenu-admin-question">
+        <div class="recherche">
+            <?= form_open('/admin/rechercherQuestion', ['method' => 'post']); ?>
+                <?= csrf_field() ?>
+                <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+                <?= form_input('recherche',isset($_SESSION['rechercheQuestion']) ? $_SESSION['rechercheQuestion'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+            <?= form_close(); ?>
+        </div>
         <div class="tableau-admin-question">
             <table>
                 <thead>
@@ -40,7 +38,7 @@
                 </tbody>
             </table>
         </div>
-        <a href="<?= base_url('admin/question/ajouter') ?>">Ajouter une question</a>
+        <a class="btnFGBJ" href="<?= base_url('admin/question/ajouter') ?>">Ajouter une question</a>
 
         <div id="paginationQuestion">
             <?= $pagerQuestions->links('Question', 'custom') ?>

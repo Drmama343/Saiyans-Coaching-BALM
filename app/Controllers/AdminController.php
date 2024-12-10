@@ -98,8 +98,18 @@ class AdminController extends BaseController
 	{
 		$programmeModel = new ProgrammeModel();
 		$promotionModel = new PromotionModel();
-		$programmes = $programmeModel->findAll();
-		$promotions = $promotionModel->findAll();
+		if (!isset($_SESSION['rechercheProgramme'])){
+			$programmes = $programmeModel->getPaginatedProgrammes();
+		}
+		else{
+			$programmes = $programmeModel->getPaginatedProgrammesRecherche($_SESSION['rechercheProgramme']);
+		}
+		if (!isset($_SESSION['recherchePromotion'])){
+			$promotions = $promotionModel->getPaginatedPromotions();
+		}
+		else{
+			$promotions = $promotionModel->getPaginatedPromotionsRecherche($_SESSION['recherchePromotion']);
+		}
 
 		foreach ($promotions as $key => $promotion) {
 			$promotions[$key]['programme'] = $programmeModel->find($promotion['produit']);
@@ -107,7 +117,9 @@ class AdminController extends BaseController
 
 		$data = [
 			'programmes' => $programmes,
+			'pagerProgramme' => $programmeModel->pager,
 			'promotions' => $promotions,
+			'pagerPromotion' => $promotionModel->pager,
 		];
 
 		return view('admin/programme', $data);
