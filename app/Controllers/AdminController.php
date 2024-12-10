@@ -231,11 +231,11 @@ class AdminController extends BaseController
 		$newImage = $this->request->getFile('image');
 		if($newImage->isValid() && !$newImage->hasMoved()){
 			$newName = $newImage->getClientPath();
-			$newImage->move('./assets/images', $newName);
 			$files = array_diff(scandir('./assets/images'), array('.', '..'));
 			if(in_array($oldImage, $files)){
 				unlink('./assets/images/' . $oldImage);
 			}
+			$newImage->move('./assets/images', $newName);
 		}
 		else {
 			$newName = null;
@@ -249,7 +249,7 @@ class AdminController extends BaseController
 			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
 		];
 
-		
+
 		$articleModel->update($id, $data);
 		return redirect()->to('/admin/article');
 	}
