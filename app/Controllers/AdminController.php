@@ -477,10 +477,24 @@ class AdminController extends BaseController
 	}
 
 	public function ajouter($nomModel) {
+
+		if($nomModel == 'promotion'){
+			$programmeModel = new ProgrammeModel();
+			$programmes = $programmeModel->findAll();
+			
+			$prog = [];
+			foreach ($programmes as $key => $programme) {
+				
+				$prog[$programme['id']] = $programme['nom'];
+			}
+		} else {
+			$prog = [];
+		}
+
 		$data = [
 			'data' => [],
 			'model' => $nomModel,
-			'programmes' => [],
+			'programmes' => $prog,
 			'saiyans' => []
 		];
 		return view('admin/modifier', $data);

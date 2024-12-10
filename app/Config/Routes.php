@@ -38,26 +38,27 @@ $routes->post('/contact', 'ContactController::sendMail');
 $routes->get('/admin', 'AdminController::index');
 
 $routes->get('/admin/programme', 'AdminController::programme');
-$routes->match(['GET', 'POST'], 'admin/ajoutProgramme', 'AdminController::ajoutProgramme');
-$routes->match(['GET', 'POST'], 'admin/modifProgramme/(:any)', 'AdminController::modifProgramme/$1');
-$routes->match(['GET', 'POST'], 'admin/supprProgramme/(:any)', 'AdminController::supprProgramme/$1');
-$routes->match(['GET', 'POST'], 'admin/ajoutPromotion', 'AdminController::ajoutPromotion');
-$routes->match(['GET', 'POST'], 'admin/modifPromotion/(:any)', 'AdminController::modifPromotion/$1');
-$routes->match(['GET', 'POST'], 'admin/supprPromotion/(:any)', 'AdminController::supprPromotion/$1');
+$routes->post('admin/ajoutProgramme', 'AdminController::ajoutProgramme');
+$routes->post('admin/modifProgramme/(:num)', 'AdminController::modifProgramme/$1');
+$routes->get('admin/supprProgramme/(:num)', 'AdminController::supprProgramme/$1');
+
+$routes->post('admin/ajouter/promotion', 'AdminController::ajoutPromotion');
+$routes->post('admin/modifPromotion/(:num)', 'AdminController::modifPromotion/$1');
+$routes->get('admin/supprPromotion/(:num)', 'AdminController::supprPromotion/$1');
 
 $routes->get('/admin/article', 'AdminController::article');
 $routes->post('/admin/article/ajouter', 'AdminController::ajoutArticle');
-$routes->post('/admin/modifArticle/(:any)', 'AdminController::modifArticle/$1');
-$routes->post('/admin/supprArticle/(:any)', 'AdminController::supprArticle/$1');
+$routes->post('/admin/modifArticle/(:num)', 'AdminController::modifArticle/$1');
+$routes->get('/admin/supprArticle/(:num)', 'AdminController::supprArticle/$1');
 
 $routes->get('/admin/temoignage', 'AdminController::temoignage');
-$routes->match(['GET', 'POST'], 'admin/modifTemoignage/(:any)', 'AdminController::modifTemoignage/$1');
-$routes->match(['GET', 'POST'], 'admin/supprTemoignage/(:any)', 'AdminController::supprTemoignage/$1');
+$routes->post('admin/modifTemoignage/(:num)', 'AdminController::modifTemoignage/$1');
+$routes->get('admin/supprTemoignage/(:num)', 'AdminController::supprTemoignage/$1');
 
 $routes->get('/admin/question', 'AdminController::question');
-$routes->match(['GET', 'POST'], '/admin/modifQuestion/(:any)', 'AdminController::modifierQuestion/$1');
-$routes->match(['GET', 'POST'], '/admin/creerQuestion', 'AdminController::creerQuestion');
-$routes->match(['GET', 'POST'], '/admin/supprimerQuestion/(:any)', 'AdminController::supprimerQuestion/$1');
+$routes->post('/admin/modifQuestion/(:num)', 'AdminController::modifierQuestion/$1');
+$routes->post('/admin/creerQuestion', 'AdminController::creerQuestion');
+$routes->get('/admin/supprimerQuestion/(:num)', 'AdminController::supprimerQuestion/$1');
 $routes->match(['GET', 'POST'], '/admin/rechercherQuestion', 'AdminController::setRechercheQuestion');
 
 $routes->get('/admin/saiyan', 'AdminController::saiyan');
