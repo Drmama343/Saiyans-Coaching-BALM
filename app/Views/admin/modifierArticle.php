@@ -5,7 +5,7 @@
 	{
 		echo form_open_multipart(base_url('admin/modifArticle/' . ($data['id'] ?? '')));
 	} else {
-		echo form_open_multipart(base_url('admin/ajouter/article'));
+		echo form_open_multipart(base_url('admin/article/ajouter'));
 	}
 ?>
 
@@ -36,7 +36,6 @@
         isset($data['affichage']) && $data['affichage'] === 't'
     ) ?>
     <br>
-
 
     <?= form_submit('submit', isset($data['id']) ? 'Modifier' : 'Ajouter', ['class' => 'btnFGBJ']) ?>
 <?= form_close() ?>
