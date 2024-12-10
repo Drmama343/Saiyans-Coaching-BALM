@@ -228,7 +228,12 @@ class AdminController extends BaseController
 	public function temoignage()
 	{
 		$temoignageModel = new TemoignageModel();
-		$temoignages = $temoignageModel->findAll();
+		if (!isset($_SESSION['rechercheTemoignage'])){
+			$temoignages = $temoignageModel->getPaginatedTemoignages();
+		}
+		else{
+			$temoignages = $temoignageModel->getPaginatedTemoignagesRecherche($_SESSION['rechercheTemoignage']);
+		}
 
 		$saiyanModel = new SaiyanModel();
 		foreach ($temoignages as $key => $temoignage) {
@@ -237,6 +242,7 @@ class AdminController extends BaseController
 
 		$data = [
 			'temoignages' => $temoignages,
+			'pagerTemoignages' => $temoignageModel->pager,
 		];
 
 		return view('admin/temoignage', $data);
@@ -272,16 +278,37 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/temoignage');
 	}
 
+	public function setRechercheTemoignage()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheTemoignage', $recherche);
+		}
+		else {
+			$session->set('rechercheTemoignage', "");
+		}
+
+		return redirect()->to('admin/temoignage');
+	}
+
 	/* ----------------------------------------------
 	   -------------     ARTICLE    -----------------
 	   ---------------------------------------------- */
 	public function article()
 	{
 		$articleModel = new ArticleModel();
-		$articles = $articleModel->findAll();
+		if (!isset($_SESSION['rechercheArticle'])){
+			$articles = $articleModel->getPaginatedArticles();
+		}
+		else{
+			$articles = $articleModel->getPaginatedArticlesRecherche($_SESSION['rechercheArticle']);
+		}
 
 		$data = [
 			'articles' => $articles,
+			'pagerArticles' => $articleModel->pager,
 		];
 
 		return view('admin/article', $data);
@@ -290,15 +317,15 @@ class AdminController extends BaseController
 	public function ajoutArticle()
 	{
 		$articleModel = new ArticleModel();
-
 		$file = $this->request->getFile('image');
-		if ($file != null) {
+
+		if ($file->getClientPath() != "") {
 			if ($file && $file->isValid() && !$file->hasMoved()) {
 				// Nom unique pour éviter les collisions
 				$imageType = exif_imagetype($_FILES['image']['tmp_name']);
 				$newFileName = uniqid('article' . '_', true) . image_type_to_extension($imageType);
 				$newPathFilename = WRITEPATH .'../public/assets/images/' . $newFileName;
-
+				
 				$this->saveImage($newPathFilename);
 			} else {
 				// Gérer les erreurs
@@ -309,6 +336,7 @@ class AdminController extends BaseController
 		$data = [
 			'titre' => $this->request->getPost('titre'),
 			'contenu' => $this->request->getPost('contenu'),
+			'auteur' => $this->session->get('utilisateur')['id'],
 			'image' => isset($newFileName) ? $newFileName : null,
 			'type' => $this->request->getPost('type'),
 			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
@@ -324,7 +352,7 @@ class AdminController extends BaseController
 		$article = $articleModel->find($id);
 
 		$file = $this->request->getFile('image');
-		if ($file != null) {
+		if ($file->getClientPath() != "") {
 			if ($file && $file->isValid() && !$file->hasMoved()) {
 				if (!empty($article['image'])) {
 					$oldImagePath = WRITEPATH . '../public/assets/images/' . $article['image'];
@@ -364,6 +392,21 @@ class AdminController extends BaseController
 		$articleModel->delete($id);
 
 		return redirect()->to('/admin/article');
+	}
+
+	public function setRechercheArticle()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheArticle', $recherche);
+		}
+		else {
+			$session->set('rechercheArticle', "");
+		}
+
+		return redirect()->to('admin/article');
 	}
 
 	/* ----------------------------------------------
@@ -434,11 +477,12 @@ class AdminController extends BaseController
 	/* ----------------------------------------------
 	   --------------     OUTILS    -----------------
 	   ---------------------------------------------- */
-	public function modifier($nomModel, $id) {
+	public function modifier($nomModel, $id=null) {
 		
 		$model = 'App\Models\\' . ucfirst($nomModel) . 'Model';
 		$model = new $model();
-		$data = $model->find($id);
+		
+		$id == null ? $data = [] : $data = $model->find($id);
 
 		if($model instanceof PromotionModel){
 			$programmeModel = new ProgrammeModel();
@@ -470,6 +514,16 @@ class AdminController extends BaseController
 			'model' => $nomModel,
 			'programmes' => $prog,
 			'saiyans' => $saiy
+		];
+		return view('admin/modifier', $data);
+	}
+
+	public function ajouter($nomModel) {
+		$data = [
+			'data' => [],
+			'model' => $nomModel,
+			'programmes' => [],
+			'saiyans' => []
 		];
 		return view('admin/modifier', $data);
 	}
