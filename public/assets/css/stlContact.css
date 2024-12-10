@@ -1,12 +1,3 @@
-/* Couleurs */
-
-:root {
-	--jaune: #F4E904;
-	--noir: #0c0c0c;
-	--gris: #737373;
-	--blanc: #ffffff;
-}
-
 html, body {
 	background-image: url(/assets/images/fondAccueil.jpg);
 	background-repeat: no-repeat;

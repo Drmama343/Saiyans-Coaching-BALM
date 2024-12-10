@@ -57,7 +57,10 @@ $routes->get('/admin/question', 'AdminController::question');
 $routes->match(['GET', 'POST'], '/admin/modifQuestion/(:any)', 'AdminController::modifierQuestion/$1');
 $routes->match(['GET', 'POST'], '/admin/creerQuestion', 'AdminController::creerQuestion');
 $routes->match(['GET', 'POST'], '/admin/supprimerQuestion/(:any)', 'AdminController::supprimerQuestion/$1');
+$routes->match(['GET', 'POST'], '/admin/rechercherQuestion', 'AdminController::setRechercheQuestion');
 
 $routes->get('/admin/saiyan', 'AdminController::saiyan');
+$routes->match(['GET', 'POST'], '/admin/rechercherSaiyan', 'AdminController::setRechercheSaiyan');
+$routes->match(['GET', 'POST'], '/admin/rechercherSaiyanStats', 'AdminController::setRechercheSaiyanStats');
 
 $routes->get('/admin/(:any)/(:num)', 'AdminController::modifier/$1/$2');
