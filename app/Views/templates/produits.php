@@ -50,7 +50,7 @@
 
 <div class="modal" id="productModal">
 	<div class="modal-content">
-		<button onclick="closeModal()">&times;</button>
+		<button class="close-btn" onclick="closeModal()">&times;</button>
 		<h3 id="modal-title"></h3>
 		<p><strong>Prix :</strong> <span id="modal-price"></span></p>
 		<p id="modal-description"></p>

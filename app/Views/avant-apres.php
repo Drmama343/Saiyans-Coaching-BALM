@@ -43,19 +43,20 @@
 					<div class="form-grid">
 						<div class="cellule-grid">
 							<?= form_label('Temoignage', 'temoignage') ?>
-							<?= form_input('temoignage', '', ['placeholder' => 'Vos pensées sur les formations ...']) ?>
+							<?= form_textarea('temoignage', '', ['placeholder' => 'Vos pensées sur les formations ...']) ?>
 						</div>
 						<div class="cellule-grid">
-							<?= form_label('Votre note entre 1 et 5 *:', 'note') ?>
+							<?= form_label('Votre note entre 1 - 5 *:', 'note') ?>
 							<?= form_input('note', '', ['min' => '1', 'max' => '5', 'step' => '1', 'required' => 'required'],'number') ?>
 						</div>	
 						<div class="cellule-grid">
-							<?= form_label('Image de votre transformation :', 'image') ?>
+							<?= form_label('Transformation en image:', 'image') ?>
 							<?= form_upload('image', '', ['accept' => 'image/*']) ?>
 						</div>
 						<div>
 							<?= form_submit( 'submit', 'Sauvegarder', ['class' => 'btnFJBG']) ?>	
 						</div>
+					</div>
 					<? form_close(); ?>
 				<?php endif; ?>
 			</div>

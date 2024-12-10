@@ -81,7 +81,7 @@ nav .btnFGBJ {
 	font-size: 18px;
 }
 
-.close-btn {
+nav .close-btn {
 	display: none;
 }
 
@@ -139,7 +139,7 @@ nav .btnFGBJ {
 	}
 
 	/* Bouton de fermeture */
-	.close-btn {
+	nav .close-btn {
 		display: unset;
 		position: absolute;
 		top: 20px;
@@ -151,7 +151,7 @@ nav .btnFGBJ {
 		cursor: pointer;
 	}
 
-	.close-btn:hover {
+	nav .close-btn:hover {
 		color: #F4E904;
 	}
 }
