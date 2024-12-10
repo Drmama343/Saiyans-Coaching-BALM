@@ -31,4 +31,26 @@ class SaiyanModel extends Model {
 	public function getPaginatedSaiyans($perPage = 5) { 
 		return $this->paginate($perPage, 'Saiyan');
 	}
+
+	public function getPaginatedSaiyansRecherche($perPage = 5, $recherche) {
+		if (is_int($recherche)) {
+			return $this->groupStart()
+				->orLike('tel', $recherche)
+				->orLike('poids', $recherche)
+				->orLike('age', $recherche)
+				->orLike('taille', $recherche)
+				->groupEnd()
+				->paginate($perPage, 'Saiyan');
+		} 
+		else {
+			return $this->groupStart() 
+				->like  ('nom', $recherche)
+				->orLike('prenom', $recherche)
+				->orLike('mail', $recherche)
+				->orLike('tel', $recherche)
+				->orLike('sexe', $recherche)
+				->groupEnd()
+				->paginate($perPage, 'Saiyan');
+		}
+	}
 }

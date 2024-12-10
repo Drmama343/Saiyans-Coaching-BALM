@@ -27,7 +27,12 @@ class AdminController extends BaseController
 		$poids = $saiyanModel->poids();
 		$taille = $saiyanModel->taille();
 
-		$saiyans = $saiyanModel->getPaginatedSaiyans();
+		if (!isset($_SESSION['rechercheSaiyan'])){
+			$saiyans = $saiyanModel->getPaginatedSaiyans(10);
+		}
+		else{
+			$saiyans = $saiyanModel->getPaginatedSaiyansRecherche(10, $_SESSION['rechercheSaiyan']);
+		}
 
 		$data = [
 			'sexe' => $sexe,
@@ -43,10 +48,44 @@ class AdminController extends BaseController
 
 	public function saiyan(){
 		$model = new SaiyanModel();
-		$data['saiyans'] = $model->getPaginatedSaiyans(10);
+		if (!isset($_SESSION['rechercheSaiyan'])){
+			$data['saiyans'] = $model->getPaginatedSaiyans(10);
+		}
+		else{
+			$data['saiyans'] = $model->getPaginatedSaiyansRecherche(10, $_SESSION['rechercheSaiyan']);
+		}
+		
 		$data['pagerSaiyan'] = $model->pager;
 
 		return view('admin/saiyan', $data);
+	}
+	public function setRechercheSaiyan()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheSaiyan', $recherche);
+		}
+		else {
+			$session->set('rechercheSaiyan', "");
+		}
+
+		return redirect()->to('admin/saiyan');
+	}
+	public function setRechercheSaiyanStats()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheSaiyan', $recherche);
+		}
+		else {
+			$session->set('rechercheSaiyan', "");
+		}
+
+		return redirect()->to('admin');
 	}
 
 	public function programme()
