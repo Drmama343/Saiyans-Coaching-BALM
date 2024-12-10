@@ -10,9 +10,10 @@ class TemoignageModel extends Model {
 	protected $allowedFields = ['idsaiyan','temoignage','note','date','image','affichage'];
 
 	public function findByAffichage(): mixed {
-		return $this->asArray()
-					->where(['affichage' => 't'])
-					->findAll();
+		return $this->asArray()->where(['affichage' => 't'])->findAll();
 	}
 
+	public function findByAffichageImage(): mixed {
+		return $this->asArray()->where(['affichage' => 't'])->where('image IS NOT NULL')->findAll();
+	}
 }

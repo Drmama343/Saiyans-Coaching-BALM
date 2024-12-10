@@ -7,13 +7,10 @@
     <?= form_textarea('description', $data['description']) ?>
     <br>
     <?= form_label('Prix (€)', 'prix') ?>
-    <?= form_input(['type' => 'number', 'name' => 'prix', 'id' => 'prix', 'step' => '0.01'], $data['prix']) ?>
+    <?= form_input(['type' => 'number', 'name' => 'prix', 'id' => 'prix', 'step' => '1'], $data['prix']) ?>
     <br>
     <?= form_label('Durée (jours)', 'duree') ?>
     <?= form_input(['type' => 'number', 'name' => 'duree', 'id' => 'duree'], $data['duree']) ?>
-    <br>
-    <?= form_label('Image', 'image') ?>
-    <?= form_upload('image') ?>
     <br>
     <?= form_label('Entraînement inclus', 'entrainement') ?>
     <?= form_checkbox('entrainement', 't', $data['entrainement'] === "t" ? true : false) ?>

@@ -46,6 +46,9 @@ class AdminController extends BaseController
 		return view('admin/admin', $data);
 	}
 
+	/* ----------------------------------------------
+	   --------------     SAIYAN    -----------------
+	   ---------------------------------------------- */
 	public function saiyan(){
 		$model = new SaiyanModel();
 		if (!isset($_SESSION['rechercheSaiyan'])){
@@ -88,6 +91,9 @@ class AdminController extends BaseController
 		return redirect()->to('admin');
 	}
 
+	/* ----------------------------------------------
+	   ------------     PROGRAMME    ----------------
+	   ---------------------------------------------- */
 	public function programme()
 	{
 		$programmeModel = new ProgrammeModel();
@@ -169,7 +175,9 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/programme');
 	}
 
-
+	/* ----------------------------------------------
+	   ------------     PROMOTION    ----------------
+	   ---------------------------------------------- */
 	public function ajoutPromotion()
 	{
 		// Récupérer les données du formulaire
@@ -214,6 +222,9 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/programme');
 	}
 	
+	/* ----------------------------------------------
+	   ------------     TEMOIGNAGE    ---------------
+	   ---------------------------------------------- */
 	public function temoignage()
 	{
 		$temoignageModel = new TemoignageModel();
@@ -261,6 +272,9 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/temoignage');
 	}
 
+	/* ----------------------------------------------
+	   -------------     ARTICLE    -----------------
+	   ---------------------------------------------- */
 	public function article()
 	{
 		$articleModel = new ArticleModel();
@@ -275,21 +289,33 @@ class AdminController extends BaseController
 
 	public function ajoutArticle()
 	{
-		// Récupérer les données du formulaire
+		$articleModel = new ArticleModel();
+
+		$file = $this->request->getFile('image');
+		if ($file != null) {
+			if ($file && $file->isValid() && !$file->hasMoved()) {
+				// Nom unique pour éviter les collisions
+				$imageType = exif_imagetype($_FILES['image']['tmp_name']);
+				$newFileName = uniqid('article' . '_', true) . image_type_to_extension($imageType);
+				$newPathFilename = WRITEPATH .'../public/assets/images/' . $newFileName;
+
+				$this->saveImage($newPathFilename);
+			} else {
+				// Gérer les erreurs
+				return redirect()->back()->with('error', 'Le fichier n\'est pas valide ou n\'a pas été téléchargé correctement.');
+			}
+		}
+
 		$data = [
-			'date_deb' => $this->request->getPost('date_deb'),
-			'date_fin' => $this->request->getPost('date_fin'),
-			'reduction' => $this->request->getPost('reduction'),
-			'code' => $this->request->getPost('code'),
-			'nb_utilisation' => $this->request->getPost('nb_utilisation'),
-			'produit' => $this->request->getPost('produit')
+			'titre' => $this->request->getPost('titre'),
+			'contenu' => $this->request->getPost('contenu'),
+			'image' => isset($newFileName) ? $newFileName : null,
+			'type' => $this->request->getPost('type'),
+			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
 		];
 
-		// Insérer dans la base de données
-		$promotionModel = new PromotionModel();
-		$promotionModel->insert($data);
-
-		return redirect()->to('/admin/programme');
+		$articleModel->insert($data);
+		return redirect()->to('/admin/article');
 	}
 
 	public function modifArticle($id)
@@ -340,7 +366,9 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/article');
 	}
 
-
+	/* ----------------------------------------------
+	   -------------     QUESTION    ----------------
+	   ---------------------------------------------- */
 	public function question(){
 		$model = new QuestionModel();
 		
@@ -354,6 +382,18 @@ class AdminController extends BaseController
 		return view('/admin/question', $data);
 	}
 
+	public function creerQuestion (){
+		$model = new QuestionModel();
+
+		$newQuestion = [
+			'question' => $this->request->getVar('question'),
+			'reponse' => $this->request->getVar('reponse'),
+		];
+
+		$model->insert($newQuestion);
+
+		return redirect()->to('admin/question')->with('success', 'Question ajouté avec succès');
+	}
 	public function modifierQuestion ($idQuestion){
 		$model = new QuestionModel();
 
@@ -376,18 +416,6 @@ class AdminController extends BaseController
 		return redirect()->to('admin/question')->with('success', 'Question supprimé avec succès');
 	}
 
-	public function creerQuestion (){
-		$model = new QuestionModel();
-
-		$newQuestion = [
-			'question' => $this->request->getVar('question'),
-			'reponse' => $this->request->getVar('reponse'),
-		];
-
-		$model->insert($newQuestion);
-
-		return redirect()->to('admin/question')->with('success', 'Question ajouté avec succès');
-	}
 	public function setRechercheQuestion()
 	{
 		$session = session();
@@ -403,6 +431,9 @@ class AdminController extends BaseController
 		return redirect()->to('admin/question');
 	}
 
+	/* ----------------------------------------------
+	   --------------     OUTILS    -----------------
+	   ---------------------------------------------- */
 	public function modifier($nomModel, $id) {
 		
 		$model = 'App\Models\\' . ucfirst($nomModel) . 'Model';

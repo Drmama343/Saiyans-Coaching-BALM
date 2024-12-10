@@ -18,7 +18,7 @@ class AvantApresController extends Controller
 	{
 		$temoignageModel = new TemoignageModel;
 
-		$temoignages = $temoignageModel->findByAffichage(); // A changer en 'photo'
+		$temoignages = $temoignageModel->findByAffichageImage(); // A changer en 'photo'
 
 		$data = [
 			'temoignages' => $temoignages,

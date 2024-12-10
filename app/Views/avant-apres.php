@@ -66,7 +66,7 @@ include 'templates/navbar.php';
 			<?php if (!empty($temoignages) && is_array($temoignages)): ?>
 				<?php foreach ($temoignages as $temoignage) : ?>
 					<div class="media">
-						<img href="/assets/images/temoignages/<?= $temoignage['image']; ?>"></img>
+						<img src="/assets/images/temoignages/<?= $temoignage['image']; ?>"></img>
 					</div>
 				<?php endforeach; ?>
 			<?php else: ?>
