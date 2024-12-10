@@ -16,7 +16,7 @@
     <?= form_input(['type' => 'number', 'name' => 'nb_utilisation', 'id' => 'nb_utilisation', 'min' => '0'], $data['nb_utilisation']) ?>
     <br>
     <?= form_label('Produit associé', 'produit') ?>
-    <?= form_dropdown('produit', $programmes, $data['produit']['nom'], ['id' => 'produit']) ?>
+    <?= form_dropdown('produit', $programmes, $data['produit'], ['id' => 'produit']) ?>
     <br>
     <?= form_submit('submit', 'Modifier', ['class' => 'btnFGBJ']) ?>
 <?= form_close() ?>

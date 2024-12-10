@@ -15,6 +15,7 @@
 						<th>Titre</th>
 						<th>Contenu</th>
 						<th>Image</th>
+						<th>Type</th>
 						<th>Affichage</th>
 						<th>Actions</th>
 					</tr>
@@ -25,10 +26,11 @@
 							<td><?= $article['titre'] ?></td>
 							<td><?= $article['contenu'] ?></td>
 							<td><div class="celluleImage" id="<?= $article['image'] ?>">Image</div></td>
+							<td><?= $article['type']?></td>
 							<td><input type="checkbox" name="affichage" id="" <?= $article['affichage'] === "t" ? "checked" : "" ?> disabled></td>
 							<td>
 								<a href="<?= base_url('admin/article/' . $article['id']) ?>">Modifier</a> |
-								<a href="<?= base_url('admin/article/' . $article['id']) ?>">Supprimer</a>
+								<a href="<?= base_url('admin/supprArticle/' . $article['id']) ?>">Supprimer</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

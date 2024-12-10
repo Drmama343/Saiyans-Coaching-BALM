@@ -24,7 +24,7 @@ class HomeController extends BaseController
 		$saiyanModel = new SaiyanModel();
 
 		$produits = $programmeModel->orderBy('prix', 'ASC')->findAll();
-		$temoignages = $temoignageModel->find();
+		$temoignages = $temoignageModel->findByAffichage();
 		$data['produits'] = $produits;
 		
 		foreach ($temoignages as $key => $temoignage) {
