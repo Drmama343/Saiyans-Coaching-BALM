@@ -273,6 +273,26 @@ class AdminController extends BaseController
 		return view('admin/article', $data);
 	}
 
+	public function ajoutArticle() {
+		$articleModel = new ArticleModel();
+
+		$image = $this->request->getFile('image');
+		if($image->isValid() && !$image->hasMoved()){
+			$image->move('./assets/images', $image->getClientName());
+		}
+
+		$data = [
+			'titre' => $this->request->getPost('titre'),
+			'contenu' => $this->request->getPost('contenu'),
+			'image' => $image->getClientName(),
+			'type' => $this->request->getPost('type'),
+			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
+		];
+
+		$articleModel->insert($data);
+		return redirect()->to('/admin/article');
+	}
+
 	public function modifArticle($id)
 	{
 		$articleModel = new ArticleModel();
@@ -375,11 +395,12 @@ class AdminController extends BaseController
 		return redirect()->to('admin/question');
 	}
 
-	public function modifier($nomModel, $id) {
+	public function modifier($nomModel, $id=null) {
 		
 		$model = 'App\Models\\' . ucfirst($nomModel) . 'Model';
 		$model = new $model();
-		$data = $model->find($id);
+		
+		$id == null ? $data = [] : $data = $model->find($id);
 
 		if($model instanceof PromotionModel){
 			$programmeModel = new ProgrammeModel();

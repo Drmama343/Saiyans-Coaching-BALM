@@ -11,9 +11,6 @@ document.getElementById('openModalCompte').addEventListener('click', function ()
     modal.style.display = isModalVisible ? 'none' : 'block';
 });
 
-document.getElementById('closeModalCompte').addEventListener('click', function () {
-    document.getElementById('creationCompteModal').style.display = 'none';
-});
 
 // Optional: Close the modal when clicking outside of it
 window.addEventListener('click', function (event) {
