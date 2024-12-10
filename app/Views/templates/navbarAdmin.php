@@ -17,19 +17,22 @@
 		<li><a href="/admin/article">Articles <span>&#128081;</span></a></li>
 		<li><a href="/admin/question">Questions <span>&#128081;</span></a></li>
 		<?php if (isset($_SESSION['utilisateur'])): ?>
-			<li><button class="btnModal" id="openModalCompte"><img class="imgProfil" src="/assets/images/profil.png" alt="Image profil"></button></li>
+			<div class="btn-wrapper" style="position: relative;">
+				<button class="btnModal" id="openModalCompte">
+					<img class="imgProfil" id="openModalCompte" src="/assets/images/profil.png" alt="Image profil">
+				</button>
+				<div id="creationCompteModal" class="modal">
+					<div class="modal-content">
+						<a href="/profil"><h5>Mon compte</h5></a>
+						<?php if(isset($_SESSION['utilisateur']) && $_SESSION['utilisateur']['admin'] == 't'): ?>
+							<a href="/admin"><h5>Admin</h5></a>
+						<?php endif; ?>
+						<a href="/logout"><h5>Déconnexion</h5></a>
+					</div>
+				</div>
+			</div>
 		<?php else : ?>
 			<li><a href="/connexion" class="btnFGBJ">Se Connecter</a></li>
 		<?php endif; ?>
 	</ul>
 </nav>
-
-<!-- Modal -->
-<div id="creationCompteModal" class="modal">
-	<div class="modal-content">
-		<span class="close-btn" id="closeModalCompte">&times;</span>
-		<a href="/profil" class="btnFGBJ"><h5>Mon compte</h5></a>
-		<a href="/" class="btnFGBJ"><h5>Accueil</h5></a>
-		<a href="/logout" class="btnFGBJ"><h5>Déconnexion</h5></a>
-	</div>
-</div>

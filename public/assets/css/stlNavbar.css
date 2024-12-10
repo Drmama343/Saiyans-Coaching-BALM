@@ -81,7 +81,7 @@ nav .btnFGBJ {
 	font-size: 18px;
 }
 
-.close-btn {
+nav .close-btn {
 	display: none;
 }
 
@@ -139,7 +139,7 @@ nav .btnFGBJ {
 	}
 
 	/* Bouton de fermeture */
-	.close-btn {
+	nav .close-btn {
 		display: unset;
 		position: absolute;
 		top: 20px;
@@ -151,7 +151,7 @@ nav .btnFGBJ {
 		cursor: pointer;
 	}
 
-	.close-btn:hover {
+	nav .close-btn:hover {
 		color: #F4E904;
 	}
 }
@@ -187,14 +187,9 @@ nav .btnFGBJ {
 nav .modal {
     display: none;
     position: absolute;
-    top: 4vh;
-    left: -50%;
+    top: 6vh;
+    left: -80%;
     z-index: 10;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
 }
 
 nav .modal-content {
@@ -204,11 +199,13 @@ nav .modal-content {
 }
 
 nav .modal .modal-content a {
-	padding: 1vh 5vh;
 	margin: 0;
-}
-
-nav .modal .close-btn {
-    cursor: pointer;
-    align-self: flex-end;
+	padding: 0 3vw;
+	background-color: #737373;
+	color: #F4E904;
+	border-radius: 25px;
+	font-size: 1vw;
+	text-decoration: none;
+	font-family: 'Bebas Neue', sans-serif;
+	text-align: center;
 }

@@ -205,30 +205,6 @@ button.next {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
 .contacts {
     position: relative;
     top: 17vh;
@@ -333,30 +309,6 @@ button.next {
 	font-style: none;
 }
 
-/* Modal Container */
-.modal {
-    display: none; /* Caché par défaut */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: transparent; /* Pas de fond pour le contenu */
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 80%;
-    max-height: 80%;
-}
-
 /* Image container */
 .image-container {
     width: 100%;
@@ -367,19 +319,66 @@ button.next {
     background-position: center;
 }
 
-/* Close button */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    background: none;
-    border: none;
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
-.close-btn:hover {
-    color: var(--jaune); /* Effet visuel au survol */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: left;
+    color: #F4E904;
+    font-size: 2rem;
+}
+
+.modal p {
+    text-align: left;
+    margin: 0;
+}
+
+.modal .buy-btn {
+    width: 80%;
+    margin: 2vh auto;
+    background: #F4E904;
+    border: 1px solid #737373;
+    border-radius: 45px;
+    padding: 1vh 5vw;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+}
+
+.modal .buy-btn:hover {
+    box-shadow: 1px 1px #0c0c0c;
+    cursor: pointer;
+}
+
+/* Close button */
+.close-btn {
+    position: relative;
+    margin: 0;
+    color: #0c0c0c;
+    background: none;
+    border: none;
+    text-align: right;
+    font-size: 2rem;
+    cursor: pointer;
 }

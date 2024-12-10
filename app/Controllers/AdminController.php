@@ -27,7 +27,12 @@ class AdminController extends BaseController
 		$poids = $saiyanModel->poids();
 		$taille = $saiyanModel->taille();
 
-		$saiyans = $saiyanModel->getPaginatedSaiyans();
+		if (!isset($_SESSION['rechercheSaiyan'])){
+			$saiyans = $saiyanModel->getPaginatedSaiyans(10);
+		}
+		else{
+			$saiyans = $saiyanModel->getPaginatedSaiyansRecherche($_SESSION['rechercheSaiyan'], 10);
+		}
 
 		$data = [
 			'sexe' => $sexe,
@@ -43,10 +48,44 @@ class AdminController extends BaseController
 
 	public function saiyan(){
 		$model = new SaiyanModel();
-		$data['saiyans'] = $model->getPaginatedSaiyans(10);
+		if (!isset($_SESSION['rechercheSaiyan'])){
+			$data['saiyans'] = $model->getPaginatedSaiyans(10);
+		}
+		else{
+			$data['saiyans'] = $model->getPaginatedSaiyansRecherche($_SESSION['rechercheSaiyan'], 10);
+		}
+		
 		$data['pagerSaiyan'] = $model->pager;
 
 		return view('admin/saiyan', $data);
+	}
+	public function setRechercheSaiyan()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheSaiyan', $recherche);
+		}
+		else {
+			$session->set('rechercheSaiyan', "");
+		}
+
+		return redirect()->to('admin/saiyan');
+	}
+	public function setRechercheSaiyanStats()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheSaiyan', $recherche);
+		}
+		else {
+			$session->set('rechercheSaiyan', "");
+		}
+
+		return redirect()->to('admin');
 	}
 
 	public function programme()
@@ -206,8 +245,19 @@ class AdminController extends BaseController
 	public function supprTemoignage($id)
 	{
 		$temoignageModel = new TemoignageModel();
-		$temoignageModel->delete($id);
+		$temoignage = $temoignageModel->find($id);
 
+		if ($temoignage) {
+			if (!empty($temoignage['image'])) {
+				$imagePath = WRITEPATH . '../public/assets/images/temoignages/' . $temoignage['image'];
+	
+				if (is_file($imagePath)) {
+					unlink($imagePath);
+				}
+			}
+	
+			$temoignageModel->delete($id);
+		}
 		return redirect()->to('/admin/temoignage');
 	}
 
@@ -265,7 +315,13 @@ class AdminController extends BaseController
 
 	public function question(){
 		$model = new QuestionModel();
-		$data['questions'] = $model->getPaginatedQuestion();
+		
+		if (!isset($_SESSION['rechercheQuestion'])){
+			$data['questions'] = $model->getPaginatedQuestions();
+		}
+		else{
+			$data['questions'] = $model->getPaginatedQuestionsRecherche($_SESSION['rechercheQuestion']);
+		}
 		$data['pagerQuestions'] = $model->pager;
 		return view('/admin/question', $data);
 	}
@@ -303,6 +359,20 @@ class AdminController extends BaseController
 		$model->insert($newQuestion);
 
 		return redirect()->to('admin/question')->with('success', 'Question ajouté avec succès');
+	}
+	public function setRechercheQuestion()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheQuestion', $recherche);
+		}
+		else {
+			$session->set('rechercheQuestion', "");
+		}
+
+		return redirect()->to('admin/question');
 	}
 
 	public function modifier($nomModel, $id) {
