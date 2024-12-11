@@ -1,4 +1,4 @@
-<div class="conteneur-produits">
+<div class="conteneur-produits" id="scrollTo">
 	<h2 class="tJ">Nos Offres</h2>
 	<div class="carousel">
 		<div class="contenu-produits">
