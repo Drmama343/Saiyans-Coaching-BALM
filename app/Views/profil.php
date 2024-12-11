@@ -140,7 +140,7 @@
                             <td><div class="celluleImage" id="<?= $temoignage['image'] ?>">Image</div></td>
                             <td>
                                 <a href="<?= base_url('/temoignage/' . $temoignage['id']) ?>">Modifier</a>
-                                <a href="<?= base_url('admin/supprTemoignage/' . $temoignage['id']) ?>">Supprimer</a>
+                                <a href="<?= base_url('/supprTemoignage/' . $temoignage['id']) ?>">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
