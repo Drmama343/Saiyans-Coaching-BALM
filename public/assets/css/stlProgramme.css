@@ -285,38 +285,64 @@ button.next {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 15vh;
+	margin: 15vh;
+    padding-bottom: 2vh;
 }
 
 .contenu-admin-programme h2, .contenu-admin-promotion h2 {
 	color: var(--jaune);
 }
 
-.tableau-admin-programme, .tableau-admin-promotion {
-	border: 1px solid var(--jaune);
+table {
+	min-width: 80vw;
 	border-collapse: collapse;
-	color: var(--blanc);
-	padding: 5vh;
+	font-size: 1vmax;
+	color: #333;
+	background-color: #fff;
+	margin: -3vw 0 2vw 0;
+	border-radius: 8px;
+	overflow: hidden;
+    text-align: center;
 }
 
-.tableau-admin-programme .celluleImage, .tableau-admin-promotion .celluleImage {
-	text-decoration: underline;
-	cursor: pointer;
+thead {
+	background-color: #F4E904;
+    font-family: "Bebas Neue", sans-serif;
 }
 
-.tableau-admin-programme td a, .tableau-admin-promotion td a {
-	color: var(--jaune);
-	font-style: none;
+thead th {
+	padding: 12px 15px;
 }
 
-/* Image container */
-.image-container {
-    width: 100%;
-    height: 100%;
-    background-image: url('/path/to/your/image.jpg'); /* Remplacez par le chemin de votre image */
-    background-size: contain; /* Ajuste l'image sans la déformer */
-    background-repeat: no-repeat;
-    background-position: center;
+tbody tr {
+	border-bottom: 1px solid #ddd;
+	transition: background-color 0.3s ease;
+}
+
+tbody tr:last-child{
+	border: none;
+}
+
+tbody tr:nth-of-type(even) {
+	background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+tbody td {
+	padding: 12px 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+td:first-child {
+	font-weight: bold;
+	color: #0c0c0c;
+}
+
+table a {
+    color: #0c0c0c;
 }
 
 #productModal {
@@ -381,4 +407,42 @@ button.next {
     text-align: right;
     font-size: 2rem;
     cursor: pointer;
+}
+
+.recherche form label {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
+
+.recherche form input {
+	position: relative;
+	top: -3.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
+    background-color: #f4f4f4;
+}
+
+#paginationQuestion {
+	position: relative;
+	margin: 0 0 -1vw 0;
+	padding: 0;
+}
+
+#paginationQuestion a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#paginationQuestion a:hover {
+	background-color: #F4E904;
+	color: black;
 }
