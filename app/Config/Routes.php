@@ -42,10 +42,12 @@ $routes->get('/admin/programme', 'AdminController::programme');
 $routes->post('/admin/programme/ajouter', 'AdminController::ajoutProgramme');
 $routes->post('admin/modifProgramme/(:num)', 'AdminController::modifProgramme/$1');
 $routes->get('admin/supprProgramme/(:num)', 'AdminController::supprProgramme/$1');
+$routes->post('/admin/rechercherProgramme', 'AdminController::setRechercheProgramme');
 
 $routes->post('admin/promotion/ajouter', 'AdminController::ajoutPromotion');
 $routes->post('admin/modifPromotion/(:num)', 'AdminController::modifPromotion/$1');
 $routes->get('admin/supprPromotion/(:num)', 'AdminController::supprPromotion/$1');
+$routes->post('/admin/rechercherPromotion', 'AdminController::setRecherchePromotion');
 
 $routes->get('/admin/article', 'AdminController::article');
 $routes->post('/admin/article/ajouter', 'AdminController::ajoutArticle');

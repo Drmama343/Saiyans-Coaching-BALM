@@ -184,6 +184,21 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/programme');
 	}
 
+	public function setRechercheProgramme()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheProgramme', $recherche);
+		}
+		else {
+			$session->set('rechercheProgramme', "");
+		}
+
+		return redirect()->to('admin/programme');
+	}
+
 	/* ----------------------------------------------
 	   ------------     PROMOTION    ----------------
 	   ---------------------------------------------- */
@@ -229,6 +244,21 @@ class AdminController extends BaseController
 		$promotionModel->delete($id);
 
 		return redirect()->to('/admin/programme');
+	}
+
+	public function setRecherchePromotion()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('recherchePromotion', $recherche);
+		}
+		else {
+			$session->set('recherchePromotion', "");
+		}
+
+		return redirect()->to('admin/programme');
 	}
 	
 	/* ----------------------------------------------
