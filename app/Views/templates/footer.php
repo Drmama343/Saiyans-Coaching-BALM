@@ -42,8 +42,9 @@
                 echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';
                 break;
             case '':
-                echo '  <script src="/assets/js/fctTemoignages.js"></script>
-                        <script src="/assets/js/fctOffres.js"></script>';
+                echo '<script src="/assets/js/fctTemoignages.js"></script>
+                        <script src="/assets/js/fctOffres.js"></script>
+                        <script src="/assets/js/fctPromotion.js"></script>';
                 break;
             case 'programme':
                 echo '  <script src="/assets/js/fctOffres.js"></script>';

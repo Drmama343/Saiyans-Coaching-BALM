@@ -97,18 +97,29 @@ html, body {
 /* --- Code Css promotion.php --- */
 
 .conteneur-promotion {
-    position: relative;
-    width: 100%;
-    
+	position: relative;
+	width: 100%;
+	height: 3vw;
+	overflow: hidden;
 }
 
 .contenu-promotion {
-    position: relative;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: var(--jaune);
+	display: flex;
+	transition: transform 1.5s ease-in-out; /* Ajoute une animation lors du défilement */
+	width: 100%; /* S'assure que toutes les promotions sont sur la même ligne */
+}
+
+.promotion {
+	min-width: 100%;
+	text-align: center;
+	background-color: var(--noir);
+	color: var(--jaune);
+	font-family: 'Lato', sans-serif;
+	font-size: 1vmax; 
+}
+
+.promotion span {
+    font-weight: bold;
 }
 
 
