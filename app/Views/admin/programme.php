@@ -11,7 +11,6 @@
 <!--------------------------------->
 <div class="conteneur-admin-programme">
 	<div class="contenu-admin-programme">
-		<h2>Programmes</h2>
 		<div class="recherche">
             <?= form_open('/admin/rechercherProgramme', ['method' => 'post']); ?>
                 <?= csrf_field() ?>
@@ -27,6 +26,7 @@
 						<th>Description</th>
 						<th>Prix</th>
 						<th>Duree</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,10 +45,10 @@
 				</tbody>
 			</table>
 		</div>
-		<a class="btnFGBJ" href="<?= base_url('admin/programme/ajouter') ?>">Ajouter un programme</a>
 		<div id="paginationQuestion">
 			<?= $pagerProgramme->links('Programme', 'custom') ?>
 		</div>
+		<a class="btnFGBJ" href="<?= base_url('admin/programme/ajouter') ?>">Ajouter un programme</a>
 
 		<div id="image-modal" class="modal">
 			<div class="modal-content">
@@ -64,7 +64,6 @@
 <!--------------------------------->
 <div class="conteneur-admin-promotion">
 	<div class="contenu-admin-promotion">
-		<h2>Promotions</h2>
 		<div class="recherche">
             <?= form_open('/admin/rechercherPromotion', ['method' => 'post']); ?>
                 <?= csrf_field() ?>
@@ -103,11 +102,10 @@
 				</tbody>
 			</table>
 		</div>
-		<a href="<?= base_url('admin/promotion/ajouter') ?>">Ajouter un article</a>
-
 		<div id="paginationQuestion">
 			<?= $pagerPromotion->links('Promotion', 'custom') ?>
 		</div>
+		<a class="btnFGBJ" href="<?= base_url('admin/promotion/ajouter') ?>">Ajouter un article</a>
 
 		<div id="image-modal" class="modal">
 			<div class="modal-content">

@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\SaiyanModel;
 use App\Models\AchatModel;
 use App\Models\ProgrammeModel;
+use App\Models\TemoignageModel;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -59,6 +60,10 @@ class ProfilController extends BaseController
 			$achat['produit'] = $programmeModel->find($achat['idproduit'])['nom'];
 		}
 		$data['achats'] = $achats;
+
+		$temoignageModel = new TemoignageModel();
+		$temoignages =  $temoignageModel->where('idsaiyan', $idSaiyan)->findAll();
+		$data['temoignages'] = $temoignages;
 
 		return view('profil', $data);
 	}
@@ -193,13 +198,36 @@ class ProfilController extends BaseController
 
 		$idFinal = $saiyanModel->where('id', $id)->first();
 		$this->session->set('utilisateur', $idFinal);
-		return redirect()->to('/profil')->with('success', 'Saiyan modifié avec succès');
+		return redirect()->to('/profil');
 	}
 
 	public function supprimerProfil($idBase){
 		$saiyanModel = new SaiyanModel();
 		$saiyanModel->delete($idBase);
 		$this->session->remove('utilisateur');
-		return redirect()->to('/')->with('success', 'Votre compte a été supprimé avec succès');
+		return redirect()->to('/');
+	}
+
+	public function modifTemoignage($id)
+	{
+		$temoignageModel = new TemoignageModel();
+
+		$data = [
+			'temoignage' => $this->request->getVar('temoignage'),
+			'note' => $this->request->getVar('note'),
+		];
+		$temoignageModel->update($id, $data);
+		return redirect()->to('/profil');
+	}
+
+	public function modifier($id) {
+		
+		$temoignageModel = new TemoignageModel();
+		$temoignage =  $temoignageModel->where('id',$id)->first();
+
+		$data = [
+			'temoignage' => $temoignage,
+		];
+		return view('tools/modifierTemoignage', $data);
 	}
 }
