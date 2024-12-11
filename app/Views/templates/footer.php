@@ -23,6 +23,7 @@
     <div>
         <img src="/assets/images/logo.png" alt="Logo">
     </div>
+    <a href="/cgv" class="cgv">Conditions générales de ventes</a>
 </div>
     
     <?php 

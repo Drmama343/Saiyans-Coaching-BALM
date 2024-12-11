@@ -6,6 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'HomeController::index');
+$routes->get('/cgv', 'HomeController::cgv');
 
 $routes->match(['GET', 'POST'], '/connexion', 'LoginController::connexion');
 

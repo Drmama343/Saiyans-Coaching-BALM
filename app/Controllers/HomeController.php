@@ -39,4 +39,9 @@ class HomeController extends BaseController
 
 		return view('index', $data);
 	}
+
+	public function cgv(): string
+	{
+		return view('cgv');
+	}
 }

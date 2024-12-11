@@ -6,6 +6,13 @@
     align-items: flex-start;
     color: white;
 }
+
+.contacts .cgv {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white;
+}
   
 .menu h4,
 .contact h4 {
