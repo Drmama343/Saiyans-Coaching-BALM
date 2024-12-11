@@ -20,6 +20,13 @@ html, body {
     margin: 0 auto;
 }
 
+.formulaire-et-table {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+}
+
 .contenu-modif {
     display: flex;
     flex-direction: column;
@@ -46,8 +53,8 @@ html, body {
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
-    gap: 1vw; /* Espacement entre les champs */
-    width: 100%;
+    gap: 2vh 0; /* Espacement entre les champs */
+    width: 70%;
 }
 
 .cellule-grid {
@@ -160,7 +167,7 @@ td:first-child {
 	color: #000;
 }
 
-.modal {
+#image-modal {
     display: none; /* Caché par défaut */
     position: fixed;
     top: 0;
@@ -173,7 +180,7 @@ td:first-child {
     z-index: 1000;
 }
 
-.modal-content {
+#image-modal .modal-content {
     position: relative;
     background-color: var(--blanc);
     padding: 1vh;
@@ -183,4 +190,10 @@ td:first-child {
 .celluleImage {
     text-decoration: underline;
     cursor: pointer;
+}
+
+#alt {
+    font-family: 'Lato', sans-serif;
+    margin: 1vh auto;
+    color: #f1f1f1;
 }

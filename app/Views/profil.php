@@ -88,59 +88,67 @@
         </div>
 
         <!-- Tableau des achats -->
-        <h2>Vos Achats</h2>
-        <br>
-        <br>
-        <table class="table-achat">
-            <thead>
-                <tr>
-                    <th>Nom du produit</th>
-                    <th>Date d'achat</th>
-                    <th>Date d'échéance</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($achats as &$achat) : ?>
+        <?php if (!empty($achats) && is_array($achats)): ?>
+            <h2>Vos Achats</h2>
+            <br>
+            <br>
+            <table class="table-achat">
+                <thead>
                     <tr>
-                        <td><?= esc($achat['produit']); ?></td>
-                        <td><?= esc(date('d/m/Y', strtotime($achat['date']))); ?></td>
-                        <td><?= esc(date('d/m/Y', strtotime($achat['echeance']))); ?></td>
+                        <th>Nom du produit</th>
+                        <th>Date d'achat</th>
+                        <th>Date d'échéance</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($achats as &$achat) : ?>
+                        <tr>
+                            <td><?= esc($achat['produit']); ?></td>
+                            <td><?= esc(date('d/m/Y', strtotime($achat['date']))); ?></td>
+                            <td><?= esc(date('d/m/Y', strtotime($achat['echeance']))); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p id="alt">Vous n'avez pas encore effectué d'achats</p>
+        <?php endif; ?>
 
         <br>
 
         <!-- Tableau des temoignages -->
-        <h2>Vos Témoignages</h2>
-        <br>
-        <br>    
-        <table class="table-achat">
-            <thead>
-                <tr>
-                    <th>Votre témoignage</th>
-                    <th>Note</th>
-                    <th>Date d'échéance</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($temoignages as &$temoignage) : ?>
+        <?php if (!empty($temoignages) && is_array($temoignages)): ?>
+            <h2>Vos Témoignages</h2>
+            <br>
+            <br>    
+            <table class="table-achat">
+                <thead>
                     <tr>
-                        <td><?= $temoignage['temoignage'] ?></td>
-                        <td><?= $temoignage['note'] ?></td>
-                        <td><?= $temoignage['date'] ?></td>
-                        <td><div class="celluleImage" id="<?= $temoignage['image'] ?>">Image</div></td>
-                        <td>
-                            <a href="<?= base_url('/temoignage/' . $temoignage['id']) ?>">Modifier</a>
-                            <a href="<?= base_url('/supprTemoignage/' . $temoignage['id']) ?>">Supprimer</a>
-                        </td>
+                        <th>Votre témoignage</th>
+                        <th>Note</th>
+                        <th>Date d'échéance</th>
+                        <th>Image</th>
+                        <th>Actions</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($temoignages as &$temoignage) : ?>
+                        <tr>
+                            <td><?= $temoignage['temoignage'] ?></td>
+                            <td><?= $temoignage['note'] ?></td>
+                            <td><?= $temoignage['date'] ?></td>
+                            <td><div class="celluleImage" id="<?= $temoignage['image'] ?>">Image</div></td>
+                            <td>
+                                <a href="<?= base_url('/temoignage/' . $temoignage['id']) ?>">Modifier</a>
+                                <a href="<?= base_url('/supprTemoignage/' . $temoignage['id']) ?>">Supprimer</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p id="alt">Vous n'avez pas encore écrit de témoignages</p>
+        <?php endif; ?>
     </div>
     <div id="image-modal" class="modal">
         <div class="modal-content">
