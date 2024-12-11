@@ -10,7 +10,7 @@
 						if (end($segments) === "programme"):
 					?>
 					<?php foreach ($produits as $produit): ?>
-						<button class="produit" onclick="openModal('<?= esc($produit['nom']) ?>', '<?= esc($produit['prix']) ?>', 'tous les mois')">
+						<button class="produit" onclick="openModal('<?= esc($produit['nom']) ?>', '<?= esc($produit['prix']) ?>', 'tous les mois', '<?= esc($produit['id']) ?>')">
 							<h3><?= esc($produit['nom']) ?></h3>
 							<p id="prix"><strong><?= esc($produit['prix']) ?></strong></p>
 							<p id="descPrix">tous les mois</p>
@@ -48,12 +48,19 @@
 	</div>
 </div>
 
+<?php if (session()->getFlashdata('alert_message')): ?>
+	<script type="text/javascript">
+		var message = '<?= addslashes(session()->getFlashdata('alert_message')); ?>';
+		alert(message);
+	</script>
+<?php endif; ?>
+
 <div class="modal" id="productModal">
 	<div class="modal-content">
 		<button class="close-btn" onclick="closeModal()">&times;</button>
 		<h3 id="modal-title"></h3>
 		<p><strong>Prix :</strong> <span id="modal-price"></span></p>
 		<p id="modal-description"></p>
-		<button class="buy-btn">Finaliser l'achat</button>
+		<a class="btnFGBJ" id="btnAchat">Valider le paiement</a>
 	</div>
 </div>

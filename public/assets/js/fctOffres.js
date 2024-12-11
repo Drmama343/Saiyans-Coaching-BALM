@@ -61,11 +61,12 @@
     updateCarousel();
 })();
 
-function openModal(title, price, description) {
+function openModal(title, price, description, id) {
     document.getElementById('modal-title').textContent = title;
     document.getElementById('modal-price').textContent = price + ' €';
     document.getElementById('modal-description').textContent = description;
     document.getElementById('productModal').style.display = 'flex';
+	document.getElementById('btnAchat').href = '/programme/achat/' + id;
 }
 
 function closeModal() {

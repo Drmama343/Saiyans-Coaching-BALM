@@ -13,12 +13,12 @@
 	<div class="contenu-admin-programme">
 		<h2>Programmes</h2>
 		<div class="recherche">
-            <?= form_open('/admin/rechercherProgramme', ['method' => 'post']); ?>
-                <?= csrf_field() ?>
-                <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
-                <?= form_input('recherche',isset($_SESSION['rechercheProgramme']) ? $_SESSION['rechercheProgramme'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
-            <?= form_close(); ?>
-        </div>
+			<?= form_open('/admin/rechercherProgramme', ['method' => 'post']); ?>
+				<?= csrf_field() ?>
+				<?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+				<?= form_input('recherche',isset($_SESSION['rechercheProgramme']) ? $_SESSION['rechercheProgramme'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+			<?= form_close(); ?>
+		</div>
 		<div class="tableau-admin-programme">
 			<table>
 				<thead>
@@ -66,12 +66,12 @@
 	<div class="contenu-admin-promotion">
 		<h2>Promotions</h2>
 		<div class="recherche">
-            <?= form_open('/admin/rechercherPromotion', ['method' => 'post']); ?>
-                <?= csrf_field() ?>
-                <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
-                <?= form_input('recherche',isset($_SESSION['recherchePromotion']) ? $_SESSION['recherchePromotion'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
-            <?= form_close(); ?>
-        </div>
+			<?= form_open('/admin/rechercherPromotion', ['method' => 'post']); ?>
+				<?= csrf_field() ?>
+				<?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+				<?= form_input('recherche',isset($_SESSION['recherchePromotion']) ? $_SESSION['recherchePromotion'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+			<?= form_close(); ?>
+		</div>
 		<div class="tableau-admin-promotion">
 			<table>
 				<thead>
