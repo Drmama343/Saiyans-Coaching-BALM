@@ -11,11 +11,11 @@
 	}
 ?>
 
-    <?= form_label('Question', 'question') ?>
+    <?= form_label('Question *', 'question') ?>
     <?= form_textarea('question', $data['question'] ?? '') ?>
     <br>
 
-    <?= form_label('Reponse', 'reponse') ?>
+    <?= form_label('Reponse *', 'reponse') ?>
     <?= form_textarea('reponse', $data['reponse'] ?? '') ?>
     <br>
 

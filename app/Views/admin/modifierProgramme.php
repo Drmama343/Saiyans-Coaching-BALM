@@ -9,16 +9,16 @@
 	}
 ?>
 
-    <?= form_label('Nom', 'nom') ?>
+    <?= form_label('Nom *', 'nom') ?>
     <?= form_input('nom', isset($data['nom']) ? $data['nom'] : '', ['required' => 'required']) ?>
     <br>
     <?= form_label('Description', 'description') ?>
     <?= form_textarea('description', isset($data['description']) ? $data['description'] : '') ?>
     <br>
-    <?= form_label('Prix (€)', 'prix') ?>
+    <?= form_label('Prix (€) *', 'prix') ?>
     <?= form_input(['required' => 'required', 'type' => 'number', 'min' => '0', 'name' => 'prix', 'id' => 'prix', 'step' => '1'], isset($data['prix']) ? $data['prix'] : '') ?>
     <br>
-    <?= form_label('Durée (jours)', 'duree') ?>
+    <?= form_label('Durée (jours) *', 'duree') ?>
     <?= form_input(['required' => 'required', 'type' => 'number', 'min' => '0', 'name' => 'duree', 'id' => 'duree'], isset($data['duree']) ? $data['duree'] : '') ?>
     <br>
     <?= form_label('Entraînement inclus', 'entrainement') ?>
