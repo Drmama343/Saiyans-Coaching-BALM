@@ -5,7 +5,7 @@
     echo form_open(base_url($url));
 ?>
 
-    <?= form_label('Date de début', 'date_deb') ?>
+    <?= form_label('Date de début *', 'date_deb') ?>
     <?= form_input(
         [
             'type' => 'date',
@@ -17,7 +17,7 @@
     ) ?>
     <br>
 
-    <?= form_label('Date de fin', 'date_fin') ?>
+    <?= form_label('Date de fin *', 'date_fin') ?>
     <?= form_input(
         [
             'type' => 'date',
@@ -29,7 +29,7 @@
     ) ?>
     <br>
 
-    <?= form_label('Réduction (%)', 'reduction') ?>
+    <?= form_label('Réduction (%) *', 'reduction') ?>
     <?= form_input(
         [
             'type' => 'number',
@@ -43,7 +43,7 @@
     ) ?>
     <br>
 
-    <?= form_label('Code promotionnel', 'code') ?>
+    <?= form_label('Code promotionnel *', 'code') ?>
     <?= form_input(
         [
             'name' => 'code',
@@ -54,7 +54,7 @@
     ) ?>
     <br>
 
-    <?= form_label('Nombre d\'utilisations restantes', 'nb_utilisation') ?>
+    <?= form_label('Nombre d\'utilisations restantes *', 'nb_utilisation') ?>
     <?= form_input(
         [
             'type' => 'number',
@@ -67,7 +67,7 @@
     ) ?>
     <br>
 
-    <?= form_label('Produit associé', 'produit') ?>
+    <?= form_label('Produit associé *', 'produit') ?>
     <?= form_dropdown(
         'produit',
         $programmes,
