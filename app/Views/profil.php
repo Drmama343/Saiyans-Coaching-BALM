@@ -16,12 +16,12 @@
                     <!-- Contenu du formulaire (inchangé) -->
                     <div class="cellule-grid">
                         <?= form_label('Nom *', 'nom') ?>
-                        <?= form_input('nom', $saiyan['nom'], ['placeholder' => 'Nom', 'required' => 'required']) ?>
+                        <?= form_input('nom', $saiyan['nom'], ['id' => 'nom', 'placeholder' => 'Nom', 'required' => 'required']) ?>
                     </div>
                     
                     <div class="cellule-grid">
                         <?= form_label('Prénom *', 'prenom') ?>
-                        <?= form_input('prenom', $saiyan['prenom'], ['placeholder' => 'Prénom', 'required' => 'required']) ?>
+                        <?= form_input('prenom', $saiyan['prenom'], ['id' => 'prenom', 'placeholder' => 'Prénom', 'required' => 'required']) ?>
                     </div>
 
                     <div class="cellule-grid">
@@ -36,7 +36,7 @@
 
                     <div class="cellule-grid">
                         <?= form_label('Téléphone', 'tel') ?>
-                        <?= form_input('tel', !isset($formattedTel) || $formattedTel == null ? '' : $formattedTel, ['placeholder' => 'Téléphone']) ?>
+                        <?= form_input('tel', !isset($formattedTel) || $formattedTel == null ? '' : $formattedTel, ['id' => 'tel', 'placeholder' => 'Téléphone']) ?>
                     </div>
                     
                     <div class="cellule-grid">
@@ -46,12 +46,12 @@
 
                     <div class="cellule-grid">
                         <?= form_label('Adresse e-mail *', 'mail') ?>
-                        <?= form_input('mail', $saiyan['mail'], ['placeholder' => 'Email', 'required' => 'required', 'id'=>'mail']) ?>
+                        <?= form_input('mail', $saiyan['mail'], ['id' => 'mail', 'placeholder' => 'Email', 'required' => 'required', 'id'=>'mail']) ?>
                     </div>
                     
                     <div class="cellule-grid">
                         <?= form_label('Age *', 'age') ?>
-                        <?= form_input('age', $saiyan['age'], ['placeholder' => 'Age', 'required' => 'required']) ?>
+                        <?= form_input('age', $saiyan['age'], ['id' => 'age', 'placeholder' => 'Age', 'required' => 'required']) ?>
                     </div>
 
                     <div class="cellule-grid">
@@ -81,11 +81,9 @@
                 </div>
                 <?= form_submit('submit', 'Sauvegarder', ['class' => 'btnFJBG']) ?>
             <?= form_close(); ?>
-        </div>
 
-        <div>
             <?= form_open("supprimerProfil/".$saiyan['id'], ['class' => 'form-suppression', 'onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');"]) ?>
-                <?= form_submit('submit', 'Supprimer le compte', ['class' => 'btn-supprimer']) ?>
+                <?= form_submit('submit', 'Supprimer le compte', ['class' => 'btnFGBJ']) ?>
             <?= form_close(); ?>
         </div>
 
