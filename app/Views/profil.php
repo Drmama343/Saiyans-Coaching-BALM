@@ -46,7 +46,7 @@
 
                     <div class="cellule-grid">
                         <?= form_label('Adresse e-mail *', 'mail') ?>
-                        <?= form_input('mail', $saiyan['mail'], ['id' => 'mail', 'placeholder' => 'Email', 'required' => 'required', 'id'=>'mail']) ?>
+                        <?= form_input('mail', $saiyan['mail'], ['id' => 'mail', 'placeholder' => 'Email', 'required' => 'required']) ?>
                     </div>
                     
                     <div class="cellule-grid">

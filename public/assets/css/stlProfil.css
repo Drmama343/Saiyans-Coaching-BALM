@@ -179,3 +179,8 @@ td:first-child {
     padding: 1vh;
     display: flex;
 }   
+
+.celluleImage {
+    text-decoration: underline;
+    cursor: pointer;
+}
