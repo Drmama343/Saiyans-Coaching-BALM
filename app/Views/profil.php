@@ -51,7 +51,7 @@
                     
                     <div class="cellule-grid">
                         <?= form_label('Age *', 'age') ?>
-                        <?= form_input('age', $saiyan['age'], ['id' => 'age', 'placeholder' => 'Age', 'required' => 'required']) ?>
+                        <?= form_input('age', $saiyan['age'], ['id' => 'age', 'placeholder' => 'Age', 'required' => 'required'], 'number') ?>
                     </div>
 
                     <div class="cellule-grid">
