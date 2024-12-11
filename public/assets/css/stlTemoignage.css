@@ -29,7 +29,7 @@ html, body {
 }
 
 table {
-	width: 100%;
+	width: 80vw;
 	border-collapse: collapse;
 	font-size: 1vmax;
 	color: #333;
@@ -124,7 +124,7 @@ table a {
 }
 
 
-.modal {
+#image-modal {
     display: none; /* Caché par défaut */
     position: fixed;
     top: 0;
@@ -137,7 +137,7 @@ table a {
     z-index: 1000;
 }
 
-.modal-content {
+#image-modal .modal-content {
     position: relative;
     background-color: var(--blanc);
     padding: 1vh;

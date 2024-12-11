@@ -19,6 +19,7 @@ $routes->get('/inscription', 'LoginController::index');
 $routes->post('/inscription', 'LoginController::inscription');
 
 $routes->get('/programme','ProgrammeController::index');
+$routes->get('/programme/achat/(:num)','ProgrammeController::achat/$1');
 
 $routes->get('/profil', 'ProfilController::index'); 
 $routes->match(['GET', 'POST'], '/modifProfil/(:any)', 'ProfilController::modifierProfil/$1');

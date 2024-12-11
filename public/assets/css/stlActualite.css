@@ -80,8 +80,8 @@ html, body {
 
 /* Image */
 .article img {
-    width: 60%;
-    height: auto;
+    height: 15vmax;
+    width: auto;
     border-radius: 4px;
 	margin: 0 auto;
 }
