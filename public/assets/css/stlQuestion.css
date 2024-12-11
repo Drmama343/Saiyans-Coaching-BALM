@@ -25,7 +25,9 @@ html, body {
 .contenu-admin-question h2 {
 	color: var(--jaune);
 }
+
 table {
+	width: 80vw;
 	border-collapse: collapse;
 	margin: -3vw 0 2vw 0;
 	font-size: 1vmax;

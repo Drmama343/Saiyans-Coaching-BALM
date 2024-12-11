@@ -27,7 +27,7 @@ html, body {
 }
 
 table {
-	width: 100%;
+	width: 80vw;
 	border-collapse: collapse;
 	margin: -3vw 0 2vw 0;
 	font-size: 1vmax;
