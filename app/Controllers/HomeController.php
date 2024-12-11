@@ -6,6 +6,7 @@ use \App\Models\PromotionModel;
 use App\Models\ProgrammeModel;
 use App\Models\TemoignageModel;
 use App\Models\SaiyanModel;
+use App\Models\AchatModel;
 
 class HomeController extends BaseController
 {
@@ -20,6 +21,12 @@ class HomeController extends BaseController
 		$programmeModel = new ProgrammeModel();
 		$temoignageModel = new TemoignageModel();
 		$saiyanModel = new SaiyanModel();
+		$achatModel = new AchatModel();
+
+		$achats = $achatModel->where("idsaiyan", $this->session->get('utilisateur')['id'])->find();
+		foreach ($achats as $achat) {
+			if($achat['echeance'] < (new \DateTime())->format('Y-m-d')) {$achatModel->delete($achat['id']);}
+		}
 
 		$data['promotions'] = $promotionModel->findAll();
 
