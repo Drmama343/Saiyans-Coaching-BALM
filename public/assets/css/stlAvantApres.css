@@ -105,12 +105,12 @@ html, body {
   text-align: center;
 }
 
-.btnModal:hover {
+.openModalTemoignage:hover {
   cursor: pointer;
   box-shadow: 1px 1px #737373;
 }
 
-.modal {
+#creationTemoignageModal  {
   position: fixed;
   top: 0;
   left: 0;
@@ -123,7 +123,7 @@ html, body {
   z-index: 1500;
 }
 
-.modal-content {
+#creationTemoignageModal  .modal-content {
   background: #0c0c0c;
   color: #ffffff;
   padding: 20px;
@@ -188,7 +188,7 @@ html, body {
     }
 }
 
-.modal input[type='submit'] {
+#creationTemoignageModal input[type='submit'] {
   width: 80%;
   margin: 2vh auto;
   background: #F4E904;
@@ -199,13 +199,13 @@ html, body {
   font-size: 1rem;
 }
 
-.modal input[type='submit']:hover {
+#creationTemoignageModal input[type='submit']:hover {
   box-shadow: 1px 1px #737373;
   cursor: pointer;
 }
 
 /* Close button */
-.close-btn {
+#creationTemoignageModal  .close-btn {
   position: relative;
   margin: 0;
   color: #0c0c0c;

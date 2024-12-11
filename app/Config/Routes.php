@@ -23,6 +23,7 @@ $routes->get('/programme/achat/(:num)','ProgrammeController::achat/$1');
 $routes->get('/profil', 'ProfilController::index'); 
 $routes->match(['GET', 'POST'], '/modifProfil/(:any)', 'ProfilController::modifierProfil/$1');
 $routes->match(['GET', 'POST'], '/supprimerProfil/(:any)', 'ProfilController::supprimerProfil/$1');
+$routes->post('modifTemoignage/(:num)', 'ProfilController::modifTemoignage/$1');
 
 $routes->get('/apropos', 'AproposController::index');
 
@@ -72,3 +73,5 @@ $routes->post('/admin/rechercherSaiyanStats', 'AdminController::setRechercheSaiy
 
 $routes->get('/admin/(:any)/(:num)', 'AdminController::modifier/$1/$2');
 $routes->get('/admin/(:any)/ajouter', 'AdminController::ajouter/$1');
+
+$routes->get('temoignage/(:num)', 'ProfilController::modifier/$1');

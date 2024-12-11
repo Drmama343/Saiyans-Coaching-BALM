@@ -9,7 +9,7 @@
 	}
 ?>
 
-    <?= form_label('Titre', 'titre') ?>
+    <?= form_label('Titre *', 'titre') ?>
     <?= form_input('titre', $data['titre'] ?? '', ['required' => 'required']) ?>
     <br>
 
@@ -21,7 +21,7 @@
     <?= form_upload('image') ?>
     <br>
 
-    <?= form_label('Type', 'type') ?>
+    <?= form_label('Type *', 'type') ?>
     <?= form_dropdown(
         'type',
         ['actu' => 'Actualité', 'blog' => 'Blog'],

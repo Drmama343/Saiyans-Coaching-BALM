@@ -11,13 +11,13 @@
     </div>
     <div class="contact">
         <h4>Contact</h4>
-        <p>Coachingss9800@gmail.com</p>
+        <a href="/contact">Coachingss9800@gmail.com</a>
         <div class="social-icons">
-            <img src="/assets/images/facebook.png">
-            <img src="/assets/images/tiktok.png">
-            <img src="/assets/images/instagram.png">
-            <img src="/assets/images/youtube.png">
-            <img src="/assets/images/whatsapp.png">
+            <a href="/contact"><img src="/assets/images/facebook.png"></a>
+            <a href="/contact"><img src="/assets/images/tiktok.png"></a>
+            <a href="/contact"><img src="/assets/images/instagram.png"></a>
+            <a href="/contact"><img src="/assets/images/youtube.png"></a>
+            <a href="/contact"><img src="/assets/images/whatsapp.png"></a>
         </div>
     </div>
     <div>
@@ -40,10 +40,12 @@
 				break;
             case 'profil':
                 echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';
+                echo '<script src="/assets/js/fctAffichageImage.js"></script>';
                 break;
             case '':
-                echo '  <script src="/assets/js/fctTemoignages.js"></script>
-                        <script src="/assets/js/fctOffres.js"></script>';
+                echo '<script src="/assets/js/fctTemoignages.js"></script>
+                        <script src="/assets/js/fctOffres.js"></script>
+                        <script src="/assets/js/fctPromotion.js"></script>';
                 break;
             case 'programme':
                 echo '  <script src="/assets/js/fctOffres.js"></script>';

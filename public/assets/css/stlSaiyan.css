@@ -114,7 +114,7 @@ select {
 table {
     position: relative;
     top: -2.5vw;
-	width: 100%;
+	width: 80vw;
 	border-collapse: collapse;
 	font-size: 1vmax;
 	color: #333;
