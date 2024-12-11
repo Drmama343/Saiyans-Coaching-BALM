@@ -35,8 +35,8 @@
                     </div>
 
                     <div class="cellule-grid">
-                        <?= form_label('Téléphone', 'telephone') ?>
-                        <?= form_input('telephone', $formattedTel == null ? '' : $formattedTel, ['placeholder' => 'Téléphone']) ?>
+                        <?= form_label('Téléphone', 'tel') ?>
+                        <?= form_input('tel', !isset($formattedTel) || $formattedTel == null ? '' : $formattedTel, ['placeholder' => 'Téléphone']) ?>
                     </div>
                     
                     <div class="cellule-grid">
@@ -83,8 +83,16 @@
             <?= form_close(); ?>
         </div>
 
+        <div>
+            <?= form_open("supprimerProfil/".$saiyan['id'], ['class' => 'form-suppression', 'onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');"]) ?>
+                <?= form_submit('submit', 'Supprimer le compte', ['class' => 'btn-supprimer']) ?>
+            <?= form_close(); ?>
+        </div>
+
         <!-- Tableau des achats -->
         <h2>Vos Achats</h2>
+        <br>
+        <br>
         <table class="table-achat">
             <thead>
                 <tr>
@@ -103,12 +111,44 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
 
-    <div>
-        <?= form_open("supprimerProfil/".$saiyan['id'], ['class' => 'form-suppression', 'onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');"]) ?>
-            <?= form_submit('submit', 'Supprimer le compte', ['class' => 'btn-supprimer']) ?>
-        <?= form_close(); ?>
+        <br>
+
+        <!-- Tableau des temoignages -->
+        <h2>Vos Témoignages</h2>
+        <br>
+        <br>    
+        <table class="table-achat">
+            <thead>
+                <tr>
+                    <th>Votre témoignage</th>
+                    <th>Note</th>
+                    <th>Date d'échéance</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($temoignages as &$temoignage) : ?>
+                    <tr>
+                        <td><?= $temoignage['temoignage'] ?></td>
+                        <td><?= $temoignage['note'] ?></td>
+                        <td><?= $temoignage['date'] ?></td>
+                        <td><div class="celluleImage" id="<?= $temoignage['image'] ?>">Image</div></td>
+                        <td>
+                            <a href="<?= base_url('/temoignage/' . $temoignage['id']) ?>">Modifier</a>
+                            <a href="<?= base_url('admin/supprTemoignage/' . $temoignage['id']) ?>">Supprimer</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <div id="image-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <img src="" alt="" id="modalImage">
+        </div>
     </div>
 </div>
 

@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
         case 'temoignage': 
             basePath = '../assets/images/temoignages/';
             break;
+        case 'profil': 
+            basePath = '../assets/images/temoignages/';
+            break;
         default:
             basePath = '../assets/images/'; // Par défaut, utilisez ce chemin
             break;
