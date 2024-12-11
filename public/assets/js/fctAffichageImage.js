@@ -8,15 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Définir le basePath en fonction du dernier segment de l'URL
     var basePath;
+    var mess;
     switch(lastSegment) {
         case 'temoignage': 
             basePath = '../assets/images/temoignages/';
+            mess = "Image du temoignage";
             break;
         case 'profil': 
             basePath = '../assets/images/temoignages/';
+            mess = "Image du temoignage";
             break;
         default:
             basePath = '../assets/images/'; // Par défaut, utilisez ce chemin
+            mess = "Image de l'article";
             break;
     }
 
@@ -35,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Mettre à jour la source et l'alt de l'image du modal
             modalImage.setAttribute('src', lienImg);
-            modalImage.setAttribute('alt', 'Image de l\'article');
+            modalImage.setAttribute('alt', mess);
 
             // Afficher le modal
             modal.style.display = 'flex';

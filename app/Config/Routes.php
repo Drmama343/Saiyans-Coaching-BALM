@@ -25,6 +25,8 @@ $routes->get('/profil', 'ProfilController::index');
 $routes->match(['GET', 'POST'], '/modifProfil/(:any)', 'ProfilController::modifierProfil/$1');
 $routes->match(['GET', 'POST'], '/supprimerProfil/(:any)', 'ProfilController::supprimerProfil/$1');
 $routes->post('modifTemoignage/(:num)', 'ProfilController::modifTemoignage/$1');
+$routes->get('supprTemoignage/(:num)', 'ProfilController::supprTemoignage/$1');
+$routes->post('supprImageTemoignage/(:num)', 'ProfilController::supprImageTemoignage/$1');
 
 $routes->get('/apropos', 'AproposController::index');
 
@@ -55,6 +57,7 @@ $routes->get('/admin/article', 'AdminController::article');
 $routes->post('/admin/article/ajouter', 'AdminController::ajoutArticle');
 $routes->post('/admin/modifArticle/(:num)', 'AdminController::modifArticle/$1');
 $routes->get('/admin/supprArticle/(:num)', 'AdminController::supprArticle/$1');
+$routes->post('/admin/supprImageArticle/(:num)', 'AdminController::supprImageArticle/$1');
 $routes->post('/admin/rechercherArticle', 'AdminController::setRechercheArticle');
 
 $routes->get('/admin/temoignage', 'AdminController::temoignage');
