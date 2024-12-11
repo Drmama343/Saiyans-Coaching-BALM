@@ -73,9 +73,20 @@ class ProgrammeController extends BaseController
 			];
 
 			$achatModel->insert($achat);
+
+			$message = "Bonjour ".$utilisateur['prenom'].",\n\nCe mail vous confirme l'acaht de l'abonnement suivant. \n\nNom : " .$produit['nom']. "\nDescription : " .$produit['description']. "\nPrix : " .$produit['prix']. "€\nDuree : " .$produit['duree']. " mois\n\nSi vous n'avez pas demandé l'achat de cette abonnement, veuillez ignorer ce message. \n\nMerci de votre confiance\n\nCordialement,\n\nL'équipe Saiyan's Coaching ";
+			$emailService = \Config\Services::email();
+			//envoi du mail
+			$emailService->setTo($utilisateur['mail']);
+			$emailService->setFrom('sgt.balm.projetsynthese@gmail.com');
+			$emailService->setSubject('Achat du programme : ' . $produit['nom']);
+			$emailService->setMessage($message);
+			if (!$emailService->send()) {
+				echo $emailService->printDebugger();
+			}
 		}
 
-		$this->session->setFlashdata('alert_message', 'L\'achat a été réalisé avec succes');
+		$this->session->setFlashdata('alert_message', 'L\'achat a été réalisé avec succes, un mail de confirmation vous a été envoyé');
 		return redirect()->to('programme');
 	}
 }
