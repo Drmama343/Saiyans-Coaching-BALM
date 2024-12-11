@@ -7,12 +7,6 @@
     color: white;
 }
 
-.contacts .cgv {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: white;
-}
   
 .menu h4,
 .contact h4 {
@@ -41,6 +35,11 @@
     color: white;
     text-decoration: none;
 }
+
+.menu .cgv {
+    color: white;
+}
+
   
 .contact {
     text-align: left;
