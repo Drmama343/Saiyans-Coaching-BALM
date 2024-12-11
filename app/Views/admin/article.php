@@ -26,7 +26,7 @@
 						<th>Affichage</th>
 						<th>Actions</th>
 					</tr>
-				</thead>
+				</thead>	
 				<tbody>
 					<?php foreach ($articles as $article) : ?>
 						<tr>
