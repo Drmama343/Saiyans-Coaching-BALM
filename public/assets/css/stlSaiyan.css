@@ -160,22 +160,40 @@ td:first-child {
 	color: #000;
 }
 
-.modal {
-    display: none; /* Caché par défaut */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
-    z-index: 1000;
+#paginationSaiyan {
+	position: relative;
+	margin: 0;
+	padding: 0;
 }
 
-.modal-content {
-    position: relative;
-    background-color: var(--blanc);
-    padding: 1vh;
-    display: flex;
-}   
+#paginationSaiyan a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#paginationSaiyan a:hover {
+	background-color: #F4E904;
+	color: black;
+}
+
+form label {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
+
+form input {
+	position: relative;
+	top: -3.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
+    background-color: #f4f4f4;
+}

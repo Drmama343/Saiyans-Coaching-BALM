@@ -98,8 +98,18 @@ class AdminController extends BaseController
 	{
 		$programmeModel = new ProgrammeModel();
 		$promotionModel = new PromotionModel();
-		$programmes = $programmeModel->findAll();
-		$promotions = $promotionModel->findAll();
+		if (!isset($_SESSION['rechercheProgramme'])){
+			$programmes = $programmeModel->getPaginatedProgrammes();
+		}
+		else{
+			$programmes = $programmeModel->getPaginatedProgrammesRecherche($_SESSION['rechercheProgramme']);
+		}
+		if (!isset($_SESSION['recherchePromotion'])){
+			$promotions = $promotionModel->getPaginatedPromotions();
+		}
+		else{
+			$promotions = $promotionModel->getPaginatedPromotionsRecherche($_SESSION['recherchePromotion']);
+		}
 
 		foreach ($promotions as $key => $promotion) {
 			$promotions[$key]['programme'] = $programmeModel->find($promotion['produit']);
@@ -107,7 +117,9 @@ class AdminController extends BaseController
 
 		$data = [
 			'programmes' => $programmes,
+			'pagerProgramme' => $programmeModel->pager,
 			'promotions' => $promotions,
+			'pagerPromotion' => $promotionModel->pager,
 		];
 
 		return view('admin/programme', $data);
@@ -172,6 +184,21 @@ class AdminController extends BaseController
 		return redirect()->to('/admin/programme');
 	}
 
+	public function setRechercheProgramme()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheProgramme', $recherche);
+		}
+		else {
+			$session->set('rechercheProgramme', "");
+		}
+
+		return redirect()->to('admin/programme');
+	}
+
 	/* ----------------------------------------------
 	   ------------     PROMOTION    ----------------
 	   ---------------------------------------------- */
@@ -217,6 +244,21 @@ class AdminController extends BaseController
 		$promotionModel->delete($id);
 
 		return redirect()->to('/admin/programme');
+	}
+
+	public function setRecherchePromotion()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('recherchePromotion', $recherche);
+		}
+		else {
+			$session->set('recherchePromotion', "");
+		}
+
+		return redirect()->to('admin/programme');
 	}
 	
 	/* ----------------------------------------------
