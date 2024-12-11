@@ -74,7 +74,7 @@ class ProgrammeController extends BaseController
 
 			$achatModel->insert($achat);
 
-			$message = "Bonjour ".$utilisateur['prenom'].",\n\nCe mail vous confirme l'acaht de l'abonnement suivant. \n\nNom : " .$produit['nom']. "\nDescription : " .$produit['description']. "\nPrix : " .$produit['prix']. "€\nDuree : " .$produit['duree']. " mois\n\nSi vous n'avez pas demandé l'achat de cette abonnement, veuillez ignorer ce message. \n\nMerci de votre confiance\n\nCordialement,\n\nL'équipe Saiyan's Coaching ";
+			$message = "Bonjour ".$utilisateur['prenom'].",\n\nCe mail vous confirme l'achat de l'abonnement suivant. \n\nNom : " .$produit['nom']. "\nDescription : " .$produit['description']. "\nPrix : " .$produit['prix']. "€\nDuree : " .$produit['duree']. " mois\n\nSi vous n'avez pas demandé l'achat de cette abonnement, veuillez ignorer ce message. \n\nMerci de votre confiance\n\nCordialement,\n\nL'équipe Saiyan's Coaching ";
 			$emailService = \Config\Services::email();
 			//envoi du mail
 			$emailService->setTo($utilisateur['mail']);

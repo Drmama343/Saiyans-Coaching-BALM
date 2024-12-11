@@ -29,7 +29,7 @@ html, body {
 table {
 	width: 80vw;
 	border-collapse: collapse;
-	margin: -3vw 0 2vw 0;
+	margin: -2.5vw 0 2vw 0;
 	font-size: 1vmax;
 	color: #333;
 	background-color: #fff;
@@ -103,22 +103,21 @@ table a {
     display: flex;
 }
 
-form label {
-	position: relative;
-	top: -1vw;
+.recherche form label {
 	font-family: "Bebas Neue", sans-serif;
 	font-size: 2vw;
 	color: #F4E904;
 }
 
-form input {
+.recherche form input {
 	position: relative;
-	top: -4.5vw;
+	top: -3.5vw;
 	margin: 0;
 	border-radius: 45px;
 	border: none;
 	padding: 0.5vh 5vw;
 	text-align: center;
+    background-color: #f4f4f4;
 }
 
 #paginationArticle {
