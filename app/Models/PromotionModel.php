@@ -17,7 +17,7 @@ class PromotionModel extends Model {
 			return $this->groupStart()
 						->where('reduction', $recherche)
 						->orWhere('code', $recherche)
-						->orLike('nb_utilisation', $recherche)
+						->orWhere('nb_utilisation', $recherche)
 						->orWhere("CAST(date_deb AS TEXT) LIKE", "%{$recherche}%")
 						->orWhere("CAST(date_fin AS TEXT) LIKE", "%{$recherche}%")
 						->groupEnd()

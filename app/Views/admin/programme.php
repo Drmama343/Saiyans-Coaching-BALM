@@ -12,34 +12,38 @@
 <div class="conteneur-admin-programme">
 	<div class="contenu-admin-programme">
 		<h2>Programmes</h2>
+		<div class="recherche">
+            <?= form_open('/admin/rechercherProgramme', ['method' => 'post']); ?>
+                <?= csrf_field() ?>
+                <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+                <?= form_input('recherche',isset($_SESSION['rechercheProgramme']) ? $_SESSION['rechercheProgramme'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+            <?= form_close(); ?>
+        </div>
 		<div class="tableau-admin-programme">
-			<form action="<?= base_url('admin/ajoutProgramme') ?>" method="post" enctype="multipart/form-data">
-			<?= csrf_field() ?>
-				<table>
-					<thead>
+			<table>
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Description</th>
+						<th>Prix</th>
+						<th>Duree</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($programmes as $programme) : ?>
 						<tr>
-							<th>Nom</th>
-							<th>Description</th>
-							<th>Prix</th>
-							<th>Duree</th>
+							<td><?= $programme['nom'] ?></td>
+							<td><?= $programme['description'] ?></td>
+							<td><?= $programme['prix'] ?> €</td>
+							<td><?= $programme['duree'] ?> mois</td>
+							<td>
+								<a href="<?= base_url('admin/programme/' . $programme['id']) ?>">Modifier</a>
+								<a href="<?= base_url('admin/supprProgramme/' . $programme['id']) ?>">Supprimer</a>
+							</td>
 						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ($programmes as $programme) : ?>
-							<tr>
-								<td><?= $programme['nom'] ?></td>
-								<td><?= $programme['description'] ?></td>
-								<td><?= $programme['prix'] ?> €</td>
-								<td><?= $programme['duree'] ?> mois</td>
-								<td>
-									<a href="<?= base_url('admin/programme/' . $programme['id']) ?>">Modifier</a>
-									<a href="<?= base_url('admin/supprProgramme/' . $programme['id']) ?>">Supprimer</a>
-								</td>
-							</tr>
-						<?php endforeach; ?>
-					</tbody>
-				</table>
-			</form>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
 		</div>
 		<a class="btnFGBJ" href="<?= base_url('admin/programme/ajouter') ?>">Ajouter un programme</a>
 		<div id="paginationQuestion">
@@ -61,6 +65,13 @@
 <div class="conteneur-admin-promotion">
 	<div class="contenu-admin-promotion">
 		<h2>Promotions</h2>
+		<div class="recherche">
+            <?= form_open('/admin/rechercherPromotion', ['method' => 'post']); ?>
+                <?= csrf_field() ?>
+                <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+                <?= form_input('recherche',isset($_SESSION['recherchePromotion']) ? $_SESSION['recherchePromotion'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
+            <?= form_close(); ?>
+        </div>
 		<div class="tableau-admin-promotion">
 			<table>
 				<thead>

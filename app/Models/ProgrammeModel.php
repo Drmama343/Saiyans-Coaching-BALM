@@ -15,8 +15,8 @@ class ProgrammeModel extends Model {
 	public function getPaginatedProgrammesRecherche($recherche, $perPage = 5) {
 		if (is_numeric($recherche)) {
 			return $this->groupStart()
-						->where('prix', $recherche)
-						->orWhere('duree', $recherche)
+						->where("CAST(prix AS TEXT) LIKE", "%{$recherche}%")
+						->orWhere('duree', (int) $recherche)
 						->orLike('nom', $recherche)
 						->groupEnd()
 						->paginate($perPage, 'Programme');
