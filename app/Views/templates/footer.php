@@ -8,6 +8,7 @@
             <li><a href="/blog">Blog</a></li>
             <li><a href="/actualite">Actualité</a></li>
         </ul>
+        <a href="/cgv" class="cgv">Conditions générales de ventes</a>
     </div>
     <div class="contact">
         <h4>Contact</h4>
@@ -23,7 +24,6 @@
     <div>
         <img src="/assets/images/logo.png" alt="Logo">
     </div>
-    <a href="/cgv" class="cgv">Conditions générales de ventes</a>
 </div>
     
     <?php 
