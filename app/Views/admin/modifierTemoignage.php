@@ -32,5 +32,5 @@
     <br>
 
     <?= form_submit('submit', 'Modifier', ['class' => 'btnFGBJ']) ?>
-	<a href="<?= base_url('admin/programme') ?>" class="btnFGBJ">Annuler</a>
+	<a href="<?= base_url('admin/temoignage') ?>" class="btnFGBJ">Annuler</a>
 <?= form_close() ?>

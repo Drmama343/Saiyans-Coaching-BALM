@@ -416,7 +416,7 @@ class AdminController extends BaseController
 		$data = [
 			'titre' => $this->request->getPost('titre'),
 			'contenu' => $this->request->getPost('contenu'),
-			'image' => isset($newFileName) ? $newFileName : null,
+			'image' => isset($newFileName) ? $newFileName : $article['image'],
 			'type' => $this->request->getPost('type'),
 			'affichage' => $this->request->getPost('affichage') == 't' ? true : false,
 		];
@@ -428,7 +428,39 @@ class AdminController extends BaseController
 	public function supprArticle($id)
 	{
 		$articleModel = new ArticleModel();
-		$articleModel->delete($id);
+		$article = $articleModel->find($id);
+		if ($article) {
+			if (!empty($article['image'])) {
+				$imagePath = WRITEPATH . '../public/assets/images/' . $article['image'];
+	
+				if (is_file($imagePath)) {
+					unlink($imagePath);
+				}
+			}
+			$articleModel->delete($id);
+		}
+
+		return redirect()->to('/admin/article');
+	}
+
+	public function supprImageArticle($id)
+	{
+		$articleModel = new ArticleModel();
+		$article = $articleModel->find($id);
+		if ($article) {
+			if (!empty($article['image'])) {
+				$imagePath = WRITEPATH . '../public/assets/images/' . $article['image'];
+	
+				if (is_file($imagePath)) {
+					unlink($imagePath);
+				}
+			}
+			$data = [
+				'image'      => null, 
+			];
+	
+			$articleModel->update($id, $data);
+		}
 
 		return redirect()->to('/admin/article');
 	}

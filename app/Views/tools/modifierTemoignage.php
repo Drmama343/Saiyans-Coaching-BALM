@@ -22,17 +22,20 @@
             ) ?>
             <br>
 
-            <?= form_label('Date', 'date') ?>
-            <?= form_input(
-                ['type' => 'date', 'name' => 'date', 'id' => 'date', 'disabled' => 'disabled'], 
-                date('Y-m-d', strtotime($temoignage['date']))
-            ) ?>
+            <?= form_label('Image', 'image') ?>
+            <?= form_upload('image') ?>
             <br>
 
             <?= form_submit('submit', 'Modifier', ['class' => 'btnFGBJ']) ?>
-            <a href="<?= base_url('profil') ?>" class="btnFGBJ">Annuler</a>
         <?= form_close() ?>
+
+        <?= form_open("supprImageTemoignage/".$temoignage['id'], ['class' => 'form-suppression', 'onsubmit' => " return confirm('Êtes-vous sûr de vouloir supprimer l\'image ?');"]) ?>
+            <?= form_submit('submit', 'Supprimer l\'image du témoignage', ['class' => 'btnFGBJ']) ?>
+        <?= form_close(); ?>
+
+        <a href="<?= base_url('profil') ?>" class="btnFGBJ">Annuler</a> 
 	</div>
+
 </div>
 
-<?php include __DIR__ . '/../templates/footerAdmin.php'; ?>
+<?php include __DIR__ . '/../templates/footer.php'; ?>

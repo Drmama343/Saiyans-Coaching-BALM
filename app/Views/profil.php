@@ -16,12 +16,12 @@
                     <!-- Contenu du formulaire (inchangé) -->
                     <div class="cellule-grid">
                         <?= form_label('Nom *', 'nom') ?>
-                        <?= form_input('nom', $saiyan['nom'], ['placeholder' => 'Nom', 'required' => 'required']) ?>
+                        <?= form_input('nom', $saiyan['nom'], ['id' => 'nom', 'placeholder' => 'Nom', 'required' => 'required']) ?>
                     </div>
                     
                     <div class="cellule-grid">
                         <?= form_label('Prénom *', 'prenom') ?>
-                        <?= form_input('prenom', $saiyan['prenom'], ['placeholder' => 'Prénom', 'required' => 'required']) ?>
+                        <?= form_input('prenom', $saiyan['prenom'], ['id' => 'prenom', 'placeholder' => 'Prénom', 'required' => 'required']) ?>
                     </div>
 
                     <div class="cellule-grid">
@@ -36,7 +36,7 @@
 
                     <div class="cellule-grid">
                         <?= form_label('Téléphone', 'tel') ?>
-                        <?= form_input('tel', !isset($formattedTel) || $formattedTel == null ? '' : $formattedTel, ['placeholder' => 'Téléphone']) ?>
+                        <?= form_input('tel', !isset($formattedTel) || $formattedTel == null ? '' : $formattedTel, ['id' => 'tel', 'placeholder' => 'Téléphone']) ?>
                     </div>
                     
                     <div class="cellule-grid">
@@ -46,12 +46,12 @@
 
                     <div class="cellule-grid">
                         <?= form_label('Adresse e-mail *', 'mail') ?>
-                        <?= form_input('mail', $saiyan['mail'], ['placeholder' => 'Email', 'required' => 'required', 'id'=>'mail']) ?>
+                        <?= form_input('mail', $saiyan['mail'], ['id' => 'mail', 'placeholder' => 'Email', 'required' => 'required']) ?>
                     </div>
                     
                     <div class="cellule-grid">
                         <?= form_label('Age *', 'age') ?>
-                        <?= form_input('age', $saiyan['age'], ['placeholder' => 'Age', 'required' => 'required']) ?>
+                        <?= form_input('age', $saiyan['age'], ['id' => 'age', 'placeholder' => 'Age', 'required' => 'required']) ?>
                     </div>
 
                     <div class="cellule-grid">
@@ -81,68 +81,74 @@
                 </div>
                 <?= form_submit('submit', 'Sauvegarder', ['class' => 'btnFJBG']) ?>
             <?= form_close(); ?>
-        </div>
 
-        <div>
             <?= form_open("supprimerProfil/".$saiyan['id'], ['class' => 'form-suppression', 'onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');"]) ?>
-                <?= form_submit('submit', 'Supprimer le compte', ['class' => 'btn-supprimer']) ?>
+                <?= form_submit('submit', 'Supprimer le compte', ['class' => 'btnFGBJ']) ?>
             <?= form_close(); ?>
         </div>
 
         <!-- Tableau des achats -->
-        <h2>Vos Achats</h2>
-        <br>
-        <br>
-        <table class="table-achat">
-            <thead>
-                <tr>
-                    <th>Nom du produit</th>
-                    <th>Date d'achat</th>
-                    <th>Date d'échéance</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($achats as &$achat) : ?>
+        <?php if (!empty($achats) && is_array($achats)): ?>
+            <h2>Vos Achats</h2>
+            <br>
+            <br>
+            <table class="table-achat">
+                <thead>
                     <tr>
-                        <td><?= esc($achat['produit']); ?></td>
-                        <td><?= esc(date('d/m/Y', strtotime($achat['date']))); ?></td>
-                        <td><?= esc(date('d/m/Y', strtotime($achat['echeance']))); ?></td>
+                        <th>Nom du produit</th>
+                        <th>Date d'achat</th>
+                        <th>Date d'échéance</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($achats as &$achat) : ?>
+                        <tr>
+                            <td><?= esc($achat['produit']); ?></td>
+                            <td><?= esc(date('d/m/Y', strtotime($achat['date']))); ?></td>
+                            <td><?= esc(date('d/m/Y', strtotime($achat['echeance']))); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p id="alt">Vous n'avez pas encore effectué d'achats</p>
+        <?php endif; ?>
 
         <br>
 
         <!-- Tableau des temoignages -->
-        <h2>Vos Témoignages</h2>
-        <br>
-        <br>    
-        <table class="table-achat">
-            <thead>
-                <tr>
-                    <th>Votre témoignage</th>
-                    <th>Note</th>
-                    <th>Date d'échéance</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($temoignages as &$temoignage) : ?>
+        <?php if (!empty($temoignages) && is_array($temoignages)): ?>
+            <h2>Vos Témoignages</h2>
+            <br>
+            <br>    
+            <table class="table-achat">
+                <thead>
                     <tr>
-                        <td><?= $temoignage['temoignage'] ?></td>
-                        <td><?= $temoignage['note'] ?></td>
-                        <td><?= $temoignage['date'] ?></td>
-                        <td><div class="celluleImage" id="<?= $temoignage['image'] ?>">Image</div></td>
-                        <td>
-                            <a href="<?= base_url('/temoignage/' . $temoignage['id']) ?>">Modifier</a>
-                            <a href="<?= base_url('admin/supprTemoignage/' . $temoignage['id']) ?>">Supprimer</a>
-                        </td>
+                        <th>Votre témoignage</th>
+                        <th>Note</th>
+                        <th>Date d'échéance</th>
+                        <th>Image</th>
+                        <th>Actions</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($temoignages as &$temoignage) : ?>
+                        <tr>
+                            <td><?= $temoignage['temoignage'] ?></td>
+                            <td><?= $temoignage['note'] ?></td>
+                            <td><?= $temoignage['date'] ?></td>
+                            <td><div class="celluleImage" id="<?= $temoignage['image'] ?>">Image</div></td>
+                            <td>
+                                <a href="<?= base_url('/temoignage/' . $temoignage['id']) ?>">Modifier</a>
+                                <a href="<?= base_url('/supprTemoignage/' . $temoignage['id']) ?>">Supprimer</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p id="alt">Vous n'avez pas encore écrit de témoignages</p>
+        <?php endif; ?>
     </div>
     <div id="image-modal" class="modal">
         <div class="modal-content">

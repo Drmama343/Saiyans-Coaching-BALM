@@ -235,6 +235,14 @@ button.next {
     }
 }
 
+#alt {
+    position: relative;
+    transform: translateX(-130%);
+    margin: 0 auto;
+    color: #737373;
+    font-style: italic;
+}
+
 /* --- Code Css rejoinnous.php --- */
 
 .conteneur-rejoinnous{
