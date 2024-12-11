@@ -32,7 +32,11 @@
 						<tr>
 							<td><?= $article['titre'] ?></td>
 							<td><?= $article['contenu'] ?></td>
-							<td><div class="celluleImage" id="<?= $article['image'] ?>">Image</div></td>
+							<?php if (isset($article['image'])) : ?>
+								<td><div class="celluleImage" id="<?= $article['image'] ?>">Image</div></td>
+							<?php else: ?>
+								<td></td>
+							<?php endif; ?>
 							<td><?= $article['type']?></td>
 							<td><input type="checkbox" name="affichage" id="" <?= $article['affichage'] === "t" ? "checked" : "" ?> disabled></td>
 							<td>
