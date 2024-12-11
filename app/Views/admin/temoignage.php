@@ -11,13 +11,6 @@
 <!-- Tableau pour les programmes -->
 <!--------------------------------->
 <div class="conteneur-admin-temoignage">
-	<div class="recherche">
-        <?= form_open('/admin/rechercherTemoignage', ['method' => 'post']); ?>
-            <?= csrf_field() ?>
-            <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
-            <?= form_input('recherche',isset($_SESSION['rechercheTemoignage']) ? $_SESSION['rechercheTemoignage'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()']); ?>
-        <?= form_close(); ?>
-    </div>
 	<div class="contenu-admin-temoignage">
 		<div class="recherche">
 			<?= form_open('/admin/rechercherTemoignage', ['method' => 'post']); ?>
