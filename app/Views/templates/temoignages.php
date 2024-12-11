@@ -16,10 +16,12 @@
 					</div>
 				<?php endforeach; ?>
 			<?php else: ?>
-				<p>Aucun temoignange trouvée.</p>
+				<p id="alt">Aucun temoignange trouvée.</p>
 			<?php endif; ?>
 		</div>
-		<button class="prev">◀</button>
-		<button class="next">▶</button>
+		<?php if (!empty($temoignages) && is_array($temoignages)): ?>
+			<button class="prev">◀</button>
+			<button class="next">▶</button>
+		<?php endif; ?>
 	</div>
 </div>

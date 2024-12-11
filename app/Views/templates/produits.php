@@ -10,10 +10,10 @@
 						if (end($segments) === "programme"):
 					?>
 					<?php foreach ($produits as $produit): ?>
-						<button class="produit" onclick="openModal('<?= esc($produit['nom']) ?>', '<?= esc($produit['prix']) ?>', 'tous les mois', '<?= esc($produit['id']) ?>')">
+						<button class="produit" onclick="openModal('<?= esc($produit['nom']) ?>', '<?= esc($produit['prix']) ?>', 'Tous les mois', '<?= esc($produit['id']) ?>')">
 							<h3><?= esc($produit['nom']) ?></h3>
 							<p id="prix"><strong><?= esc($produit['prix']) ?></strong></p>
-							<p id="descPrix">tous les mois</p>
+							<p id="descPrix">Tous les mois</p>
 							<p><?= esc($produit['description']) ?></p>
 							<hr>
 							<p><?php if ($produit['entrainement'] == 't'): ?> <span style="color:green;">✔</span> <?php else: ?> <span style="color:red;">✕</span> <?php endif; ?> Entraînement</p>
@@ -28,7 +28,7 @@
 					<a href="/programme" class="produit">
 						<h3><?= esc($produit['nom']) ?></h3>
 						<p id="prix"><strong><?= esc($produit['prix']) ?></strong></p>
-						<p id="descPrix">tous les mois</p>
+						<p id="descPrix">Tous les mois</p>
 						<p><?= esc($produit['description']) ?></p>
 						<hr>
 						<p><?php if ($produit['entrainement'] == 't'): ?> <span style="color:green;">✔</span> <?php else: ?> <span style="color:red;">✕</span> <?php endif; ?> Entraînement</p>
@@ -40,11 +40,13 @@
 				<?php endforeach; ?>
 				<?php endif; ?>
 			<?php else: ?>
-				<p>Aucun produit disponible.</p>
+				<p id="alt">Aucun produit disponible.</p>
 			<?php endif; ?>
 		</div>
-		<button class="prev">◀</button>
-		<button class="next">▶</button>
+		<?php if (!empty($produits) && is_array($produits)): ?>
+			<button class="prev">◀</button>
+			<button class="next">▶</button>
+		<?php endif; ?>
 	</div>
 </div>
 
@@ -59,8 +61,8 @@
 	<div class="modal-content">
 		<button class="close-btn" onclick="closeModal()">&times;</button>
 		<h3 id="modal-title"></h3>
-		<p><strong>Prix :</strong> <span id="modal-price"></span></p>
-		<p id="modal-description"></p>
+		<p>Prix : <strong><span id="modal-price"></span></strong></p>
+		<strong><p id="modal-description"></p></strong>
 		<a class="btnFGBJ" id="btnAchat">Valider le paiement</a>
 	</div>
 </div>

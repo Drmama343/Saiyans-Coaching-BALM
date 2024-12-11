@@ -205,6 +205,14 @@ button.next {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
+#alt {
+    position: relative;
+    transform: translateX(-130%);
+    margin: 0 auto;
+    color: #737373;
+    font-style: italic;
+}
+
 .contacts {
     position: relative;
     top: 17vh;
@@ -355,10 +363,12 @@ table a {
     display: none;
     justify-content: center;
     align-items: center;
+    z-index: 1500;
 }
 
 #productModal .modal-content {
-    background: white;
+    background-color: #0c0c0c;
+    color: #f1f1f1;
     padding: 20px;
     border-radius: 10px;
     width: 90%;
@@ -371,29 +381,34 @@ table a {
 
 #productModal h3 {
     font-family: 'Bebas Neue', sans-serif;
+    margin: 0;
     text-align: left;
     color: #F4E904;
     font-size: 2rem;
 }
 
 #productModal p {
-    text-align: left;
     margin: 0;
+    text-align: left;
 }
 
-#productModal .buy-btn {
+#productModal #btnAchat {
     width: 80%;
-    margin: 2vh auto;
+    margin: 5vh auto;
     background: #F4E904;
     border: 1px solid #737373;
+    color: #0c0c0c;
     border-radius: 45px;
-    padding: 1vh 5vw;
+    padding: 1vh;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1rem;
 }
 
-#productModal .buy-btn:hover {
+#productModal #btnAchat:hover {
     box-shadow: 1px 1px #0c0c0c;
+    background: #737373;
+    border: 1px solid #F4E904;
+    color: #f1f1f1;
     cursor: pointer;
 }
 
@@ -401,7 +416,7 @@ table a {
 #productModal .close-btn {
     position: relative;
     margin: 0;
-    color: #0c0c0c;
+    color: #F4E904;
     background: none;
     border: none;
     text-align: right;
