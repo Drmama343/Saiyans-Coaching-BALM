@@ -14,10 +14,8 @@
         <h4>Contact</h4>
         <a href="/contact">Coachingss9800@gmail.com</a>
         <div class="social-icons">
-            <a href="/contact"><img src="/assets/images/facebook.png"></a>
-            <a href="/contact"><img src="/assets/images/tiktok.png"></a>
-            <a href="/contact"><img src="/assets/images/instagram.png"></a>
-            <a href="/contact"><img src="/assets/images/youtube.png"></a>
+            <a href="https://www.facebook.com/clem.cr"><img src="/assets/images/facebook.png"></a>
+            <a href="https://www.instagram.com/saiyan_coaching/"><img src="/assets/images/instagram.png"></a>
             <a href="/contact"><img src="/assets/images/whatsapp.png"></a>
         </div>
     </div>

@@ -62,8 +62,9 @@ html, body {
 }
 
 .medias p {
+  grid-column: 1 / -1;
   text-align: center;
-  color: #555;
+  color: #737373;
   font-style: italic;
 }
 

@@ -13,7 +13,6 @@ class ProduitSeeder extends Seeder
 		$data = [
 			[
 				'nom' => 'Pack Premium',
-				'photo' => 'premium.jpg',
 				'description' => 'Abonnement complet incluant tous les services pour un coaching optimal.',
 				'prix' => 249.99,
 				'duree'=> 18,
@@ -25,7 +24,6 @@ class ProduitSeeder extends Seeder
 			],
 			[
 				'nom' => 'Pack Basique',
-				'photo' => 'basique.jpg',
 				'description' => 'Abonnement basique avec accès aux programmes d\'entraînement.',
 				'prix' => 159.99,
 				'duree'=> 12,
@@ -37,7 +35,6 @@ class ProduitSeeder extends Seeder
 			],
 			[
 				'nom' => 'Pack Nutrition',
-				'photo' => 'nutrition.jpg',
 				'description' => 'Un pack axé sur la nutrition sportive pour améliorer vos performances.',
 				'prix' => 109.99,
 				'duree'=> 6,
@@ -49,7 +46,6 @@ class ProduitSeeder extends Seeder
 			],
 			[
 				'nom' => 'Pack Nutrition',
-				'photo' => 'nutrition.jpg',
 				'description' => 'Un pack axé sur la nutrition sportive pour améliorer vos performances.',
 				'prix' => 109.99,
 				'duree'=> 6,
@@ -61,7 +57,6 @@ class ProduitSeeder extends Seeder
 			],
 			[
 				'nom' => 'Pack Nutrition',
-				'photo' => 'nutrition.jpg',
 				'description' => 'Un pack axé sur la nutrition sportive pour améliorer vos performances.',
 				'prix' => 109.99,
 				'duree'=> 6,
@@ -73,7 +68,6 @@ class ProduitSeeder extends Seeder
 			],
 			[
 				'nom' => 'Pack Nutrition',
-				'photo' => 'nutrition.jpg',
 				'description' => 'Un pack axé sur la nutrition sportive pour améliorer vos performances.',
 				'prix' => 109.99,
 				'duree'=> 6,
