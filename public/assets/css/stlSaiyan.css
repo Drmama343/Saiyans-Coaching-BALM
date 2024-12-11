@@ -181,13 +181,13 @@ td:first-child {
 	color: black;
 }
 
-form label {
+.recherche form label {
 	font-family: "Bebas Neue", sans-serif;
 	font-size: 2vw;
 	color: #F4E904;
 }
 
-form input {
+.recherche form input {
 	position: relative;
 	top: -3.5vw;
 	margin: 0;
