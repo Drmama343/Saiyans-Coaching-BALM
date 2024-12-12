@@ -244,6 +244,16 @@ button.next {
     font-style: italic;
 }
 
+.questionnaire {
+    padding-top: 5vh;
+    color: var(--jaune);
+}
+
+.questionnaire a {
+    color: var(--jaune);
+    font-weight: bold;
+}
+
 /* --- Code Css rejoinnous.php --- */
 
 .conteneur-rejoinnous{
