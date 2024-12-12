@@ -7,7 +7,7 @@
 		echo form_open_multipart(base_url('admin/modifQuestion/' . ($data['id'] ?? '')));
 	} else {
         echo '<h2>Ajouter une question</h2>';
-		echo form_open_multipart(base_url('admin/question/ajouter'));
+		echo form_open_multipart(base_url('admin/creerQuestion'));
 	}
 ?>
 

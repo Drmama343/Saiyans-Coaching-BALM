@@ -88,7 +88,7 @@ $routes->group('', ['filter' => 'AdminGuard'], function($routes) {
 	// Routes pour les Questions
 	$routes->get('/admin/question', 'AdminController::question');
 	$routes->post('/admin/modifQuestion/(:num)', 'AdminController::modifierQuestion/$1');
-	$routes->post('/admin/creerQuestion', 'AdminController::creerQuestion');
+	$routes->post('/admin/creerQuestion', 'AdminController::ajoutQuestion');
 	$routes->get('/admin/supprQuestion/(:num)', 'AdminController::supprQuestion/$1');
 	$routes->post('/admin/rechercherQuestion', 'AdminController::setRechercheQuestion');
 

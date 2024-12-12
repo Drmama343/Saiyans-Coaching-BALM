@@ -23,7 +23,7 @@ class ArticleSeeder extends Seeder
 				'contenu' => 'Les meilleures pratiques alimentaires pour booster vos performances.',
 				'auteur' => 1,
 				'image' => 'alimentation-sport.jpg',
-				'type' => 'blog',
+				'type' => 'actu',
 			],
 
 			[
@@ -37,21 +37,6 @@ class ArticleSeeder extends Seeder
 				'titre' => 'Les erreurs courantes en musculation',
 				'contenu' => 'Apprenez à éviter les erreurs qui freinent vos progrès.',
 				'auteur' => 1,
-				'image' => 'erreurs-musculation.jpg',
-				'type' => 'actu',
-			],
-			[
-				'titre' => 'Compléments alimentaires : utiles ou non ?',
-				'contenu' => 'Une analyse des compléments alimentaires et de leur efficacité.',
-				'auteur' => 1,
-				'image' => 'complements-alimentaires.jpg',
-				'type' => 'actu',
-			],
-			[
-				'titre' => 'S’entraîner chez soi : astuces et équipements',
-				'contenu' => 'Les meilleurs conseils pour rester en forme à la maison.',
-				'auteur' => 1,
-				'image' => 'entrainement-chez-soi.jpg',
 				'type' => 'actu',
 			],
 		];

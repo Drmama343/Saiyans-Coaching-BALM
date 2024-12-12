@@ -13,7 +13,7 @@ class TemoignageSeeder extends Seeder
 		$data = [
 			[
 				'idsaiyan' => 1,
-				'temoignage' => 'Voila ma transformation physique mes ptits loulous',
+				'temoignage' => 'Voila ma transformation physique',
 				'note' => 4,
 				'date' => '2024-01-02',
 				'affichage' => true,
