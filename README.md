@@ -114,15 +114,7 @@ php spark migrate
 
 Pour insérer des données, mettez vous à la racine du répertoire du projet et écrivez les commandes suivantes dans l'ordre:
 ```bash
-php spark db:seed UtilisateurSeeder
-```
-puis : 
-```bash
-php spark db:seed TacheSeeder
-```
-enfin : 
-```bash
-php spark db:seed CommentaireSeeder
+php spark db:seed SaiyanSeeder
 ```
 
 ## Lancement de l'application
