@@ -213,7 +213,22 @@ class ProfilController extends BaseController
 
 	public function resilierAchat($idAchat){
 		$achatModel = new AchatModel();
+		$programmeModel = new ProgrammeModel();
 		$achatModel->delete($idAchat);
+
+		$achats = $achatModel->where("idsaiyan", $this->session->get('utilisateur')['id'])->find();
+		$good = false;
+		foreach ($achats as $achat) {
+			$programme = $programmeModel->where('id', $achat['idproduit'])->first();
+			if ($programme['multimedia'] == 't') {
+				$good = true;
+			}
+		}
+		if (!$good)
+		{
+			$this->session->remove('abonneAvecMutimedia');
+		}
+
 		return redirect()->to('/profil');
 	}
 

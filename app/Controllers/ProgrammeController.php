@@ -87,6 +87,11 @@ class ProgrammeController extends BaseController
 			}
 		}
 
+		if ($produit['multimedia'] == 't')
+		{
+			$this->session->set('abonneAvecMutimedia', true);
+		}
+
 		$this->session->setFlashdata('alert_message', 'L\'achat a été réalisé avec succes, un mail de confirmation vous a été envoyé');
 		return redirect()->to('programme');
 	}

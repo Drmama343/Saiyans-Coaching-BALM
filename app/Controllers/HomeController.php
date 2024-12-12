@@ -38,7 +38,7 @@ class HomeController extends BaseController
 			}
 			if ($good)
 			{
-				$data['abonneAvecMutimedia'] = true;
+				$this->session->set('abonneAvecMutimedia', true);
 			}
 		}
 

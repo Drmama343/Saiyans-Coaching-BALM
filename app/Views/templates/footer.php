@@ -41,6 +41,9 @@
                 echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';
                 echo '<script src="/assets/js/fctAffichageImage.js"></script>';
                 break;
+			case 'blog' || 'actualite':
+				echo '<script src="/assets/js/fctAffichageArticle.js"></script>';
+				break;
             case '':
                 echo '<script src="/assets/js/fctTemoignages.js"></script>
                         <script src="/assets/js/fctOffres.js"></script>

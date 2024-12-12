@@ -13,7 +13,7 @@
 		<li><a href="/apropos">À propos</a></li>
 		<li><a href="/programme">Programmes</a></li>
 		<li><a href="/avant-apres">Avant / Après</a></li>
-		<?php if (isset($_SESSION['utilisateur']) && isset($abonneAvecMutimedia)): ?>
+		<?php if (isset($_SESSION['utilisateur']) && isset($_SESSION['abonneAvecMutimedia'])): ?>
 			<li><a href="/blog">Blog</a></li>
 		<?php endif; ?>
 		<li><a href="/actualite">Actualité</a></li>
