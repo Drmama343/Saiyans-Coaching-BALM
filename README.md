@@ -10,6 +10,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
 - **Linux**
 - **PHP 8.1 ou supérieur**
 - **Base de données PostgreSQL**
+- - **Adresse email Gmail reliée à un compte Google**
 
 ## Installation
 
@@ -115,6 +116,26 @@ php spark migrate
 Pour insérer des utilisateurs :
 ```bash
 php spark db:seed SaiyanSeeder
+```
+
+### 5. Préparation des emails
+
+Si ce n'est pas fait activez l'authentification à 2 facteurs sur votre compte google.
+
+Sur les paramètre de votre compte google allez sur la partie Sécurité puis rechercher avec la barre de recherche ``` Mots de passe des applications ```
+Créez un mot de passe pour l'application et copiez le.
+Allez ensuite dans le fichier ``` app/Config/Email.php ``` et changez les champs suivants avec les bonnes informations :
+public string $protocol = 'smtp';
+```php
+    /**
+     * SMTP Username
+     */
+    public string $SMTPUser = '{votre adresse Gmail}';
+
+    /**
+     * SMTP Password
+     */
+    public string $SMTPPass = '{Le mot de passe que vous venez de créer}';
 ```
 
 ## Lancement de l'application
