@@ -84,7 +84,7 @@ input {
     background-color: var(--noir);
     border: 2px solid var(--gris);
     border-radius: 15px;
-    color: var(--jaune);
+    color: var(--noir);
     padding: 1vh 5vh;
     margin-top: 1vh;
 }
@@ -177,6 +177,27 @@ td:first-child {
 }
 
 #paginationSaiyan a:hover {
+	background-color: #F4E904;
+	color: black;
+}
+
+#paginationAchat {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#paginationAchat a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#paginationAchat a:hover {
 	background-color: #F4E904;
 	color: black;
 }

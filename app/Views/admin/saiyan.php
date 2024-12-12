@@ -68,6 +68,41 @@
     </div>
 </div>
 
+<div class="conteneur-modif">
+    <div class="contenu-modif">
+        <div class="recherche">
+            <?= form_open('/admin/rechercherAchat', ['method' => 'post']); ?>
+                <?= csrf_field() ?>
+                <?= form_label('<h5>Rechercher :</h5>', 'recherche'); ?>
+                <?= form_input('recherche',isset($_SESSION['rechercheAchat']) ? $_SESSION['rechercheAchat'] : '',['id' => 'recherche', 'onchange' => 'this.form.submit()', 'placeholder' => 'Rechercher depuis une date ...']); ?>
+            <?= form_close(); ?>
+        </div>
+        <table class="table-achat">
+            <thead>
+                <tr>
+                    <th>Saiyan</th>
+                    <th>Abonnement</th>
+                    <th>Date d'achat</th>
+                    <th>Date d'échéance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($achats as $achat) : ?>
+                        <tr>
+                            <td><?= esc($achat['saiyan']); ?></td>
+                            <td><?= esc($achat['abonnement']); ?></td>
+                            <td><?= esc($achat['date']); ?></td>
+                            <td><?= esc($achat['echeance']); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div id="paginationAchat">
+            <?= $pagerAchat->links('Achat', 'custom') ?>
+        </div>
+    </div>
+</div>
+
 <script src="/assets/js/fctSaiyan.js"></script>
 
 <?php include __DIR__ . '/../templates/footerAdmin.php'; ?>
