@@ -44,14 +44,14 @@ class CreatePromotionTable extends Migration
 		$this->forge->addForeignKey('produit', 'produit', 'id', 'CASCADE', 'CASCADE');
 		$this->forge->createTable('promotion');
 
-		$this->db->query("ALTER TABLE media ADD CONSTRAINT check_type_media CHECK (type IN ('image', 'video'))");
+		$this->db->query("ALTER TABLE article ALTER COLUMN date_publi SET DEFAULT CURRENT_DATE");
 	}
 
 	public function down()
 	{
 		$this->forge->dropTable('promotion');
 
-		$this->db->query("ALTER TABLE media DROP CONSTRAINT check_type_media");
+		$this->db->query("ALTER TABLE article ALTER COLUMN date_publi SET DEFAULT NULL");
 	}
 }
 

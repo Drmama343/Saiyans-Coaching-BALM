@@ -10,6 +10,8 @@ html {
 	justify-content: center;
 	align-items: flex-start;
 	padding: 15vh 10vw;
+	text-align: justify;
+	line-height: 1.5;
 }
 
 .contenu-cgv h2 {
@@ -25,6 +27,7 @@ html {
 	color: var(--jaune);
 	margin-bottom: 10px;
 	font-family: 'Bebas Neue', sans-serif;
+	margin: 6cqh 0 0 0;
 }
 
 .contenu-cgv span {

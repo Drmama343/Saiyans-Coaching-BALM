@@ -28,6 +28,18 @@ class HomeController extends BaseController
 			foreach ($achats as $achat) {
 				if($achat['echeance'] < (new \DateTime())->format('Y-m-d')) {$achatModel->delete($achat['id']);}
 			}
+
+			$good = false;
+			foreach ($achats as $achat) {
+				$programme = $programmeModel->where('id', $achat['idproduit'])->first();
+				if ($programme['multimedia'] == 't') {
+					$good = true;
+				}
+			}
+			if ($good)
+			{
+				$data['abonneAvecMutimedia'] = true;
+			}
 		}
 
 		$data['promotions'] = $promotionModel->findAll();

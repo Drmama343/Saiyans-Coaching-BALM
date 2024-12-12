@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use App\Models\MediaModel;
 use App\Models\TemoignageModel;
 
 class AvantApresController extends Controller
