@@ -462,3 +462,14 @@ table a {
 	background-color: #F4E904;
 	color: black;
 }
+
+
+.questionnaire {
+    padding-top: 5vh;
+    color: var(--jaune);
+}
+
+.questionnaire a {
+    color: var(--jaune);
+    font-weight: bold;
+}

@@ -56,14 +56,6 @@ CREATE TABLE "Article" (
   "image" varchar
 );
 
-CREATE TABLE "Media" (
-  "id" integer PRIMARY KEY,
-  "titre" varchar NOT NULL,
-  "description" varchar,
-  "media" varchar NOT NULL;
-  "type" varchar NOT NULL
-);
-
 CREATE TABLE "Promotion" (
   "id" integer PRIMARY KEY,
   "date_deb" date NOT NULL,
