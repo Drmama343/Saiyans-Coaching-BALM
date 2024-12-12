@@ -388,7 +388,7 @@ class AdminController extends BaseController
 			'articles' => $articles,
 			'pagerArticles' => $articleModel->pager,
 		];
-		$this->session->set('page', 'adminArticle');
+		$this->session->set('page', 'adminArt');
 		return view('admin/article', $data);
 	}
 

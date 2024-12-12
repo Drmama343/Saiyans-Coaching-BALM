@@ -24,7 +24,7 @@ class AbonnementMultimediaGuard implements FilterInterface
 				$good = true;
 			}
 		}
-		if (!$good)
+		if (!$good && !session()->get('utilisateur')['admin'] == 't')
 		{
 			return redirect()->to('/');
 		}

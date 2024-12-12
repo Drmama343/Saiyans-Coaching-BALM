@@ -13,7 +13,7 @@
 		<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'apropos'): ?> class="enJaune"<?php endif; ?> href="/apropos">À propos</a></li>
 		<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'prog'): ?> class="enJaune"<?php endif; ?> href="/programme">Programmes</a></li>
 		<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'avtapr'): ?> class="enJaune"<?php endif; ?> href="/avant-apres">Avant / Après</a></li>
-		<?php if (isset($_SESSION['utilisateur']) && isset($_SESSION['abonneAvecMutimedia'])): ?>
+		<?php if ((isset($_SESSION['utilisateur']) && $_SESSION['utilisateur']['admin'] == 't') || (isset($_SESSION['utilisateur']) && isset($_SESSION['abonneAvecMutimedia']))): ?>
 			<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'blog'): ?> class="enJaune"<?php endif; ?> href="/blog">Blog</a></li>
 		<?php endif; ?>
 		<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'actu'): ?> class="enJaune"<?php endif; ?> href="/actualite">Actualité</a></li>
