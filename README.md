@@ -125,7 +125,6 @@ Si ce n'est pas fait activez l'authentification à 2 facteurs sur votre compte g
 Sur les paramètre de votre compte google allez sur la partie Sécurité puis rechercher avec la barre de recherche ``` Mots de passe des applications ```
 Créez un mot de passe pour l'application et copiez le.
 Allez ensuite dans le fichier ``` app/Config/Email.php ``` et changez les champs suivants avec les bonnes informations :
-public string $protocol = 'smtp';
 ```php
     /**
      * SMTP Username
