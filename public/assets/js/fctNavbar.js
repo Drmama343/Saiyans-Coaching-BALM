@@ -10,12 +10,3 @@ document.getElementById('openModalCompte').addEventListener('click', function ()
     // Toggle the modal visibility
     modal.style.display = isModalVisible ? 'none' : 'block';
 });
-
-
-// Optional: Close the modal when clicking outside of it
-window.addEventListener('click', function (event) {
-    const modal = document.getElementById('creationCompteModal');
-    if (event.target !== modal && !modal.contains(event.target) && event.target.id !== 'openModalCompte') {
-        modal.style.display = 'none';
-    }
-});

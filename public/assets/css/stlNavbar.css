@@ -64,6 +64,10 @@ nav ul li a {
 	margin: 0 0.5vw;
 }
 
+.enJaune {
+    color: #F4E904;
+}
+
 nav img {
 	height: 12vh;
 	margin: 0 2vw 0 5vw;
