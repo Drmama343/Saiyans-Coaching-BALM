@@ -9,6 +9,7 @@ class ProgrammeController extends BaseController
 {
 	protected $session;
 	public function __construct() {
+		helper('form');
 		$this->session = session();
 	}
 
@@ -89,4 +90,43 @@ class ProgrammeController extends BaseController
 		$this->session->setFlashdata('alert_message', 'L\'achat a été réalisé avec succes, un mail de confirmation vous a été envoyé');
 		return redirect()->to('programme');
 	}
+
+	public function questionnaire()
+	{
+		if ($this->request->getMethod() === 'POST') {
+			// Récupérer les données du formulaire
+			$data = $this->request->getPost();
+
+			// Composer le contenu de l'e-mail
+			$emailContent = "Questionnaire reçu :\n\n";
+			foreach ($data as $key => $value) {
+				if($key != 'submit') {
+					if (is_array($value)) {
+						$emailContent .= ucfirst($key) . ": " . implode(", ", $value) . "\n";
+					} else {
+						$emailContent .= ucfirst($key) . ": " . $value . "\n";
+					}
+				}
+			}
+
+			$emailContent .= "\nCordialement, " . $this->session->get('utilisateur')['prenom'] . " " . $this->session->get('utilisateur')['nom'];
+
+
+			$emailService = \Config\Services::email();
+			//envoi du mail
+			$emailService->setTo('sgt.balm.projetsynthese@gmail.com');
+			$emailService->setFrom($this->session->get('utilisateur')['mail']);
+			$emailService->setSubject('Questionnaire de coaching');
+			$emailService->setMessage($emailContent);
+			if ($emailService->send()) {
+				return redirect()->to('programme');
+			} else {
+				echo $emailService->printDebugger();
+			}
+		}
+
+		// Afficher le formulaire s'il n'y a pas de soumission
+		return view('templates/questionnaire');
+	}
+
 }

@@ -1,0 +1,133 @@
+html {
+    background-color: var(--noir);
+}
+
+/* Structure générale de la page */
+.conteneur-questionnaire {
+    margin: 0;
+    background-color: var(--noir); /* Assure un fond uniforme */
+    padding: 15vh 0 5vh 0;
+    width: 100%;
+}
+
+.contenu-questionnaire {
+    width: 50%;
+    padding: 2vh 5vh;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1); /* Fond semi-transparent */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Légère ombre portée */
+    text-align: center;
+    color: var(--jaune); /* Texte en jaune */
+}
+
+.contenu-questionnaire h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 4vh;
+    margin-bottom: 3vh;
+}
+
+/* Formulaire */
+.contenu-questionnaire form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenu-questionnaire .reponses {
+	text-align: left;
+}
+
+.contenu-questionnaire label {
+    font-family: 'Lato', sans-serif;
+    font-size: 2vh;
+    margin-bottom: 1vh;
+    text-align: left;
+    width: 100%; /* Aligne les labels avec les champs */
+    color: var(--blanc);
+}
+
+.contenu-questionnaire .question {
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 2.5vh;
+	margin-bottom: 2vh;
+	color: var(--jaune);
+}
+
+.contenu-questionnaire input,
+.contenu-questionnaire textarea,
+.contenu-questionnaire select {
+    width: 100%; /* Champs s'étendent sur toute la largeur */
+    background-color: var(--noir);
+    border: 2px solid var(--gris);
+    border-radius: 10px;
+    color: var(--jaune);
+    padding: 1vh;
+    margin-bottom: 2vh;
+    font-family: 'Lato', sans-serif;
+}
+
+.contenu-questionnaire textarea {
+    resize: none; /* Empêche le redimensionnement */
+    height: 15vh; /* Ajuste la hauteur pour un meilleur affichage */
+}
+
+.contenu-questionnaire input[type="file"] {
+    border: none; /* Supprime la bordure des champs de type file */
+    padding: 0;
+    color: var(--gris);
+}
+
+/* Bouton de soumission */
+.btnFGBJ {
+    background-color: var(--jaune);
+    opacity: 70%;
+    padding: 1vh 5vh;
+    border: 2px solid var(--gris);
+    border-radius: 15px;
+    color: var(--noir);
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 2vh;
+}
+
+.btnFGBJ:hover {
+    background-color: var(--gris);
+    color: var(--jaune);
+    transition: all 0.5s ease;
+}
+
+/* Checkbox et radio buttons */
+.contenu-questionnaire input[type="checkbox"],
+.contenu-questionnaire input[type="radio"] {
+    width: auto; /* Ajuste la taille par défaut */
+    margin-right: 1vh;
+    vertical-align: middle;
+}
+
+/* Alignement spécifique */
+.contenu-questionnaire .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Labels alignés à gauche */
+    width: 100%;
+}
+
+/* Grille pour les questions avec plusieurs options */
+.contenu-questionnaire .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1vh;
+    width: 100%;
+    margin-bottom: 2vh;
+}
+
+/* Champs supplémentaires */
+.contenu-questionnaire .autre {
+    margin-top: 1vh;
+    font-family: 'Lato', sans-serif;
+    font-size: 2vh;
+    color: var(--gris);
+}

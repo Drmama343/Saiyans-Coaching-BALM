@@ -20,6 +20,7 @@ $routes->post('/inscription', 'LoginController::inscription');
 // Routes pour les programmes
 $routes->get('/programme','ProgrammeController::index');
 $routes->get('/programme/achat/(:num)','ProgrammeController::achat/$1');
+$routes->match(['GET', 'POST'], '/questionnaire', 'ProgrammeController::questionnaire');
 
 // Routes pour le profil
 $routes->get('/profil', 'ProfilController::index'); 
