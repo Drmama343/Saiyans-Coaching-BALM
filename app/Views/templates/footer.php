@@ -49,9 +49,6 @@
             case 'programme':
                 echo '  <script src="/assets/js/fctOffres.js"></script>';
                 break;
-            case 'actualite' || 'blog':
-                echo '<script src="/assets/js/fctAffichageArticle.js"></script>';
-                break;
         }
 
         echo '<script src="/assets/js/fctNavbar.js"></script>';
