@@ -69,6 +69,25 @@ tbody td {
     font-family: 'Lato', sans-serif;
 }
 
+#titre {
+	width: 20%;
+}
+
+#desc {
+	width: 80%;
+	margin: 0 auto;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: scroll;
+    text-overflow: ellipsis;
+}
+
+#actions {
+	width: 15%;
+}
+
 td:first-child {
 	font-weight: bold;
 	color: #0c0c0c;

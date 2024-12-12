@@ -17,11 +17,13 @@
 					<div class="cellule-grid">
 						<?= form_label('Nom *', 'nom') ?>
 						<?= form_input('nom', $saiyan['nom'], ['id' => 'nom', 'placeholder' => 'Nom', 'required' => 'required']) ?>
+						<?= session()->getFlashdata('error_nom') ?>
 					</div>
 					
 					<div class="cellule-grid">
 						<?= form_label('Prénom *', 'prenom') ?>
 						<?= form_input('prenom', $saiyan['prenom'], ['id' => 'prenom', 'placeholder' => 'Prénom', 'required' => 'required']) ?>
+						<?= session()->getFlashdata('error_prenom') ?>
 					</div>
 
 					<div class="cellule-grid">
@@ -37,46 +39,55 @@
 					<div class="cellule-grid">
 						<?= form_label('Téléphone', 'tel') ?>
 						<?= form_input('tel', !isset($formattedTel) || $formattedTel == null ? '' : $formattedTel, ['id' => 'tel', 'placeholder' => 'Téléphone']) ?>
+						<?= session()->getFlashdata('error_tel') ?>
 					</div>
 					
 					<div class="cellule-grid">
 						<?= form_label('Sexe *', 'sexe'); ?>
 						<?= form_dropdown('sexe', ['H' => 'Homme', 'F' => 'Femme'], $saiyan['sexe'], ['id' => 'sexe', 'default' => 'Homme', 'required' => 'required']); ?>
+						<?= session()->getFlashdata('error_sexe') ?>
 					</div>
 
                     <div class="cellule-grid">
                         <?= form_label('Adresse e-mail *', 'mail') ?>
                         <?= form_input('mail', $saiyan['mail'], ['id' => 'mail', 'placeholder' => 'Email', 'required' => 'required']) ?>
+						<?= session()->getFlashdata('error_mail') ?>
                     </div>
                     
                     <div class="cellule-grid">
                         <?= form_label('Age *', 'age') ?>
                         <?= form_input('age', $saiyan['age'], ['id' => 'age', 'placeholder' => 'Age', 'required' => 'required'], 'number') ?>
+						<?= session()->getFlashdata('error_age') ?>
                     </div>
 
 					<div class="cellule-grid">
 						<?= form_label('Poids (en kg) *', 'poids'); ?>
 						<?= form_input('poids', $saiyan['poids'], ['id' => 'poids', 'class' => '', 'required' => 'required', 'step' => '0.01'], 'number'); ?>
+						<?= session()->getFlashdata('error_poids') ?>
 					</div>
 					
 					<div class="cellule-grid">
 						<?= form_label('Taille (en cm) *', 'taille'); ?>
 						<?= form_input('taille', $saiyan['taille'], ['id' => 'taille', 'class' => '', 'required' => 'required'], 'number'); ?>
+						<?= session()->getFlashdata('error_taille') ?>
 					</div>
 					
 					<div class="cellule-grid">
 						<?= form_label('Mot de passe actuel', 'mdp_actuel') ?>
 						<?= form_password('mdp_actuel', '', ['placeholder' => 'Mot de passe actuel']) ?>
+						<?= session()->getFlashdata('error_password') ?>
 					</div>
 					
 					<div class="cellule-grid">
 						<?= form_label('Nouveau mot de passe', 'nouveau_mdp') ?>
 						<?= form_password('nouveau_mdp', '', ['placeholder' => 'Nouveau mot de passe']) ?>
+						<?= session()->getFlashdata('error_nouveau_password') ?>
 					</div>
 					
 					<div class="cellule-grid">
 						<?= form_label('Confirmer le nouveau mot de passe', 'mdp_confirm') ?>
 						<?= form_password('mdp_confirm', '', ['placeholder' => 'Confirmer le nouveau mot de passe']) ?>
+						<?= session()->getFlashdata('error_confirm_password') ?>
 					</div>
 				</div>
 				<?= form_submit('submit', 'Sauvegarder', ['class' => 'btnFJBG']) ?>
@@ -108,7 +119,7 @@
 							<td><?= esc(date('d/m/Y', strtotime($achat['date']))); ?></td>
 							<td><?= esc(date('d/m/Y', strtotime($achat['echeance']))); ?></td>
 							<td>
-								<a href="<?= base_url('/supprAchat/' . $achat['id']) ?>">Résilier</a>
+								<a href="<?= base_url('/supprAchat/' . $achat['id']) ?>" onclick="return confirm('Êtes-vous sûr de vouloir résilier cet achat ?');">Résilier</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

@@ -13,11 +13,11 @@ class ArticleModel extends Model {
 		return $this->where('type', $type)->findAll();
 	}
 
-	public function getPaginatedArticles($perPage = 8) { 
+	public function getPaginatedArticles($perPage = 5) { 
 		return $this->paginate($perPage, 'Article');
 	}
 
-	public function getPaginatedArticlesRecherche($recherche, $perPage = 8) {
+	public function getPaginatedArticlesRecherche($recherche, $perPage = 5) {
 		return $this->groupStart()
 			->like  ('titre', $recherche)
 			->orLike('contenu', $recherche)

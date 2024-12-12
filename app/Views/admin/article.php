@@ -30,8 +30,8 @@
 				<tbody>
 					<?php foreach ($articles as $article) : ?>
 						<tr>
-							<td><?= $article['titre'] ?></td>
-							<td><?= $article['contenu'] ?></td>
+							<td id="titre"><?= $article['titre'] ?></td>
+							<td id="desc"><?= $article['contenu'] ?></td>
 							<?php if (isset($article['image'])) : ?>
 								<td><div class="celluleImage" id="<?= $article['image'] ?>">Image</div></td>
 							<?php else: ?>
@@ -39,7 +39,7 @@
 							<?php endif; ?>
 							<td><?= $article['type']?></td>
 							<td><input type="checkbox" name="affichage" id="" <?= $article['affichage'] === "t" ? "checked" : "" ?> disabled></td>
-							<td>
+							<td id="actions">
 								<a href="<?= base_url('admin/article/' . $article['id']) ?>">Modifier</a> |
 								<a href="<?= base_url('admin/supprArticle/' . $article['id']) ?>">Supprimer</a>
 							</td>
