@@ -25,6 +25,7 @@ $routes->get('/programme/achat/(:num)','ProgrammeController::achat/$1');
 $routes->get('/profil', 'ProfilController::index'); 
 $routes->post('/modifProfil/(:any)', 'ProfilController::modifierProfil/$1');
 $routes->post('/supprimerProfil/(:any)', 'ProfilController::supprimerProfil/$1');
+$routes->get('supprAchat/(:num)', 'ProfilController::resilierAchat/$1');
 $routes->get('temoignage/(:num)', 'ProfilController::modifier/$1');
 $routes->post('modifTemoignage/(:num)', 'ProfilController::modifTemoignage/$1');
 $routes->get('supprTemoignage/(:num)', 'ProfilController::supprTemoignage/$1');
