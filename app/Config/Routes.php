@@ -87,6 +87,7 @@ $routes->post('/admin/rechercherQuestion', 'AdminController::setRechercheQuestio
 $routes->get('/admin/saiyan', 'AdminController::saiyan');
 $routes->post('/admin/rechercherSaiyan', 'AdminController::setRechercheSaiyan');
 $routes->post('/admin/rechercherSaiyanStats', 'AdminController::setRechercheSaiyanStats');
+$routes->post('/admin/rechercherAchat', 'AdminController::setRechercheAchat');
 
 //Routes générales pour modifier ou ajouter des éléments
 $routes->get('/admin/(:any)/(:num)', 'AdminController::modifier/$1/$2');
