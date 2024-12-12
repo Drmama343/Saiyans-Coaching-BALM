@@ -11,6 +11,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
 - **PHP 8.1 ou supérieur**
 - **Base de données PostgreSQL**
 - **Adresse email Gmail reliée à un compte Google**
+- **Prévoir un hébergeur de serveur php**
 
 ## Installation
 
