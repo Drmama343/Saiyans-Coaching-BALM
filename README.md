@@ -11,7 +11,6 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
 - **PHP 8.1 ou supérieur**
 - **Base de données PostgreSQL**
 - **Adresse email Gmail reliée à un compte Google**
-- **Prévoir un hébergeur de serveur php**
 
 ## Installation
 
@@ -130,21 +129,6 @@ Sur les paramètre de votre compte google allez sur la partie Sécurité puis re
 Créez un mot de passe pour l'application et copiez le.
 Allez ensuite dans le fichier ``` app/Config/Email.php ``` et changez les champs suivants avec les bonnes informations :
 ```php
-    /**
-     * The mail sending protocol: mail, sendmail, smtp
-     */
-    public string $protocol = 'smtp';
-
-    /**
-     * The server path to Sendmail.
-     */
-    public string $mailPath = '/usr/sbin/sendmail';
-
-    /**
-     * SMTP Server Hostname
-     */
-    public string $SMTPHost = 'smtp.gmail.com';
-
     /**
      * SMTP Username
      */
