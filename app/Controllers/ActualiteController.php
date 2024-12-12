@@ -23,6 +23,7 @@ class ActualiteController extends BaseController {
 		$data = [
 			'articles' => $articles,
 		];
+		$this->session->set('page', 'actu');
 		return view('actualite', $data);
 	}
 }

@@ -43,7 +43,7 @@ class AdminController extends BaseController
 			'saiyans' => $saiyans,
 			'pagerSaiyans' => $saiyanModel->pager
 		];
-
+		$this->session->set('page', 'admin');
 		return view('admin/admin', $data);
 	}
 
@@ -84,7 +84,7 @@ class AdminController extends BaseController
 			'achats' => $achats,
 			'pagerAchat' => $modelA->pager,
 		];
-
+		$this->session->set('page', 'adminSaiyan');
 		return view('admin/saiyan', $data);
 	}
 	public function setRechercheSaiyan()
@@ -160,7 +160,7 @@ class AdminController extends BaseController
 			'promotions' => $promotions,
 			'pagerPromotion' => $promotionModel->pager,
 		];
-
+		$this->session->set('page', 'adminProg');
 		return view('admin/programme', $data);
 	}
 
@@ -322,7 +322,7 @@ class AdminController extends BaseController
 			'temoignages' => $temoignages,
 			'pagerTemoignages' => $temoignageModel->pager,
 		];
-
+		$this->session->set('page', 'adminTemoi');
 		return view('admin/temoignage', $data);
 	}
 
@@ -388,7 +388,7 @@ class AdminController extends BaseController
 			'articles' => $articles,
 			'pagerArticles' => $articleModel->pager,
 		];
-
+		$this->session->set('page', 'adminArticle');
 		return view('admin/article', $data);
 	}
 
@@ -532,6 +532,7 @@ class AdminController extends BaseController
 			$data['questions'] = $model->getPaginatedQuestionsRecherche($_SESSION['rechercheQuestion']);
 		}
 		$data['pagerQuestions'] = $model->pager;
+		$this->session->set('page', 'adminQuest');
 		return view('/admin/question', $data);
 	}
 

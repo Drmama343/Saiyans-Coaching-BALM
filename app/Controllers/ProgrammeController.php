@@ -37,7 +37,7 @@ class ProgrammeController extends BaseController
 		}
 		
 		$data['produits'] = $produits;
-		
+		$this->session->set('page', 'prog');
 		return view('programme', $data);
 	}
 

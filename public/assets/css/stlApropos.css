@@ -22,6 +22,8 @@ html, body {
     background-position: center;
     background-attachment: fixed; 
     width: 100%;
+	text-align: justify;
+	line-height: 1.5;
 }
 
 .contenu-apropos {

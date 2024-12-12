@@ -57,7 +57,7 @@ class HomeController extends BaseController
 		}
 		
 		$data['temoignages'] = $temoignages;
-
+		$this->session->set('page', 'index');
 		return view('index', $data);
 	}
 

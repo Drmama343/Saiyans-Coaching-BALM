@@ -17,7 +17,7 @@
 						<p><?= $article['contenu']; ?></p>
 						<p class="saiyan"><?= $article['saiyan']['prenom']; ?> <?= $article['saiyan']['nom']; ?></p>
 						<?php if (!empty($article['image'])): ?>
-							<img src="<?= base_url('assets/images/'.$article['image']); ?>" alt="<?= $article['titre']; ?>">
+							<img src="<?= base_url('assets/images/'.$article['image']); ?>" alt="Image indisponible">
 						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>

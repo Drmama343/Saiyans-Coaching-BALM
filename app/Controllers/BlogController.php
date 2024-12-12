@@ -27,7 +27,7 @@ class BlogController extends Controller
 		$data = [
 			'articles' => $articles,
 		];
-
+		$this->session->set('page', 'blog');
 		return view('blog', $data);
 	}
 }

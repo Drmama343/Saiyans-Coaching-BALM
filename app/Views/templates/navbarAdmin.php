@@ -10,12 +10,12 @@
 	<ul>
 		<button class="close-btn" onclick="toggleMenu()">✖</button>
 		<li><a href="/">Accueil</a></li>
-		<li><a href="/admin">Statistiques <span>&#128081;</span></a></li>
-		<li><a href="/admin/saiyan">Saiyans <span>&#128081;</span></a></li>
-		<li><a href="/admin/programme">Programmes <span>&#128081;</span></a></li>
-		<li><a href="/admin/temoignage">Temoignages <span>&#128081;</span></a></li>
-		<li><a href="/admin/article">Articles <span>&#128081;</span></a></li>
-		<li><a href="/admin/question">Questions <span>&#128081;</span></a></li>
+		<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'admin'): ?> class="enJaune"<?php endif; ?> href="/admin">Statistiques <span>&#128081;</span></a></li>
+		<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'adminSaiyan'): ?> class="enJaune"<?php endif; ?> href="/admin/saiyan">Saiyans <span>&#128081;</span></a></li>
+		<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'adminProg'): ?> class="enJaune"<?php endif; ?> href="/admin/programme">Programmes <span>&#128081;</span></a></li>
+		<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'adminTemoi'): ?> class="enJaune"<?php endif; ?> href="/admin/temoignage">Temoignages <span>&#128081;</span></a></li>
+		<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'adminArt'): ?> class="enJaune"<?php endif; ?> href="/admin/article">Articles <span>&#128081;</span></a></li>
+		<li><a <?php if (isset($_SESSION['page']) && $_SESSION['page'] == 'adminQuest'): ?> class="enJaune"<?php endif; ?> href="/admin/question">Questions <span>&#128081;</span></a></li>
 		<?php if (isset($_SESSION['utilisateur'])): ?>
 			<div class="btn-wrapper" style="position: relative;">
 				<button class="btnModal" id="openModalCompte">

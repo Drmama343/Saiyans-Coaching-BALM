@@ -13,6 +13,7 @@ class AproposController extends Controller
 	}
 	public function index()
 	{
+		$this->session->set('page', 'apropos');
 		return view('apropos');
 	}
 }

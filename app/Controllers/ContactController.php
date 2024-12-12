@@ -23,6 +23,7 @@ class ContactController extends BaseController
 		$data['questions'] = $model->getPaginatedQuestions();
         $data['pagerQuestions'] = $model->pager;
 
+		$this->session->set('page', 'contact');
 		return view('contact', $data);
 	}
 

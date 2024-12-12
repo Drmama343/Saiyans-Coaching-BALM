@@ -17,7 +17,7 @@
 						<p class="contenu"><?= $article['contenu']; ?></p>
 						<p class="auteur"><?= $article['saiyan']['prenom']; ?> <?= $article['saiyan']['nom']; ?></p>
 						<?php if (!empty($article['image'])): ?>
-							<img src="<?= base_url('assets/images/'.$article['image']); ?>" alt="<?= $article['titre']; ?>">
+							<img src="<?= base_url('assets/images/'.$article['image']); ?>" alt="Image indisponible">
 						<?php else: ?>
 							<img src="<?= base_url('assets/images/logo.png')?>" alt="Saiyan">
 						<?php endif; ?>

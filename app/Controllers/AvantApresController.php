@@ -23,7 +23,7 @@ class AvantApresController extends Controller
 		$data = [
 			'temoignages' => $temoignages,
 		];
-
+		$this->session->set('page', 'avtapr');
 		return view('avant-apres', $data);
 	}
 
