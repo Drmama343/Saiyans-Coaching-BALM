@@ -122,7 +122,9 @@ input {
 	border-radius: 15px;
 	color: var(--blanc);
 	padding: 1vh 5vh;
-	margin-top: 1vh;
+	margin: 1vh 0 3vh 0;
+	width: 20%;
+	text-align: center;
 }
 
 
@@ -142,7 +144,8 @@ input {
     padding: 10px;
     border-radius: 5px;
 	background-color: var(--jaune);
-	color: var(--noir);	
+	color: var(--noir);
+	font-family: 'Lota', sans-serif;
 }
 
 .question {
@@ -180,4 +183,14 @@ input {
 	padding: 1vh 0vh; 
 	width: 70%; 
 	max-height: 100vh;
+}
+
+textarea {
+	width: 40%;
+	border-radius: 15px;
+	background-color: #0c0c0c;
+	color: #FFFFFF;
+	resize: none;
+	padding: 0.5vmax;
+	margin: 1vh 0 3vh 0;
 }

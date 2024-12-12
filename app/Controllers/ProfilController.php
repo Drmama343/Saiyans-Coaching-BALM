@@ -177,8 +177,8 @@ class ProfilController extends BaseController
 			}
 
 			// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre
-			if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $this->request->getVar('nouveau_mdp'))) {
-				$this->session->setFlashdata('error_nouveau_password', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre');
+			if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/', $this->request->getVar('nouveau_mdp'))) {
+				$this->session->setFlashdata('error_nouveau_password', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un caractère spécial et un chiffre');
 				return redirect()->to('/profil');
 			}
 
@@ -324,7 +324,7 @@ class ProfilController extends BaseController
 		$t = [
 			'temoignage' => $this->request->getVar('temoignage') ?? null,
 			'note'       => $this->request->getVar('note'),
-			'image'      => isset($newFileName) ? $newFileName : $temoignage["id"],
+			'image'      => isset($newFileName) ? $newFileName : $temoignage["image"], 
 			'affichage'  => false,
 		];
 

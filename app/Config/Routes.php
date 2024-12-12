@@ -11,7 +11,7 @@ $routes->get('/cgv', 'HomeController::cgv');
 
 // Routes pour la connexion
 $routes->match(['GET', 'POST'],'/connexion', 'LoginController::connexion');
-$routes->post('/forgotpwd', 'LoginController::forgotpwd');
+$routes->match(['GET', 'POST'],'/forgotpwd', 'LoginController::forgotpwd');
 $routes->post('/resetpwd/(:any)', 'LoginController::resetpwd/$1');
 $routes->get('/logout', 'LoginController::logout');
 $routes->get('/inscription', 'LoginController::index');

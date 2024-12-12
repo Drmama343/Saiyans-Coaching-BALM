@@ -166,70 +166,6 @@ class LoginController extends BaseController {
 		return redirect()->to('/connexion');
 	}
 
-	public function modifProfil($usernameBase)
-	{
-		$utilisateurModel = new SaiyanModel();
-		$username = trim($this->request->getVar('username'));
-		$mail = trim($this->request->getVar('mail'));
-		$utilisateurBase = $utilisateurModel->where('username', $usernameBase)->first();
-
-		//Vérification de l'unicité du nom d'utilisateur
-		if (($utilisateurModel->where('username', $username)->first() || $username === "") && $username != $usernameBase) {
-			$this->session->setFlashdata('error', 'Ce nom d\'utilisateur est déjà utilisé ou invalide');
-			$this->session->setFlashdata('show_modal', 'creationProfilModal');
-			return redirect()->to('/index');
-		}
-
-		//Vérification de l'unicité de l'adresse mail
-		if (($utilisateurModel->where('mail', $mail)->first() && !filter_var($mail, FILTER_VALIDATE_EMAIL)) && $mail != $utilisateurBase['mail']) {
-			$this->session->setFlashdata('error', 'Cette adresse mail est déjà utilisée ou invalide');
-			$this->session->setFlashdata('show_modal', 'creationProfilModal');
-			return redirect()->to('/index');
-		}
-
-		$nouveauUtilisateur = [
-			'username' => $username,
-			'nom' => $this->request->getVar('nom'),
-			'prenom' => $this->request->getVar('prenom'),
-			'mail' => $mail,
-		];
-
-		$utilisateurModel->update($usernameBase, $nouveauUtilisateur);
-
-		if($this->request->getVar('mdp_actuel') != "" || $this->request->getVar('ancien_mdp') != "" || $this->request->getVar('mdp_confirm') != "")
-		{
-			if(!password_verify($this->request->getVar('mdp_actuel'), $utilisateurBase['mdp']))
-			{
-				$this->session->setFlashdata('error', 'Le mot de passe est incorrect');
-				$this->session->setFlashdata('show_modal', 'creationProfilModal');
-				return redirect()->to('/index');
-			}
-
-			// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre
-			if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $this->request->getVar('nouveau_mdp'))) {
-				$this->session->setFlashdata('error', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre');
-				$this->session->setFlashdata('show_modal', 'creationProfilModal');
-				return redirect()->to('/index');
-			}
-
-			//Vérification du mot de passe
-			if ($this->request->getVar('nouveau_mdp') != $this->request->getVar('mdp_confirm')) {
-				$this->session->setFlashdata('error', 'Les mots de passe ne correspondent pas');
-				$this->session->setFlashdata('show_modal', 'creationProfilModal');
-				return redirect()->to('/index');
-			}
-
-			$nouveauMdpUtilisateur = [
-				'mdp' => password_hash($this->request->getVar('nouveau_mdp'), PASSWORD_DEFAULT)
-			];
-			$utilisateurModel->update($usernameBase, $nouveauMdpUtilisateur);
-		}
-
-		$usernameFinal = $utilisateurModel->where('username', $username)->first();
-		$this->session->set('utilisateur', $usernameFinal);
-		return redirect()->to('/index')->with('success', 'Utilisateur modifier avec succès');
-	}
-
 	public function forgotpwd()
 	{
 		if($this->request->getMethod() == 'POST') {
@@ -260,7 +196,7 @@ class LoginController extends BaseController {
 					echo $emailService->printDebugger();
 				}
 			} else {
-				$this->session->setFlashdata('error_forgotpwd', 'Adresse e-mail non valide.');
+				$this->session->setFlashdata('error_forgotpwd', 'Adresse e-mail invalide ou introuvable.');
 				return redirect()->to('/forgotpwd');
 			}
 		} else {
@@ -288,8 +224,8 @@ class LoginController extends BaseController {
 			}
 
 			// Vérification que le mot de passe fasse au moins 8 caractères, contienne une majuscule, une minuscule et un chiffre
-			if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/', $this->request->getVar('mdp'))) {
-				$this->session->setFlashdata('error_mdp', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre');
+			if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/', $this->request->getVar('mdp'))) {
+				$this->session->setFlashdata('error_mdp', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un caractère spécial et un chiffre');
 				return redirect()->to("/resetpwd/$token");
 			}
 
