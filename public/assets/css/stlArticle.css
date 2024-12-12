@@ -1,0 +1,161 @@
+/* Couleurs */
+
+:root {
+	--jaune: #F4E904;
+	--noir: #0c0c0c;
+	--gris: #737373;
+	--blanc: #ffffff;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--noir);
+}
+
+/* Code Css de article.php */
+
+.conteneur-admin-article {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 15vh;
+}
+
+.contenu-admin-article h2 {
+	color: var(--jaune);
+}
+
+table {
+	width: 80vw;
+	border-collapse: collapse;
+	margin: -2.5vw 0 2vw 0;
+	font-size: 1vmax;
+	color: #333;
+	background-color: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+    text-align: center;
+}
+
+thead {
+	background-color: #F4E904;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+thead th {
+	padding: 12px 15px;
+}
+
+tbody tr {
+	border-bottom: 1px solid #ddd;
+	transition: background-color 0.3s ease;
+}
+
+tbody tr:last-child{
+	border: none;
+}
+
+tbody tr:nth-of-type(even) {
+	background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+tbody td {
+	padding: 12px 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+#titre {
+	width: 20%;
+}
+
+#desc {
+	width: 80%;
+	margin: 0 auto;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: scroll;
+    text-overflow: ellipsis;
+}
+
+#actions {
+	width: 15%;
+}
+
+td:first-child {
+	font-weight: bold;
+	color: #0c0c0c;
+}
+
+table a {
+    color: #0c0c0c;
+}
+
+.celluleImage {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#image-modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    z-index: 1000;
+}
+
+#image-modal .modal-content {
+    position: relative;
+    background-color: var(--blanc);
+    padding: 1vh;
+    display: flex;
+}
+
+.recherche form label {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
+
+.recherche form input {
+	position: relative;
+	top: -3.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
+    background-color: #f4f4f4;
+}
+
+#paginationArticle {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#paginationArticle a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#paginationArticle a:hover {
+	background-color: #F4E904;
+	color: black;
+}

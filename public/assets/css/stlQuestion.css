@@ -1,0 +1,117 @@
+/* Couleurs */
+
+:root {
+	--jaune: #F4E904;
+	--noir: #0c0c0c;
+	--gris: #737373;
+	--blanc: #ffffff;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--noir);
+}
+
+/* Code Css de article.php */
+
+.conteneur-admin-question {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 15vh;
+}
+
+.contenu-admin-question h2 {
+	color: var(--jaune);
+}
+
+table {
+	width: 80vw;
+	border-collapse: collapse;
+	margin: -2.5vw 0 2vw 0;
+	font-size: 1vmax;
+	color: #333;
+	background-color: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+    text-align: center;
+}
+
+thead {
+	background-color: #F4E904;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+thead th {
+	padding: 12px 15px;
+}
+
+tbody tr {
+	border-bottom: 1px solid #ddd;
+	transition: background-color 0.3s ease;
+}
+
+tbody tr:last-child{
+	border: none;
+}
+
+tbody tr:nth-of-type(even) {
+	background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+tbody td {
+	padding: 12px 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+td:first-child {
+	font-weight: bold;
+	color: #0c0c0c;
+}
+
+table a {
+    color: #0c0c0c;
+}
+
+#paginationQuestion {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#paginationQuestion a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#paginationQuestion a:hover {
+	background-color: #F4E904;
+	color: black;
+}
+
+.recherche form label {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
+
+.recherche form input {
+	position: relative;
+	top: -3.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
+    background-color: #f4f4f4;
+}

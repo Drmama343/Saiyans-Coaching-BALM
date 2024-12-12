@@ -1,0 +1,218 @@
+/* Couleurs */
+
+:root {
+    --jaune: #F4E904;
+    --noir: #0c0c0c;
+    --gris: #737373;
+    --blanc: #ffffff;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+	background-color: var(--noir);
+}
+
+/* --- Code Css stlAvantApres.php --- */
+
+.conteneur-avant-apres {
+	width: 100%;
+	position: relative;
+	margin: 20vh auto 0;
+}
+
+.contenu-avant-apres {
+	width: 80%;
+	margin: 0 auto;
+	text-align: justify;
+}
+
+.contenu-avant-apres h3 {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 3vmax;
+	text-align: center;
+	color: var(--jaune)
+}
+
+.contenu-avant-apres p {
+	font-family: 'Lato', sans-serif;
+	font-size: 2.5vmin;
+	color: var(--blanc);
+}
+
+.contenu-avant-apres span {
+	color: var(--jaune);
+	font-weight: bold;
+}
+
+.medias {
+  display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  gap: 16px;
+  padding: 16px;
+	margin: 0 auto;
+	pointer-events: none;
+}
+
+.media video {
+  max-width: 30rem;
+  height: auto; /* Préserver les proportions de la vidéo */
+  border-radius: 8px; /* Coins arrondis pour un meilleur rendu visuel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour effet visuel */
+}
+
+.medias p {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #737373;
+  font-style: italic;
+}
+
+.note {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.note label {
+  font-size: 2rem;
+  color: lightgray;
+  cursor: pointer;
+}
+
+.note input:checked ~ label,
+.note input:hover ~ label,
+.note label:hover,
+.note label:hover ~ label {
+  color: gold;
+}
+
+.note input {
+  display: none;
+}
+
+#openModalTemoignage {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 2vw auto;
+  width: 50%;
+  background: #F4E904;
+  border: 1px solid #737373;
+  border-radius: 45px;
+  padding: 1vh 5vw;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.openModalTemoignage:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px #737373;
+}
+
+#creationTemoignageModal  {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+}
+
+#creationTemoignageModal  .modal-content {
+  background: #0c0c0c;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  text-align: left;
+  font-size: 2rem;
+}
+
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Chaque cellule du formulaire */
+.cellule-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.cellule-grid label {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Inputs */
+.cellule-grid textarea,
+.cellule-grid input[type="number"],
+.cellule-grid input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+/* Input file */
+.cellule-grid input[type="file"] {
+  border: none;
+}
+
+.cellule-grid:nth-child(1),
+.form-ajout div:last-child {
+    grid-column: span 2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+#creationTemoignageModal input[type='submit'] {
+  width: 80%;
+  margin: 2vh auto;
+  background: #F4E904;
+  border: 1px solid #737373;
+  border-radius: 45px;
+  padding: 1vh 5vw;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+}
+
+#creationTemoignageModal input[type='submit']:hover {
+  box-shadow: 1px 1px #737373;
+  cursor: pointer;
+}
+
+/* Close button */
+#creationTemoignageModal  .close-btn {
+  position: relative;
+  margin: 0;
+  color: #0c0c0c;
+  background: none;
+  border: none;
+  text-align: right;
+  font-size: 2rem;
+  cursor: pointer;
+}

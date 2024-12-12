@@ -1,0 +1,480 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+	background-color: #0c0c0c;
+    font-family: 'Nota', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.btnFGBJ {
+    background-color: #737373;
+    opacity: 70%;
+    padding: 1vh 5vh;
+    border: 2px solid #F4E904;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+}
+
+.btnFGBJ:hover {
+    background-color: #F4E904;
+    border: 2px solid #737373;
+    color: #0c0c0c;
+    transition: all 0.5s ease;
+}
+
+.btnFJBG {
+    background-color: #F4E904;
+    opacity: 70%;
+    padding: 1vh 5vh;
+    border: 2px solid #737373;
+    border-radius: 15px;
+    color: #0c0c0c;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+}
+
+.btnFJBG:hover {
+    background-color: #737373;
+    color: #F4E904;
+    transition: all 0.5s ease;
+}
+
+.tJ {
+	font-family: "Bebas Neue", sans-serif;
+	font-style: normal;
+    color: #F4E904;
+    margin: 0;
+    text-align: center;
+}
+
+/* --- Code Css accueil.php --- */
+
+.imgAccueil {
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    opacity: 70%;
+}
+
+.contenu-accueil {
+    position: absolute;
+    top: 15vw;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.contenu-accueil h2 {
+    font-size: 3vw;
+}
+
+.contenu-accueil h1 {
+    font-size: 5vw;
+    text-decoration: none;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 0;
+}
+
+.contenu-accueil p {
+    margin: 0 0 3vw 0;
+    font-size: 1vw;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.contenu-accueil a {
+    padding: 1vh 10vw;
+    opacity: 90%;
+    font-size: 1.5vw;
+}
+
+/* --- Code Css produits.php --- */
+
+.conteneur-produits {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.conteneur-produits h2 {
+    position: relative;
+    top: -3vw;
+    left: 50%;
+    font-size: 4vw;
+    transform: translateX(-50%);
+}
+
+.carousel {
+    overflow: hidden;
+    position: relative;
+    left: calc(50% + 2vw);
+    transform: translateX(-50%);
+    width: 80vw;
+    display: flex;
+    justify-content: center; /* Centre les produits visibles */
+}
+
+.contenu-produits {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px; /* Espacement entre les produits */
+    position: relative;
+    left: 12vw;
+    width: 100%;
+}
+
+.produit {
+    box-sizing: border-box;
+    padding: 20px;
+    min-width: 20rem;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid white;
+    background-color: #0c0c0c;
+    color: white;
+}
+
+.produit h3 {
+    color: #F4E904;
+}
+
+.produit #prix {
+    margin: 0;
+    font-size: 2.5vw;
+}
+
+.produit #descPrix {
+    margin: 0 0 0 60%;
+    font-size: 1vw;
+    color: #F4E904;
+}
+
+hr {
+    color: #F4E904;
+    margin: 3vh 0;
+}
+
+.produit.hidden {
+    opacity: 0.3;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #F4E904;
+    color: #737373;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button.prev {
+    left: 20px; /* Plus proche des produits */
+}
+
+button.next {
+    right: 20px; /* Plus proche des produits */
+}
+
+@media (max-width: 1200px) {
+    .carousel {
+        overflow: hidden;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80vw;
+        display: flex;
+        justify-content: center; /* Centre les produits visibles */
+    }
+}
+
+
+.produit:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+#alt {
+    position: relative;
+    transform: translateX(-130%);
+    margin: 0 auto;
+    color: #737373;
+    font-style: italic;
+}
+
+.contacts {
+    position: relative;
+    top: 17vh;
+    margin: 0 15vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: white;
+}
+  
+.menu h4,
+.contact h4,
+.connectezvous h4 {
+    color: #F4E904;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4vh;
+}
+  
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+  
+.menu li {
+    margin-bottom: 5px;
+    text-align: left;
+    cursor: pointer;
+}
+  
+.contact {
+    text-align: left;
+}
+  
+.connectezvous {
+    text-align: left;
+}
+
+.connectezvous input {
+    width: 90%;
+    padding: 1vh 5vh;
+    margin: 1vh 0;
+    border-radius: 45px;
+    color: white;
+    background-color: #737373;
+    border: 1px solid #0c0c0c;
+    text-align: center;
+}
+
+.connectezvous button {
+    width: 125%;
+    padding: 0.5vh 5vh;
+    border-radius: 45px;
+    background-color: #F4E904;
+    border: 1px solid #0c0c0c;
+    font-family: 'Bebas Neue', sans-serif;
+}
+  
+.contacts img {
+    width: 30vh; /* Taille ajustable */
+}
+  
+.social-icons {
+    margin-top: 75px;
+    display: flex;
+    gap: 2vw;
+}
+  
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Code Css de article.php */
+
+.conteneur-admin-programme, .conteneur-admin-promotion {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 15vh;
+    padding-bottom: 2vh;
+}
+
+.contenu-admin-programme h2, .contenu-admin-promotion h2 {
+	color: var(--jaune);
+}
+
+table {
+	min-width: 80vw;
+	border-collapse: collapse;
+	font-size: 1vmax;
+	color: #333;
+	background-color: #fff;
+	margin: -2.5vw 0 2vw 0;
+	border-radius: 8px;
+	overflow: hidden;
+    text-align: center;
+}
+
+thead {
+	background-color: #F4E904;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+thead th {
+	padding: 12px 15px;
+}
+
+tbody tr {
+	border-bottom: 1px solid #ddd;
+	transition: background-color 0.3s ease;
+}
+
+tbody tr:last-child{
+	border: none;
+}
+
+tbody tr:nth-of-type(even) {
+	background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+tbody td {
+	padding: 12px 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+td:first-child {
+	font-weight: bold;
+	color: #0c0c0c;
+}
+
+table a {
+    color: #0c0c0c;
+}
+
+#productModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+}
+
+#productModal .modal-content {
+    background-color: #0c0c0c;
+    color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#productModal h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 0;
+    text-align: left;
+    color: #F4E904;
+    font-size: 2rem;
+}
+
+#productModal p {
+    margin: 0;
+    text-align: left;
+}
+
+#productModal #btnAchat {
+    width: 80%;
+    margin: 5vh auto;
+    background: #F4E904;
+    border: 1px solid #737373;
+    color: #0c0c0c;
+    border-radius: 45px;
+    padding: 1vh;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+}
+
+#productModal #btnAchat:hover {
+    box-shadow: 1px 1px #0c0c0c;
+    background: #737373;
+    border: 1px solid #F4E904;
+    color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Close button */
+#productModal .close-btn {
+    position: relative;
+    margin: 0;
+    color: #F4E904;
+    background: none;
+    border: none;
+    text-align: right;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.recherche form label {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
+
+.recherche form input {
+	position: relative;
+	top: -3.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
+    background-color: #f4f4f4;
+}
+
+#paginationQuestion {
+	position: relative;
+	margin: 0 0 -1vw 0;
+	padding: 0;
+}
+
+#paginationQuestion a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#paginationQuestion a:hover {
+	background-color: #F4E904;
+	color: black;
+}
+
+
+.questionnaire {
+    padding-top: 5vh;
+    color: var(--jaune);
+}
+
+.questionnaire a {
+    color: var(--jaune);
+    font-weight: bold;
+}
+
+.cgv {
+	margin: 2cqw 0 0 0;
+	color: #737373;
+}

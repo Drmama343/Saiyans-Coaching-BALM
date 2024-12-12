@@ -1,0 +1,220 @@
+/* Couleurs */
+
+:root {
+    --jaune: #F4E904;
+    --noir: #0c0c0c;
+    --gris: #737373;
+    --blanc: #ffffff;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--noir);
+}
+
+/* --- Code Css profil.php --- */
+
+.conteneur-modif {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.contenu-modif {
+    display: flex;
+    flex-direction: column;
+    margin: 7vw auto;
+    background-color: var(--noir);
+    border-radius: 2vh;
+    width: 80%;
+}
+
+.formulaire-et-table h2 {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--jaune);
+    text-align: center;
+}
+
+.form-modif {
+    color: var(--jaune);
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
+    gap: 1vw; /* Espacement entre les champs */
+    width: 100%;
+}
+
+.cellule-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btnFJBG {
+    background-color: var(--jaune);
+    opacity: 70%;
+    padding: 1vh 5vh;
+    margin-top: 2vh;
+    border: 2px solid var(--gris);
+    border-radius: 15px;
+    color: var(--noir);
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+}
+
+.btnFJBG:hover {
+    background-color: var(--gris);
+    color: var(--jaune);
+    transition: all 0.5s ease;
+}
+
+label {
+    font-family: 'Lato', sans-serif;
+    padding: 1vh 0;
+}
+
+input {
+    background-color: var(--noir);
+    border: 2px solid var(--gris);
+    border-radius: 15px;
+    color: var(--noir);
+    padding: 1vh 5vh;
+    margin-top: 1vh;
+}
+
+select {
+    background-color: var(--noir);
+    border: 2px solid var(--gris);
+    border-radius: 15px;
+    color: var(--jaune);
+    padding: 1vh 5vh;
+    margin-top: 1vh;
+}   
+
+.form-modif h3 {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.contenu-modif .lien-connexion {
+    color: var(--jaune);
+    font-family: 'Lato', sans-serif;
+}
+
+.lien-connexion a {
+    color: var(--jaune);
+}
+
+table {
+    position: relative;
+    top: -2.5vw;
+	width: 80vw;
+	border-collapse: collapse;
+	font-size: 1vmax;
+	color: #333;
+	background-color: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+    text-align: center;
+}
+
+thead {
+	background-color: #F4E904;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+thead th {
+	padding: 12px 15px;
+}
+
+tbody tr {
+	border-bottom: 1px solid #ddd;
+	transition: background-color 0.3s ease;
+}
+
+tbody tr:last-child{
+	border: none;
+}
+
+tbody tr:nth-of-type(even) {
+	background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+tbody td {
+	padding: 12px 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+td:first-child {
+	font-weight: bold;
+	color: #000;
+}
+
+#paginationSaiyan {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#paginationSaiyan a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#paginationSaiyan a:hover {
+	background-color: #F4E904;
+	color: black;
+}
+
+#paginationAchat {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#paginationAchat a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#paginationAchat a:hover {
+	background-color: #F4E904;
+	color: black;
+}
+
+.recherche form label {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
+
+.recherche form input {
+	position: relative;
+	top: -3.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
+    background-color: #f4f4f4;
+}

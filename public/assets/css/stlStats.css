@@ -1,0 +1,149 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-color: var(--noir);
+	font-family: 'Nota', sans-serif;
+}
+
+/* Conteneur global des statistiques */
+.conteneur-stats {
+	margin: 15vh auto;
+	padding: 20px;
+}
+
+.diagBarre {
+	display: flex;
+	flex-wrap: wrap; /* Permet de mettre plusieurs éléments sur plusieurs lignes */
+	justify-content: space-evenly; /* Espace égal entre les graphiques */
+	margin: 5vw 0 0 0;
+}
+
+.leReste {
+	display: flex;
+	flex-wrap: wrap; /* Permet de mettre plusieurs éléments sur plusieurs lignes */
+	justify-content: space-evenly; /* Espace égal entre les graphiques */
+	margin: 1vw 0 0 0;
+}
+
+/* Conteneur de chaque graphique */
+.chart-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px;
+	width: 95%; /* Chaque graphique prendra 45% de la largeur de son conteneur parent */
+	max-width: 500px; /* Limite la largeur maximale de chaque graphique */
+}
+
+/* Pour que les graphiques se comportent bien sur les petits écrans (responsive) */
+@media (max-width: 768px) {
+	.conteneur-stats .chart-container {
+		width: 90%; /* Les graphiques prennent 90% de l'espace disponible sur les petits écrans */
+		margin: 10px auto; /* Centrer les graphiques */
+	}
+}
+
+/* Titre des statistiques */
+.conteneur-stats h3 {
+	font-size: 24px;
+	margin-bottom: 20px;
+	color: #fff;
+}
+
+.pagi-table-saiyans {
+	font-size: 24px;
+	margin-bottom: 20px;
+	color: #fff;
+}
+
+table {
+	position: relative;
+	top: -4.5vw;
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1vw 0 0 0;
+	font-size: 1vmax;
+	font-family: 'Arial', sans-serif;
+	color: #333;
+	background-color: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+thead {
+	background-color: #F4E904;
+	color: #000;
+	font-family: "Bebas Neue", sans-serif;
+}
+
+thead th {
+	padding: 12px 15px;
+	text-align: left;
+}
+
+tbody tr {
+	border-bottom: 1px solid #ddd;
+	transition: background-color 0.3s ease;
+}
+
+tbody tr:last-child{
+	border: none;
+}
+
+tbody tr:nth-of-type(even) {
+	background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+tbody td {
+	padding: 12px 15px;
+}
+
+td:first-child {
+	font-weight: bold;
+	color: #000;
+}
+
+.pagi-table-saiyans {
+	position: relative;
+	top: -4.5vw;
+	margin: 0;
+	padding: 0;
+}
+
+.pagi-table-saiyans a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	background-color: #f4f4f4;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagi-table-saiyans a:hover {
+	background-color: #F4E904;
+	color: black;
+}
+
+form label {
+	position: relative;
+	top: -1vw;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2vw;
+	color: #F4E904;
+}
+
+form input {
+	position: relative;
+	top: -4.5vw;
+	margin: 0;
+	border-radius: 45px;
+	border: none;
+	padding: 0.5vh 5vw;
+	text-align: center;
+}

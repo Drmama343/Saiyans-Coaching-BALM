@@ -1,0 +1,78 @@
+.contacts {
+    position: relative;
+    margin: 0 10vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: white;
+}
+
+  
+.menu h4,
+.contact h4 {
+    color: #F4E904;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4vh;
+}
+
+.contact a {
+    color: white;
+}
+  
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 5px 0;
+}
+  
+.menu li a{
+    text-align: left;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+.menu .cgv {
+    color: white;
+}
+
+  
+.contact {
+    text-align: left;
+}
+  
+.contacts img {
+    width: 20vw;
+}
+  
+.social-icons {
+    margin-top: 7vh;
+    display: flex;
+    gap: 2vw;
+}
+  
+.social-icons img {
+    width: 2vw;
+    height: 2vw;
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacts img {
+        margin-bottom: 20px;
+    }
+
+    .menu, .contact {
+        margin-bottom: 20px;
+    }
+}
