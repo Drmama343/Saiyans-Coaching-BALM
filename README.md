@@ -114,7 +114,7 @@ php spark migrate
 
 ### 4. Initialiser la base de données
 
-Ouvrir le fichier : app/Database/Seeder/SaiyanSeeder.php
+Ouvrir le fichier : app/Database/Seeds/SaiyanSeeder.php
 Et modifier le en y ajoutant vos informations.
 
 Ensuite, afin d'inserer vos données, entrez la commande :
@@ -130,6 +130,21 @@ Sur les paramètre de votre compte google allez sur la partie Sécurité puis re
 Créez un mot de passe pour l'application et copiez le.
 Allez ensuite dans le fichier ``` app/Config/Email.php ``` et changez les champs suivants avec les bonnes informations :
 ```php
+    /**
+     * The mail sending protocol: mail, sendmail, smtp
+     */
+    public string $protocol = 'smtp';
+
+    /**
+     * The server path to Sendmail.
+     */
+    public string $mailPath = '/usr/sbin/sendmail';
+
+    /**
+     * SMTP Server Hostname
+     */
+    public string $SMTPHost = 'smtp.gmail.com';
+
     /**
      * SMTP Username
      */
