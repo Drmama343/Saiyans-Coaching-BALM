@@ -108,7 +108,7 @@
 							<td><?= esc(date('d/m/Y', strtotime($achat['date']))); ?></td>
 							<td><?= esc(date('d/m/Y', strtotime($achat['echeance']))); ?></td>
 							<td>
-								<a href="<?= base_url('/supprAchat/' . $achat['idproduit']) ?>">Résilier</a>
+								<a href="<?= base_url('/supprAchat/' . $achat['id']) ?>">Résilier</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

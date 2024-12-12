@@ -34,7 +34,7 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
-		'connexionGuard' => \App\Filters\connexionGuard::class,
+		'ConnexionGuard' => \App\Filters\ConnexionGuard::class,
 		'AdminGuard' => \App\Filters\AdminGuard::class,
 		'AbonnementMultimediaGuard' => \App\Filters\AbonnementMultimediaGuard::class,
     ];

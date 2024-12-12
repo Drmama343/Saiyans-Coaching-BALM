@@ -63,6 +63,7 @@
 		<h3 id="modal-title"></h3>
 		<p>Prix : <strong><span id="modal-price"></span></strong></p>
 		<strong><p id="modal-description"></p></strong>
+		<a href="/cgv" class="cgv" target="_blank">Conditions générales de ventes</a>
 		<a class="btnFGBJ" id="btnAchat">Valider le paiement</a>
 	</div>
 </div>

@@ -217,7 +217,6 @@ class ProfilController extends BaseController
 		return redirect()->to('/profil');
 	}
 
-
 	public function modifTemoignage($id)
 	{
 		$model = new TemoignageModel();
