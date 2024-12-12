@@ -146,3 +146,8 @@ Pour lancer le serveur, mettez vous à la racine du répertoire du projet et éc
 ```bash
 php spark serve
 ```
+
+Saississez cette URL pour retrouver votre site internet préféré :
+```bash
+localhost:8080/
+```
