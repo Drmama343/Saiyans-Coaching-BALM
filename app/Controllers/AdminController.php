@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\AchatModel;
 use App\Models\SaiyanModel;
 use App\Models\ProgrammeModel;
 use App\Models\PromotionModel;
@@ -52,13 +53,37 @@ class AdminController extends BaseController
 	public function saiyan(){
 		$model = new SaiyanModel();
 		if (!isset($_SESSION['rechercheSaiyan'])){
-			$data['saiyans'] = $model->getPaginatedSaiyans(10);
+			$saiyans = $model->getPaginatedSaiyans(10);
 		}
 		else{
-			$data['saiyans'] = $model->getPaginatedSaiyansRecherche($_SESSION['rechercheSaiyan'], 10);
+			$saiyans = $model->getPaginatedSaiyansRecherche($_SESSION['rechercheSaiyan'], 10);
 		}
-		
-		$data['pagerSaiyan'] = $model->pager;
+
+		$modelA = new AchatModel();
+		if (!isset($_SESSION['rechercheAchat'])){
+			$achats = $modelA->getPaginatedAchats();
+		}
+		else{
+			$achats = $modelA->getPaginatedAchatsRecherche($_SESSION['rechercheAchat']);
+		}
+
+		$modelP = new ProgrammeModel();
+		foreach ($achats as $key => $achat) {
+			$tmp = $model->find($achat['idsaiyan']);
+			$achats[$key]['saiyan'] = $tmp['prenom']. ' ' . $tmp['nom'];
+		}
+
+		foreach ($achats as $key => $achat) {
+			$tmp = $modelP->find($achat['idproduit']);
+			$achats[$key]['abonnement'] = $tmp['nom'];
+		}
+
+		$data = [
+			'saiyans' => $saiyans,
+			'pagerSaiyan' => $model->pager,
+			'achats' => $achats,
+			'pagerAchat' => $modelA->pager,
+		];
 
 		return view('admin/saiyan', $data);
 	}
@@ -72,6 +97,20 @@ class AdminController extends BaseController
 		}
 		else {
 			$session->set('rechercheSaiyan', "");
+		}
+
+		return redirect()->to('admin/saiyan');
+	}
+	public function setRechercheAchat()
+	{
+		$session = session();
+
+		$recherche = $this->request->getPost('recherche');
+		if ($recherche) {
+			$session->set('rechercheAchat', $recherche);
+		}
+		else {
+			$session->set('rechercheAchat', "");
 		}
 
 		return redirect()->to('admin/saiyan');

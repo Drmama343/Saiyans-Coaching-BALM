@@ -211,6 +211,13 @@ class ProfilController extends BaseController
 		return redirect()->to('/');
 	}
 
+	public function resilierAchat($idAchat){
+		$achatModel = new AchatModel();
+		$achatModel->delete($idAchat);
+		return redirect()->to('/profil');
+	}
+
+
 	public function modifTemoignage($id)
 	{
 		$model = new TemoignageModel();

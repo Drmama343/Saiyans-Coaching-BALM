@@ -13,7 +13,9 @@
 		<li><a href="/apropos">À propos</a></li>
 		<li><a href="/programme">Programmes</a></li>
 		<li><a href="/avant-apres">Avant / Après</a></li>
-		<li><a href="/blog">Blog</a></li>
+		<?php if (isset($_SESSION['utilisateur']) && isset($abonneAvecMutimedia)): ?>
+			<li><a href="/blog">Blog</a></li>
+		<?php endif; ?>
 		<li><a href="/actualite">Actualité</a></li>
 		<li><a href="/contact">Contact</a></li>
 		<?php if (isset($_SESSION['utilisateur'])): ?>
@@ -25,7 +27,7 @@
 					<div id="creationCompteModal" class="modal">
 						<div class="modal-content">
 							<a href="/profil"><h5>Mon compte</h5></a>
-							<?php if(isset($_SESSION['utilisateur']) && $_SESSION['utilisateur']['admin'] == 't'): ?>
+							<?php if($_SESSION['utilisateur']['admin'] == 't'): ?>
 								<a href="/admin"><h5>Admin</h5></a>
 							<?php endif; ?>
 							<a href="/logout"><h5>Déconnexion</h5></a>
