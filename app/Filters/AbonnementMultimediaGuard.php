@@ -19,7 +19,7 @@ class AbonnementMultimediaGuard implements FilterInterface
 		$achats = $achatModel->where('idsaiyan', session()->get('utilisateur')['id'])->find();
 		$good = false;
 		foreach ($achats as $achat) {
-			$programme = $programmeModel->where('id', $achat['idproduit'])->find();
+			$programme = $programmeModel->where('id', $achat['idproduit'])->first();
 			if ($programme['multimedia'] == 't') {
 				$good = true;
 			}
