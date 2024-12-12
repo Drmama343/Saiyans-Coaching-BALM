@@ -41,16 +41,19 @@
                 echo '<script src="/assets/js/fctRechercheAdresse.js"></script>';
                 echo '<script src="/assets/js/fctAffichageImage.js"></script>';
                 break;
-			case 'blog' || 'actualite':
+			case 'programme':
+				echo '  <script src="/assets/js/fctOffres.js"></script>';
+				break;
+			case 'actualite':
+				echo '<script src="/assets/js/fctAffichageArticle.js"></script>';
+				break;
+			case 'blog':
 				echo '<script src="/assets/js/fctAffichageArticle.js"></script>';
 				break;
             case '':
                 echo '<script src="/assets/js/fctTemoignages.js"></script>
                         <script src="/assets/js/fctOffres.js"></script>
                         <script src="/assets/js/fctPromotion.js"></script>';
-                break;
-            case 'programme':
-                echo '  <script src="/assets/js/fctOffres.js"></script>';
                 break;
         }
 
