@@ -48,6 +48,10 @@
 			<button class="next">▶</button>
 		<?php endif; ?>
 	</div>
+
+	<div class="questionnaire">
+		<p>Vous ne savez pas quoi choisir ? Laissez nous vous guidez à l'aide de ce <a href="/questionnaire">questionnaire</a> ?</p>
+	</div>
 </div>
 
 <?php if (session()->getFlashdata('alert_message')): ?>
