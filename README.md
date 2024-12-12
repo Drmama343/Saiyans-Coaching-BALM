@@ -113,7 +113,10 @@ php spark migrate
 
 ### 4. Initialiser la base de données
 
-Pour insérer des utilisateurs :
+Ouvrir le fichier : app/Database/Seeds/SaiyanSeeder.php
+Et modifier le en y ajoutant vos informations.
+
+Ensuite, afin d'inserer vos données, entrez la commande :
 ```bash
 php spark db:seed SaiyanSeeder
 ```
@@ -142,4 +145,9 @@ Allez ensuite dans le fichier ``` app/Config/Email.php ``` et changez les champs
 Pour lancer le serveur, mettez vous à la racine du répertoire du projet et écrivez la commande :
 ```bash
 php spark serve
+```
+
+Saississez cette URL pour retrouver votre site internet préféré :
+```bash
+localhost:8080/
 ```
