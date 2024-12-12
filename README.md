@@ -1,8 +1,7 @@
 # Sayan-Coaching-BALM
 
-Ce projet est le site pour Sayan's Coaching.
-
-Ce projet utilise **CodeIgniter 4** pour gérer des tâches web de base, y compris l'interaction avec une base de données, des formulaires, et un système de routage. Ce modèle peut être utilisé comme point de départ pour vos projets.
+Ce projet est le site pour Saiyan's Coaching.
+Ce projet utilise **CodeIgniter 4** pour gérer des tâches web de base, y compris l'interaction avec une base de données, des formulaires, et un système de routage.
 
 ## Prérequis
 
@@ -21,7 +20,7 @@ Suivez les étapes ci-dessous pour installer et configurer le projet localement.
 Clonez ce projet dans le répertoire de votre choix grâce à la commande :
 
 ```bash
-git clone git@github.com:Biyiv/SGT.git
+git@github.com:Drmama343/Saiyans-Coaching-BALM.git
 ```
 
 ### 2. Ajouter un fichier pour se connecter à la Base de Données
