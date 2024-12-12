@@ -71,6 +71,15 @@ html, body {
     margin-bottom: 15px;
 }
 
+.article .contenu {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* Auteur */
 .article .saiyan {
     font-size: 14px;
@@ -91,4 +100,50 @@ html, body {
     .articles {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adapte les blocs à des tailles plus petites */
     }
+}
+
+/* Modal */
+.modal-article {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-article .modal-content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--noir);
+    border: 1px solid var(--jaune);
+    color: white;
+    max-width: 40vw;
+    max-height: 40vh;
+    margin: 0 auto;
+    padding: 2.5vmax;
+    overflow: scroll;
+}
+
+.modal-article .modal-content h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2vw;
+    color: var(--jaune);
+    margin-bottom: 10px;
+}
+
+.modal-article .modal-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-family: 'Lota', sans-serif;
+}
+
+.modal-article .modal-content .close-btn {
+    position: absolute;
+    top: 2vmax;
+    right: 2vmax;
 }

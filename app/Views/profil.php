@@ -44,15 +44,15 @@
 						<?= form_dropdown('sexe', ['H' => 'Homme', 'F' => 'Femme'], $saiyan['sexe'], ['id' => 'sexe', 'default' => 'Homme', 'required' => 'required']); ?>
 					</div>
 
-					<div class="cellule-grid">
-						<?= form_label('Adresse e-mail *', 'mail') ?>
-						<?= form_input('mail', $saiyan['mail'], ['id' => 'mail', 'placeholder' => 'Email', 'required' => 'required']) ?>
-					</div>
-					
-					<div class="cellule-grid">
-						<?= form_label('Age *', 'age') ?>
-						<?= form_input('age', $saiyan['age'], ['id' => 'age', 'placeholder' => 'Age', 'required' => 'required']) ?>
-					</div>
+                    <div class="cellule-grid">
+                        <?= form_label('Adresse e-mail *', 'mail') ?>
+                        <?= form_input('mail', $saiyan['mail'], ['id' => 'mail', 'placeholder' => 'Email', 'required' => 'required']) ?>
+                    </div>
+                    
+                    <div class="cellule-grid">
+                        <?= form_label('Age *', 'age') ?>
+                        <?= form_input('age', $saiyan['age'], ['id' => 'age', 'placeholder' => 'Age', 'required' => 'required'], 'number') ?>
+                    </div>
 
 					<div class="cellule-grid">
 						<?= form_label('Poids (en kg) *', 'poids'); ?>

@@ -39,7 +39,7 @@ class ProfilController extends BaseController
 				$adresseFormattee = $tmp['query'];
 			}
 			else{
-				$adresseFormattee = 'AdresseInvalide';
+				$adresseFormattee = 'Adresse Invalide';
 			}
 			$data['stgAdr'] = $adresseFormattee;
 		}
@@ -77,7 +77,7 @@ class ProfilController extends BaseController
 		// Vérification du nom, si il contient des chiffres ou des caractères spéciaux on renvoie une erreur
 		if (preg_match('/[0-9!@#$%^&*(),.?":{}|<>]/', $this->request->getVar('nom'))) {
 			$this->session->setFlashdata('error', 'Le nom ne doit pas contenir de chiffres ou de caractères spéciaux');
-			return redirect()->to('/inscription');
+			return redirect()->to('/profil');
 		} else {
 			$nom = $this->request->getVar('nom');
 		}
@@ -85,19 +85,22 @@ class ProfilController extends BaseController
 		// Vérification du prénom, si il contient des chiffres ou des caractères spéciaux on renvoie une erreur
 		if (preg_match('/[0-9!@#$%^&*(),.?":{}|<>]/', $this->request->getVar('prenom'))) {
 			$this->session->setFlashdata('error', 'Le prénom ne doit pas contenir de chiffres ou de caractères spéciaux');
-			return redirect()->to('/inscription');
+			return redirect()->to('/profil');
 		} else {
 			$prenom = $this->request->getVar('prenom');
 		}
 
 		//Vérification de l'unicité de l'adresse mail et de sa validité
 		$mail = trim($this->request->getVar('mail'));
-		if ($saiyanModel->where('mail', $mail)->first() && !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-			$this->session->setFlashdata('error', 'Cette adresse mail est déjà utilisée ou invalide');
-			return redirect()->to('/inscription');
-		} else {
-			$mail = $this->request->getVar('mail');
+		if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+			$this->session->setFlashdata('error', 'Adresse e-mail invalide');
+			return redirect()->to('/profil');
 		}
+		if ($saiyanModel->where('mail', $mail)->first() && $mail !== $saiyanBase['mail']) {
+			$this->session->setFlashdata('error', 'Adresse e-mail déjà utilisée');
+			return redirect()->to('/profil');
+		}
+		
 
 		//Vérification de l'adresse et récupération des informations
 		if ($this->request->getVar('adresse') != "") {
@@ -114,12 +117,12 @@ class ProfilController extends BaseController
 		}
 
 		//Vérification du numéro de téléphone et de sa validité
-		if($this->request->getVar('tel') != "") {
-			if (!preg_match('/^0[1-9]([-. ]?[0-9]{2}){4}$/', $this->request->getVar('tel'))) {
+		if ($this->request->getVar('tel') != "") {
+			// Supprimer tous les espaces
+			$tel = str_replace(' ', '', $this->request->getVar('tel'));
+			
+			if (!preg_match('/^0[1-9]([-.]?[0-9]{2}){4}$/', $tel)) {
 				$this->session->setFlashdata('error', 'Le numéro de téléphone est invalide');
-				return redirect()->to('/inscription');
-			} else {
-				$tel = $this->request->getVar('tel');
 			}
 		} else {
 			$tel = null;
@@ -128,7 +131,7 @@ class ProfilController extends BaseController
 		//Vérification du sexe 
 		if ($this->request->getVar('sexe') != 'H' && $this->request->getVar('sexe') != 'F') {
 			$this->session->setFlashdata('error', 'Le sexe est invalide');
-			return redirect()->to('/inscription');
+			return redirect()->to('/profil');
 		} else {
 			$sexe = $this->request->getVar('sexe');
 		}
@@ -137,21 +140,21 @@ class ProfilController extends BaseController
 		$age = (integer)$this->request->getVar('age');
 		if (!is_integer($age)) {
 			$this->session->setFlashdata('error', 'L\'âge est invalide');
-			return redirect()->to('/inscription');
+			return redirect()->to('/profil');
 		}
 
 		//Vérification de la taille et formatage
 		$taille = (integer) $this->request->getVar('taille');
 		if(!is_integer($taille)) {
 			$this->session->setFlashdata('error', 'La taille est invalide');
-			return redirect()->to('/inscription');
+			return redirect()->to('/profil');
 		}
 
 		//Vérification du poids
 		$poids = (float) $this->request->getVar('poids');
 		if(!is_float($poids)) {
 			$this->session->setFlashdata('error', 'Le poids est invalide');
-			return redirect()->to('/inscription');
+			return redirect()->to('/profil');
 		}
 
 		$nouveauSaiyan = [
@@ -159,8 +162,8 @@ class ProfilController extends BaseController
 			'nom' => $this->request->getVar('nom'),
 			'prenom' => $this->request->getVar('prenom'),
 			'mail' => $mail,
-			'adresse' => $response,
-			'tel' => $tel,
+			'adresse' => isset($response)? $response : null,
+			'tel' => isset($tel)? $tel : null,
 			'sexe' => $sexe,
 			'age' => $age,
 			'taille' => $taille,
@@ -182,10 +185,10 @@ class ProfilController extends BaseController
 			// Vérification du mot de passe et de sa confirmation
 			if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/', $this->request->getVar('mdp'))) {
 				$this->session->setFlashdata('error', 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un caractère spécial et un chiffre');
-				return redirect()->to('/inscription');
+				return redirect()->to('/profil');
 			} elseif($this->request->getVar('mdp') != $this->request->getVar('mdp_confirm')) {
 				$this->session->setFlashdata('error', 'Les mots de passe ne correspondent pas');
-				return redirect()->to('/inscription');
+				return redirect()->to('/profil');
 			} else {
 				$mdp = $this->request->getVar('mdp');
 			}
