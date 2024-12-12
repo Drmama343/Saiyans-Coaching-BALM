@@ -19,6 +19,15 @@
             <a href="/contact"><img src="/assets/images/whatsapp.png"></a>
         </div>
     </div>
+    <div class="newsletter">
+        <h4>Newsletter</h4>
+        <a href="/contact">Coachingss9800@gmail.com</a>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/clem.cr"><img src="/assets/images/facebook.png"></a>
+            <a href="https://www.instagram.com/saiyan_coaching/"><img src="/assets/images/instagram.png"></a>
+            <a href="/contact"><img src="/assets/images/whatsapp.png"></a>
+        </div>
+    </div>
     <div>
         <img src="/assets/images/logo.png" alt="Logo">
     </div>
