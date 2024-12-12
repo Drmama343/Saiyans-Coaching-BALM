@@ -10,7 +10,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
 - **Linux**
 - **PHP 8.1 ou supérieur**
 - **Base de données PostgreSQL**
-- - **Adresse email Gmail reliée à un compte Google**
+- **Adresse email Gmail reliée à un compte Google**
 
 ## Installation
 
