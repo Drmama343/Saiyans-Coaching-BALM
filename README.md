@@ -112,7 +112,7 @@ php spark migrate
 
 ### 4. Initialiser la base de données
 
-Pour insérer des données, mettez vous à la racine du répertoire du projet et écrivez les commandes suivantes dans l'ordre:
+Pour insérer des utilisateurs :
 ```bash
 php spark db:seed SaiyanSeeder
 ```
