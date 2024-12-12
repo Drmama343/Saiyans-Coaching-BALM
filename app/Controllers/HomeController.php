@@ -23,9 +23,11 @@ class HomeController extends BaseController
 		$saiyanModel = new SaiyanModel();
 		$achatModel = new AchatModel();
 
-		$achats = $achatModel->where("idsaiyan", $this->session->get('utilisateur')['id'])->find();
-		foreach ($achats as $achat) {
-			if($achat['echeance'] < (new \DateTime())->format('Y-m-d')) {$achatModel->delete($achat['id']);}
+		if($this->session->get('utilisateur')) {
+			$achats = $achatModel->where("idsaiyan", $this->session->get('utilisateur')['id'])->find();
+			foreach ($achats as $achat) {
+				if($achat['echeance'] < (new \DateTime())->format('Y-m-d')) {$achatModel->delete($achat['id']);}
+			}
 		}
 
 		$data['promotions'] = $promotionModel->findAll();

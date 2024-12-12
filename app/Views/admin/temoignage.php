@@ -41,7 +41,11 @@
 								<td><?= $temoignage['temoignage'] ?></td>
 								<td><?= $temoignage['note'] ?></td>
 								<td><?= $temoignage['date'] ?></td>
-								<td><div class="celluleImage" id="<?= $temoignage['image'] ?>">Image</div></td>
+								<?php if (isset($temoignage['image'])) : ?>
+									<td><div class="celluleImage" id="<?= $temoignage['image'] ?>">Image</div></td>
+								<?php else: ?>
+									<td></td>
+								<?php endif; ?>
 								<td><input type="checkbox" name="affichage" id="" <?= $temoignage['affichage'] === "t" ? "checked" : "" ?> disabled></td>
 								<td>
 									<a href="<?= base_url('admin/temoignage/' . $temoignage['id']) ?>">Modifier</a>
