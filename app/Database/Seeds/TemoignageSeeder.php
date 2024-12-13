@@ -13,10 +13,9 @@ class TemoignageSeeder extends Seeder
 		$data = [
 			[
 				'idsaiyan' => 5,
-				'temoignage' => 'Voila ma transformation physique',
+				'temoignage' => null,
 				'note' => 4,
 				'date' => '2024-01-02',
-				'image' => 'avtapr1.png',
 				'affichage' => true,
 			],
 			[
@@ -24,7 +23,6 @@ class TemoignageSeeder extends Seeder
 				'temoignage' => 'Programme très complet, j\'ai perdu pas loin de 10 kilos',
 				'note' => 5,
 				'date' => '2024-03-01',
-				'image' => null,
 				'affichage' => true,
 			],
 			[
@@ -32,23 +30,20 @@ class TemoignageSeeder extends Seeder
 				'temoignage' => 'Je recommande vivement ce programme, ça a changé ma vie.',
 				'note' => 5,
 				'date' => '2024-04-15',
-				'image' => null,
 				'affichage' => true,
 			],
 			[
 				'idsaiyan' => 9,
-				'temoignage' => 'Bon programme, mais j\'ai eu un peu de mal à suivre au début.',
+				'temoignage' => null,
 				'note' => 3,
 				'date' => '2024-05-10',
-				'image' => null,
 				'affichage' => true,
 			],
 			[
 				'idsaiyan' => 4,
-				'temoignage' => 'Excellent encadrement et des résultats rapides.',
+				'temoignage' => null,
 				'note' => 5,
 				'date' => '2024-06-20',
-				'image' => null,
 				'affichage' => true,
 			],
 			[
@@ -56,7 +51,6 @@ class TemoignageSeeder extends Seeder
 				'temoignage' => 'Programme adapté à tous les niveaux, je suis très satisfait.',
 				'note' => 4,
 				'date' => '2024-07-05',
-				'image' => null,
 				'affichage' => true,
 			],
 		];

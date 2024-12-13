@@ -13,19 +13,25 @@ class AchatSeeder extends Seeder
 
 		$data = [
 			[
-				'idsaiyan' => 1,
+				'idsaiyan' => 3,
 				'idproduit' => 1,
 				'date' => '2024-01-01',
 				'echeance' => '2025-07-15',
 			],
 			[
-				'idsaiyan' => 2,
+				'idsaiyan' => 8,
 				'idproduit' => 3,
 				'date' => '2024-01-10',
 				'echeance' => '2025-01-10',
 			],
 			[
-				'idsaiyan' => 3,
+				'idsaiyan' => 7,
+				'idproduit' => 2,
+				'date' => '2024-01-15',
+				'echeance' => '2025-01-15',
+			],
+			[
+				'idsaiyan' => 5,
 				'idproduit' => 2,
 				'date' => '2024-01-15',
 				'echeance' => '2025-01-15',

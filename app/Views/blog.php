@@ -18,6 +18,8 @@
 						<p class="saiyan"><?= $article['saiyan']['prenom']; ?> <?= $article['saiyan']['nom']; ?></p>
 						<?php if (!empty($article['image'])): ?>
 							<img src="<?= base_url('assets/images/'.$article['image']); ?>" alt="Image indisponible">
+						<?php else: ?>
+							<img src="<?= base_url('assets/images/logo.png')?>" alt="Saiyan">
 						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>
