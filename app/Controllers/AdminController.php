@@ -29,10 +29,10 @@ class AdminController extends BaseController
 		$taille = $saiyanModel->taille();
 
 		if (!isset($_SESSION['rechercheSaiyan'])){
-			$saiyans = $saiyanModel->getPaginatedSaiyans(10);
+			$saiyans = $saiyanModel->getPaginatedSaiyans();
 		}
 		else{
-			$saiyans = $saiyanModel->getPaginatedSaiyansRecherche($_SESSION['rechercheSaiyan'], 10);
+			$saiyans = $saiyanModel->getPaginatedSaiyansRecherche($_SESSION['rechercheSaiyan']);
 		}
 
 		$data = [
@@ -53,10 +53,10 @@ class AdminController extends BaseController
 	public function saiyan(){
 		$model = new SaiyanModel();
 		if (!isset($_SESSION['rechercheSaiyan'])){
-			$saiyans = $model->getPaginatedSaiyans(10);
+			$saiyans = $model->getPaginatedSaiyans();
 		}
 		else{
-			$saiyans = $model->getPaginatedSaiyansRecherche($_SESSION['rechercheSaiyan'], 10);
+			$saiyans = $model->getPaginatedSaiyansRecherche($_SESSION['rechercheSaiyan']);
 		}
 
 		$modelA = new AchatModel();

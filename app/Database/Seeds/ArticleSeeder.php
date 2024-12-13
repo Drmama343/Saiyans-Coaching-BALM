@@ -21,22 +21,22 @@ class ArticleSeeder extends Seeder
 			[
 				'titre' => 'Alimentation pour sportifs',
 				'contenu' => 'Les meilleures pratiques alimentaires pour booster vos performances.',
-				'auteur' => 1,
+				'auteur' => 2,
 				'image' => 'alimentation-sport.jpg',
-				'type' => 'actu',
-			],
-
-			[
-				'titre' => 'Programme d’entraînement pour débutants',
-				'contenu' => 'Un guide étape par étape pour ceux qui débutent en salle de sport.',
-				'auteur' => 1,
-				'image' => 'entrainement-debutants.jpg',
 				'type' => 'blog',
 			],
 			[
-				'titre' => 'Les erreurs courantes en musculation',
-				'contenu' => 'Apprenez à éviter les erreurs qui freinent vos progrès.',
+				'titre' => 'Programme d’entraînement pour débutants',
+				'contenu' => 'Un guide étape par étape pour ceux qui débutent en salle de sport.',
+				'auteur' => 2,
+				'image' => null,
+				'type' => 'blog',
+			],
+			[
+				'titre' => 'Compétition 01/25',
+				'contenu' => 'Je vais participer à un concours de musculation en janvier 2025.',
 				'auteur' => 1,
+				'image' => null,
 				'type' => 'actu',
 			],
 		];

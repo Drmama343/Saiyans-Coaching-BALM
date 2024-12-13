@@ -20,15 +20,6 @@ class PromotionSeeder extends Seeder
 				'nb_utilisation' => 100,
 				'produit' => 1,
 			],
-			[
-				'id' => 2,
-				'date_deb' => '2024-03-01',
-				'date_fin' => '2024-03-15',
-				'reduction' => 10,
-				'code' => 'MARS10',
-				'nb_utilisation' => 50,
-				'produit' => 2,
-			],
 		];
 
 		$this->db->table('promotion')->insertBatch($data);
